@@ -1,294 +1,323 @@
-# 起草-审查闭环与 Annotation 桥设计
+# Draft-Review Closed Loop & Annotation Bridge Design
 
-> 版本：v1.0 | 最后更新：2026-06-15
-> 密级：核心设计决策
-
----
-
-## 一、核心问题
-
-**用户质疑**："如果合同是 AI 起草的，用户只改了一点点，再丢给 AI 审查——能审出什么？如果没问题，说明审查是起草的回音壁；如果有问题，说明起草本身有问题。这不就是循环论证吗？"
-
-**这个质疑是合理的。** 如果起草和审查共享同一套逻辑、同一个模型、同一个知识库，确实会形成"自己审自己"的死循环。
+> Version: v1.0 | Last Updated: 2026-06-15
+> Classification: Core Design Decision
 
 ---
 
-## 二、问题根源分析
+## 1. The Core Problem
+
+**User challenge**: "If the contract is drafted by AI, the user changes only a tiny bit, then throws it back to AI for review—what can the review possibly find? If it finds nothing wrong, then the review is just an echo chamber for the draft. If it finds issues, then the draft itself was flawed. Isn't this circular reasoning?"
+
+**This challenge is legitimate.** If drafting and reviewing share the same logic, the same model, and the same knowledge base, they will indeed form a dead loop of "reviewing one's own work."
+
+---
+
+## 2. Root Cause Analysis
 
 ```
-AI起草 ────→ 用户微改 ────→ AI审查 ────→ "没问题！"
+AI Draft ────→ User Minor Edit ────→ AI Review ────→ "No issues!"
                                                │
-                                    这不是循环论证吗？
+                                    Isn't this circular reasoning?
 ```
 
-| 环节 | 普通系统的做法 | 问题 |
+| Step | Common System Approach | Problem |
 |---|---|---|
-| 起草 | "帮用户写一份合同" | 基于默认假设生成，不标明假设前提 |
-| 修改 | 用户不懂法律，几乎不改 | 起草的隐性假设原封不动保留 |
-| 审查 | 基于同模型、同知识库审一遍 | 同一套逻辑审同一个产物 → 零增量价值 |
+| Draft | "Help the user write a contract" | Generates based on default assumptions without marking premises |
+| Edit | User doesn't understand law, barely edits | Implicit assumptions from drafting remain unchanged |
+| Review | Same model, same knowledge base reviews it | Same logic reviews the same output → zero incremental value |
 
-**根本原因：起草和审查没有解耦。它们在用一个脑子、查同一个知识库、基于同一套假设。这跟让出题人自己改卷没区别。**
+**Root cause: Drafting and reviewing are not decoupled.** They use the same brain, query the same knowledge base, and operate on the same assumptions. This is no different from having the test-setter grade their own exam.
 
 ---
 
-## 三、解决方案：四层隔离 + Annotation 桥
+## 3. Solution: Four-Layer Isolation + Annotation Bridge
 
-### 3.1 架构总览
+### 3.1 Architecture Overview
 
 ```
 ┌───────────────────────────────────────────────────────────┐
 │                                                            │
-│   起草 Agent (Drafter)             审查 Agent (Reviewer)    │
+│   Drafting Agent (Drafter)          Review Agent (Reviewer) │
 │   ══════════════════               ═══════════════════     │
 │                                                            │
-│   Layer 1：模型隔离                                         │
+│   Layer 1: Model Isolation                                 │
 │     MiMo 2.5                           DeepSeek V4-Flash  │
-│     (主推理引擎)                          (不同推理盲区)       │
+│     (Primary reasoning engine)         (Different reasoning blind spots) │
 │                                                            │
-│   Layer 2：知识库隔离                                       │
-│     合同范本库                          法条库 + 判例库      │
-│     "采购合同通常怎么写"                "这种写法吃过什么官司" │
+│   Layer 2: Knowledge Base Isolation                       │
+│     Contract template library           Law library + Case library │
+│     "How are purchase contracts        "What lawsuits have been      │
+│      usually written?"                  filed over this wording?"    │
 │                                                            │
-│   Layer 3：姿态隔离                                         │
-│     System Prompt：                    System Prompt：      │
-│     "你是合同撰写专家，                 "你是对方律师，      │
-│      帮用户写出完整有效的合同"           找出一切可攻击的点"  │
+│   Layer 3: Posture Isolation                               │
+│     System Prompt:                    System Prompt:      │
+│     "You are a contract drafting      "You are the opposing counsel, │
+│      expert. Help the user produce     find every attackable point"   │
+│      a complete and valid contract."                         │
 │                                                            │
-│   Layer 4：Annotation 桥                                    │
-│     起草输出带注解 → 审查基于注解反向攻击                    │
-│     "我基于A假设写了B条款"             "假设A在你的场景成立吗？"│
+│   Layer 4: Annotation Bridge                               │
+│     Draft output annotated → Review attacks based on annotations │
+│     "I wrote clause B based on        "Does assumption A hold in     │
+│      assumption A"                     your specific scenario?"      │
 │                                                            │
 └───────────────────────────────────────────────────────────┘
 ```
 
-### 3.2 为什么四层都要隔离
+### 3.2 Why All Four Layers Must Be Isolated
 
-| 只隔离 | 会发生什么 |
+| Isolating Only | What Happens |
 |---|---|
-| 只换模型 | 同一个知识库、同一套Prompt——DeepSeek 还是会基于同样的法律条文得出类似结论 |
-| 只换知识库 | 同一个模型、同一语气——MiMo 2.5 查判决书也会自动偏袒自己写的内容 |
-| 只换 System Prompt | 同模型同知识库只改Prompt = 左手打右手，LLM 会有 confirmation bias |
-| **四层全隔离** | 不同模型×不同知识库×对立姿态×注解反向攻击 = 真正独立的审查 |
+| Only change the model | Same knowledge base, same prompt — DeepSeek will still reach similar conclusions based on the same legal articles |
+| Only change the knowledge base | Same model, same tone — MiMo 2.5 querying judgments will also automatically favor content it wrote itself |
+| Only change System Prompt | Same model + same knowledge base, only changing prompt = left hand fighting right hand; LLM has confirmation bias |
+| **All four layers isolated** | Different models × different knowledge bases × adversarial posture × annotation counterattack = truly independent review |
 
 ---
 
-## 四、Annotation 桥：最关键的机制
+## 4. Annotation Bridge: The Most Critical Mechanism
 
-### 4.1 什么是 Annotation？
+### 4.1 What Are Annotations?
 
-起草 Agent 输出的不是裸条款，是**带注解的条款**：
+The Drafting Agent outputs not bare clauses, but **annotated clauses**:
 
 ```json
 {
-  "clause_text": "违约金为合同总额的30%",
+  "clause_text": "Liquidated damages at 30% of total contract value",
   "annotations": {
-    "category": "违约责任",
+    "category": "Liability for Breach",
     
-    // 起草时的假设前提 ← 审查 Agent 攻击的核心目标
+    // Assumptions made during drafting ← Core target of Review Agent's attacks
     "assumptions": [
-      "假设买卖双方地位对等",
-      "假设合同总额在50万以内",
-      "假设无特殊行业监管规定",
-      "假设双方均有履行能力"
+      "Assumes buyer and seller have equal bargaining power",
+      "Assumes total contract value within ¥500K",
+      "Assumes no special industry regulatory requirements",
+      "Assumes both parties have performance capability"
     ],
     
-    // 条款变体（这条可以写成什么样） ← 审查 Agent 对比的依据
+    // Clause alternatives (how this could be written) ← Basis for Review Agent's comparison
     "alternatives": {
-      "严格版": "违约金为合同总额的50%，约定放弃请求法院调减的权利",
-      "标准版": "违约金为合同总额的30%",  
-      "宽松版": "违约金上限为实际损失的20%"
+      "strict_version": "Liquidated damages at 50% of total contract value, waiving the right to petition court for reduction",
+      "standard_version": "Liquidated damages at 30% of total contract value",  
+      "lenient_version": "Liquidated damages capped at 20% of actual losses"
     },
     
-    // 起草时的风险提示 ← 审查 Agent 判断这些风险是否升级
+    // Risk notes from drafting ← Review Agent judges whether these risks have escalated
     "risk_notes": [
-      "如果对方是大公司，30%可能被法院认定为显失公平",
-      "特殊行业（如建筑）有专门违约金规定，需人工确认"
+      "If counterparty is a large company, 30% may be deemed unconscionable by the court",
+      "Special industries (e.g., construction) have specific liquidated damages rules requiring manual confirmation"
     ],
     
-    // 用户必须决策的事项 ← 审查 Agent 会追问
+    // Matters the user must decide ← Review Agent will follow up
     "user_must_decide": [
-      "合同总金额是多少？（当前30%是基于50万以内假设）",
-      "对方公司规模如何？（不对等时建议降违约金比例）",
-      "所在行业是否有特殊违约金规定？"
+      "What is the total contract value? (Current 30% is based on ≤¥500K assumption)",
+      "What is the counterparty's company size? (Recommend lowering penalty ratio if unequal)",
+      "Does your industry have special liquidated damages regulations?"
     ],
     
-    // 起草 Agent 的信心评分
-    "confidence": 0.6  // 提示此条款假设多，建议审查重点关注
+    // Drafting Agent's confidence score
+    "confidence": 0.6  // Indicates many assumptions; suggests review should focus here
   }
 }
 ```
 
-### 4.2 审查 Agent 如何利用 Annotation
+### 4.2 How the Review Agent Uses Annotations
 
 ```
-审查 Agent 收到带 Annotation 的条款时，工作流程变化：
+When the Review Agent receives annotated clauses, its workflow changes:
 
-❌ 旧方式：
-   "审一下这个违约金条款"
-   → 查法条 → 确认30%合理 → "没问题" → 结束
+❌ Old approach:
+   "Review this liquidated damages clause"
+   → Query laws → Confirm 30% is reasonable → "No issues" → Done
 
-✅ 新方式（基于 Annotation）：
-   Step 1：读取 Annotation
-     "起草时假设双方对等、金额50万以内"
+✅ New approach (Annotation-based):
+   Step 1: Read annotations
+     "Drafted assuming equal parties, contract value ≤¥500K"
    
-   Step 2：反向追问
-     "这4个假设在你的实际场景中是否成立？"
-     → 用户回答：合同200万、对方是上市公司
+   Step 2: Reverse questioning
+     "Do these 4 assumptions hold in your actual scenario?"
+     → User answers: Contract ¥2M, counterparty is a listed company
    
-   Step 3：基于真实信息重新评估
-     "200万合同 ÷ 30%违约金 = 60万
-      根据(2023)最高法民终128号，
-      200万级别合同违约金超40万即可能被调减
-      → 风险升级为 🔴 高"
+   Step 3: Re-evaluate based on real information
+     "¥2M contract ÷ 30% penalty = ¥600K
+      Per (2023) Supreme People's Court Civil Final No.128,
+      liquidated damages exceeding ¥400K for ¥2M-level contracts may be reduced
+      → Risk escalated to 🔴 High"
    
-   Step 4：输出审查结论
-     "起草时基于的标准假设(50万/对等地位)
-      在你的实际场景(200万/不对等)中不成立。
-      建议违约金从30%降至20%(40万)"
+   Step 4: Output review conclusion
+     "The standard assumptions from drafting (¥500K/equal standing)
+      do not hold in your actual scenario (¥2M/unequal standing).
+      Recommend reducing liquidated damages from 30% to 20% (¥400K)"
 ```
 
-### 4.3 Annotation 桥的价值公式
+### 4.3 Value Formula of the Annotation Bridge
 
 ```
-审查价值 = 正常审查价值 + 起草假设破防价值
+Review Value = Normal Review Value + Draft Assumption Breach Value
 
          ┌─────────────────────────────────┐
-         │ 没有 Annotation 桥：              │
-         │ 审查价值 = 法条合规检查（常规）    │
-         │ 审查输出 = "没有明显法律问题"      │
-         │ 用户感知 = "这不白审了吗"          │
+         │ Without Annotation Bridge:       │
+         │ Review Value = Legal compliance  │
+         │                check (routine)   │
+         │ Review Output = "No obvious legal│
+         │                 issues"          │
+         │ User Perception = "So reviewing  │
+         │                    was pointless"│
          ├─────────────────────────────────┤
-         │ 有 Annotation 桥：               │
-         │ 审查价值 = 法条合规 + 假设校验     │
-         │          + 场景适配 + 变量对比    │
-         │ 审查输出 = "起草时的3个假设在你     │
-         │           的场景中不成立，需调整"  │
-         │ 用户感知 = "原来有这么多我没想      │
-         │           到的,审查确实有用"       │
+         │ With Annotation Bridge:          │
+         │ Review Value = Legal compliance  │
+         │              + Assumption check  │
+         │              + Scenario fit      │
+         │              + Variant comparison│
+         │ Review Output = "3 drafting      │
+         │                assumptions don't │
+         │                hold in your      │
+         │                scenario; adjust" │
+         │ User Perception = "So many things│
+         │                   I didn't think │
+         │                   of; the review │
+         │                   is truly useful│
          └─────────────────────────────────┘
 ```
 
 ---
 
-## 五、完整产品流程
+## 5. Complete Product Flow
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                   用户入口                        │
+│                   User Entry                      │
 │         ┌──────────┐    ┌──────────┐            │
-│         │ 起草新合同│    │ 审查已有  │            │
-│         └────┬─────┘    │   合同    │            │
+│         │ Draft New │    │ Review    │            │
+│         │ Contract  │    │ Existing  │            │
+│         └────┬─────┘    │ Contract  │            │
 │              │          └─────┬────┘            │
 └──────────────┼─────────────────┼────────────────┘
                │                 │
                ▼                 │
 ┌──────────────────────────┐     │
-│     起草 Agent            │     │
+│     Drafting Agent        │     │
 │                           │     │
-│ 1. 用户描述需求            │     │
-│    "采购合同，买方，200万"  │     │
+│ 1. User describes needs   │     │
+│    "Purchase contract,    │     │
+│     buyer, ¥2M"           │     │
 │                           │     │
-│ 2. AI 生成带 Annotation   │     │
-│    的完整合同              │     │
+│ 2. AI generates complete  │     │
+│    contract with          │     │
+│    annotations            │     │
 │                           │     │
-│ 3. 用户查看 + 修改         │     │
-│    （哪怕只改公司名）       │     │
+│ 3. User views + edits     │     │
+│    (even if only changing │     │
+│     company name)         │     │
 │                           │     │
-│ 4. 合同提交审查            │     │
+│ 4. Submit for review      │     │
 └───────────┬───────────────┘     │
             │                     │
             │     ┌───────────────┘
             │     │
             ▼     ▼
 ┌────────────────────────────────────┐
-│        审查前引导（关键步骤）        │
+│     Pre-Review Guidance (key step) │
 │                                    │
-│ 系统自动提取 Annotation 中的       │
-│ 所有"待确认项"，引导用户填写：      │
+│ System auto-extracts all           │
+│ "to-be-confirmed" items from       │
+│ annotations, guiding user input:   │
 │                                    │
-│ □ 合同总金额：[____] 万            │
-│    （影响违约金比例）              │
-│ □ 对方公司规模：○大 ○中 ○小        │
-│    （影响公平性判定）              │
-│ □ 所在行业：[____]                │
-│    （影响特殊规定适用）            │
-│ ...（更多根据合同类型动态生成）     │
-│                                    │
-└──────────────┬─────────────────────┘
-               │
-               ▼
-┌────────────────────────────────────┐
-│        审查 Agent                   │
-│                                    │
-│ 基于四层隔离进行独立审查：          │
-│ 1. 检查法条合规性（RAG → 法条库）  │
-│ 2. 检查判例风险（RAG → 判例库）    │
-│ 3. 攻击 Annotation 中的假设        │
-│    "假设A在你场景中成立吗？"        │
-│ 4. 逐条标记风险 + 生成修改建议      │
+│ □ Total contract value: [____]     │
+│    (affects penalty ratio)         │
+│ □ Counterparty size: ○Large ○Med ○Small │
+│    (affects fairness assessment)   │
+│ □ Industry: [____]                 │
+│    (affects special rules)         │
+│ ... (more dynamically generated    │
+│      based on contract type)       │
 │                                    │
 └──────────────┬─────────────────────┘
                │
                ▼
 ┌────────────────────────────────────┐
-│        审查报告                     │
+│        Review Agent                 │
 │                                    │
-│ 🔴 高风险（3项）                    │
-│    违约金30%→建议20%（基于你填的    │
-│    合同金额200万）                 │
+│ Independent review based on        │
+│ four-layer isolation:              │
+│ 1. Check legal compliance          │
+│    (RAG → Law library)             │
+│ 2. Check case law risks            │
+│    (RAG → Case library)            │
+│ 3. Attack assumptions in           │
+│    annotations                     │
+│    "Does assumption A hold in      │
+│     your scenario?"                │
+│ 4. Mark risks per clause +         │
+│    generate revision suggestions   │
 │                                    │
-│ 🟡 中风险（5项）                    │
-│    管辖约定需调整（基于你填的       │
-│    对方为上市公司）                │
+└──────────────┬─────────────────────┘
+               │
+               ▼
+┌────────────────────────────────────┐
+│        Review Report                │
 │                                    │
-│ 📝 起草假设变化（4项）               │
-│    4个标准假设中，2个在你的场景     │
-│    不成立，已重新评估               │
+│ 🔴 High Risk (3 items)             │
+│    Penalty 30%→Recommend 20%       │
+│    (based on your entered          │
+│     contract value of ¥2M)         │
 │                                    │
-│ 🔄 建议修改后再次审查               │
+│ 🟡 Medium Risk (5 items)           │
+│    Jurisdiction clause needs       │
+│    adjustment (based on your       │
+│    entered counterparty being      │
+│    a listed company)               │
+│                                    │
+│ 📝 Draft Assumption Changes (4)    │
+│    Of 4 standard assumptions,      │
+│    2 do not hold in your scenario; │
+│    re-evaluated                    │
+│                                    │
+│ 🔄 Recommend re-review after       │
+│    revisions                       │
 └────────────────────────────────────┘
                │
                ▼
-         用户根据报告修改合同
+      User revises contract based on report
                │
                ▼
          ┌──────────┐
-         │  再次审查  │ ← 此时 Annotation 已更新,审查基线变化
+         │ Re-review  │ ← Annotations now updated; review baseline changed
          └──────────┘
 ```
 
 ---
 
-## 六、面试 Q&A 速查
+## 6. Interview Q&A Quick Reference
 
-**Q1：AI 起草的合同 AI 自己也审不出问题，这不就是左手打右手？**
+**Q1: If AI drafts a contract, can AI review its own work? Isn't that the left hand fighting the right?**
 
-> "我们的解法是四层隔离：不同模型、不同知识库、对立姿态、以及最关键的是 Annotation 桥。起草 Agent 每个条款都标注了'这个条款是基于什么假设写的'。审查 Agent 不看起草写了什么，看那些假设在用户的实际场景下是否成立。这本质上是两个独立的系统在对同一个问题进行正交验证。"
+> "Our solution is four-layer isolation: different models, different knowledge bases, adversarial postures, and most critically, the Annotation Bridge. Every clause from the Drafting Agent is annotated with 'this clause was written based on what assumptions.' The Review Agent doesn't look at what the draft wrote—it checks whether those assumptions hold in the user's actual scenario. This is fundamentally two independent systems performing orthogonal verification on the same problem."
 
-**Q2：用户不懂法律，也填不好审查前的引导问题怎么办？**
+**Q2: What if the user doesn't understand law and can't fill out the pre-review guidance questions properly?**
 
-> "引导问题是选择题而非填空题。比如'对方公司规模'，选项是'大/中/小'，每个选项下都有辅助说明：'大公司：员工>1000人或上市企业'。用户不需要懂法律，只需要描述客观事实。这也是系统设计的核心原则：AI 做法律推理，用户只输入事实。"
+> "The guidance questions are multiple-choice, not fill-in-the-blank. For example, 'counterparty company size' has options 'Large/Medium/Small,' each with helper text: 'Large: >1000 employees or listed company.' The user doesn't need to understand law—they only need to describe objective facts. This is also a core design principle: the AI does legal reasoning; the user only inputs facts."
 
-**Q3：如果用户跳过引导，直接审查呢？**
+**Q3: What if the user skips the guidance and goes straight to review?**
 
-> "我们会保留起草时的默认假设，但在报告中显著标注'以下结论基于默认假设[假设内容]，未根据您的实际情况调整'。同时提供'补充信息以重新审查'按钮。这个机制本身也是安全性的一层——不确定的事情，明确说不确定。"
+> "We retain the default assumptions from drafting but prominently label in the report: 'The following conclusions are based on default assumptions [assumption content] and have not been adjusted for your situation.' We also provide a 'Supplement information for re-review' button. This mechanism itself is also a layer of safety—when something is uncertain, clearly state it is uncertain."
 
-**Q4：两套模型成本是不是太高了？**
+**Q4: Isn't using two models too expensive?**
 
-> "起草用便宜的模型（DeepSeek V4-Flash，约 ¥0.3/次），审查用主模型（MiMo 2.5，约 ¥1.5/次）。但相比用户因为合同漏洞造成的经济损失（平均每份争议合同损失数万元），这个成本可以忽略不计。"
+> "Drafting uses a cheap model (DeepSeek V4-Flash, ~¥0.3/use); review uses the primary model (MiMo 2.5, ~¥1.5/use). But compared to the economic losses users face from contract loopholes (average tens of thousands of yuan per disputed contract), this cost is negligible."
 
 ---
 
-## 七、设计决策记录
+## 7. Design Decision Log
 
-| 决策 | 理由 |
+| Decision | Rationale |
 |---|---|
-| 为什么不共用模型 | 避免模型自身的 confirmation bias |
-| 为什么不共用知识库 | 起草查范本（正向），审查查判例（反向），职责天然不同 |
-| 为什么 Annotation 必须结构化 JSON | 让审查 Agent 可编程地消费注解，而非依赖 LLM"读懂"对方的意图 |
-| 为什么引导环节是强制的 | 不强制的话 80% 用户会跳过，审查质量大幅下降 |
-| 为什么审查结论要标注置信度 | 法律审查没有 100% 正确，标注置信度是负责任的姿态 |
+| Why not share a model | Avoid the model's own confirmation bias |
+| Why not share a knowledge base | Drafting queries templates (positive direction); reviewing queries case law (negative direction); responsibilities are naturally different |
+| Why annotations must be structured JSON | Allows the Review Agent to programmatically consume annotations rather than relying on the LLM to "understand" the other party's intent |
+| Why the guidance step is mandatory | If not enforced, 80% of users would skip it, significantly degrading review quality |
+| Why review conclusions must indicate confidence | Legal review is never 100% correct; indicating confidence is a responsible posture |
 
 ---
 
-*本文档对应项目 FAQ 中"AI 起草+AI 审查是否循环论证"的标准回答。*
+*This document corresponds to the standard answer for the project FAQ question: "Doesn't AI drafting + AI reviewing create circular reasoning?"*

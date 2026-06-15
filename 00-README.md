@@ -1,119 +1,119 @@
-# ContractGuard — 智能合同风险审查系统
+# ContractGuard — Intelligent Contract Risk Review System
 
-> 项目代号：ContractGuard  
-> 版本：v1.0  
-> 最后更新：2026-06-15  
-> 密级：内部
+> Project Codename: ContractGuard  
+> Version: v1.0  
+> Last Updated: 2026-06-15  
+> Classification: Internal
 
 ---
 
-## 一、项目概述
+## 1. Overview
 
-ContractGuard 是一套基于大语言模型（LLM）和多 Agent 协作架构的企业级智能合同风险审查系统。系统以"上传合同 PDF，自动生成审查报告"为核心价值，将传统人工逐条审查（平均 3 小时/份）压缩至 15 分钟，风险识别覆盖率从人眼的 ~70% 提升至 ~95%。
+ContractGuard is an enterprise-grade intelligent contract risk review system powered by LLMs and a multi-Agent collaborative architecture. Its core value proposition — "upload a contract PDF, auto-generate a review report" — compresses traditional manual clause-by-clause review (avg. 3 hours/contract) to 15 minutes, while boosting risk detection coverage from ~70% (human review) to ~95%.
 
-### 核心能力
+### Core Capabilities
 
-| 能力 | 描述 |
+| Capability | Description |
 |---|---|
-| 文档深度解析 | 支持 PDF/Word/扫描件，自动提取正文、表格、签章区域 |
-| 条款智能分析 | 逐条法律定性，关联法条与判例，输出风险等级 |
-| 逻辑交叉校验 | 检测合同内不同条款之间的逻辑矛盾 |
-| 缺失项检测 | 自动识别应当存在但缺失的标准条款 |
-| 结构化报告 | 自动生成含原文引用、法条依据、修改建议的审查报告 |
+| Deep Document Parsing | Supports PDF/Word/scanned documents; auto-extracts body text, tables, and signature regions |
+| Intelligent Clause Analysis | Per-clause legal qualification, cross-referencing statutes and precedents, outputting risk levels |
+| Cross-Reference Validation | Detects logical contradictions between different clauses within the same contract |
+| Missing Clause Detection | Auto-identifies standard clauses that should be present but are absent |
+| Structured Reporting | Auto-generates review reports with original text citations, legal references, and amendment suggestions |
 
-### 交付形态
+### Delivery Models
 
-- **SaaS 云端版**：面向中小企业，按合同份数付费
-- **私有化部署版**：面向大型企业/律所，Docker/K8s 部署
-- **微信小程序**：便捷上传与即时查看
+- **SaaS Cloud Edition**: Targeting SMEs, pay-per-contract pricing
+- **On-Premise Deployment**: Targeting large enterprises / law firms, Docker/K8s deployment
+- **WeChat Mini Program**: Convenient upload and instant viewing
 
 ---
 
-## 二、文档导航
+## 2. Document Navigation
 
 ```
 ContractGuard/docs/
-├── 00-README.md                    ← 本文档
-├── 01-business/                    ← 商业论证层（7篇）
-│   ├── 商业计划书.md
-│   ├── 市场需求分析.md
-│   ├── 产品定位.md
-│   ├── 商业模式.md
-│   ├── 财务预测.md
-│   ├── 竞争分析.md
-│   └── 收费模式与成本风控.md          ★ 新增
-├── 02-product/                     ← 产品定义层（5篇）
+├── 00-README.md                    ← This document
+├── 01-business/                    ← Business Case Layer (7 docs)
+│   ├── business-plan.md
+│   ├── market-analysis.md
+│   ├── product-positioning.md
+│   ├── business-model.md
+│   ├── financial-projections.md
+│   ├── competitive-analysis.md
+│   └── pricing-and-cost-control.md  ★ New
+├── 02-product/                     ← Product Definition Layer (5 docs)
 │   ├── PRD.md
-│   ├── 用户画像.md
-│   ├── 用户旅程地图.md
-│   ├── 原型设计说明.md
-│   └── 双屏对比与差异可视化设计.md    ★ 新增（审查-编辑-打印闭环）
-├── 03-agent/                       ← AI Agent 层 ★核心★（7篇）
+│   ├── user-personas.md
+│   ├── user-journey-map.md
+│   ├── prototype-design.md
+│   └── dual-pane-comparison-and-diff.md  ★ New (Review-Edit-Print Loop)
+├── 03-agent/                       ← AI Agent Layer ★Core★ (7 docs)
 │   ├── AGENTS.md
-│   ├── 系统提示词设计.md
-│   ├── Agent职责划分.md
-│   ├── Agent协作协议.md
-│   ├── Agent评测标准.md
-│   ├── 工具调用规范.md
-│   └── 起草审查闭环与Annotation桥.md  ★ 新增
-├── 04-technical/                   ← 技术设计层
-│   ├── 系统架构设计.md
-│   ├── 技术选型.md
-│   ├── 数据库设计.md
-│   ├── 接口设计.md
-│   ├── 模块划分.md
-│   ├── 部署架构.md
-│   ├── 安全设计.md
-│   └── preview/                     ★ 新增
-│       └── index.html               ← 产品预览页（设计系统 + 交互原型）
-├── 05-ai-coding/                   ← AI 编码规范层
-│   ├── 编码规范.md
-│   ├── 测试规范.md
-│   ├── 代码评审规范.md
-│   └── 提交规范.md
-├── 06-project/                     ← 项目管理层
-│   ├── 项目章程.md
-│   ├── 执行计划.md
-│   ├── WBS工作分解.md
-│   ├── 里程碑.md
-│   ├── 风险管理.md
-│   └── 会议纪要.md
-└── 07-testing/                     ← 测试验收层
-    ├── 测试计划.md
-    ├── 测试用例.md
-    ├── 验收标准.md
-    ├── 测试报告.md
-    └── 性能测试报告.md
+│   ├── system-prompts.md
+│   ├── agent-responsibilities.md
+│   ├── agent-collaboration-protocol.md
+│   ├── agent-evaluation.md
+│   ├── tool-specifications.md
+│   └── drafting-review-loop-and-annotation-bridge.md  ★ New
+├── 04-technical/                   ← Technical Design Layer
+│   ├── architecture-design.md
+│   ├── technology-selection.md
+│   ├── database-design.md
+│   ├── API-design.md
+│   ├── module-division.md
+│   ├── deployment-architecture.md
+│   ├── security-design.md
+│   └── preview/                     ★ New
+│       └── index.html               ← Product preview page (design system + interaction prototype)
+├── 05-ai-coding/                   ← AI Coding Standards Layer
+│   ├── coding-standards.md
+│   ├── testing-standards.md
+│   ├── code-review-standards.md
+│   └── commit-standards.md
+├── 06-project/                     ← Project Management Layer
+│   ├── project-charter.md
+│   ├── execution-plan.md
+│   ├── WBS.md
+│   ├── milestones.md
+│   ├── risk-management.md
+│   └── meeting-minutes.md
+└── 07-testing/                     ← Testing & Acceptance Layer
+    ├── test-plan.md
+    ├── test-cases.md
+    ├── acceptance-criteria.md
+    ├── test-report.md
+    └── performance-test-report.md
 ```
 
 ---
 
-## 三、阅读指南
+## 3. Reading Guide
 
-| 角色 | 推荐阅读顺序 |
+| Role | Recommended Reading Order |
 |---|---|
-| 投资人/决策者 | 00 → 商业计划书 → 财务预测 → 收费模式与成本风控 |
-| 产品经理 | 00 → PRD → 用户画像 → 双屏对比与差异可视化设计 |
-| AI 工程师 | 00 → AGENTS → Agent协作协议 → 起草审查闭环与Annotation桥 → 评测标准 |
-| 后端工程师 | 00 → 系统架构 → 接口设计 → 安全设计 |
-| 前端工程师 | 00 → 双屏对比与差异可视化设计 → 系统架构设计 |
-| 项目经理 | 00 → 项目章程 → 执行计划 → 风险管理 |
-| 测试工程师 | 00 → 测试计划 → 测试用例 → 验收标准 |
+| Investors / Decision Makers | 00 → business-plan → financial-projections → pricing-and-cost-control |
+| Product Managers | 00 → PRD → user-personas → dual-pane-comparison-and-diff |
+| AI Engineers | 00 → AGENTS → agent-collaboration-protocol → drafting-review-loop-and-annotation-bridge → agent-evaluation |
+| Backend Engineers | 00 → architecture-design → API-design → security-design |
+| Frontend Engineers | 00 → dual-pane-comparison-and-diff → architecture-design |
+| Project Managers | 00 → project-charter → execution-plan → risk-management |
+| QA Engineers | 00 → test-plan → test-cases → acceptance-criteria |
 
 ---
 
-## 四、项目关键指标
+## 4. Key Metrics
 
-| 指标 | 目标值 |
+| Metric | Target |
 |---|---|
-| 合同审查耗时 | ≤ 15 分钟（人工基准：3 小时） |
-| 风险识别准确率 | ≥ 90%（与执业律师审查结果对比） |
-| 系统可用性 | 99.9% |
-| API 响应延迟 | P95 ≤ 30s（含 LLM 推理时间） |
-| 支持文件格式 | PDF / Word / 扫描件 / 图片 |
-| 最大文件大小 | 50MB |
-| 并发审查数 | ≥ 100 份/秒 |
+| Review Turnaround | ≤ 15 min (baseline: 3 hours manual) |
+| Risk Detection Accuracy | ≥ 90% (vs. licensed attorney review) |
+| System Availability | 99.9% |
+| API Response Latency | P95 ≤ 30s (including LLM inference) |
+| Supported Formats | PDF / Word / Scanned / Image |
+| Max File Size | 50MB |
+| Concurrent Reviews | ≥ 100 contracts/sec |
 
 ---
 
-*本文档体系参照《AI 驱动开发时代的文档体系演进》标准构建，适用于百万级企业 AI 项目交付。*
+*This documentation system follows the "Evolution of Documentation Systems in the AI-Driven Development Era" standard, suitable for enterprise-grade AI project delivery at scale.*

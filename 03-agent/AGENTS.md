@@ -1,148 +1,146 @@
-# AGENTS.md — ContractGuard 多 Agent 系统设计
+# AGENTS.md — ContractGuard Multi-Agent System Design
 
-> 版本：v2.0 | 最后更新：2026-06-15 | 密级：核心
+> Version: v2.0 | Last Updated: 2026-06-15 | Classification: Core
 
 ---
 
-## 一、Agent 体系总览
+## 1. Agent Architecture Overview
 
-ContractGuard 采用 **Orchestrator-Worker** 模式，由 1 个调度 Agent + 4 个专项 Worker Agent 组成。
+ContractGuard uses the **Orchestrator-Worker** pattern, consisting of 1 Supervisor Agent + 4 specialized Worker Agents.
 
 ```
                          ┌─────────────────┐
                          │   Supervisor     │
-                         │   (调度Agent)     │
+                         │   Agent          │
                          │                  │
-                         │ · 接收合同文档    │
-                         │ · 任务分解与分发  │
-                         │ · 结果汇总与校验  │
-                         │ · 异常处理与重试  │
+                         │ · Receives docs  │
+                         │ · Task dispatch  │
+                         │ · Result merge   │
+                         │ · Error handling │
                          └────┬───┬───┬────┘
               ┌───────────────┘   │   └───────────────┐
               ▼                   ▼                   ▼
     ┌───────────────┐   ┌───────────────┐   ┌───────────────┐
     │ Parser Agent  │   │Analyzer Agent │   │Report Agent   │
-    │ (文档解析)     │   │ (条款分析)     │   │ (报告生成)     │
     │               │   │               │   │               │
-    │ PDF→结构化    │   │ 逐条法律推理   │   │ 风险汇总      │
-    │ 表格还原      │   │ 法条检索(RAG) │   │ 等级评定      │
-    │ OCR识别       │   │ 判例匹配(RAG) │   │ 建议整合      │
-    │ 主体信息提取   │   │ 逻辑矛盾检测   │   │ 可视化数据    │
+    │ PDF→Structure │   │ Clause-level  │   │ Risk summary  │
+    │ Table restore │   │ legal reasoning│   │ Rating        │
+    │ OCR           │   │ Statute RAG   │   │ Suggestions   │
+    │ Entity extract │   │ Precedent RAG │   │ Visualization │
     └───────┬───────┘   └───────┬───────┘   └───────┬───────┘
             │                   │                   │
             └─────────┬─────────┴───────────────────┘
                       ▼
             ┌───────────────────┐
             │  Validator Agent  │
-            │  (校验Agent)       │
             │                   │
-            │ · 幻觉检测         │
-            │ · 格式校验         │
-            │ · 引用完整性检查   │
-            │ · 置信度审核       │
+            │ · Hallucination   │
+            │ · Format check    │
+            │ · Citation verify │
+            │ · Confidence audit│
             └───────────────────┘
                       │
                       ▼
             ┌───────────────────┐
-            │    RAG 知识库      │
-            │                   │
+            │    RAG Knowledge   │
+            │    Bases           │
             │ ┌───────────────┐ │
-            │ │ 法律法规库    │ │
+            │ │ Statutes DB   │ │
             │ └───────────────┘ │
             │ ┌───────────────┐ │
-            │ │ 裁判文书库    │ │
+            │ │ Precedents DB │ │
             │ └───────────────┘ │
             │ ┌───────────────┐ │
-            │ │ 合同范本库    │ │
+            │ │ Templates DB  │ │
             │ └───────────────┘ │
             │ ┌───────────────┐ │
-            │ │ 审查规则库    │ │
+            │ │ Review Rules  │ │
             │ └───────────────┘ │
             └───────────────────┘
 ```
 
 ---
 
-## 二、Supervisor Agent（调度Agent）
+## 2. Supervisor Agent
 
-### 2.1 职责定位
+### 2.1 Responsibilities
 
-调度Agent 是所有合同审查请求的**唯一入口**，不直接参与合同内容分析，只做任务协调。
+The Supervisor is the **single entry point** for all contract review requests. It does not analyze contract content — it only coordinates tasks.
 
-### 2.2 核心流程
+### 2.2 Core Flow
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ Supervisor Agent 执行流程                            │
+│ Supervisor Agent Execution Flow                      │
 ├─────────────────────────────────────────────────────┤
 │                                                      │
-│  1. 接收请求                                         │
-│     ├── 验证用户身份 & 权限                           │
-│     ├── 验证文件格式 & 大小                           │
-│     └── 创建审查任务 (task_id)                       │
+│  1. Receive Request                                  │
+│     ├── Verify user identity & permissions           │
+│     ├── Validate file format & size                  │
+│     └── Create review task (task_id)                 │
 │                                                      │
-│  2. 任务分发                                         │
-│     ├── → Parser Agent: 解析文档                     │
-│     ├── 等待 Parser 返回结构化数据                    │
-│     ├── → Analyzer Agent: 逐条分析 (并行)            │
-│     │   (将合同拆分为 N 个条款，并行调用 N 次)         │
-│     ├── → Analyzer Agent: 交叉校验                   │
-│     ├── → Analyzer Agent: 缺失项检测                 │
-│     └── 收集所有分析结果                              │
+│  2. Task Dispatch                                    │
+│     ├── → Parser Agent: Parse document               │
+│     ├── Wait for structured data from Parser         │
+│     ├── → Analyzer Agent: Per-clause analysis        │
+│     │   (Split contract into N clauses, N parallel)   │
+│     ├── → Analyzer Agent: Cross-validation           │
+│     ├── → Analyzer Agent: Missing clause detection   │
+│     └── Collect all analysis results                 │
 │                                                      │
-│  3. 结果汇总                                         │
-│     ├── → Report Agent: 生成审查报告                  │
-│     ├── → Validator Agent: 校验报告                   │
-│     └── 若校验不通过 → 回退到分析步骤重试              │
+│  3. Result Aggregation                               │
+│     ├── → Report Agent: Generate review report       │
+│     ├── → Validator Agent: Validate report           │
+│     └── If validation fails → retry from analysis     │
 │                                                      │
-│  4. 返回结果                                         │
-│     ├── 存储审查报告到数据库                          │
-│     ├── 更新任务状态为 completed                      │
-│     └── 返回报告 ID + 概要给前端                       │
+│  4. Return Result                                    │
+│     ├── Store report in database                     │
+│     ├── Update task status to completed              │
+│     └── Return report ID + summary to frontend       │
 │                                                      │
 └─────────────────────────────────────────────────────┘
 ```
 
-### 2.3 System Prompt 核心片段
+### 2.3 System Prompt (excerpt)
 
 ```yaml
-你是一个合同审查系统的任务调度员（Supervisor）。
+You are a task orchestrator (Supervisor) for a contract review system.
 
-你的职责：
-1. 接收用户上传的合同文件
-2. 协调 Parser、Analyzer、Report、Validator 四个子 Agent 完成审查
-3. 遇到任何 Agent 返回错误时，自动重试（最多 3 次）
-4. 不做合同内容的分析判断，只做任务调度
+Your responsibilities:
+1. Accept user-uploaded contract files
+2. Coordinate Parser, Analyzer, Report, and Validator agents
+3. Auto-retry on agent errors (max 3 attempts)
+4. Do NOT analyze contract content — only orchestrate tasks
 
-你必须遵循的规则：
-- 每个子 Agent 的调用必须有 task_id 标识
-- 子 Agent 返回结果需校验格式完整性
-- 任何重试都必须记录日志
-- 最终返回给用户之前，必须经过 Validator Agent 校验
+Strict rules:
+- Every sub-agent call must include a task_id
+- Validate output format integrity from each sub-agent
+- Log all retries
+- NEVER return results to user without Validator approval
 
-你绝对不能做的：
-- 不要自行判断任何法律问题
-- 不要跳过 Validator 直接返回结果
-- 不要修改任何子 Agent 的输出内容
+Absolute "DO NOT"s:
+- Do NOT make any legal judgments
+- Do NOT skip the Validator
+- Do NOT modify any sub-agent's output
 ```
 
-### 2.4 并行策略
+### 2.4 Parallel Strategy
 
-合同条款分析采用**按条款并行**策略：
+Clause analysis uses **per-clause parallelism**:
 
 ```python
-# 伪代码：并行分析策略
-clauses = parsed_result["clauses"]  # 假设有 50 条
+# Pseudocode: parallel analysis strategy
+clauses = parsed_result["clauses"]  # e.g., 50 clauses
 
-# 每条条款独立分析（独立上下文，无依赖）
+# Each clause analyzed independently (no cross-dependency)
 analysis_results = parallel_call(
     func=call_analyzer_agent,
     items=clauses,
-    max_concurrency=10,  # 最多同时 10 个 Analyzer 调用
-    timeout=60  # 每条审查不超过 60s
+    max_concurrency=10,
+    timeout=60  # max 60s per clause
 )
 
-# 分析完所有条款后，再做交叉校验（需要全局上下文）
+# After all clauses analyzed, run cross-validation (needs global context)
 cross_validation = call_analyzer_agent(
     task="cross_validate",
     context={"all_clauses": clauses, "all_analyses": analysis_results}
@@ -151,385 +149,333 @@ cross_validation = call_analyzer_agent(
 
 ---
 
-## 三、Parser Agent（文档解析Agent）
+## 3. Parser Agent
 
-### 3.1 职责定位
+### 3.1 Responsibilities
 
-将非结构化的合同文件（PDF/Word/图片）转化为结构化的、可被后续 Agent 消费的 JSON 数据。
+Transforms unstructured contract files (PDF/Word/images) into structured JSON consumable by downstream agents.
 
-### 3.2 输入输出规范
+### 3.2 I/O Specification
 
-**输入：** 合同文件的原始字节流 + 文件类型标识
+**Input:** Raw byte stream + file type identifier
 
-**输出：** 结构化 JSON
+**Output:** Structured JSON
 
 ```json
 {
   "contract_id": "CT-2026-001",
   "meta": {
-    "title": "产品采购合同",
+    "title": "Product Procurement Contract",
     "sign_date": "2026-06-01",
-    "type": "采购合同",
+    "type": "Procurement",
     "page_count": 15
   },
   "parties": {
     "party_a": {
-      "name": "北京XX科技有限公司",
-      "role": "甲方（采购方）",
-      "address": "北京市海淀区...",
-      "legal_rep": "张三"
+      "name": "Beijing XX Technology Co., Ltd.",
+      "role": "Purchaser",
+      "address": "Haidian District, Beijing...",
+      "legal_rep": "Zhang San"
     },
     "party_b": {
-      "name": "上海YY制造有限公司",
-      "role": "乙方（供应方）",
-      "address": "上海市浦东新区...",
-      "legal_rep": "李四"
+      "name": "Shanghai YY Manufacturing Co., Ltd.",
+      "role": "Supplier",
+      "address": "Pudong New District, Shanghai...",
+      "legal_rep": "Li Si"
     }
   },
   "clauses": [
     {
       "clause_id": "cl_001",
-      "title": "质量标准",
-      "category": "质量标准",
+      "title": "Quality Standards",
+      "category": "quality_standards",
       "page": 3,
       "position": {"line_start": 45, "line_end": 62},
-      "full_text": "乙方提供的产品应符合国家标准GB/T...",
+      "full_text": "Products supplied shall comply with national standard GB/T...",
       "contains_table": false
     },
     {
       "clause_id": "cl_007",
-      "title": "付款条件",
-      "category": "付款与结算",
+      "title": "Payment Terms",
+      "category": "payment_settlement",
       "page": 5,
       "position": {"line_start": 120, "line_end": 145},
-      "full_text": "付款计划如下：\n| 节点 | 比例 | 条件 |\n|------|------|------|\n| 首付 | 30% | 合同签订后7日 |\n| 到货 | 50% | 验收合格 |\n| 尾款 | 20% | 正常运行3个月 |",
+      "full_text": "Payment schedule:\n| Milestone | % | Condition |\n...",
       "contains_table": true,
-      "table_markdown": "| 节点 | 比例 | 条件 |\n|------|------|------|\n| 首付 | 30% | 合同签订后7日 |\n| 到货 | 50% | 验收合格 |\n| 尾款 | 20% | 正常运行3个月 |"
+      "table_markdown": "| Milestone | % | Condition |\n|...|"
     }
   ],
   "signatures": [
     {
-      "party": "甲方",
+      "party": "Party A",
       "page": 14,
-      "type": "盖章",
-      "ocr_text": "北京XX科技有限公司"
+      "type": "seal",
+      "ocr_text": "Beijing XX Technology Co., Ltd."
     }
   ]
 }
 ```
 
-### 3.3 表格处理策略
+### 3.3 Table Handling Strategy
 
 ```
-检测到表格区域
+Table region detected
     │
-    ├── 简单表格（无合并单元格）
-    │   → Pandoc 转为 Markdown Table
-    │   → 保留 Markdown 格式供 LLM 理解
+    ├── Simple table (no merged cells)
+    │   → Pandoc to Markdown table
+    │   → Preserve Markdown for LLM comprehension
     │
-    └── 复杂表格（合并单元格 / 跨页）
-        → 先用版面分析模型拆解单元格
-        → 再重组为 Markdown Table
-        → 标记 "此表格存在合并单元格，已尽力还原"
-```
-
-### 3.4 System Prompt 核心片段
-
-```yaml
-你是一个合同文档解析专家（Parser Agent）。
-
-你的职责：
-将原始合同文本转化为结构化 JSON。
-
-解析规则：
-1. 识别合同类型（采购/劳动/租赁/技术/...）
-2. 提取甲乙方信息（名称、角色、地址、法定代表人）
-3. 按条款分段，每个条款标注：
-   - 页码和行号（用于原文定位）
-   - 条款类别（付款条件 / 违约责任 / 知识产权 / ...）
-   - 是否包含表格 → 若包含，输出 Markdown Table
-4. 识别签名/盖章区域位置
-
-质量标准：
-- 条款切分准确率 > 98%
-- 表格还原准确率 > 95%
-- 不得遗漏任何条款
+    └── Complex table (merged cells / page-break)
+        → Layout analysis model to decompose cells
+        → Reassemble into Markdown table
+        → Flag: "This table contains merged cells; best-effort restoration"
 ```
 
 ---
 
-## 四、Analyzer Agent（条款分析Agent）★ 最核心 Agent
+## 4. Analyzer Agent ★ Core Agent
 
-### 4.1 职责定位
+### 4.1 Responsibilities
 
-Analyzer Agent 是 ContractGuard 的智能核心。它接收 Parser Agent 输出的结构化条款，进行**多维度的法律推理分析**，是 AI 含量最高的组件。
+The Analyzer Agent is ContractGuard's intelligence core. It consumes structured clauses from the Parser and performs **multi-dimensional legal reasoning** — the highest-AI-density component.
 
-### 4.2 分析任务类型
+### 4.2 Analysis Task Types
 
-| 任务 | 输入 | 输出 |
+| Task | Input | Output |
 |---|---|---|
-| **单条款分析** | 单条条款文本 + 条款类别 | 风险等级 + 法条依据 + 修改建议 |
-| **交叉校验** | 所有条款的完整文本 | 逻辑矛盾列表 |
-| **缺失项检测** | 合同类型 + 已有条款清单 | 缺失条款列表 |
+| **Single-clause analysis** | One clause text + category | Risk level + statute basis + revision suggestion |
+| **Cross-validation** | Full text of all clauses | List of logical contradictions |
+| **Missing clause detection** | Contract type + existing clause list | List of missing standard clauses |
 
-### 4.3 单条款分析流程
+### 4.3 Single-Clause Analysis Pipeline
 
 ```
-输入：单条条款JSON
+Input: Single clause JSON
       │
       ▼
 ┌──────────────────────┐
-│ Step 1: 条款定性       │
-│ 这是什么类型的条款？    │
-│ 涉及哪些法律领域？      │
+│ Step 1: Classification│
+│ What type of clause? │
+│ Which legal domains? │
 └──────┬───────────────┘
        │
        ▼
 ┌──────────────────────┐
-│ Step 2: 法条检索 (RAG) │
-│ 《民法典》哪条相关？    │
-│ 查询知识库（精确匹配）  │
-│ 返回法条原文            │
+│ Step 2: Statute RAG   │
+│ Which Civil Code art? │
+│ Query knowledge base  │
+│ Return statute text   │
 └──────┬───────────────┘
        │
        ▼
 ┌──────────────────────┐
-│ Step 3: 判例检索 (RAG) │
-│ 类似条款是否有争议案例？ │
-│ 法院怎么判的？          │
-│ 返回案号+裁判要点       │
+│ Step 3: Precedent RAG │
+│ Similar case history? │
+│ Court rulings?        │
+│ Return case# + key pt │
 └──────┬───────────────┘
        │
        ▼
 ┌──────────────────────┐
-│ Step 4: 风险评估        │
-│ 结合法条+判例+常识      │
-│ 判定：🔴高 / 🟡中 / 🟢低│
-│ 生成风险解释（通俗版）   │
+│ Step 4: Risk Assess   │
+│ Statute + precedent   │
+│ → 🔴High/🟡Med/🟢Low │
+│ Plain explanation     │
 └──────┬───────────────┘
        │
        ▼
 ┌──────────────────────┐
-│ Step 5: 修改建议        │
-│ 根据风险点生成          │
-│ 具体的条款修改文本      │
-│ 同时标注置信度          │
+│ Step 5: Suggestion    │
+│ Specific clause edit  │
+│ Confidence score      │
 └──────────────────────┘
-       输出：单条款分析结果JSON
 ```
 
-### 4.4 RAG 调用规范
+### 4.4 RAG Calling Convention
 
 ```python
-# Analyzer Agent 调用 RAG 的标准方式
+# Standard RAG usage for Analyzer Agent
 
-# Step 2: 法条检索
+# Step 2: Statute retrieval
 law_results = rag_search(
     query=clause_text,
-    knowledge_base="laws",  # 指定法律法规库
-    top_k=5,               # 返回最相关 5 条
-    strategy="hybrid",      # 混合检索（语义 + 关键词）
-    filters={               # 过滤条件
-        "law_type": "民法典",  # 可选：限定法律来源
-        "status": "现行有效"   # 排除已废止法条
+    knowledge_base="laws",
+    top_k=5,
+    strategy="hybrid",     # Semantic + keyword
+    filters={
+        "status": "effective"  # Exclude repealed statutes
     }
 )
 
-# Step 3: 判例检索
+# Step 3: Precedent retrieval
 case_results = rag_search(
-    query=legal_issue,      # 从 Step 1 提取的法律争议点
-    knowledge_base="cases", # 指定判例库
+    query=legal_issue,
+    knowledge_base="cases",
     top_k=3,
     strategy="hybrid",
     filters={
-        "court_level": ["最高人民法院", "高级人民法院"],
+        "court_level": ["Supreme People's Court", "High People's Court"],
         "year_range": [2020, 2026]
     }
 )
 ```
 
-### 4.5 交叉校验流程
-
-```
-输入：所有条款的完整列表
-      │
-      ▼
-┌────────────────────────────────┐
-│ 提取所有涉及"数值/阈值"的条款     │
-│ 提取所有涉及"时间限制"的条款     │
-│ 提取所有涉及"责任划分"的条款     │
-└────────────┬───────────────────┘
-             │
-             ▼
-┌────────────────────────────────┐
-│ 两两比对检查                      │
-│                                 │
-│ 例：                              │
-│ Clause 7: "违约金为合同总额50%"    │
-│ Clause 15: "违约金上限不超过       │
-│           合同总额的30%"          │
-│                                 │
-│ Agent 推理：                      │
-│ → 50% > 30% → 条款冲突 🔴         │
-└────────────────────────────────┘
-```
-
-### 4.6 System Prompt 核心片段
+### 4.5 System Prompt (excerpt)
 
 ```yaml
-你是一个合同风险分析专家（Analyzer Agent）。
+You are a contract risk analysis expert (Analyzer Agent).
 
-你的职责：
-对合同条款进行法律风险分析，每一个结论都必须有法条或判例支撑。
+Your responsibility:
+Analyze contract clauses for legal risks. Every conclusion MUST be backed by statute or precedent.
 
-分析框架（按顺序执行）：
-1. 条款定性：这条是关于什么的？
-2. 法条检索：调用 RAG 查找相关法条
-3. 判例检索：调用 RAG 查找相似判例
-4. 风险评估：🔴高 / 🟡中 / 🟢低
-5. 风险解释：用通俗语言解释（面向非法律人士）
-6. 修改建议：生成具体的条款修改文本
-7. 置信度：标注你对这个判断有多确定
+Analysis framework (execute in order):
+1. Classify: What is this clause about?
+2. Statute RAG: Look up relevant statutes
+3. Precedent RAG: Look up similar cases
+4. Risk assess: 🔴High / 🟡Medium / 🟢Low
+5. Plain explanation: In non-legal language
+6. Revision suggestion: Specific clause edit text
+7. Confidence: How certain are you?
 
-铁律：
-❌ 不得凭空编造法条编号
-❌ 不得在未检索到法条的情况下硬给结论
-✅ 检索不到相关法条时，标注"未找到直接法条依据，基于法理分析"
-✅ 所有引用必须标注出处（法律名称 + 条款编号）
+Hard rules:
+❌ NEVER fabricate statute numbers
+❌ NEVER give conclusions without statute backing
+✅ If no statute found, mark "No direct statutory basis; based on legal reasoning"
+✅ All citations must include source (law name + article number)
 
-输出格式：严格使用以下 JSON Schema
+Output format: strict JSON Schema
 {
   "clause_id": "cl_007",
-  "risk_level": "high",  // high / medium / low
-  "risk_category": "违约责任",
+  "risk_level": "high",
+  "risk_category": "breach_penalty",
   "legal_analysis": "...",
   "law_references": [
-    {"law": "民法典", "article": "第585条", "text": "...", "relevance": "direct"}
+    {"law": "Civil Code", "article": "Art. 585", "text": "...", "relevance": "direct"}
   ],
   "case_references": [
-    {"case_id": "(2022)最高法民终347号", "relevance": "high", "key_point": "..."}
+    {"case_id": "(2022) SPC Civil Final No.347", "relevance": "high", "key_point": "..."}
   ],
   "plain_explanation": "...",
   "suggested_revision": "...",
-  "confidence": 0.85  // 0-1
+  "confidence": 0.85
 }
 ```
 
 ---
 
-## 五、Report Agent（报告生成Agent）
+## 5. Report Agent
 
-### 5.1 职责定位
+### 5.1 Responsibilities
 
-将 Analyzer Agent 的散点式分析结果整合为一份结构化的、可读性强的审查报告。
+Aggregates the Analyzer's scattered analysis results into a single structured, readable review report.
 
-### 5.2 报告生成流程
+### 5.2 Report Generation Pipeline
 
 ```
-输入：所有条款分析结果 + 交叉校验结果 + 缺失项列表
+Input: All clause analyses + cross-validation + missing items
       │
       ▼
-Step 1: 风险聚合
-  ├── 统计各级别风险数量
-  ├── 按严重程度排序
-  └── 去重（同一法条引用多次的合并展示）
+Step 1: Risk Aggregation
+  ├── Count risks by level
+  ├── Sort by severity
+  └── Deduplicate (merge same statute references)
       │
       ▼
-Step 2: 报告结构化
-  ├── 生成"审查概览"区块
-  ├── 生成"高风险清单"区块
-  ├── 生成"中风险清单"区块
-  ├── 生成"低风险提示"区块
-  ├── 生成"交叉矛盾"区块
-  ├── 生成"缺失项"区块
-  └── 生成"统计图表"数据
+Step 2: Report Structuring
+  ├── "Review Overview" section
+  ├── "High Risk" section
+  ├── "Medium Risk" section
+  ├── "Low Risk Advisory" section
+  ├── "Contradictions" section
+  ├── "Missing Clauses" section
+  └── "Statistics" data for charts
       │
       ▼
-Step 3: 免责声明注入
-  └── 在报告末尾自动添加免责声明文本
+Step 3: Disclaimer Injection
+  └── Auto-append legal disclaimer at report end
       │
       ▼
-输出：完整的审查报告 JSON
+Output: Complete review report JSON
 ```
 
-### 5.3 System Prompt 核心片段
+### 5.3 System Prompt (excerpt)
 
 ```yaml
-你是一个合同审查报告撰写专家（Report Agent）。
+You are a contract review report writer (Report Agent).
 
-你的职责：
-将散点的分析结果组织成一份完整、专业、易读的审查报告。
+Your responsibility:
+Organize scattered analysis into a complete, professional, readable review report.
 
-报告撰写原则：
-1. 先总后分：先给总览，再给详情
-2. 先说严重的：红色 > 黄色 > 绿色，不得乱序
-3. 每条都要有：原文引用 + 问题描述 + 修改建议
-4. 语言通俗：面向非法务背景的企业管理者
-5. 引用可信：所有法条/判例引用保持原样，不得改写
+Writing principles:
+1. Overview first, then details
+2. Severe first: Red > Yellow > Green — no reordering
+3. Every item must include: original text + problem description + revision suggestion
+4. Plain language: for business managers without legal background
+5. Trustworthy citations: preserve all statute/precedent citations as-is
 
-输出必须包含：
-- contract_info（合同基本信息）
-- summary（审查概览：总风险数、各级别分布）
-- high_risks（高风险项，必须包含原文引用）
-- medium_risks（中风险项）
-- low_risks（低风险项）
-- contradictions（条款矛盾）
-- missing_clauses（缺失条款）
-- statistics（统计数据用于图表）
-- disclaimer（免责声明，固定文本）
+Required output sections:
+- contract_info
+- summary (total risks, distribution by level)
+- high_risks (must include original text citations)
+- medium_risks
+- low_risks
+- contradictions
+- missing_clauses
+- statistics (for chart rendering)
+- disclaimer (fixed text)
 ```
 
 ---
 
-## 六、Validator Agent（校验Agent）
+## 6. Validator Agent
 
-### 6.1 职责定位
+### 6.1 Responsibilities
 
-最后的守门员。在报告返回给用户之前，进行多维度质量校验。
+The final gatekeeper. Performs multi-dimensional quality checks before the report reaches the user.
 
-### 6.2 校验规则矩阵
+### 6.2 Validation Rules Matrix
 
-| 校验维度 | 规则 | 不通过时 |
+| Dimension | Rule | On Failure |
 |---|---|---|
-| **法条存在性** | 报告中引用的每条法条必须能在知识库中查到 | 移除该引用，标注"引用待核实" |
-| **原文一致性** | 报告的"原文引用"与 Parser 输出的原文文本相似度 > 0.95 | 用 Parser 输出的原文替换 |
-| **输出格式** | 必须符合预定义 JSON Schema | 要求 Report Agent 重新生成 |
-| **风险数量合理性** | 一份普通合同不应出现 > 50 个风险点 | 人工标记，通知管理员审查 |
-| **缺失项合理性** | 缺失项检测不应为空（所有合同至少缺 2-3 项标准条款） | 若为空 → 重新运行缺失项检测 |
-| **免责声明** | 报告中必须包含完整的免责声明文本 | 自动注入免责声明 |
+| **Statute existence** | Every cited statute must exist in knowledge base | Remove citation, flag "pending verification" |
+| **Original text fidelity** | Cited text vs. Parser output similarity > 0.95 | Replace with Parser's exact text |
+| **Output format** | Must conform to predefined JSON Schema | Request Report Agent regeneration |
+| **Risk count sanity** | Ordinary contract should not exceed 50 risk items | Manual flag, notify admin |
+| **Missing items sanity** | Detection should not be empty (all contracts lack 2-3 standard clauses) | If empty → re-run detection |
+| **Disclaimer** | Complete disclaimer text must be present | Auto-inject disclaimer |
 
 ### 6.3 System Prompt
 
 ```yaml
-你是一个审查报告质量校验员（Validator Agent）。
+You are a review report quality validator (Validator Agent).
 
-你的职责：
-在审查报告返回给用户之前，进行最后一轮质量检查。
+Your responsibility:
+Final quality check before report delivery to the user.
 
-校验规则：
-1. 所有法条引用必须在知识库中存在（严禁 LLM 幻觉产生的假法条）
-2. 原文引用必须与合同原文一致
-3. 风险等级分布必须合理
-4. 报告格式必须完整
+Validation rules:
+1. All statute citations must exist in knowledge base (no LLM hallucinations)
+2. Original text citations must match contract source
+3. Risk level distribution must be reasonable
+4. Report format must be complete
 
-你不需要：
-- 不需要重新判断法律问题
-- 不需要修改分析结果
+What you do NOT do:
+- Do NOT re-judge legal issues
+- Do NOT modify analysis results
 
-你的行为：
-- 校验通过 → 标记为 approved
-- 校验不通过 → 返回具体不通过的原因，供 Supervisor 重试
+Your actions:
+- Pass → mark as approved
+- Fail → return specific failure reasons for Supervisor retry
 ```
 
 ---
 
-## 七、Agent 间通信协议
+## 7. Inter-Agent Communication Protocol
 
-### 7.1 通信方式
+### 7.1 Communication Model
 
-所有 Agent 间通信通过 `Supervisor` 中转，Worker Agent 之间不直接通信。
+All agent communication routes through the **Supervisor**. Worker agents never communicate directly.
 
-### 7.2 消息格式
+### 7.2 Message Format
 
 ```json
 {
@@ -539,18 +485,16 @@ Step 3: 免责声明注入
   "to": "analyzer",
   "type": "single_clause_analysis",
   "timestamp": "2026-06-15T10:30:00Z",
-  "payload": {
-    // 具体任务数据
-  },
+  "payload": {},
   "retry_count": 0
 }
 ```
 
-### 7.3 错误处理
+### 7.3 Error Handling
 
-| 错误类型 | 处理策略 |
+| Error Type | Handling Strategy |
 |---|---|
-| Agent 超时（60s 无响应） | Supervisor 重试，最多 3 次 |
-| Agent 返回格式错误 | Supervisor 重试，3 次后降级输出 |
-| 重试 3 次后仍失败 | 标记该条款为"审查失败"，报告中注明 |
-| LLM 服务不可用 | 整个任务进入等待队列，用户端显示排队中 |
+| Agent timeout (60s no response) | Supervisor retry, max 3 attempts |
+| Agent returns malformed output | Supervisor retry; after 3 failures, degrade output |
+| 3 retries exhausted | Mark clause as "review failed", note in report |
+| LLM service unavailable | Queue task; user sees "queued" status |

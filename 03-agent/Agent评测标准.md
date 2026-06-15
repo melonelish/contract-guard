@@ -1,151 +1,152 @@
-# Agent 评测标准
+# Agent Evaluation Standards
 
-> 版本：v1.0 | 最后更新：2026-06-15
+> Version: v1.0 | Last Updated: 2026-06-15
 
 ---
 
-## 一、评测体系总览
+## 1. Evaluation System Overview
 
 ```
                   ┌─────────────────────────┐
-                  │    端到端评测 (E2E)       │
-                  │   整份合同的审查结果 vs     │
-                  │   律师标注的 Ground Truth  │
+                  │  End-to-End Evaluation   │
+                  │  Review results vs        │
+                  │  Lawyer-annotated GT      │
                   └───────────┬─────────────┘
                               │
         ┌─────────────────────┼─────────────────────┐
         │                     │                     │
 ┌───────▼───────┐   ┌────────▼───────┐   ┌────────▼───────┐
-│ Parser 评测   │   │ Analyzer 评测   │   │ Report 评测    │
-│ 结构化准确率   │   │ 风险识别准确率   │   │ 报告质量        │
+│ Parser Eval   │   │ Analyzer Eval   │   │ Report Eval    │
+│ Structuring   │   │ Risk Detection   │   │ Report Quality  │
+│ Accuracy      │   │ Accuracy         │   │                 │
 └───────────────┘   └────────────────┘   └───────────────┘
 ```
 
 ---
 
-## 二、评测数据集
+## 2. Evaluation Dataset
 
-### 2.1 数据来源
+### 2.1 Data Sources
 
-| 来源 | 数量 | 用途 |
+| Source | Quantity | Purpose |
 |---|---|---|
-| 公开裁判文书网合同纠纷案 | 500 份 | 训练/验证集 |
-| 律所合作提供（脱敏） | 200 份 | 测试集 |
-| 法务顾问人工构造 | 50 份 | 边界用例测试 |
-| 用户真实上传（授权脱敏） | 持续增长 | 持续评测 |
+| Public court judgment documents (contract disputes) | 500 | Training/Validation set |
+| Law firm collaboration (anonymized) | 200 | Test set |
+| Legal consultant manually constructed | 50 | Edge case testing |
+| Real user uploads (authorized & anonymized) | Continuously growing | Ongoing evaluation |
 
-### 2.2 标注标准
+### 2.2 Annotation Standards
 
-每份合同由 **2 名执业律师独立标注**，标注内容包括：
-- 每条条款的风险等级（高/中/低）
-- 关联法条编号
-- 标准修改建议
+Each contract is **independently annotated by 2 licensed lawyers**, including:
+- Risk level per clause (High/Medium/Low)
+- Associated legal article numbers
+- Standard revision suggestions
 
-标注一致性（Inter-Annotator Agreement, IAA）：≥ 85%（通过则取交集作为 Ground Truth）
+Inter-Annotator Agreement (IAA): ≥ 85% (intersection taken as Ground Truth once threshold met)
 
 ---
 
-## 三、Parser Agent 评测
+## 3. Parser Agent Evaluation
 
-| 指标 | 定义 | 目标值 |
+| Metric | Definition | Target |
 |---|---|---|
-| 条款切分准确率 | 正确识别的条款数 / 实际条款总数 | ≥ 98% |
-| 表格还原准确率 | 正确还原的表格数 / 实际表格总数 | ≥ 95% |
-| 签约主体识别率 | 正确识别甲乙方名称/角色的合同比例 | ≥ 99% |
-| 页码定位准确率 | 条款页码定位偏差 ≤1 页的比例 | ≥ 95% |
+| Clause Segmentation Accuracy | Correctly identified clauses / Total actual clauses | ≥ 98% |
+| Table Restoration Accuracy | Correctly restored tables / Total actual tables | ≥ 95% |
+| Party Identification Rate | Contracts with correctly identified Party A/B names/roles | ≥ 99% |
+| Page Location Accuracy | Clauses located within ±1 page | ≥ 95% |
 
 ---
 
-## 四、Analyzer Agent 评测（核心）
+## 4. Analyzer Agent Evaluation (Core)
 
-### 4.1 定量指标
+### 4.1 Quantitative Metrics
 
-| 指标 | 定义 | 目标值 |
+| Metric | Definition | Target |
 |---|---|---|
-| **风险识别精确率 (Precision)** | TP / (TP + FP) | ≥ 88% |
-| **风险识别召回率 (Recall)** | TP / (TP + FN) | ≥ 90% |
-| **风险等级分类准确率** | 三级分类完全匹配的比例 | ≥ 85% |
-| **法条引用准确率** | 引用的法条真实存在且相关的比例 | ≥ 98% |
-| **判例相关性** | 检索到的判例与争议焦点相关的比例 | ≥ 80% |
-| **修改建议可用率** | 律师评审认为"可直接使用或略改即用" | ≥ 70% |
+| **Risk Detection Precision** | TP / (TP + FP) | ≥ 88% |
+| **Risk Detection Recall** | TP / (TP + FN) | ≥ 90% |
+| **Risk Level Classification Accuracy** | Three-tier classification exact match rate | ≥ 85% |
+| **Legal Citation Accuracy** | Cited legal provisions actually exist and are relevant | ≥ 98% |
+| **Case Relevance** | Retrieved cases relevant to dispute focus | ≥ 80% |
+| **Suggestion Usability** | Lawyer assessment: "usable as-is or with minor edits" | ≥ 70% |
 
-### 4.2 定性评测
+### 4.2 Qualitative Evaluation
 
-每 50 份测试样本，抽取 5 份由法务顾问深度评审：
+Every 50 test samples, extract 5 for in-depth review by legal consultants:
 
-| 维度 | 评分（1-5） | 目标 |
+| Dimension | Score (1-5) | Target |
 |---|---|---|
-| 法律分析深度 | 是否只停留在表面 | ≥ 4.0 |
-| 逻辑自洽性 | 分析过程和结论是否一致 | ≥ 4.5 |
-| 商业实用度 | 给出的修改建议是否可落地 | ≥ 3.5 |
+| Legal Analysis Depth | Not just surface-level | ≥ 4.0 |
+| Logical Consistency | Analysis process and conclusions align | ≥ 4.5 |
+| Business Practicality | Suggested revisions are actionable | ≥ 3.5 |
 
 ---
 
-## 五、幻觉评测专项
+## 5. Hallucination Evaluation (Specialized)
 
-### 5.1 幻觉分类
+### 5.1 Hallucination Categories
 
-| 类型 | 定义 | 示例 |
+| Type | Definition | Example |
 |---|---|---|
-| **A类：法条虚构** | 引用不存在的法条编号 | "《民法典》第999条"（民法典到1260条，但999条可能是虚构的） |
-| **B类：原文篡改** | 修改了合同原文的措辞 | 合同写"可以"→AI写成"应当" |
-| **C类：过度解读** | 从条款中推理出不存在的内容 | 合同没提"知识产权"，AI说"知识产权归属有问题" |
-| **D类：确认偏差** | 受到上下文误导的误判 | 前一条是高风险→后一条也倾向于判高风险 |
+| **Type A: Fabricated Laws** | Citing non-existent legal articles | "Civil Code Article 999" (Civil Code goes to 1260, but Article 999's content may be fabricated) |
+| **Type B: Text Tampering** | Altered original contract wording | Contract says "may" → AI writes "shall" |
+| **Type C: Over-interpretation** | Inferred non-existent content from clauses | Contract never mentions "IP" → AI says "IP ownership issues exist" |
+| **Type D: Confirmation Bias** | Misjudgment influenced by context | Previous clause was high risk → tend to judge next as high risk too |
 
-### 5.2 评测方法
+### 5.2 Evaluation Method
 
 ```python
-# 对每条 Analyzer 输出进行幻觉检查
+# Run hallucination check on every Analyzer output
 def hallucination_check(analysis, clause_text, law_db):
     checks = []
     
-    # A类检测：法条编号是否在数据库中
+    # Type A detection: Does the legal article number exist in the database
     for law_ref in analysis["law_references"]:
         if not law_db.exists(law_ref["law"], law_ref["article"]):
-            checks.append({"type": "A", "detail": f"法条{law_ref['article']}不存在"})
+            checks.append({"type": "A", "detail": f"Legal article {law_ref['article']} does not exist"})
     
-    # B类检测：原文引用与合同原文的相似度
+    # Type B detection: Similarity between quoted text and original contract text
     if analysis.get("original_quote"):
         similarity = semantic_similarity(analysis["original_quote"], clause_text)
         if similarity < 0.90:
-            checks.append({"type": "B", "detail": f"原文相似度仅{similarity:.2f}"})
+            checks.append({"type": "B", "detail": f"Original text similarity only {similarity:.2f}"})
     
     return checks
 ```
 
-### 5.3 目标
+### 5.3 Targets
 
-| 幻觉类型 | 可接受率 |
+| Hallucination Type | Acceptable Rate |
 |---|---|
-| A类（法条虚构） | **0%** — 零容忍 |
-| B类（原文篡改） | < 1% |
-| C类（过度解读） | < 5% |
-| D类（确认偏差） | < 3% |
+| Type A (Fabricated Laws) | **0%** — Zero tolerance |
+| Type B (Text Tampering) | < 1% |
+| Type C (Over-interpretation) | < 5% |
+| Type D (Confirmation Bias) | < 3% |
 
 ---
 
-## 六、端到端评测
+## 6. End-to-End Evaluation
 
-| 指标 | 定义 | 目标值 |
+| Metric | Definition | Target |
 |---|---|---|
-| 整体 F1 Score | 2 × Precision × Recall / (Precision + Recall) | ≥ 0.88 |
-| 高危检出率 | 律师标注高危条款中AI也标为高危的比例 | ≥ 95% |
-| 误报率 | AI标为高危但律师标为低危的比例 | < 10% |
-| 平均审查耗时 | 从上传到报告返回的时间 | < 15 分钟 |
-| 报告结构完整率 | 六大部分一个不少的合同占比 | 100% |
+| Overall F1 Score | 2 × Precision × Recall / (Precision + Recall) | ≥ 0.88 |
+| High-Risk Detection Rate | Lawyer-annotated high-risk clauses also marked high-risk by AI | ≥ 95% |
+| False Positive Rate | AI marked high-risk but lawyer marked low-risk | < 10% |
+| Average Review Time | Time from upload to report return | < 15 minutes |
+| Report Structure Completeness | Contracts with all six sections present | 100% |
 
 ---
 
-## 七、持续评测机制
+## 7. Continuous Evaluation Mechanism
 
 ```
-每次模型更新 / Prompt 变更：
+On every model update / Prompt change:
   
-  1. 运行 200 份固定测试集
-  2. 自动生成评测报告（Precision/Recall/F1）
-  3. 与上一版本对比（Degradation Check）
-     ├── 若指标下降 > 2% → 阻塞发布，人工排查
-     └── 若指标上升/持平 → 自动通过
-  4. 每周抽取 20 份实时用户数据（脱敏）补充评测
-  5. 每月由法务顾问抽查 10 份，输出定性评审意见
+  1. Run 200-item fixed test set
+  2. Auto-generate evaluation report (Precision/Recall/F1)
+  3. Compare with previous version (Degradation Check)
+     ├── If metrics drop > 2% → Block release, manual investigation
+     └── If metrics rise/stable → Auto-pass
+  4. Weekly: extract 20 real user data samples (anonymized) for supplementary evaluation
+  5. Monthly: legal consultant spot-checks 10 samples, outputs qualitative review comments
 ```

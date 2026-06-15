@@ -1,89 +1,91 @@
-# 为什么不用 LangChain/LangGraph — 自研 Agent 编排说明
+# Why Not LangChain/LangGraph — Self-built Agent Orchestration Explained
 
-> 版本：v1.0 | 最后更新：2026-06-15
-> 归属：FAQ + 面试话术
-
----
-
-## 一、LangChain/LangGraph 定位
-
-LangChain/LangGraph **不是 AI 大模型开发的核心知识**。它们是**框架**，类似前端领域的 React/Vue —— 帮你省样板代码，但不代表原理。
-
-真正的 AI Agent 核心能力：
-
-```
-Agent 开发核心能力
-├── 任务拆解（Task Decomposition）         —— 框架帮不了你
-├── 工具选择（Function Calling / Tool）     —— OpenAI SDK 原生支持
-├── 上下文管理（Memory / State）            —— 自己写更灵活
-├── 多 Agent 协作（Orchestration Pattern） —— 框架反而限制你
-├── RAG 架构（Hybrid Retrieval + Rerank）  —— 框架只省 20 行代码
-├── 幻觉控制（Hallucination Mitigation）   —— 框架完全没有
-└── 评测体系（Evaluation）                  —— 框架完全没有
-```
+> Version: v1.0 | Last Updated: 2026-06-15
+> Category: FAQ + Interview Talking Points
 
 ---
 
-## 二、自研 vs LangChain 对比
+## 1. LangChain/LangGraph Positioning
 
-| 维度 | LangChain/LangGraph | ContractGuard 自研方案 |
+LangChain/LangGraph **are not core AI agent development competencies**. They are **frameworks**, similar to React/Vue in the frontend world — they save boilerplate code but don't represent the underlying principles.
+
+True AI Agent core competencies:
+
+```
+Agent Development Core Competencies
+├── Task Decomposition                 —— Frameworks can't help you
+├── Tool Selection (Function Calling)  —— Native OpenAI SDK support
+├── Context Management (Memory/State)  —— Writing your own is more flexible
+├── Multi-Agent Collaboration          —— Frameworks actually constrain you
+│   (Orchestration Patterns)
+├── RAG Architecture                   —— Frameworks only save ~20 lines
+│   (Hybrid Retrieval + Rerank)
+├── Hallucination Control              —— Frameworks offer zero help
+└── Evaluation System                  —— Frameworks offer zero help
+```
+
+---
+
+## 2. Self-built vs LangChain Comparison
+
+| Dimension | LangChain/LangGraph | ContractGuard Self-built Solution |
 |---|---|---|
-| **代码量** | 少（框架封装了） | 稍多（~300 行 Python Agent 编排类） |
-| **可控性** | 黑盒（AgentExecutor 内部状态不可见） | 完全透明，每步都能打日志 |
-| **面试能讲的** | "我用 LangChain 搭的 Agent" | "我设计的 Supervisor-Worker 模式，Redis Streams 消息中间件，每个 Agent 独立 System Prompt 和知识库" |
-| **面试官反应** | "哦，调包侠" | **"这人真的懂 Agent 原理"** |
-| **版本风险** | LangChain 0.1→0.3 全 Breaking Change | 自己写的永远不坑自己 |
-| **调试难度** | Agent 死循环 → 很难定位 | 每条消息都在 Redis Stream 里有记录 |
-| **定制灵活性** | 受框架 API 约束 | 完全自由 |
-| **适用场景** | 快速原型验证 | **生产级企业交付 ← 本项目** |
+| **Code Volume** | Less (framework encapsulates) | Slightly more (~300 lines of Python Agent orchestration classes) |
+| **Controllability** | Black box (AgentExecutor internal state invisible) | Fully transparent; every step loggable |
+| **Interview Value** | "I built an Agent with LangChain" | "I designed a Supervisor-Worker pattern, Redis Streams messaging middleware, each Agent with independent System Prompts and knowledge bases" |
+| **Interviewer Reaction** | "Oh, a package-wrapper" | **"This person truly understands Agent principles"** |
+| **Version Risk** | LangChain 0.1→0.3 all Breaking Changes | What you write yourself will never shoot you in the foot |
+| **Debugging Difficulty** | Agent dead loop → very hard to locate | Every message recorded in Redis Stream |
+| **Customization Flexibility** | Constrained by framework API | Completely free |
+| **Best Use Case** | Rapid prototyping | **Production-grade enterprise delivery ← This project** |
 
 ---
 
-## 三、自研 Agent 编排层架构
+## 3. Self-built Agent Orchestration Layer Architecture
 
-### 3.1 核心组件（~300 行 Python）
+### 3.1 Core Components (~300 lines of Python)
 
 ```
 contractguard/core/agent_orchestrator.py
-├── class SupervisorAgent       ← 任务调度中心
-├── class WorkerAgent           ← 抽象基类（Parser/Analyzer/Report 都继承它）
-├── class MessageBus            ← Redis Streams 封装
-├── class AgentRegistry         ← Worker 注册/发现/心跳
-└── class TaskContext            ← 任务上下文（task_id + 状态 + 重试计数）
+├── class SupervisorAgent       ← Task scheduling center
+├── class WorkerAgent           ← Abstract base class (Parser/Analyzer/Report all inherit it)
+├── class MessageBus            ← Redis Streams wrapper
+├── class AgentRegistry         ← Worker registration/discovery/heartbeat
+└── class TaskContext            ← Task context (task_id + status + retry count)
 ```
 
-### 3.2 为什么不直接调 API
+### 3.2 Why Not Just Call APIs Directly
 
 ```
-❌ 简单调用链：
-Parser(data) → Analyzer(clauses) → Report(results) → 返回
+❌ Simple call chain:
+Parser(data) → Analyzer(clauses) → Report(results) → Return
 
-问题：
-  - Parser 超时 → 整个请求挂
-  - 无法并行处理条款
-  - 中间任何一步失败 → 从头再来
-  - 无法观察每步的耗时/成本
+Problems:
+  - Parser timeout → entire request hangs
+  - Cannot process clauses in parallel
+  - Any intermediate failure → start from scratch
+  - Cannot observe per-step latency/cost
 
-✅ Redis Streams 方案：
+✅ Redis Streams approach:
 Supervisor ──XADD──▶ parser:tasks ──▶ Parser Worker
          ◀──XREAD── parser:results
 
-Supervisor ──XADD──▶ analyzer:tasks ──▶ 10 个 Analyzer Worker 并行
-         ◀──XREAD── analyzer:results     (Redis Consumer Group 自动负载均衡)
+Supervisor ──XADD──▶ analyzer:tasks ──▶ 10 Analyzer Workers in parallel
+         ◀──XREAD── analyzer:results     (Redis Consumer Group auto load-balancing)
 
-优势：
-  - 解耦：Supervisor 不关心有多少个 Worker
-  - 持久化：消息在 Redis 里，Worker 挂了也能恢复
-  - 可观测：每条消息的发送/处理/完成时间都在 Stream 里
-  - 水平扩展：加 Worker 只需启动新容器，改一行都不用
+Advantages:
+  - Decoupled: Supervisor doesn't care how many Workers exist
+  - Persistent: Messages in Redis; Worker crashes are recoverable
+  - Observable: Every message's send/process/complete time in Stream
+  - Horizontally scalable: Add Workers by just launching new containers, zero code changes
 ```
 
-### 3.3 与 LangGraph 的 StateGraph 思想对比
+### 3.3 Comparison with LangGraph's StateGraph Philosophy
 
-LangGraph 的核心设计是**用图来管理 Agent 的状态流转**：
+LangGraph's core design is **using graphs to manage Agent state transitions**:
 
 ```python
-# LangGraph 方式
+# LangGraph approach
 graph = StateGraph(AgentState)
 graph.add_node("parser", run_parser)
 graph.add_node("analyzer", run_analyzer)
@@ -91,14 +93,14 @@ graph.add_node("report", run_report)
 graph.add_edge("parser", "analyzer")
 graph.add_conditional_edges("analyzer", check_confidence, {
     "high": "report",
-    "low": "parser"  # 回头重解析
+    "low": "parser"  # Go back and re-parse
 })
 ```
 
-ContractGuard 的 Agent 协作相对固定（Parser → Analyzer → Report → Validator），不需要动态图：
+ContractGuard's Agent collaboration is relatively fixed (Parser → Analyzer → Report → Validator) and doesn't need dynamic graphs:
 
 ```python
-# ContractGuard 方式（Pipeline + 并行）
+# ContractGuard approach (Pipeline + Parallel)
 results = await orchestrator.run_pipeline([
     ParserTask(file),
     ParallelAnalyzerTask(clauses, max_concurrency=10),
@@ -106,50 +108,50 @@ results = await orchestrator.run_pipeline([
     ReportTask(),
     ValidateTask(),
 ])
-# 简单直接，所有状态在 TaskContext 里
+# Simple and direct; all state in TaskContext
 ```
 
-**决策逻辑**：如果未来需要复杂条件分支（比如"审查不通过时回退到哪一步取决于风险类型"），会引入类似 StateGraph 的思想，但底层还是自己控制。
+**Decision logic**: If complex conditional branching is needed in the future (e.g., "which step to roll back to when review fails depends on risk type"), ideas similar to StateGraph will be introduced, but the underlying implementation will remain self-controlled.
 
 ---
 
-## 四、常见质疑与回应
+## 4. Common Questions & Responses
 
-### Q：你不用 LangChain，RAG 怎么做的？
+### Q: You don't use LangChain — how did you build RAG?
 
-> LangChain 的 RAG 封装了文档加载 → 切片 → 向量化 → 检索这四个步骤。我用 Unstructured.io 做解析、自研语义切片（识别条款边界后切、不是固定字数）、BGE-M3 做 Embedding、Milvus 做向量存储。混合检索是自研的——语义检索 + BM25 关键词 + 结构化 SQL，三路召回后用 Reciprocal Rank Fusion 重排序。LangChain 在每一步只省了 5-10 行代码，代价是把整个流程锁死在它的抽象里。
+> LangChain's RAG encapsulates four steps: Document Loading → Chunking → Vectorization → Retrieval. I use Unstructured.io for parsing, a self-built semantic chunker (identifies clause boundaries before splitting, not fixed character count), BGE-M3 for Embedding, and Milvus for vector storage. Hybrid retrieval is self-built — semantic search + BM25 keywords + structured SQL, three-way recall with Reciprocal Rank Fusion re-ranking. LangChain only saves 5-10 lines per step at the cost of locking the entire pipeline into its abstractions.
 
-### Q：你不用 LangSmith，怎么观测 Agent？
+### Q: You don't use LangSmith — how do you observe Agents?
 
-> OpenTelemetry + 自建 Trace。每条 Agent 调用都记录：task_id → agent_name → input → output → latency → token_cost。效果跟 LangSmith 一样，但数据在我自己这里，不依赖 SaaS，没有数据泄露风险。
+> OpenTelemetry + self-built Trace. Every Agent call is recorded: task_id → agent_name → input → output → latency → token_cost. Same effect as LangSmith, but data stays with me, no SaaS dependency, no data leakage risk.
 
-### Q：你不会 LangChain，去公司了怎么办？
+### Q: If you don't know LangChain, what will you do when you join a company?
 
-> LangChain 的核心思想我全懂——Agent / Tool / Chain / Memory / RAG——只是没用它封装好的 API。给我一个下午看文档，第二天就能上手。框架是术，Agent 设计是道。我证明了我有道。
+> I fully understand LangChain's core concepts — Agent / Tool / Chain / Memory / RAG — I just didn't use its packaged API. Give me an afternoon to read the docs, and I can start using it the next day. Frameworks are technique; Agent design is philosophy. I've proven I have the philosophy.
 
-### Q：你们为什么不用 Dify/Coze 这种零代码平台？
+### Q: Why don't you use no-code platforms like Dify/Coze?
 
-> Dify 和 Coze 适合非技术人员快速搭建智能客服，不适合我们的场景。合同审查需要：① 自定义的多 Agent 协作架构 ② 细粒度的知识库分层和混合检索 ③ 幻觉控制和安全护栏 ④ 结构化 diff 输出 ⑤ 内置编辑器和打印功能。这些在低代码平台上要么做不到，要么需要大量 Hack。
-
----
-
-## 五、面试完整话术
-
-> "我没有用 LangChain。LangChain 本质是一个框架，帮开发者省了 Agent 循环和工具调用的样板代码。但它的抽象层太重，出了问题很难定位——比如 Agent 死循环了，LangChain 的 AgentExecutor 内部状态你看不到。
->
-> 我选择自己写 Agent 编排层，核心就 300 行 Python。架构是 Supervisor-Worker 模式：Supervisor 负责任务拆解和分发，Worker 通过 Redis Streams 消息队列接收任务，Consumer Group 自动负载均衡。每个 Worker Agent 有独立的 System Prompt 和知识库，LLM 调用封装了统一层，支持 MiMo 2.5 和 DeepSeek V4-Flash 热切换。
->
-> 我也研究过 LangGraph 的 StateGraph 设计思想——用图管理 Agent 状态流转。但我项目的 Agent 协作相对固定（Parser → Analyzer → Report → Validator），不需要动态图，一个简单的 Pipeline + 并行调用就够了。如果未来需要复杂条件分支，我会考虑引入 StateGraph 思想，但底层还是自己控制。
->
-> RAG 部分也没用 LangChain 的封装。Unstructured.io 做文档解析，自研基于条款边界的语义切片，BGE-M3 做 Embedding，Milvus 做向量存储，混合检索是三路召回 + Reciprocal Rank Fusion 重排序。可观测性用 OpenTelemetry + 自建 Trace，所有 Agent 调用都有完整的 task_id → agent → latency → cost 链路。
->
-> 总结：我对 LangChain 的理念完全理解，选择自研不是为了炫技，是为了在生产环境里能够精确控制每一步行为，出了问题能在 5 分钟内定位。"
+> Dify and Coze are suitable for non-technical people to quickly build customer service bots, not for our scenario. Contract review requires: ① Custom multi-agent collaboration architecture ② Fine-grained knowledge base layering and hybrid retrieval ③ Hallucination control and safety guardrails ④ Structured diff output ⑤ Built-in editor and print functionality. These are either impossible on low-code platforms or require extensive hacking.
 
 ---
 
-## 六、参考资源
+## 5. Complete Interview Talking Points
 
-- LangChain 官方文档：https://python.langchain.com/
-- LangGraph 官方文档：https://langchain-ai.github.io/langgraph/
-- Anthropic Building Effective Agents：https://www.anthropic.com/engineering/building-effective-agents
-- Redis Streams 文档：https://redis.io/docs/latest/develop/data-types/streams/
+> "I didn't use LangChain. LangChain is essentially a framework that helps developers save boilerplate code for Agent loops and tool calling. But its abstraction layer is too heavy; problems are hard to diagnose — for example, if an Agent dead-loops, LangChain's AgentExecutor internal state is invisible to you.
+>
+> I chose to write my own Agent orchestration layer, with a core of about 300 lines of Python. The architecture is a Supervisor-Worker pattern: the Supervisor handles task decomposition and distribution; Workers receive tasks via Redis Streams message queues with Consumer Group auto load-balancing. Each Worker Agent has an independent System Prompt and knowledge base. LLM calls are wrapped in a unified layer supporting hot-switching between MiMo 2.5 and DeepSeek V4-Flash.
+>
+> I also studied LangGraph's StateGraph design philosophy — managing Agent state transitions with graphs. But my project's Agent collaboration is relatively fixed (Parser → Analyzer → Report → Validator) and doesn't need dynamic graphs. A simple Pipeline + parallel invocation suffices. If complex conditional branching is needed in the future, I would consider introducing StateGraph ideas, but with the underlying implementation still under my control.
+>
+> For RAG, I also didn't use LangChain's wrappers. Unstructured.io for document parsing, self-built clause-boundary-based semantic chunking, BGE-M3 for Embedding, Milvus for vector storage. Hybrid retrieval is three-way recall + Reciprocal Rank Fusion re-ranking. Observability uses OpenTelemetry + self-built Trace, with all Agent calls carrying complete task_id → agent → latency → cost traces.
+>
+> In summary: I fully understand LangChain's philosophy. Choosing to self-build isn't about showing off — it's about being able to precisely control every step of behavior in production and diagnose issues within 5 minutes."
+
+---
+
+## 6. Reference Resources
+
+- LangChain Official Documentation: https://python.langchain.com/
+- LangGraph Official Documentation: https://langchain-ai.github.io/langgraph/
+- Anthropic Building Effective Agents: https://www.anthropic.com/engineering/building-effective-agents
+- Redis Streams Documentation: https://redis.io/docs/latest/develop/data-types/streams/

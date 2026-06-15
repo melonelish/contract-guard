@@ -1,209 +1,209 @@
-# 产品需求文档（PRD）
+# Product Requirements Document (PRD)
 
-> 版本：v1.0 | 作者：产品团队 | 最后更新：2026-06-15
+> Version: v1.0 | Author: Product Team | Last Updated: 2026-06-15
 
 ---
 
-## 一、文档信息
+## 1. Document Information
 
-| 项 | 内容 |
+| Item | Content |
 |---|---|
-| 产品名称 | ContractGuard 智能合同审查系统 |
-| 产品版本 | v1.0 MVP |
-| 文档状态 | 已评审 |
-| 目标发布 | 2026年9月（M3） |
+| Product Name | ContractGuard Intelligent Contract Review System |
+| Product Version | v1.0 MVP |
+| Document Status | Reviewed |
+| Target Release | September 2026 (M3) |
 
 ---
 
-## 二、产品概述
+## 2. Product Overview
 
-### 2.1 一句话描述
+### 2.1 One-Line Description
 
-用户上传合同文件，系统自动分析并输出结构化风险审查报告，标注每条风险的法条依据、判例参考和修改建议。
+Users upload contract files, and the system automatically analyzes and outputs a structured risk review report, annotating each risk with legal basis, case references, and modification suggestions.
 
-### 2.2 核心场景
+### 2.2 Core Scenarios
 
-| 场景编号 | 场景描述 | 优先级 |
+| Scenario # | Description | Priority |
 |---|---|---|
-| S01 | 用户上传一份 PDF 合同，系统自动完成审查并生成报告 | P0 |
-| S02 | 用户查看审查报告，逐条查看风险详情和修改建议（左侧合同+右侧风险列表） | P0 |
-| S03 | 点击审查报告中的风险条目，左侧合同自动滚动定位并脉冲高亮对应条款 | P0 |
-| S04 | 用户点击"进入编辑模式"，在系统内置编辑器中直接修改合同 | P0 |
-| S05 | 编辑器内，AI 审查建议以彩色标注嵌入合同文本，支持一键应用 | P0 |
-| S06 | 用户修改完成后提交"重新审查"，系统增量审查变更条款 | P0 |
-| S07 | 用户下载/打印修改后的合同（支持最终版、修订版、对比版三种格式） | P1 |
-| S08 | 编辑器提供撤销/重做、字号调整、段落格式化等基础写作功能 | P1 |
-| S09 | 用户上传多份合同，在列表页统一管理 | P1 |
-| S10 | 用户通过微信小程序快速上传图片版合同 | P2 |
-| S11 | 企业管理员配置自定义风险规则 | P2 |
-| S12 | 企业管理员查看团队成员审查记录 | P2 |
-| S13 | 双屏对比模式（原文 vs 修改后并排显示） | P2 |
+| S01 | User uploads a PDF contract; system automatically completes review and generates report | P0 |
+| S02 | User views review report, checking each risk detail and modification suggestion (contract on left + risk list on right) | P0 |
+| S03 | Clicking a risk item in the review report auto-scrolls and pulse-highlights the corresponding clause in the left-side contract | P0 |
+| S04 | User clicks "Enter Edit Mode" to directly modify the contract in the built-in editor | P0 |
+| S05 | In the editor, AI review suggestions are embedded in the contract text as colored annotations, with one-click apply | P0 |
+| S06 | After modifications, user submits "Re-Review"; the system incrementally reviews changed clauses | P0 |
+| S07 | User downloads/prints the modified contract (supports three formats: Final, Tracked Changes, Comparison) | P1 |
+| S08 | Editor provides undo/redo, font size adjustment, paragraph formatting, and other basic writing features | P1 |
+| S09 | User uploads multiple contracts, managed on a unified list page | P1 |
+| S10 | User quickly uploads image-based contracts via WeChat Mini Program | P2 |
+| S11 | Enterprise admin configures custom risk rules | P2 |
+| S12 | Enterprise admin views team member review history | P2 |
+| S13 | Dual-pane comparison mode (Original vs. Modified side by side) | P2 |
 
 ---
 
-## 三、功能需求
+## 3. Functional Requirements
 
-### 3.1 合同上传模块（P0）
+### 3.1 Contract Upload Module (P0)
 
-**FR-01：文件上传**
-- 支持格式：PDF、DOCX、DOC、PNG、JPG
-- 单文件上限：50MB
-- 支持拖拽上传和点击上传
-- 上传中显示进度条
-- 上传完成自动触发审查
+**FR-01: File Upload**
+- Supported formats: PDF, DOCX, DOC, PNG, JPG
+- Single file limit: 50MB
+- Supports drag-and-drop and click-to-upload
+- Progress bar during upload
+- Automatically triggers review upon upload completion
 
-**FR-02：文件预处理**
-- 自动检测文件是否为合同（非合同拒绝审查）
-- PDF 图片自动 OCR 识别
-- 大文件（>10MB）可能较慢，提示预计等待时间
+**FR-02: File Preprocessing**
+- Automatically detects whether the file is a contract (non-contracts are rejected)
+- Automatic OCR recognition for PDF images
+- Large files (>10MB) may be slower; estimated wait time is displayed
 
-### 3.2 合同审查引擎（P0 — 核心技术）
+### 3.2 Contract Review Engine (P0 — Core Technology)
 
-**FR-03：文档结构化解析**
+**FR-03: Document Structure Parsing**
 
-参见 `03-agent/AGENTS.md` 详细设计。
+See `03-agent/AGENTS.md` for detailed design.
 
-| 解析内容 | 说明 |
+| Parsed Content | Description |
 |---|---|
-| 合同标题、签订日期 | 基础信息提取 |
-| 甲乙方名称、地址 | 签约主体信息 |
-| 条款正文 | 完整文本提取 |
-| 表格内容 | Markdown Table 格式还原 |
-| 签名/盖章区域 | 位置坐标 + OCR 文字 |
+| Contract title, signing date | Basic information extraction |
+| Party A/B names, addresses | Signing entity information |
+| Clause text | Full text extraction |
+| Table content | Restored in Markdown Table format |
+| Signature/seal areas | Position coordinates + OCR text |
 
-**FR-04：条款级风险分析**
+**FR-04: Clause-Level Risk Analysis**
 
-对每个条款进行四维分析：
+Four-dimensional analysis for each clause:
 
-| 分析维度 | 输出 |
+| Analysis Dimension | Output |
 |---|---|
-| 风险等级 | 🔴 高 / 🟡 中 / 🟢 低 |
-| 法条依据 | 关联的《民法典》等法条原文 |
-| 判例参考 | 相似争议的最高法/高院裁判案例 |
-| 修改建议 | 具体的条款改写建议文本 |
+| Risk Level | 🔴 High / 🟡 Medium / 🟢 Low |
+| Legal Basis | Linked original text of relevant laws (e.g., Civil Code) |
+| Case Reference | Supreme Court / High Court rulings on similar disputes |
+| Modification Suggestion | Specific clause rewriting suggestion text |
 
-**FR-05：交叉校验**
+**FR-05: Cross-Validation**
 
-- 检测同一份合同内条款间的逻辑矛盾
-- 示例：违约金条款 vs 总则上限条款 → 若违约金按百分比计算可能超过总额上限，标记矛盾
+- Detects logical contradictions between clauses within the same contract
+- Example: Liquidated damages clause vs. General Provisions cap clause → if damages calculated by percentage may exceed the total cap, flag the contradiction
 
-**FR-06：缺失项检测**
+**FR-06: Missing Clause Detection**
 
-基于合同类型（采购/劳动/技术开发等），自动检测应当存在但缺失的标准条款：
+Based on contract type (procurement, labor, technology development, etc.), automatically detect standard clauses that should exist but are missing:
 
-| 合同类型 | 必检条款 |
+| Contract Type | Required Clauses |
 |---|---|
-| 采购合同 | 质量标准、验收方式、付款条件、违约责任、保密、争议解决 |
-| 劳动合同 | 工作内容、工作地点、劳动报酬、社保、解除条件 |
-| 技术开发 | 知识产权归属、验收标准、维护支持、保密 |
-| 租赁合同 | 租金、押金、维修责任、转租限制、提前解约条件 |
+| Procurement Contract | Quality standards, acceptance method, payment terms, breach liability, confidentiality, dispute resolution |
+| Labor Contract | Job description, work location, compensation, social insurance, termination conditions |
+| Technology Development | IP ownership, acceptance criteria, maintenance support, confidentiality |
+| Lease Contract | Rent, deposit, repair responsibility, sublease restrictions, early termination conditions |
 
-### 3.3 审查报告模块（P0）
+### 3.3 Review Report Module (P0)
 
-**FR-07：报告内容结构**
+**FR-07: Report Content Structure**
 
 ```
-审查报告
-├── 合同基本信息（标题、双方、签订日期、合同类型）
-├── 审查概览（总风险数、高危/中危/低危 各多少）
-├── 风险清单（逐条展示）
-│   ├── 风险等级 + 标签
-│   ├── 条款原文引用（精确到页码/段落）
-│   ├── 法律分析（法理说明）
-│   ├── 法条依据（原文引用）
-│   ├── 相似判例（案号+裁判要点）
-│   ├── 风险解释（通俗化改写）
-│   └── 修改建议（具体文本）
-├── 交叉矛盾（条款间冲突）
-├── 缺失项（应有未有的条款）
-├── 风险统计图（饼图/柱状图）
-└── 免责声明
+Review Report
+├── Contract Basic Info (title, parties, signing date, contract type)
+├── Review Summary (total risks, high/medium/low counts)
+├── Risk List (itemized display)
+│   ├── Risk level + tag
+│   ├── Original clause citation (precise to page/paragraph)
+│   ├── Legal analysis (legal reasoning)
+│   ├── Legal basis (original text citation)
+│   ├── Similar cases (case number + key ruling points)
+│   ├── Risk explanation (plain-language rewrite)
+│   └── Modification suggestion (specific text)
+├── Cross-Contradictions (inter-clause conflicts)
+├── Missing Items (clauses that should exist but don't)
+├── Risk Statistics Chart (pie chart / bar chart)
+└── Disclaimer
 ```
 
-**FR-08：报告交互功能**
-- 点击风险项可定位到合同原文对应位置
-- 支持按风险等级筛选
-- 支持按风险类型（违约责任/付款条件/知识产权等）筛选
-- 支持一键复制修改建议文本
+**FR-08: Report Interaction Features**
+- Click a risk item to navigate to the corresponding location in the original contract
+- Support filtering by risk level
+- Support filtering by risk type (breach liability / payment terms / IP, etc.)
+- Support one-click copy of modification suggestion text
 
-### 3.4 合同管理模块（P1）
+### 3.4 Contract Management Module (P1)
 
-**FR-09：合同列表**
-- 按上传时间降序排列
-- 显示合同标题、审查状态、风险统计、上传时间
-- 支持搜索和筛选
+**FR-09: Contract List**
+- Sorted by upload time descending
+- Displays contract title, review status, risk statistics, upload time
+- Supports search and filtering
 
-### 3.5 团队管理模块（P2）
+### 3.5 Team Management Module (P2)
 
-**FR-10：成员管理**
-- 邀请团队成员
-- 设置角色权限（管理员/成员/只读）
-- 查看团队审查统计
-
----
-
-## 四、非功能需求
-
-### 4.1 性能
-
-| 指标 | 目标 |
-|---|---|
-| API 响应时间（P95） | ≤ 30秒（含 LLM 推理） |
-| 文件上传速度 | ≥ 2MB/s |
-| 并发审查能力 | ≥ 100 TPS |
-| 首屏加载时间 | ≤ 2s |
-
-### 4.2 安全
-
-| 需求 | 说明 |
-|---|---|
-| 数据传输加密 | TLS 1.3 |
-| 合同文件加密存储 | AES-256-at-rest |
-| 用户数据隔离 | 多租户逻辑隔离 + 数据库行级安全 |
-| 审计日志 | 全操作记录（不可删除） |
-| 敏感信息脱敏 | 合同中身份证号/手机号自动脱敏 |
-
-### 4.3 可用性
-
-| 指标 | 目标 |
-|---|---|
-| 系统可用性 | 99.9%（月宕机时间 < 43分钟） |
-| 支持并发用户 | 10,000+ |
-| 多端支持 | Web (Chrome/Safari/Edge) + 微信小程序 |
+**FR-10: Member Management**
+- Invite team members
+- Set role permissions (Admin / Member / Read-only)
+- View team review statistics
 
 ---
 
-## 五、MVP 范围
+## 4. Non-Functional Requirements
 
-### Phase 1 MVP（M1-M3）
+### 4.1 Performance
 
-| 功能 | 优先级 | 状态 |
+| Metric | Target |
+|---|---|
+| API Response Time (P95) | ≤ 30s (including LLM inference) |
+| File Upload Speed | ≥ 2MB/s |
+| Concurrent Review Capacity | ≥ 100 TPS |
+| First Screen Load Time | ≤ 2s |
+
+### 4.2 Security
+
+| Requirement | Description |
+|---|---|
+| Data transmission encryption | TLS 1.3 |
+| Contract file encryption at rest | AES-256 |
+| User data isolation | Multi-tenant logical isolation + database row-level security |
+| Audit log | Full operation records (non-deletable) |
+| Sensitive info masking | Auto-masking of ID numbers / phone numbers in contracts |
+
+### 4.3 Availability
+
+| Metric | Target |
+|---|---|
+| System Availability | 99.9% (monthly downtime < 43 minutes) |
+| Concurrent Users | 10,000+ |
+| Multi-platform Support | Web (Chrome/Safari/Edge) + WeChat Mini Program |
+
+---
+
+## 5. MVP Scope
+
+### Phase 1 MVP (M1-M3)
+
+| Feature | Priority | Status |
 |---|---|---|
-| 合同 PDF/Word 上传 | P0 | ✅ 包含 |
-| 文档解析（正文+表格） | P0 | ✅ 包含 |
-| 条款风险分析（红黄绿三级） | P0 | ✅ 包含 |
-| 法条引用 | P0 | ✅ 包含 |
-| 修改建议 | P0 | ✅ 包含 |
-| 审查报告展示 | P0 | ✅ 包含 |
-| 报告导出 PDF | P1 | ✅ 包含 |
-| 用户注册/登录 | P0 | ✅ 包含 |
-| OCR 扫描件支持 | P1 | ⚠️ 降级为简体中文OCR |
-| 判例引用 | P0 | ✅ 包含（裁量文书网公开判例） |
-| 交叉校验 | P0 | ✅ 包含 |
-| 缺失项检测 | P1 | ✅ 包含 |
-| 微信小程序 | P2 | ❌ 延后到 M5 |
+| Contract PDF/Word upload | P0 | ✅ Included |
+| Document parsing (body text + tables) | P0 | ✅ Included |
+| Clause risk analysis (red/yellow/green tiers) | P0 | ✅ Included |
+| Legal citation | P0 | ✅ Included |
+| Modification suggestions | P0 | ✅ Included |
+| Review report display | P0 | ✅ Included |
+| Report export to PDF | P1 | ✅ Included |
+| User registration/login | P0 | ✅ Included |
+| OCR scanned document support | P1 | ⚠️ Downgraded to Simplified Chinese OCR |
+| Case citation | P0 | ✅ Included (public rulings from Judgments Online) |
+| Cross-validation | P0 | ✅ Included |
+| Missing clause detection | P1 | ✅ Included |
+| WeChat Mini Program | P2 | ❌ Deferred to M5 |
 
-### Phase 2 增强（M4-M6）
+### Phase 2 Enhancement (M4-M6)
 
-- 多合同对比审查
-- 自定义风险规则
-- 合同模板库
-- OCR 增强（手写体/印章）
-- 性能优化（P95 < 20s）
+- Multi-contract comparison review
+- Custom risk rules
+- Contract template library
+- OCR enhancement (handwriting / seals)
+- Performance optimization (P95 < 20s)
 
-### Phase 3 企业版（M7-M12）
+### Phase 3 Enterprise Edition (M7-M12)
 
-- 私有化部署
-- SSO/企业微信集成
-- API 开放平台
-- 行业专项版（制造业/科技/贸易）
+- On-premises deployment
+- SSO / Enterprise WeChat integration
+- API open platform
+- Industry-specific editions (Manufacturing / Tech / Trading)
