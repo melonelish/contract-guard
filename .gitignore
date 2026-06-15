@@ -1,0 +1,28 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets & Keys (关键!)
+.env
+.env.*
+*secret*
+*private*
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build
+dist/
+build/
+*.pyc
+__pycache__/
+
+# OS junk
+desktop.ini
