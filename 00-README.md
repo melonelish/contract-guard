@@ -116,4 +116,36 @@ ContractGuard/docs/
 
 ---
 
+## 5. Quick Start
+
+### 5.1 Preview the Prototype
+
+```bash
+# Open the interactive prototype directly in your browser
+open 04-technical/preview/index.html
+```
+
+The prototype demonstrates the core user experience: document viewer with inline risk marks, collapsible risk cards, dual-pane comparison, built-in editor (TipTap-based) with AI suggestion cards, and print-ready layout. No server required — open directly in any modern browser.
+
+### 5.2 Run Full Stack (Development)
+
+```bash
+# 1. Clone and configure
+cp .env.example .env       # Edit .env with your LLM API keys
+
+# 2. Start all services
+docker compose up -d       # PostgreSQL, Redis, ES, Milvus, MinIO, Vault
+
+# 3. Install backend dependencies
+pip install -e ".[dev]"    # See pyproject.toml for full list
+
+# 4. Start backend
+cd backend && uvicorn app.main:app --reload --port 8000
+
+# 5. Start frontend (separate terminal)
+cd frontend && npm install && npm run dev
+```
+
+---
+
 *This documentation system follows the "Evolution of Documentation Systems in the AI-Driven Development Era" standard, suitable for enterprise-grade AI project delivery at scale.*

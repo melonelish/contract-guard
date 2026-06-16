@@ -498,3 +498,74 @@ All agent communication routes through the **Supervisor**. Worker agents never c
 | Agent returns malformed output | Supervisor retry; after 3 failures, degrade output |
 | 3 retries exhausted | Mark clause as "review failed", note in report |
 | LLM service unavailable | Queue task; user sees "queued" status |
+
+---
+
+## 8. Drafter Agent (Draft-Review Loop)
+
+> For the complete draft-review isolation design, see `drafting-review-loop-and-annotation-bridge.md`.
+
+### 8.1 Responsibilities
+
+The Drafter Agent is activated in the **contract drafting flow** (separate from the core review flow). It generates contract clauses with explicit annotation of drafting rationale, enabling the subsequent Review Agent to attack assumptions without circular reasoning.
+
+### 8.2 Role in Architecture
+
+```
+User Request (e.g. "Draft a procurement contract")
+      │
+      ▼
+┌──────────────────────┐
+│   Supervisor Agent    │ ← Routes to Drafter (drafting) vs. Parser→Analyzer (reviewing)
+└──────┬───────────────┘
+       │
+       ▼
+┌──────────────────────┐
+│   Drafter Agent       │ ← Generates clauses with Annotation Bridge
+│   · Clause generation │
+│   · Assumption markup │
+│   · Source attribution│
+└──────┬───────────────┘
+       │  Annotated draft
+       ▼
+┌──────────────────────┐
+│   Review Agent Loop   │ ← Uses different model + KB; attacks assumptions, not content
+└──────────────────────┘
+```
+
+### 8.3 Four-Layer Isolation from Review Agent
+
+| Layer | Drafter | Reviewer | Why |
+|---|---|---|---|
+| **Model** | MiMo 2.5 | DeepSeek V4-Flash | Different reasoning blind spots |
+| **Knowledge Base** | Contract template library | Statute library + Case library | Drafting uses "how contracts are written"; review uses "what laws say" |
+| **Posture** | Constructive (build clauses) | Adversarial (attack assumptions) | Opposing incentives prevent echo chamber |
+| **Annotation Bridge** | Marks every drafting assumption explicitly | Only challenges annotated assumptions | Review targets rationale, not wording |
+
+### 8.4 Annotation JSON Schema
+
+```json
+{
+  "clause_id": "draft_cl_003",
+  "clause_text": "Liquidated damages shall be 20% of total contract value.",
+  "annotations": [
+    {
+      "type": "assumption",
+      "scope": "damages_ratio",
+      "value": "20%",
+      "rationale": "Based on Civil Code Art. 585 upper limit of 30%; 20% is industry median",
+      "confidence": 0.7,
+      "attack_surface": "If actual loss is lower, 20% may still be deemed excessive"
+    }
+  ]
+}
+```
+
+### 8.5 Agent Count Clarification
+
+| Flow | Agents Used |
+|---|---|
+| **Contract Review** (core) | Supervisor + Parser + Analyzer + Report + Validator = **5 Agents** |
+| **Contract Drafting** (auxiliary) | Supervisor + Drafter + (then back to review flow) = **6th Agent** |
+
+The Drafter is a **separate workflow entry point** and is not part of the standard review pipeline.
