@@ -33,6 +33,10 @@ lint:
 	cd backend && ruff check .
 	cd frontend && npx eslint . --ext ts,tsx
 
+# 启动 Mock LLM Server（前端独立开发用）
+mock:
+	python scripts/mock_llm.py
+
 # 健康检查
 health:
 	@echo "API:        $$(curl -s http://localhost:8000/api/v1/health | jq .status)"
