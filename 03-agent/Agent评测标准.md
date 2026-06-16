@@ -136,6 +136,179 @@ def hallucination_check(analysis, clause_text, law_db):
 
 ---
 
+## 七、自动化检测落地方案
+
+### 7.1 CI 门禁流程
+
+```
+PR Push 或 Prompt 变更
+      │
+      ▼
+┌─────────────────────┐
+│ 1. 规则引擎检测（<5s）│  ← 零 Token 消耗
+│    法条编号正则 + DB比对 │
+└────────┬────────────┘
+         │
+    ┌────▼────┐
+    │ 任何失败？│──→ ❌ 直接拒绝合并
+    └────┬────┘
+         │ 通过
+         ▼
+┌─────────────────────┐
+│ 2. 测试集验证（~2min）│  ← 需要 LLM 调用
+│    50条标注用例跑一遍  │
+└────────┬────────────┘
+         │
+    ┌────▼──────────┐
+    │ Type A > 0% ? │──→ ❌ 拒绝
+    │ Type B > 1% ? │──→ ❌ 拒绝
+    │ F1 < 0.85 ?   │──→ ⚠️ 警告但允许通过
+    └───────────────┘
+```
+
+### 7.2 规则引擎实现（Type A 零 Token 检测）
+
+```python
+# backend/tests/hallucination_rules.py
+import re
+from db import law_db
+
+def check_type_a_fake_statute(analysis: dict) -> list[dict]:
+    """规则引擎：检测虚假法条引用（零 LLM Token 消耗）"""
+    violations = []
+    
+    for ref in analysis.get("law_references", []):
+        # 规则 1: 格式校验
+        if not re.match(r'^[\u4e00-\u9fff]+条$|^Art(icle)?\.?\s*\d+', ref.get("article", "")):
+            violations.append({
+                "type": "A",
+                "subtype": "format_invalid",
+                "detail": f"法条编号格式异常: {ref['article']}"
+            })
+            continue
+        
+        # 规则 2: 数据库比对
+        db_record = law_db.query(
+            law_name=ref.get("law", ""),
+            article=ref.get("article", "")
+        )
+        
+        if not db_record:
+            violations.append({
+                "type": "A", 
+                "subtype": "not_found",
+                "detail": f"{ref['law']} {ref['article']} 在数据库中不存在"
+            })
+            continue
+        
+        # 规则 3: 有效日期检查
+        if db_record.get("status") == "repealed":
+            violations.append({
+                "type": "A",
+                "subtype": "repealed", 
+                "detail": f"{ref['law']} {ref['article']} 已于 {db_record['repealed_date']} 废止"
+            })
+    
+    return violations
+```
+
+### 7.3 最小测试集格式
+
+> 不要求 500+200 份完整标注（Phase 2），MVP 阶段先构建 50 条高质量标注用例作为 CI 门禁。
+
+```json
+{
+  "test_cases": [
+    {
+      "id": "tc_001",
+      "contract_type": "采购合同",
+      "clause_text": "逾期交货超过15日，甲方有权解除合同。",
+      "ground_truth": {
+        "risk_level": "medium",
+        "law_references": [
+          {"law": "民法典", "article": "第563条", "relevance": "direct"}
+        ],
+        "no_hallucination": true
+      },
+      "category": "regular"
+    },
+    {
+      "id": "tc_050",
+      "contract_type": "租赁合同",
+      "clause_text": "租金按照市场调节价执行。",
+      "ground_truth": {
+        "risk_level": "low",
+        "law_references": [],
+        "no_hallucination": true
+      },
+      "category": "edge_case_no_statute"
+    }
+  ],
+  "negative_cases": [
+    {
+      "id": "nc_001",
+      "purpose": "验证 Type A 检测——故意注入虚假法条",
+      "malformed_output": {
+        "law_references": [
+          {"law": "民法典", "article": "第9999条"}
+        ]
+      },
+      "expected_detection": {"type": "A", "subtype": "not_found"}
+    }
+  ]
+}
+```
+
+### 7.4 回归测试触发条件
+
+| 触发事件 | 跑哪些测试 | 阻塞合并？ |
+|---|---|---|
+| Prompt 微调（analyzer_system_prompt 变更） | 50 条测试集 | ✅ 是 |
+| LLM 模型切换（mimo2.5 → deepseek-v4-flash） | 50 条测试集 | ✅ 是 |
+| 代码级重构（无逻辑变更） | 规则引擎 5s 检测 | ✅ 是 |
+| Prompt 完全重写 | 50 条测试集 + 人工抽查 10 条 | ✅ 是 |
+| 新合同类型加入 | 扩充测试集 + 全量回归 | ⚠️ 允许通过但需记录 |
+
+### 7.5 CI 配置文件
+
+```yaml
+# .github/workflows/agent-hallucination-check.yml
+name: Agent Hallucination Gate
+
+on:
+  pull_request:
+    paths:
+      - 'backend/app/agents/**'
+      - 'backend/app/prompts/**'
+  push:
+    branches: [master, main]
+
+jobs:
+  rule_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run hallucination rule engine
+        run: python backend/tests/hallucination_rules.py --ci-mode
+      - name: Assert zero Type A violations
+        run: |
+          violations=$(cat test_output.json | jq '.type_a_count')
+          if [ "$violations" != "0" ]; then
+            echo "❌ Type A hallucination detected: $violations"
+            exit 1
+          fi
+        # Type A 零容忍，直接阻断
+  
+  regression_test:
+    needs: rule_check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run 50-case regression suite
+        run: python backend/tests/regression_suite.py --dataset=minimal_50.json
+      - name: Validate metrics
+        run: python backend/tests/validate_metrics.py --min-f1=0.85
+```
+
 ## 七、持续评测机制
 
 ```
