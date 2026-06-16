@@ -350,29 +350,154 @@ case_results = rag_search(
 
 ### 4.5 交叉校验流程
 
+> **背景问题**：100 页合同 60+ 条款，全条款文本 + 全分析结果一次性输入 LLM 交叉校验，Token 消耗可达 200K+，超出 MiMo 2.5 的 32K 和 DeepSeek V4-Flash 的 128K 上下文窗口。必须分层降维。
+
+#### 策略总览
+
 ```
-输入：所有条款的完整列表
-      │
-      ▼
-┌────────────────────────────────┐
-│ 提取所有涉及"数值/阈值"的条款     │
-│ 提取所有涉及"时间限制"的条款     │
-│ 提取所有涉及"责任划分"的条款     │
-└────────────┬───────────────────┘
-             │
-             ▼
-┌────────────────────────────────┐
-│ 两两比对检查                      │
-│                                 │
-│ 例：                              │
-│ Clause 7: "违约金为合同总额50%"    │
-│ Clause 15: "违约金上限不超过       │
-│           合同总额的30%"          │
-│                                 │
-│ Agent 推理：                      │
-│ → 50% > 30% → 条款冲突 🔴         │
-└────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│        交叉校验三层降维策略                            │
+│                                                      │
+│  Layer 1: 规则引擎（零 Token 消耗）                    │
+│  ├── 提取所有"数值型"字段，SQL 直接对比                 │
+│  ├── 提取所有"时间节点"，排序检测前后矛盾               │
+│  └── 提取所有"金额/比例"，计算矛盾                      │
+│                                                      │
+│  Layer 2: 分组 LLM（每组 ≤ 15 条款，≤ 32K tokens）    │
+│  ├── 按条款类别分组（付款、违约、质量、交付...）         │
+│  ├── 同组内条款逐对送入 LLM                            │
+│  └── 不同组之间由 Layer 3 接管                        │
+│                                                      │
+│  Layer 3: 摘要级跨组检测（摘要压缩比 ~1:20）            │
+│  ├── 每组输出 200 字摘要                               │
+│  ├── 跨组摘要送入 LLM 检测矛盾                         │
+│  └── 发现嫌疑 → 回溯原文精查                           │
+└─────────────────────────────────────────────────────┘
 ```
+
+#### Layer 1: 规则引擎（确定性检测）
+
+```python
+# 零 Token 消耗，SQL/代码直接检测
+def rule_based_cross_check(clauses: list[Clause]) -> list[Conflict]:
+    conflicts = []
+    
+    # 提取所有数值型字段
+    numeric_fields = extract_numeric_fields(clauses)
+    
+    # 同名字段不同值 → 直接标记冲突
+    for field_name, entries in numeric_fields.groupby("field_name"):
+        if len(set(e["value"] for e in entries)) > 1:
+            conflicts.append(Conflict(
+                type="numeric_mismatch",
+                field=field_name,
+                sources=[e["clause_id"] for e in entries],
+                values=list(set(e["value"] for e in entries)),
+                severity="high"
+            ))
+    
+    # 时间顺序矛盾
+    deadlines = extract_deadlines(clauses)
+    for i in range(len(deadlines) - 1):
+        if deadlines[i]["date"] > deadlines[i+1]["date"]:
+            conflicts.append(Conflict(
+                type="deadline_reversed",
+                earlier=deadlines[i+1]["label"],
+                later=deadlines[i]["label"]
+            ))
+    
+    return conflicts
+```
+
+#### Layer 2: 分组 LLM 校验
+
+```python
+# 将条款按类别分组，每组独立送入 LLM
+GROUPS = {
+    "支付条款组":    ["付款条件", "价格条款", "发票条款"],
+    "违约责任组":    ["违约金", "赔偿上限", "解除条件"],
+    "交付验收组":    ["交付时间", "验收标准", "质量保证"],
+    "知识产权组":    ["归属约定", "使用限制", "保密条款"],
+    "争议解决组":    ["管辖约定", "仲裁条款", "法律适用"],
+}
+
+async def group_level_cross_check(clauses: list[Clause]):
+    """Layer 2: 同组内 LLM 交叉校验"""
+    groups = group_clauses_by_category(clauses)
+    results = []
+    
+    for group_name, group_clauses in groups.items():
+        if len(group_clauses) <= 15:
+            # 组内条款数可控，直接送入 LLM
+            result = await llm_cross_check_group(group_name, group_clauses)
+            results.append(result)
+        else:
+            # 组内条款过多（罕见），拆分子组
+            sub_groups = split_into_chunks(group_clauses, chunk_size=10)
+            for sg in sub_groups:
+                result = await llm_cross_check_group(group_name, sg)
+                results.append(result)
+    
+    return results
+
+async def llm_cross_check_group(group_name: str, clauses: list[Clause]):
+    """每组的 LLM 交叉校验提示词"""
+    prompt = f"""
+请检测以下 {group_name} 中条款之间的矛盾：
+{format_clauses_for_llm(clauses)}
+
+输出格式：
+{{
+  "contradictions": [
+    {{
+      "clause_a": "cl_001",
+      "clause_b": "cl_007", 
+      "conflict_type": "numeric|logic|timeline",
+      "description": "两者关于违约金比例的规定矛盾"
+    }}
+  ]
+}}
+"""
+    return await llm_chat(prompt)
+```
+
+#### Layer 3: 摘要级跨组检测
+
+```python
+async def cross_group_summary_check(all_groups: dict):
+    """Layer 3: 每组生成摘要，跨组摘要级检测"""
+    
+    # 每组生成 ~200 字摘要（压缩比 ~1:20）
+    summaries = {}
+    for group_name, clauses in all_groups.items():
+        summary = await llm_chat(f"将以下条款内容归纳为200字摘要：{format_clauses_for_llm(clauses)}")
+        summaries[group_name] = summary
+    
+    # 跨组摘要送入 LLM
+    prompt = f"""
+以下是合同不同条款组的摘要，请检测跨组矛盾：
+{json.dumps(summaries, ensure_ascii=False, indent=2)}
+
+输出检测到的矛盾（如有）：
+"""
+    result = await llm_chat(prompt)
+    
+    # 如果摘要级发现嫌疑 → 回溯原文精查
+    if result.get("has_conflict"):
+        return await deep_dive_cross_check(result["suspect_groups"])
+    
+    return result
+```
+
+#### Token 消耗对比
+
+| 策略 | 60条款消耗 | 是否可用 |
+|---|---|---|
+| 原始"全部一次性送入" | ~200K tokens | ❌ 超 MiMo 32K / DeepSeek 128K |
+| Layer 1: 规则引擎 | 0 tokens | ✅ 确定性检测 |
+| Layer 2: 分组 LLM | ~6K × 5 组 = ~30K tokens | ✅ 远低于限制 |
+| Layer 3: 摘要级跨组 | ~1K × 5 组 + ~2K = ~7K tokens | ✅ |
+| **合计** | **~37K tokens** | **✅ 所有模型安全** |
 
 ### 4.6 System Prompt 核心片段
 
