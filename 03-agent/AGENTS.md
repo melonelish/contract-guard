@@ -903,3 +903,69 @@ CREATE TABLE knowledge_base_versions (
 ```
 
 每次更新必须记录版本号，回滚时切回上一版本。
+
+### 9.4 数据来源与合规（不使用爬虫）
+
+> ⚠️ **不使用网络爬虫**。自动抓取政府网站可能违反《数据安全法》和网站 ToS。
+
+| 数据来源 | 获取方式 | 合规性 |
+|---|---|---|
+| 全国人大官网（法律法规全文） | 人工下载 PDF → 解析入库 | ✅ 公开政府信息 |
+| 最高人民法院公报（指导案例） | 订阅官方公报电子版 → 人工标注入库 | ✅ 公开司法文书 |
+| 北大法宝 / 威科先行 | 商业 API 订阅（按调用量付费） | ✅ 商业授权 |
+| 用户反馈的假引用 | 人工核实 → 标记废止/更正 | ✅ 用户生成内容 |
+
+### 9.5 时态法规匹配（Time-Aware Statute Retrieval）
+
+> 核心问题：合同签署于 2019 年，2021 年《民法典》生效后旧法废止。2026 年审查这份老合同时，应该用 2019 年有效的法规还是 2026 年现行的？
+
+**策略：按合同签署日期匹配法规版本**
+
+```python
+def get_applicable_statutes(contract_sign_date: str, clause_category: str):
+    """返回合同签署日期时有效的法规（不是当前日期）"""
+    
+    # 法条库中每条记录有 effective_date 和 repealed_date
+    applicable_laws = rag_search(
+        query=clause_category,
+        knowledge_base="laws",
+        filters={
+            "effective_date": {"$lte": contract_sign_date},
+            "repealed_date": {"$gte": contract_sign_date, "$exists": False}
+            # repealed_date 为空 = 现行有效
+            # repealed_date >= sign_date = 签署时该法尚未废止
+        },
+        time_aware=True  # 启用时态检索
+    )
+    
+    # 如果签署时有效的法规已被废止
+    if applicable_laws.is_empty:
+        # 降级：使用当前有效法规 + 标注"签署时该法规已废止"
+        current_laws = rag_search(query=clause_category, 
+                                   filters={"status": "effective"})
+        for law in current_laws:
+            law["warning"] = f"此法规于{law['effective_date']}生效，"
+                             f"晚于合同签署日期{contract_sign_date}"
+    
+    return applicable_laws
+```
+
+| 场景 | 合同签署日期 | 审查日期 | 适用法规 |
+|---|---|---|---|
+| 旧合同新审 | 2019-06-01 | 2026-06-16 | 2019 年有效的《合同法》+ 标注"《民法典》已替代" |
+| 新合同新审 | 2026-05-01 | 2026-06-16 | 2026 年现行《民法典》 |
+| 过渡期合同 | 2020-08-01 | 2026-06-16 | 同时返回《合同法》和《民法典》，标注"过渡期，需人工判断适用条款" |
+
+### 9.6 法条废止后的存量合同处理
+
+```
+存量合同中引用了已废止法条 → 审查时识别 → 报告中标注：
+
+示例输出：
+  "law_reference": "《合同法》第XX条",
+  "status": "repealed",
+  "repealed_by": "《民法典》2021-01-01",
+  "note": "合同签署时该法规有效，现已被废止。建议以《民法典》第XX条重新审查。"
+```
+
+不删除旧法条，仅标记 `repealed_date` 字段，保证历史审查记录可回溯。
