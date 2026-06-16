@@ -233,7 +233,113 @@ cross_validation = call_analyzer_agent(
         → 标记 "此表格存在合并单元格，已尽力还原"
 ```
 
-### 3.4 System Prompt 核心片段
+### 3.4 三级文档处理策略
+
+> 除了 Token 窗口限制，实际合同文件还存在多语言、OCR 质量、复杂表格三类边界问题，需要分层处理。
+
+#### 策略总览
+
+```
+┌──────────────────────────────────────────────────────────┐
+│              合同文档三级处理策略                            │
+│                                                           │
+│  Layer 1: 文件级预处理（确定性，不消耗 LLM Token）             │
+│  ├── 语言检测：中英混合 → 分别用 jieba + NLTK 分词           │
+│  ├── OCR 质量评分：置信度 < 0.85 → 标记低质量区域              │
+│  └── 文件结构识别：目录/条款编号/签章区                       │
+│                                                           │
+│  Layer 2: 结构化提取（少量 LLM 辅助）                         │
+│  ├── 章节切分（基于编号模式 + LLM 验证边界）                  │
+│  ├── 表格提取（简单表格规则，复杂表格 LLM 辅助）               │
+│  └── 条款级分段（规则 + LLM 修正）                            │
+│                                                           │
+│  Layer 3: 验证与修复（LLM 精修）                              │
+│  ├── 低置信度 OCR 区域二次 LLM 纠错                           │
+│  ├── 中英混合术语一致性检查                                   │
+│  └── 表格跨页拼接 + 语义关系重建                              │
+└──────────────────────────────────────────────────────────┘
+```
+
+#### Layer 1: 文件级预处理
+
+```python
+def preprocess_document(file_bytes: bytes, file_type: str) -> PreprocessResult:
+    """零 Token 消耗的确定性预处理"""
+    
+    result = PreprocessResult()
+    
+    # 1.1 语言检测（影响后续分词和 ES 检索策略）
+    text = extract_text(file_bytes, file_type)
+    lang_profile = detect_language_mix(text)
+    result.language = lang_profile  # {"zh": 0.82, "en": 0.18}
+    
+    # 中英混合 → 双引擎分词
+    if lang_profile.is_mixed:
+        result.zh_segments = jieba_cut(chinese_parts)
+        result.en_segments = nltk_word_tokenize(english_parts)
+        # 为 ES 创建双字段索引：一个 ik_smart 分析器，一个 standard 分析器
+    
+    # 1.2 OCR 质量评分
+    if file_type in ("scanned_pdf", "image"):
+        ocr_result = ocr_with_confidence(text)
+        result.ocr_score = ocr_result.mean_confidence
+        result.low_conf_zones = [
+            z for z in ocr_result.zones if z.confidence < 0.85
+        ]  # 这些区域进入 Layer 3 二次处理
+    
+    # 1.3 结构识别
+    result.sections = identify_sections(text)       # 基于 "第X条"/"Article X" 模式
+    result.signature_zone = find_signature(text)    # 基于 "甲方签章"/"签字盖章" 定位
+    result.tables = detect_table_regions(text)      # 基于线条/对齐模式
+    
+    return result
+```
+
+#### Layer 2: 结构化提取
+
+| 文档类型 | 条款切分策略 | 失败率预估 | 补救措施 |
+|---|---|---|---|
+| 电子 PDF/Word | 基于编号规则匹配（"第X条"、"Article X"） | <2% | LLM 验证边界 |
+| 扫描件（OCR 高置信度，>0.9） | 规则 + 缩进模式 | ~5% | LLM 修正切分点 |
+| 扫描件（OCR 中置信度，0.7-0.9） | 规则 + LLM 逐页验证 | ~15% | Layer 3 二次纠错 |
+| 扫描件（OCR 低置信度，<0.7） | 全页 LLM 重解析 | ~30% | 人工介入提示 |
+
+```python
+def extract_clauses_tiered(preprocess: PreprocessResult) -> list[Clause]:
+    """按文件质量分级处理"""
+    
+    if preprocess.ocr_score >= 0.9:
+        # 高质量：规则为主，LLM 只做边界验证
+        clauses = rule_based_segmentation(preprocess)
+        return llm_verify_boundaries(clauses)  # 只验证 2% 的模糊边界
+    
+    elif preprocess.ocr_score >= 0.7:
+        # 中等质量：规则 + LLM 逐页验证
+        clauses = rule_based_segmentation(preprocess)
+        return llm_per_page_verify(clauses)    # 逐页 LLM 确认
+    
+    else:
+        # 低质量：跳过规则，直接 LLM 全解析
+        return llm_full_parse(preprocess)       # 成本高但准确率优先
+```
+
+#### Layer 3: 验证与修复
+
+- **低置信度 OCR 纠错**：对 Layer 1 标记的 `low_conf_zones`，送入 LLM 根据上下文推测正确文本（如 "3O%" → "30%"）
+- **中英混合术语一致性**：同一术语中英文同时出现时（如 "违约金/liquidated damages"），确保两边数值一致
+- **表格跨页拼接**：Page 5 的表格续到 Page 6 → LLM 判断是否同一表格 → 合并输出
+- **条款编号断层修复**：检测到"第3条 → 第5条"缺失第4条 → 标记为"疑似缺失条款"，供 Analyzer 交叉校验
+
+#### Parser 成本分级
+
+| 文档质量 | 使用模型 | 预估 Token/页 | 15页合同总 Token |
+|---|---|---|---|
+| 电子 PDF/Word | 规则为主 | ~200 | ~3,000 |
+| 扫描件（OCR≥0.9） | DeepSeek V4-Flash | ~400 | ~6,000 |
+| 扫描件（OCR 0.7-0.9） | DeepSeek V4-Flash | ~800 | ~12,000 |
+| 扫描件（OCR<0.7） | MiMo 2.5（高精度） | ~1,500 | ~22,500 |
+
+### 3.5 System Prompt 核心片段
 
 ```yaml
 你是一个合同文档解析专家（Parser Agent）。
