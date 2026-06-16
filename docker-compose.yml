@@ -67,7 +67,8 @@ services:
       timeout: 5s
       retries: 5
 
-  # ── Redis ──
+  # ── Redis (消息队列 + 缓存，开发环境单节点) ──
+  # 生产升级：Redis Sentinel 主从切换 + 分离消息队列(NATS)与缓存
   redis:
     image: redis:7-alpine
     container_name: contractguard-redis
