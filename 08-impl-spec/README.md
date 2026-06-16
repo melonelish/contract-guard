@@ -9,15 +9,12 @@
 
 | 文件 | 内容 | 对应架构文档 |
 |------|------|------------|
-| `01-project-structure.md` | 完整项目目录树 + 每个文件职责 | 系统架构设计 |
-| `02-domain-models.md` | 所有 Pydantic/SQLAlchemy 模型定义 | 数据库设计 |
-| `03-agent-specs.md` | 每个 Agent 的完整 I/O 接口 | AGENTS.md、Agent职责划分 |
-| `04-state-machine.md` | 审查状态机完整定义 | Agent协作协议 |
-| `05-api-contracts.md` | 每个 API 端点的请求/响应/错误码 | 接口设计 |
-| `06-llm-integration.md` | LLM 调用层实现规格 | LLM Wrapper Design |
-| `07-frontend-specs.md` | 前端类型/store/组件规格 | 双屏对比设计、PRD |
-| `08-integration-contracts.md` | 组件间调用协议 | 系统架构设计 |
-| `09-config-specs.md` | Settings 类 + 环境变量映射 | .env.example |
+| `START-HERE.md` | 编码顺序指南（8 个 Phase） | — |
+| `01-project-structure.md` | 完整项目目录树 | 系统架构设计 |
+| `02-agent-framework.md` | Agent 基类 + Orchestrator + Supervisor + MessageBus | AGENTS.md、Agent职责划分 |
+| `03-state-machine.md` | 审查状态机枚举 + 转换表 + 超时/重试配置 | Agent协作协议 |
+| `04-api-supplement.md` | 缺失的请求/响应体 + 错误码枚举 | 接口设计 |
+| `05-integration.md` | Redis 命名空间 + Settings 类 + 调用链 | 系统架构设计、.env.example |
 
 ## 如何使用
 

@@ -72,8 +72,11 @@ ContractGuard/docs/
 │   ├── 执行计划.md
 │   ├── WBS工作分解.md
 │   └── 风险管理.md
-└── 07-testing/                     ← 测试验收层（1篇）
-    └── 验收标准.md
+├── 07-testing/                     ← 测试验收层（1篇）
+│   └── 验收标准.md
+└── 08-impl-spec/                   ← AI 编码实现规格（给 Agent 直接执行）
+    ├── README.md                   ← 规格说明书说明
+    └── 实现规格说明书模板.md         ← 10 章：目录结构/模型/Agent I/O/状态机/API/LLM/前端/集成/配置/Worker
 ```
 
 ---
