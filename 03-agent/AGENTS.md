@@ -302,7 +302,7 @@ def preprocess_document(file_bytes: bytes, file_type: str) -> PreprocessResult:
 | 电子 PDF/Word | 基于编号规则匹配（"第X条"、"Article X"） | <2% | LLM 验证边界 |
 | 扫描件（OCR 高置信度，>0.9） | 规则 + 缩进模式 | ~5% | LLM 修正切分点 |
 | 扫描件（OCR 中置信度，0.7-0.9） | 规则 + LLM 逐页验证 | ~15% | Layer 3 二次纠错 |
-| 扫描件（OCR 低置信度，<0.7） | 全页 LLM 重解析 | ~30% | 人工介入提示 |
+| 扫描件（OCR 低置信度，<0.7） | 全页 LLM 重解析 | ~30% | **前端弹窗："检测到扫描件质量较低，建议上传文字版PDF以获得更准确的审查结果。是否继续？"** |
 
 ```python
 def extract_clauses_tiered(preprocess: PreprocessResult) -> list[Clause]:
