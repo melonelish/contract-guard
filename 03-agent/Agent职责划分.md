@@ -13,6 +13,7 @@
 | **Analyzer** | 条款风险分析 | 单条款 JSON | 风险分析结果 | 不编造法条 |
 | **Report** | 报告生成 | 分析结果集合 | 审查报告 JSON | 不改分析结果 |
 | **Validator** | 质量校验 | 审查报告 | 通过/不通过 | 不修改内容 |
+| **Drafter** | 条款起草生成 | 起草请求 + 合同类型 | 标注了Annotation的条款草案 | 不做审查判断 |
 
 ---
 
@@ -37,6 +38,10 @@
 | 交叉校验独立成Agent | 交叉校验的分析深度与单条款分析相同，共用同一套 RAG，复用量大 |
 | 表格解析独立Agent | 表格解析是 Parser 的子任务，依赖版面分析上下文，独立反而丢信息 |
 
+| 候选新增 | 理由 |
+|---|---|
+| Drafter 独立 Agent | 起草和审查必须四层隔离（模型/知识库/姿态/Annotation桥），防止AI自审自查形成循环论证。详见《起草审查闭环与Annotation桥.md》 |
+
 ---
 
 ## 三、每个 Agent 的资源配额
@@ -48,6 +53,7 @@
 | Analyzer | 20 | 60s | 512MB | 3 |
 | Report | 5 | 60s | 512MB | 2 |
 | Validator | 3 | 30s | 256MB | 1 |
+| Drafter | 3 | 90s | 512MB | 2 |
 
 ### 并发控制（防止 LLM API 超额）
 
@@ -59,6 +65,7 @@
   Analyzer:  70,000 TPM (70%) ← 主力消耗
   Report:    15,000 TPM (15%)
   Validator:  5,000 TPM (5%)
+  Drafter:   10,000 TPM (10%)
 
 当任一 Agent 达到配额 → 等待，不对全系统降级
 ```
@@ -78,13 +85,34 @@
   "duration_ms": 45000,
   "llm_calls": [
     {
-      "model": "gpt-4o",
+      "model": "mimo2.5",
       "prompt_tokens": 1200,
       "completion_tokens": 450,
       "duration_ms": 3800
     }
   ],
   "rag_calls": 2,
+  "status": "completed"
+}
+```
+
+```json
+// Drafter Agent 示例
+{
+  "agent_id": "drafter-01",
+  "task_id": "draft-abc456",
+  "started_at": "2026-06-15T10:30:00Z",
+  "completed_at": "2026-06-15T10:35:00Z",
+  "duration_ms": 300000,
+  "llm_calls": [
+    {
+      "model": "mimo2.5",
+      "prompt_tokens": 2500,
+      "completion_tokens": 8000,
+      "duration_ms": 45000
+    }
+  ],
+  "annotations_count": 32,
   "status": "completed"
 }
 ```
