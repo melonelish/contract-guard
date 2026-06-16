@@ -116,4 +116,36 @@ ContractGuard/docs/
 
 ---
 
+## 五、快速开始
+
+### 5.1 预览交互原型
+
+```bash
+# 直接在浏览器中打开交互原型
+start 04-technical/preview/index.html
+```
+
+原型展示了完整的用户体验：带风险标记的文档查看器、可折叠风险卡片、双屏对比、内置编辑器（基于 TipTap）及 AI 建议卡片、打印就绪布局。无需服务器，直接用浏览器打开即可。
+
+### 5.2 启动完整开发环境
+
+```bash
+# 1. 克隆并配置
+cp .env.example .env       # 编辑 .env 填入你的 LLM API Key
+
+# 2. 启动所有基础设施
+docker compose up -d       # PostgreSQL, Redis, ES, Milvus, MinIO, Vault
+
+# 3. 安装后端依赖
+pip install -e ".[dev]"    # 详见 pyproject.toml
+
+# 4. 启动后端
+cd backend && uvicorn app.main:app --reload --port 8000
+
+# 5. 启动前端（新终端）
+cd frontend && npm install && npm run dev
+```
+
+---
+
 *本文档体系参照《AI 驱动开发时代的文档体系演进》标准构建，适用于百万级企业 AI 项目交付。*
