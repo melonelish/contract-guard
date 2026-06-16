@@ -28,7 +28,7 @@ services:
       - ./backend:/app
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -145,6 +145,40 @@ services:
       timeout: 10s
       retries: 3
 
+  # ── Prometheus (Metrics) ──
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: contractguard-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=15d'
+
+  # ── Grafana (Dashboards) ──
+  grafana:
+    image: grafana/grafana:10.4.0
+    container_name: contractguard-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+
+  # ── API Gateway (Phase 2) ──
+  # MVP 阶段使用 FastAPI 中间件(CORSMiddleware + RateLimitMiddleware)替代 Kong
+  # Kong 在 Phase 2 引入，负责: 认证/限流/路由/日志
+  # kong:
+  #   image: kong:3.6
+  #   ...
+
   # ── Vault (Secret Management) ──
   vault:
     image: vault:1.15
@@ -164,3 +198,5 @@ volumes:
   milvus_data:
   etcd_data:
   minio_data:
+  prometheus_data:
+  grafana_data:
