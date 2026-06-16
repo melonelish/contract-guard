@@ -264,3 +264,124 @@ def on_agent_complete(task_id, agent_name, result):
 | 已分发但未完成的 Worker | 消息在 Redis Stream PEL 中 | Consumer Group XCLAIM 自动转给新 Worker |
 | 已完成但 Supervisor 未处理的 | 结果在 result stream 中 | Supervisor 重启后重新读取 |
 | 排队中（Redis 队列） | 消息在 Stream 中持久化 | Supervisor 重启后继续消费 |
+
+---
+
+## 断点续审机制
+
+> Supervisor 崩溃恢复解决的是"调度器挂了怎么办"，断点续审解决的是"某个 Worker 在第 12 分钟超时了怎么办"。两者互补。
+
+### 问题
+
+审查流水线是串行+并行的混合结构：
+
+```
+Parser(3min) → Analyzer×60(8min) → Report(2min) → Validator(2min) = 15min
+```
+
+如果 Analyzer 在第 48 条条款时 LLM 超时（第 12 分钟），传统做法是整个任务标记失败，用户重传合同 → 全部重跑。**已完成的 47 条条款白算了。**
+
+### 状态机设计
+
+```
+┌─────────────────────────────────────────────────────┐
+│              审查任务状态机                            │
+│                                                      │
+│  CREATED → PARSING → PARSED → ANALYZING             │
+│                                  │                   │
+│                    ┌─────────────┼─────────────┐     │
+│                    ▼             ▼             ▼     │
+│               ANALYZED     PARTIAL_FAIL    FAILED   │
+│                    │             │                   │
+│                    ▼             ▼                   │
+│               REPORTING → REPORTED → VALIDATING     │
+│                                              │      │
+│                                        ┌─────┴────┐ │
+│                                        ▼          ▼ │
+│                                    APPROVED   REJECTED│
+│                                        │          │  │
+│                                        ▼          ▼  │
+│                                    COMPLETED  RETRYING│
+└─────────────────────────────────────────────────────┘
+
+PARTIAL_FAIL: 部分条款分析失败，其余成功 → 重试仅处理失败条款
+```
+
+### 检查点持久化
+
+```python
+# Supervisor 在每个 Agent 完成后写检查点
+async def on_worker_complete(task_id: str, agent: str, result: dict):
+    """Worker 返回结果时立即持久化检查点"""
+    
+    # 1. 写检查点到 Redis（快速恢复）
+    checkpoint = {
+        "task_id": task_id,
+        "agent": agent,
+        "status": result.get("status"),
+        "completed_at": time.time(),
+        "result": result
+    }
+    redis.hset(
+        f"checkpoint:{task_id}", 
+        f"step:{agent}:{result.get('clause_id', 'all')}", 
+        json.dumps(checkpoint)
+    )
+    
+    # 2. 关键 Agent 结果同步落库（PostgreSQL，长期保存）
+    if agent in ("parser", "report", "validator"):
+        await db.save_checkpoint(checkpoint)
+    
+    # 3. 更新任务进度
+    total = int(redis.hget(f"task:{task_id}:meta", "total_steps") or 0)
+    done = redis.hincrby(f"task:{task_id}:meta", "completed_steps", 1)
+    progress = int(done / total * 100) if total else 0
+    
+    # 4. WebSocket 推送进度
+    await ws_publish(task_id, {"progress": progress, "agent": agent})
+```
+
+### 失败恢复流程
+
+```python
+async def retry_from_checkpoint(task_id: str, failed_clause_ids: list[str] = None):
+    """从上一个检查点恢复，只重跑失败的步骤"""
+    
+    # 1. 读取所有检查点
+    checkpoints = redis.hgetall(f"checkpoint:{task_id}")
+    
+    # 2. 找到最后一个成功的检查点
+    last_success = max(
+        [json.loads(v) for v in checkpoints.values()],
+        key=lambda x: x["completed_at"]
+    )
+    
+    # 3. 判断恢复起点
+    if last_success["agent"] == "parser":
+        # Parser 完成，Analyzer 部分失败 → 只重跑失败的条款
+        logger.info(f"断点续审：从 Analyzer 恢复，重试 {len(failed_clause_ids)} 条")
+        pending_clauses = [c for c in all_clauses if c.id in failed_clause_ids]
+        await dispatch_analyzer_parallel(task_id, pending_clauses)  # 只重试失败的
+        
+    elif last_success["agent"] == "report":
+        # Report 已完成，Validator 失败 → 直接重跑 Validator
+        logger.info("断点续审：从 Validator 恢复")
+        await dispatch_validator(task_id, last_success["result"])
+        
+    elif last_success["agent"] == "validator":
+        # 全部完成
+        return last_success["result"]
+    
+    # 4. 已有结果不重复算，直接合并
+    cached_results = [json.loads(v)["result"] for v in checkpoints.values() 
+                      if json.loads(v)["agent"] == "analyzer"]
+    # 将缓存结果和新结果合并后传给 Report Agent
+```
+
+### 成本节省
+
+| 场景 | 无断点续审 | 有断点续审 | 节省 |
+|---|---|---|---|
+| Parser 后 Analyzer 第 48/60 条超时 | 重跑全部 15min，~¥1.04 | 仅重试 12 条失败条款，~¥0.20 | **80%** |
+| Report 完成后 Validator 超时 | 重跑全部 15min | 仅重跑 Validator ~2min | **87%** |
+| 网络抖动导致 3 个 Analyzer 同时超时 | 重跑全部 | 仅重试 3 条 + 合并其余 57 条已有结果 | **91%** |
