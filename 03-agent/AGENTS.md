@@ -454,7 +454,98 @@ case_results = rag_search(
 )
 ```
 
-### 4.5 交叉校验流程
+### 4.5 RAG Chunk 策略
+
+> **核心原则**：法律条文检索，按编号切分优于按固定长度切分。一条完整法条被拆成碎片会导致上下文丢失、LLM 误判。
+
+#### Chunk 规则
+
+```python
+# 法条库的 chunk 策略
+CHUNK_STRATEGY = {
+    "method": "article_based",        # 按法条编号切分，而非固定长度
+    "min_chunk_chars": 50,            # 最短不短于 50 字符（例如简短的"第X条：略"）
+    "max_chunk_chars": 2000,          # 最长不超过 2000 字符（长法条不拆分）
+    
+    "metadata": {
+        "law_name": "民法典",
+        "chapter": "合同编",
+        "section": "违约责任",
+        "article": "第585条",
+        "effective_date": "2021-01-01",
+        "repealed_date": None          # None = 现行有效
+    }
+}
+```
+
+#### Legal-specific embedding 示例
+
+```
+法条原文（民法典第 585 条，共 ~400 字符）→ 不拆分，直接作为单个 chunk
+
+嵌入时的 text：
+  "[合同编·违约责任] 第585条 当事人可以约定一方违约时应当根据违约情况
+   向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。
+   约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求
+   予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据
+   当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，
+   还应当履行债务。"
+
+metadata：
+  {"law": "民法典", "chapter": "合同编", "article": "第585条",
+   "keywords": "违约金 调整 损失 过分高于",
+   "effective_date": "2021-01-01"}
+```
+
+#### 为什么不用固定长度 chunk？
+
+| 策略 | 效果 | 法律场景问题 |
+|---|---|---|
+| 固定 512 字符切分 | 一条法条可能被切为 2-3 块 | 后半段检索到但前半段的"可以"条件漏掉 → LLM 误判 |
+| **按法条编号切分** | **一条完整法条 = 一个 chunk** | **上下文完整，LLM 能正确理解"当事人可以...也可以..."的完整逻辑** |
+| 整章切分 | 噪声极大 | 检索到无关条款，浪费 token |
+
+#### Hybrid Search 配置
+
+```python
+def hybrid_retrieval(query: str, filters: dict):
+    """混合检索：向量相似度 + 关键词精确匹配"""
+    
+    # 向量检索（语义相似）
+    vector_results = milvus.search(
+        collection="laws",
+        data=[get_embedding(query)],
+        anns_field="embedding",
+        param={"metric_type": "COSINE", "params": {"nprobe": 10}},
+        limit=10,
+        expr=f'effective_date <= "{filters.get("date")}" and (repealed_date >= "{filters.get("date")}" or repealed_date == null)'
+    )
+    
+    # 关键词检索（精确匹配法条编号/法律名称）
+    keyword_results = es.search(
+        index="laws",
+        body={
+            "query": {
+                "bool": {
+                    "must": [{"match": {"full_text": query}}],
+                    "filter": [{"term": {"law_name": filters.get("law_name")}}]
+                }
+            }
+        }
+    )
+    
+    # RRF (Reciprocal Rank Fusion) 合并排序
+    return reciprocal_rank_fusion(vector_results, keyword_results, k=5)
+```
+
+#### Token 节省对比
+
+| Chunk 策略 | 单次检索 token | 召回完整度 |
+|---|---|---|
+| 固定 512 字符 | ~600 tokens（含碎片化的相邻 chunk） | 70%（后半段可能漏掉） |
+| 按法条编号 | ~400 tokens（一条完整法条） | 98%（完整上下文） |
+
+### 4.6 交叉校验流程
 
 > **背景问题**：100 页合同 60+ 条款，全条款文本 + 全分析结果一次性输入 LLM 交叉校验，Token 消耗可达 200K+，超出 MiMo 2.5 的 32K 和 DeepSeek V4-Flash 的 128K 上下文窗口。必须分层降维。
 
@@ -605,7 +696,7 @@ async def cross_group_summary_check(all_groups: dict):
 | Layer 3: 摘要级跨组 | ~1K × 5 组 + ~2K = ~7K tokens | ✅ |
 | **合计** | **~37K tokens** | **✅ 所有模型安全** |
 
-### 4.6 System Prompt 核心片段
+### 4.7 System Prompt 核心片段
 
 ```yaml
 你是一个合同风险分析专家（Analyzer Agent）。
