@@ -424,7 +424,91 @@ Analyzer Agent 是 ContractGuard 的智能核心。它接收 Parser Agent 输出
        输出：单条款分析结果JSON
 ```
 
-### 4.4 RAG 调用规范
+### 4.4 合同类型感知审查
+
+> 劳动合同审查和采购合同审查的风险重点完全不同——前者关注竞业限制和社保合规，后者关注验收标准和付款节奏。用同一套 prompt 审所有合同 = 漏掉类型特有风险。
+
+#### 类型→审查模板路由
+
+```python
+# Parser Agent 已输出 contract_type，Analyzer 根据类型加载对应模板
+CONTRACT_TEMPLATES = {
+    "采购合同": {
+        "focus_areas": [          # 优先审查的风险领域
+            "付款条件", "交付标准", "验收条款", "违约责任", "质保期"
+        ],
+        "weight_multiplier": {    # 高风险领域权重放大
+            "付款条件": 1.5,
+            "违约金": 1.3
+        },
+        "industry_standards": [   # 行业基准值（用于对比检测）
+            {"field": "预付款比例", "safe_range": "10%-30%"},
+            {"field": "质保期", "safe_range": "12-36个月"},
+            {"field": "逾期天数", "safe_range": "3-5个工作日"}
+        ],
+        "special_clauses": [      # 该类型常见缺失条款
+            "验收标准", "技术规格书引用", "知识产权归属"
+        ]
+    },
+    "劳动合同": {
+        "focus_areas": [
+            "薪酬结构", "竞业限制", "解除条件", "社保缴纳", "试用期"
+        ],
+        "weight_multiplier": {
+            "竞业限制": 2.0,     # 劳动争议最高发区域
+            "解除条件": 1.8
+        },
+        "industry_standards": [
+            {"field": "试用期", "safe_range": "1-6个月"},
+            {"field": "竞业限制补偿", "safe_range": "≥月薪30%"},
+            {"field": "加班费基数", "safe_range": "以合同约定工资为基数"}
+        ],
+        "special_clauses": [
+            "竞业限制补偿金", "保密协议", "年休假天数"
+        ]
+    },
+    "技术开发合同": {
+        "focus_areas": [
+            "知识产权归属", "验收标准", "维护期", "源代码交付"
+        ],
+        "industry_standards": [
+            {"field": "知识产权归属", "safe_range": "委托方所有"},
+            {"field": "缺陷责任期", "safe_range": "12个月"}
+        ]
+    }
+}
+
+# Supervisor 路由逻辑
+def route_analyzer(contract_type: str, clauses: list):
+    template = CONTRACT_TEMPLATES.get(contract_type, DEFAULT_TEMPLATE)
+    
+    # 注入到 Analyzer System Prompt
+    enhanced_prompt = ANALYZER_BASE_PROMPT.replace(
+        "{focus_areas}", template["focus_areas"]
+    ).replace(
+        "{weight_hints}", template["weight_multiplier"]
+    ).replace(
+        "{industry_benchmarks}", template["industry_standards"]
+    )
+    
+    return enhanced_prompt
+```
+
+#### 审查差异示例
+
+| 同一条款 | 采购合同审查 | 劳动合同审查 |
+|---|---|---|
+| "逾期超过X日" | 对比行业基准（3-5天），供应商侧风险 | 不适用（劳动合同无逾期条款） |
+| "按月支付报酬" | 检查付款节点是否绑定验收 | 检查加班费基数、社保缴纳基数 |
+| "解除合同通知期" | 关注 15日 vs 30日 对供应链影响 | 关注是否违反《劳动合同法》第40条 |
+
+#### 缺省处理
+
+- 未知合同类型 → 使用**通用模板**（覆盖所有大类，但不做领域特化放大）
+- 新合同类型高频出现 → 触发"合同类型扩充"流程，人工配置模板后加入 `CONTRACT_TEMPLATES`
+- 行业基准值更新 → 跟随知识库更新周期（每季度从新判例中提取基准值）
+
+### 4.5 RAG 调用规范
 
 ```python
 # Analyzer Agent 调用 RAG 的标准方式
@@ -454,7 +538,7 @@ case_results = rag_search(
 )
 ```
 
-### 4.5 RAG Chunk 策略
+### 4.6 RAG Chunk 策略
 
 > **核心原则**：法律条文检索，按编号切分优于按固定长度切分。一条完整法条被拆成碎片会导致上下文丢失、LLM 误判。
 
@@ -545,7 +629,7 @@ def hybrid_retrieval(query: str, filters: dict):
 | 固定 512 字符 | ~600 tokens（含碎片化的相邻 chunk） | 70%（后半段可能漏掉） |
 | 按法条编号 | ~400 tokens（一条完整法条） | 98%（完整上下文） |
 
-### 4.6 交叉校验流程
+### 4.7 交叉校验流程
 
 > **背景问题**：100 页合同 60+ 条款，全条款文本 + 全分析结果一次性输入 LLM 交叉校验，Token 消耗可达 200K+，超出 MiMo 2.5 的 32K 和 DeepSeek V4-Flash 的 128K 上下文窗口。必须分层降维。
 
@@ -696,7 +780,7 @@ async def cross_group_summary_check(all_groups: dict):
 | Layer 3: 摘要级跨组 | ~1K × 5 组 + ~2K = ~7K tokens | ✅ |
 | **合计** | **~37K tokens** | **✅ 所有模型安全** |
 
-### 4.7 System Prompt 核心片段
+### 4.8 System Prompt 核心片段
 
 ```yaml
 你是一个合同风险分析专家（Analyzer Agent）。
