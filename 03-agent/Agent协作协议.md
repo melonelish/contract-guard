@@ -193,3 +193,74 @@ TASK_TIMEOUT = {
 | 单个条款分析失败 | 标记为"审查失败"，其他条款正常输出 |
 | Validator 不通过 | 最多重新生成 2 次，仍不通过则降级输出 |
 | LLM API 错误 | 切换备用模型（MiMo 2.5 → DeepSeek V4-Flash） |
+
+---
+
+## Supervisor 崩溃恢复机制
+
+### 问题
+
+Supervisor 单实例进程崩溃时，内存中的任务编排状态（哪些 Agent 已分发、哪些结果已收集、任务进度百分比）会丢失。Redis Streams 保证消息不丢，但 Supervisor 恢复后不知道自己之前"做到哪了"。
+
+### 恢复策略
+
+```
+Supervisor 启动 / 崩溃后重新上线
+      │
+      ▼
+┌─────────────────────────────┐
+│ 1. 扫描 Redis 中所有 PENDING  │
+│    状态的任务 (task_status 键) │
+└────────────┬────────────────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│ 2. 逐任务重建编排状态          │
+│    ├── 查询已完成的 Agent 结果 │
+│    │   (parser:result:task_id │
+│    │    analyzer:result:*)    │
+│    ├── 识别未完成的 Agent 步骤 │
+│    └── 标记为 "恢复中"         │
+└────────────┬────────────────┘
+             │
+             ▼
+┌─────────────────────────────┐
+│ 3. 对未完成步骤重新分发         │
+│    ├── 已完成的 → 跳过         │
+│    └── 未完成的 → 重新写入     │
+│        Worker 队列            │
+└─────────────────────────────┘
+```
+
+### 状态持久化到 Redis
+
+```python
+# 每个任务的状态不再只存内存，同步写入 Redis
+def dispatch_agent(task_id, agent_name, payload):
+    # 写消息队列
+    redis.xadd(f"{agent_name}:tasks", payload)
+    
+    # 同时写状态追踪
+    redis.hset(f"task:{task_id}:state", agent_name, "dispatched")
+    redis.hset(f"task:{task_id}:meta", mapping={
+        "status": "in_progress",
+        "total_steps": "5",
+        "completed_steps": str(len(completed_steps)),
+        "last_update": time.time()
+    })
+    redis.expire(f"task:{task_id}:state", 86400)  # 24h TTL
+
+# Worker 完成后更新状态
+def on_agent_complete(task_id, agent_name, result):
+    redis.hset(f"task:{task_id}:state", agent_name, "completed")
+    redis.hset(f"task:{task_id}:state", f"{agent_name}:result", json.dumps(result))
+    redis.hincrby(f"task:{task_id}:meta", "completed_steps", 1)
+```
+
+### 恢复优先级
+
+| 任务类型 | 崩溃时状态 | 恢复策略 |
+|---|---|---|
+| 已分发但未完成的 Worker | 消息在 Redis Stream PEL 中 | Consumer Group XCLAIM 自动转给新 Worker |
+| 已完成但 Supervisor 未处理的 | 结果在 result stream 中 | Supervisor 重启后重新读取 |
+| 排队中（Redis 队列） | 消息在 Stream 中持久化 | Supervisor 重启后继续消费 |
