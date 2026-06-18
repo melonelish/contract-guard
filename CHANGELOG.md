@@ -1,23 +1,23 @@
-# 更新日志
+# Changelog
 
 ## Phase 0 - 2026-06-18
 
-### 新增
+### Added
 
-- 搭建 `backend/` FastAPI 服务骨架，补齐认证、合同列表/详情、健康检查与基础异常结构。
-- 新增 Alembic 初始化迁移、SQLAlchemy 模型和测试用例，完成 Phase 0 的最小后端闭环。
-- 搭建 `frontend/` React + TypeScript + Ant Design 工作台，提供登录、合同列表、合同详情三类基础页面。
-- 新增前端状态管理与 API 客户端，为后续真实审查流程接入预留接口。
-- 增加开发期 `Dockerfile`、前后端联调配置、`Makefile` 与示例环境变量，降低本地启动成本。
-- 新增多份技术与实现规格文档，补齐 API 契约、错误处理、测试夹具、页面状态机与多版预览稿。
+- Set up the `backend/` FastAPI service skeleton with authentication, contract list/detail endpoints, health checks, and a baseline error model.
+- Added the initial Alembic migration, SQLAlchemy models, and test cases to complete the minimum backend loop for Phase 0.
+- Built the `frontend/` React + TypeScript + Ant Design workspace with login, contract list, and contract detail pages.
+- Added frontend state stores and an API client layer to prepare for later integration with the real review pipeline.
+- Added development Dockerfiles, frontend/backend local integration config, `Makefile`, and sample environment variables to reduce local startup cost.
+- Added multiple technical and implementation-spec documents, including API contracts, error handling, testing fixtures, page state flows, and preview drafts.
 
-### 更新
+### Updated
 
-- 修订 `00-README.md`、`04-technical/`、`08-impl-spec/` 等核心文档，使 Phase 0 的代码落地与文档设计保持一致。
-- 补充仓库级治理入口 `AGENTS.md` 与 `CLAUDE.md`，统一 Agent 阅读顺序和执行边界。
-- 调整 `.gitignore`，排除日志、前端构建产物、依赖目录、测试缓存和临时 PDF，避免将本地产物推送到远程。
+- Revised `00-README.md`, `04-technical/`, and `08-impl-spec/` documents so the Phase 0 implementation stays aligned with the design docs.
+- Added repository-level governance entry points in `AGENTS.md` and `CLAUDE.md` to standardize agent reading order and execution boundaries.
+- Updated `.gitignore` to exclude logs, frontend build artifacts, dependency directories, test cache files, and temporary PDFs from commits.
 
-### 说明
+### Notes
 
-- 当前为 Phase 0 基础设施与工作台落地版本，重点在于把开发骨架、接口雏形和文档契约跑通。
-- 后续 Phase 1 可在此基础上继续接入真实上传、审查编排和报告生成链路。
+- This Phase 0 release focuses on landing the development skeleton, initial API surface, and document contracts.
+- Phase 1 can build on this baseline to connect real uploads, orchestration, and review-report generation.
