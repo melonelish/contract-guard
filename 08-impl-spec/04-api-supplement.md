@@ -70,9 +70,25 @@ class TriggerReviewRequest(BaseModel):
 ```python
 # POST /api/v1/reviews/{id}/feedback
 class FeedbackRequest(BaseModel):
-    clause_id: int | None = None   # null = 反馈整份报告
-    is_helpful: bool
+    clause_analysis_id: UUID
+    vote: Literal["accurate", "inaccurate"]
     comment: str | None = None
+```
+
+```python
+class TriggerReviewResponse(BaseModel):
+    review_id: UUID
+    task_id: UUID
+    status: Literal["queued"]
+    estimated_seconds: int
+```
+
+```python
+class RiskItemResponse(BaseModel):
+    clause_analysis_id: UUID
+    clause_id: UUID
+    clause_code: str
+    risk_level: Literal["high", "medium", "low"]
 ```
 
 ---
@@ -114,6 +130,28 @@ class ErrorCode(IntEnum):
 
     # 知识库 5xxx
     KB_UPDATE_FAILED = 5001
+```
+
+### HTTP 映射规则
+
+```python
+ERROR_HTTP_STATUS = {
+    ErrorCode.INVALID_REQUEST: 400,
+    ErrorCode.UNAUTHORIZED: 401,
+    ErrorCode.FORBIDDEN: 403,
+    ErrorCode.NOT_FOUND: 404,
+    ErrorCode.CONFLICT: 409,
+    ErrorCode.RATE_LIMITED: 429,
+    ErrorCode.INTERNAL_ERROR: 500,
+    ErrorCode.UNSUPPORTED_FILE_TYPE: 400,
+    ErrorCode.FILE_TOO_LARGE: 413,
+    ErrorCode.CONTRACT_EDIT_CONFLICT: 409,
+    ErrorCode.REVIEW_NOT_FOUND: 404,
+    ErrorCode.REVIEW_IN_PROGRESS: 409,
+    ErrorCode.REVIEW_FAILED: 500,
+    ErrorCode.LLM_UNAVAILABLE: 503,
+    ErrorCode.KB_UPDATE_FAILED: 500,
+}
 ```
 
 ---

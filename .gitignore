@@ -17,12 +17,18 @@ Thumbs.db
 # Dependencies
 node_modules/
 vendor/
+frontend/node_modules/
+backend/.pytest_cache/
+*.egg-info/
 
 # Build
 dist/
 build/
 *.pyc
 __pycache__/
+frontend/dist/
+.logs/
+C_tmp_*.pdf
 
 # OS junk
 desktop.ini

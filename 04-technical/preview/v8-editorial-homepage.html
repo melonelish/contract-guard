@@ -1,0 +1,3077 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContractGuard - 企业级智能合同审查系统</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f0e8;
+  --bg-soft: #fbf7f1;
+  --surface: rgba(255, 255, 255, 0.76);
+  --surface-strong: #ffffff;
+  --surface-soft: #f2ede5;
+  --ink: #18242f;
+  --ink-soft: #556170;
+  --ink-muted: #8a95a3;
+  --line: rgba(24, 36, 47, 0.10);
+  --line-strong: rgba(24, 36, 47, 0.18);
+  --brand: #2d5e89;
+  --brand-soft: rgba(45, 94, 137, 0.12);
+  --accent: #c88742;
+  --accent-soft: rgba(200, 135, 66, 0.14);
+  --sage: #5f7768;
+  --sage-soft: rgba(95, 119, 104, 0.12);
+  --danger: #b05a4e;
+  --danger-soft: rgba(176, 90, 78, 0.12);
+  --dark: #17222d;
+  --shadow-lg: 0 28px 72px rgba(25, 38, 52, 0.10);
+  --shadow-md: 0 18px 44px rgba(25, 38, 52, 0.07);
+  --shadow-sm: 0 10px 24px rgba(25, 38, 52, 0.05);
+  --radius-2xl: 38px;
+  --radius-xl: 30px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: "Manrope", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-serif: "Noto Serif SC", "STSong", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(200, 135, 66, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 10%, rgba(45, 94, 137, 0.11), transparent 24%),
+    linear-gradient(180deg, #f8f4ee 0%, #f5f0e8 44%, #f7f4ee 100%);
+  overflow-x: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  position: relative;
+  overflow: hidden;
+}
+
+.ambient-grid,
+.ambient-noise,
+.ambient-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ambient-grid {
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(24, 36, 47, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 36, 47, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.44), transparent 84%);
+}
+
+.ambient-noise {
+  opacity: 0.08;
+  background-image:
+    radial-gradient(circle at 20% 24%, rgba(24, 36, 47, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 72% 34%, rgba(24, 36, 47, 0.18) 0 1px, transparent 1px),
+    radial-gradient(circle at 38% 68%, rgba(24, 36, 47, 0.18) 0 1px, transparent 1px);
+  background-size: 120px 120px;
+}
+
+.ambient-rings::before,
+.ambient-rings::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(45, 94, 137, 0.10);
+}
+
+.ambient-rings::before {
+  width: 580px;
+  height: 580px;
+  right: -160px;
+  top: 80px;
+}
+
+.ambient-rings::after {
+  width: 420px;
+  height: 420px;
+  left: -140px;
+  top: 880px;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 40px;
+  transition: all 220ms ease;
+}
+
+.nav.scrolled {
+  background: rgba(248, 244, 236, 0.78);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(24, 36, 47, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #18344a 0%, #4b789f 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.brand-copy strong {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.brand-copy span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--ink-soft);
+  transition: color 160ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 160ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.56);
+  border-color: rgba(24, 36, 47, 0.10);
+  color: var(--ink);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #234c74 0%, #4b769f 100%);
+  box-shadow: 0 16px 32px rgba(45, 94, 137, 0.20);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 18px 36px rgba(45, 94, 137, 0.24);
+}
+
+.btn-accent {
+  color: #fff;
+  background: linear-gradient(135deg, #b57334 0%, #d19858 100%);
+  box-shadow: 0 16px 32px rgba(200, 135, 66, 0.20);
+}
+
+.btn-dark {
+  color: #fff;
+  background: linear-gradient(135deg, #17222d 0%, #2b3c4c 100%);
+  box-shadow: 0 16px 32px rgba(23, 34, 45, 0.18);
+}
+
+.magnetic {
+  transition: transform 120ms ease;
+}
+
+.hero {
+  position: relative;
+  padding: 126px 40px 42px;
+}
+
+.hero-layout {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(460px, 0.96fr);
+  gap: 42px;
+  align-items: center;
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-sm);
+  font-size: 12px;
+  color: var(--brand);
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), #efbe77);
+  box-shadow: 0 0 0 8px rgba(200, 135, 66, 0.10);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+
+.hero h1 {
+  margin: 24px 0 18px;
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.hero h1 em {
+  position: relative;
+  font-style: normal;
+  color: var(--brand);
+}
+
+.hero h1 em::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 8px;
+  height: 15px;
+  border-radius: 999px;
+  background: rgba(45, 94, 137, 0.12);
+  z-index: -1;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 16px;
+  line-height: 1.92;
+  color: var(--ink-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.hero-footnotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.hero-footnotes span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-footnotes span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(24, 36, 47, 0.18);
+}
+
+.hero-stage {
+  position: relative;
+  min-height: 708px;
+  perspective: 1500px;
+}
+
+.hero-stage::before {
+  content: "";
+  position: absolute;
+  inset: 72px 56px 140px 80px;
+  border-radius: 44px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(241, 235, 226, 0.60));
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-3deg);
+}
+
+.stage-card {
+  position: relative;
+  z-index: 1;
+  margin-top: 44px;
+  padding: 22px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-lg);
+  transform-style: preserve-3d;
+  transition: transform 220ms var(--ease);
+}
+
+.stage-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 2px 18px;
+}
+
+.stage-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.stage-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(24, 36, 47, 0.12);
+}
+
+.stage-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(241, 247, 252, 0.96);
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stage-status::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6fb8ff 0%, #3e77b0 100%);
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) 248px;
+  gap: 18px;
+}
+
+.contract-sheet {
+  min-height: 500px;
+  padding: 26px 26px 30px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf6ef 100%);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.contract-sheet::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.52), transparent);
+  transform: skewX(-18deg);
+  animation: scan-glow 8.2s linear infinite;
+}
+
+.sheet-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.sheet-title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.sheet-section {
+  margin-bottom: 22px;
+}
+
+.sheet-section h4 {
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(24, 36, 47, 0.10);
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.sheet-section p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.risk-mark {
+  display: inline;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.risk-mark.high {
+  color: var(--danger);
+  background: linear-gradient(180deg, transparent 48%, rgba(176, 90, 78, 0.14) 48%);
+}
+
+.risk-mark.medium {
+  color: #a06b2d;
+  background: linear-gradient(180deg, transparent 48%, rgba(200, 135, 66, 0.16) 48%);
+}
+
+.risk-mark.comment {
+  color: var(--brand);
+  background: linear-gradient(180deg, transparent 48%, rgba(45, 94, 137, 0.14) 48%);
+}
+
+.analysis-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rail-card {
+  padding: 16px 16px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.rail-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.rail-level {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.rail-level::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.rail-card.high .rail-level {
+  color: var(--danger);
+}
+
+.rail-card.high .rail-level::before {
+  background: var(--danger);
+}
+
+.rail-card.medium .rail-level {
+  color: var(--accent);
+}
+
+.rail-card.medium .rail-level::before {
+  background: var(--accent);
+}
+
+.rail-card.comment .rail-level {
+  color: var(--brand);
+}
+
+.rail-card.comment .rail-level::before {
+  background: var(--brand);
+}
+
+.rail-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.rail-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.floating-tag,
+.floating-panel {
+  position: absolute;
+  z-index: 2;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-md);
+}
+
+.floating-tag {
+  top: 6px;
+  right: 0;
+  width: 224px;
+  padding: 16px 18px;
+  animation: float-soft 5.8s ease-in-out infinite;
+}
+
+.floating-tag span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.floating-tag strong {
+  display: block;
+  font-size: 28px;
+  color: var(--brand);
+}
+
+.floating-tag small {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.floating-panel {
+  left: -34px;
+  bottom: 20px;
+  width: 284px;
+  padding: 16px;
+  animation: float-soft 7s ease-in-out infinite reverse;
+}
+
+.floating-panel .mini-kicker {
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.mini-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 0;
+  border-top: 1px dashed rgba(24, 36, 47, 0.10);
+  font-size: 12px;
+}
+
+.mini-row:first-of-type {
+  border-top: 0;
+}
+
+.trust-ribbon {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 20px 40px 0;
+}
+
+.trust-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.trust-chip {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-chip span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.trust-chip strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 20px;
+  color: var(--ink);
+}
+
+.trust-chip p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 88px 40px 0;
+}
+
+.section-head {
+  max-width: 650px;
+  margin-bottom: 30px;
+}
+
+.section-head.wide {
+  max-width: 760px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.kicker::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: rgba(24, 36, 47, 0.24);
+}
+
+.section-head h2 {
+  margin: 16px 0 12px;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.2vw, 48px);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.section-head p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.92;
+  color: var(--ink-soft);
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(0, 0.84fr);
+  gap: 22px;
+}
+
+.proof-main,
+.proof-side-card {
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-md);
+}
+
+.proof-main {
+  position: relative;
+  min-height: 440px;
+}
+
+.proof-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 28%, rgba(23, 32, 43, 0.70) 100%);
+}
+
+.proof-main-copy {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  color: #fff;
+}
+
+.proof-main-copy h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1.16;
+}
+
+.proof-main-copy p {
+  margin: 0;
+  max-width: 500px;
+  font-size: 13px;
+  line-height: 1.88;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.proof-badge {
+  min-width: 154px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.proof-badge span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.70);
+}
+
+.proof-badge strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 26px;
+}
+
+.proof-side {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 22px;
+}
+
+.proof-side-card {
+  position: relative;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(247, 242, 234, 0.92));
+}
+
+.proof-side-card.image-card {
+  display: grid;
+  grid-template-columns: 172px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.proof-side-card.image-card .image-wrap {
+  height: 214px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.proof-side-card h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.proof-side-card p,
+.proof-side-card li {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.proof-side-card ul {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.proof-side-card li {
+  display: flex;
+  gap: 10px;
+}
+
+.proof-side-card li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  margin-top: 8px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--brand), #7aa6d3);
+}
+
+.evidence-rack {
+  display: grid;
+  gap: 12px;
+}
+
+.evidence-chip {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(244, 238, 229, 0.92));
+  border: 1px solid rgba(24, 36, 47, 0.06);
+}
+
+.evidence-chip strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.evidence-chip span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+.evidence-chip code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--brand);
+}
+
+.product-preview {
+  padding: 26px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.preview-tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.preview-tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.preview-tab {
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.preview-tab.active {
+  background: linear-gradient(135deg, #234c74 0%, #4b769f 100%);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(45, 94, 137, 0.18);
+}
+
+.preview-caption {
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+.preview-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) 316px;
+  gap: 18px;
+}
+
+.preview-document,
+.preview-panel {
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf7f0 100%);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  overflow: hidden;
+}
+
+.preview-document {
+  padding: 24px 26px;
+}
+
+.preview-document-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.preview-document h3 {
+  margin: 0 0 18px;
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 22px;
+}
+
+.preview-block {
+  margin-bottom: 18px;
+}
+
+.preview-block h4 {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.preview-block p {
+  margin: 0;
+  font-family: var(--font-serif);
+  line-height: 1.95;
+  color: var(--ink-soft);
+}
+
+.preview-panel {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.preview-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 4px 2px;
+}
+
+.preview-panel-head strong {
+  font-size: 13px;
+}
+
+.preview-panel-head span {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.insight-card {
+  padding: 14px 14px 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.insight-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.insight-card .level {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.insight-card .level::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.insight-card.high .level {
+  color: var(--danger);
+}
+
+.insight-card.high .level::before {
+  background: var(--danger);
+}
+
+.insight-card.medium .level {
+  color: var(--accent);
+}
+
+.insight-card.medium .level::before {
+  background: var(--accent);
+}
+
+.insight-card.comment .level {
+  color: var(--brand);
+}
+
+.insight-card.comment .level::before {
+  background: var(--brand);
+}
+
+.insight-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.insight-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.76;
+  color: var(--ink-soft);
+}
+
+.insight-meta {
+  margin-top: 10px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.scope-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.scope-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.scope-row.reverse {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+}
+
+.scope-copy,
+.scope-visual {
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.scope-copy {
+  padding: 30px;
+}
+
+.scope-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 54px;
+  height: 54px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  background: rgba(45, 94, 137, 0.10);
+  color: var(--brand);
+}
+
+.scope-copy h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+}
+
+.scope-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.scope-copy ul {
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.scope-copy li {
+  display: flex;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.scope-copy li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  margin-top: 9px;
+  flex-shrink: 0;
+  background: rgba(24, 36, 47, 0.22);
+}
+
+.scope-visual {
+  position: relative;
+  min-height: 280px;
+}
+
+.scope-visual img {
+  filter: saturate(0.94) contrast(1.02);
+}
+
+.scope-badge {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  padding: 14px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.scope-badge span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.scope-badge strong {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.why-showcase {
+  display: grid;
+  grid-template-columns: minmax(320px, 360px) minmax(0, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.why-copy,
+.why-visual {
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.why-copy {
+  padding: 24px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.why-tabs {
+  display: grid;
+  gap: 10px;
+}
+
+.why-tab {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  background: rgba(255, 255, 255, 0.76);
+  text-align: left;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.why-tab strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.why-tab span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.why-tab.active {
+  background: linear-gradient(135deg, rgba(45, 94, 137, 0.12), rgba(255, 255, 255, 0.92));
+  border-color: rgba(45, 94, 137, 0.22);
+  box-shadow: var(--shadow-sm);
+}
+
+.why-copy h3 {
+  margin: 4px 0 0;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.why-copy p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.why-points {
+  display: grid;
+  gap: 12px;
+}
+
+.why-point {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(24, 36, 47, 0.10);
+}
+
+.why-point:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.why-point b {
+  flex-shrink: 0;
+  min-width: 42px;
+  font-size: 13px;
+  color: var(--brand);
+}
+
+.why-point span {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.why-visual {
+  position: relative;
+  min-height: 390px;
+}
+
+.why-visual img {
+  filter: saturate(0.95) contrast(1.03);
+}
+
+.why-overlay {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  width: min(360px, calc(100% - 56px));
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-md);
+}
+
+.why-overlay h4 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.why-overlay p {
+  margin: 0 0 14px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.why-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.why-metric {
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(248, 245, 239, 0.96), rgba(255, 255, 255, 0.96));
+  border: 1px solid rgba(24, 36, 47, 0.06);
+}
+
+.why-metric span {
+  display: block;
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+}
+
+.why-metric strong {
+  display: block;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.editorial-stack {
+  display: grid;
+  gap: 22px;
+}
+
+.editorial-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.editorial-row.reverse {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.editorial-card,
+.editorial-visual {
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+.editorial-card {
+  padding: 28px 28px 30px;
+}
+
+.editorial-card .overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.editorial-card .overline::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: rgba(24, 36, 47, 0.24);
+}
+
+.editorial-card h3 {
+  margin: 16px 0 12px;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  line-height: 1.24;
+  letter-spacing: -0.03em;
+}
+
+.editorial-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.editorial-notes {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.editorial-note {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(24, 36, 47, 0.10);
+}
+
+.editorial-note:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.editorial-note b {
+  flex-shrink: 0;
+  min-width: 88px;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.editorial-note span {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.editorial-visual {
+  position: relative;
+  min-height: 336px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(244, 238, 229, 0.96));
+}
+
+.visual-photo {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.visual-photo.one {
+  left: 28px;
+  top: 30px;
+  width: 58%;
+  height: 58%;
+}
+
+.visual-photo.two {
+  right: 28px;
+  bottom: 28px;
+  width: 44%;
+  height: 44%;
+}
+
+.visual-ui {
+  position: absolute;
+  left: 42%;
+  top: 18%;
+  width: 46%;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.visual-ui span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.visual-line {
+  height: 12px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  background: rgba(24, 36, 47, 0.08);
+}
+
+.visual-line.short {
+  width: 64%;
+}
+
+.visual-line.warning {
+  width: 82%;
+  background: linear-gradient(90deg, rgba(176, 90, 78, 0.14), rgba(176, 90, 78, 0.22));
+}
+
+.visual-line.info {
+  width: 72%;
+  background: linear-gradient(90deg, rgba(45, 94, 137, 0.14), rgba(45, 94, 137, 0.22));
+}
+
+.process-shell {
+  padding: 26px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-top {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.process-top::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 14%;
+  right: 14%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(45, 94, 137, 0.20), rgba(200, 135, 66, 0.22), rgba(95, 119, 104, 0.20));
+}
+
+.process-step {
+  position: relative;
+  z-index: 1;
+  padding: 14px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.process-step:hover,
+.process-step.active {
+  transform: translateY(-4px);
+  border-color: rgba(45, 94, 137, 0.22);
+  box-shadow: var(--shadow-sm);
+}
+
+.process-number {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.process-step:nth-child(1) .process-number {
+  background: rgba(45, 94, 137, 0.10);
+  color: var(--brand);
+}
+
+.process-step:nth-child(2) .process-number {
+  background: rgba(200, 135, 66, 0.12);
+  color: var(--accent);
+}
+
+.process-step:nth-child(3) .process-number {
+  background: rgba(95, 119, 104, 0.12);
+  color: var(--sage);
+}
+
+.process-step strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.process-step p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.process-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 18px;
+}
+
+.process-preview,
+.process-side {
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #faf7f0 100%);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  overflow: hidden;
+}
+
+.process-preview {
+  position: relative;
+  min-height: 336px;
+}
+
+.process-screen {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.process-screen.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.upload-scene,
+.analyze-scene,
+.deliver-scene {
+  height: 100%;
+  display: grid;
+  gap: 18px;
+}
+
+.upload-dropzone {
+  min-height: 220px;
+  border-radius: 24px;
+  border: 1px dashed rgba(24, 36, 47, 0.18);
+  background:
+    radial-gradient(circle at center, rgba(45, 94, 137, 0.08), transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.80), rgba(247, 242, 234, 0.94));
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.upload-dropzone strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.upload-dropzone span {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.upload-file-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.file-chip {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.file-chip strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.file-chip span {
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.analyze-scene {
+  grid-template-columns: 1.04fr 0.96fr;
+}
+
+.analysis-flow {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(247, 243, 236, 0.94);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.analysis-flow strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.flow-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px dashed rgba(24, 36, 47, 0.10);
+}
+
+.flow-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.flow-item span {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.flow-item b {
+  font-size: 11px;
+  color: var(--brand);
+}
+
+.analysis-board {
+  display: grid;
+  gap: 12px;
+}
+
+.board-card {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.board-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.board-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.deliver-scene {
+  grid-template-columns: 1fr 260px;
+}
+
+.deliver-report {
+  padding: 22px;
+}
+
+.deliver-report h4 {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-size: 24px;
+}
+
+.report-bars {
+  display: grid;
+  gap: 12px;
+}
+
+.report-bar {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(247, 243, 236, 0.94);
+}
+
+.report-bar strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.report-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(24, 36, 47, 0.08);
+  overflow: hidden;
+}
+
+.report-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.report-fill.high {
+  width: 84%;
+  background: linear-gradient(90deg, rgba(176, 90, 78, 0.70), rgba(176, 90, 78, 0.95));
+}
+
+.report-fill.medium {
+  width: 64%;
+  background: linear-gradient(90deg, rgba(200, 135, 66, 0.70), rgba(200, 135, 66, 0.95));
+}
+
+.report-fill.green {
+  width: 76%;
+  background: linear-gradient(90deg, rgba(95, 119, 104, 0.70), rgba(95, 119, 104, 0.95));
+}
+
+.deliver-actions {
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.deliver-chip {
+  padding: 14px;
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.deliver-chip strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.deliver-chip span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+.process-side {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.process-side h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.process-side p {
+  margin: 0 0 12px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.process-side-card {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.process-side-card strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.process-side-card span {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.faq-item {
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-item strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.86;
+  color: var(--ink-soft);
+}
+
+.cta {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 88px 40px 70px;
+}
+
+.cta-shell {
+  position: relative;
+  overflow: hidden;
+  padding: 42px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at top right, rgba(200, 135, 66, 0.12), transparent 22%),
+    radial-gradient(circle at left 30%, rgba(45, 94, 137, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(248, 244, 237, 0.92));
+  color: var(--ink);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-shell::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  right: -80px;
+  top: -80px;
+  border: 1px solid rgba(24, 36, 47, 0.08);
+}
+
+.cta-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 26%, rgba(255, 255, 255, 0.48), transparent 22%),
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.cta-copy h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.cta-copy p {
+  margin: 0;
+  max-width: 640px;
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cta-actions .btn-outline {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(24, 36, 47, 0.10);
+}
+
+.cta-actions .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.footer {
+  padding: 0 40px 40px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 720ms var(--ease), transform 720ms var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 135, 66, 0.18); }
+  50% { box-shadow: 0 0 0 10px rgba(200, 135, 66, 0); }
+}
+
+@keyframes scan-glow {
+  0% { transform: translateX(-180%) skewX(-18deg); }
+  100% { transform: translateX(420%) skewX(-18deg); }
+}
+
+@media (max-width: 1180px) {
+  .hero-layout,
+  .proof-grid,
+  .preview-stage,
+  .scope-row,
+  .scope-row.reverse,
+  .editorial-row,
+  .editorial-row.reverse,
+  .process-stage,
+  .deploy-grid,
+  .cta-content {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-grid,
+  .analyze-scene,
+  .deliver-scene {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-track,
+  .faq-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-side-card.image-card {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-side-card.image-card .image-wrap {
+    height: 240px;
+  }
+
+  .process-top {
+    grid-template-columns: 1fr;
+  }
+
+  .process-top::before {
+    display: none;
+  }
+
+  .floating-tag,
+  .floating-panel {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .hero-stage {
+    min-height: auto;
+  }
+
+  .visual-ui {
+    left: 38px;
+    right: 38px;
+    width: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav {
+    padding: 16px 18px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero,
+  .trust-ribbon,
+  .section,
+  .cta,
+  .footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero {
+    padding-top: 104px;
+  }
+
+  .trust-track,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-file-row {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-main-copy {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .cta-shell,
+  .process-shell,
+  .product-preview,
+  .stage-card {
+    border-radius: 24px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="ambient-grid"></div>
+  <div class="ambient-noise"></div>
+  <div class="ambient-rings"></div>
+
+  <nav class="nav" id="nav">
+    <div class="brand">
+      <div class="brand-mark">CG</div>
+      <div class="brand-copy">
+        <strong>ContractGuard</strong>
+        <span>Enterprise AI Contract Review</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#proof">产品价值</a>
+      <a href="#preview">产品预览</a>
+      <a href="#capabilities">核心能力</a>
+      <a href="#process">三步审查</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="./v9-auth-login.html">登录</a>
+      <a class="btn btn-primary magnetic" href="./v9-auth-login.html">进入系统</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-layout">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          企业级智能合同风险审查系统
+        </div>
+        <h1>在签字之前，<br>先看见真正的 <em>合同风险</em></h1>
+        <p>上传合同，AI 自动逐条审查，生成带法条依据、风险说明与修改建议的结果。它不应该只是一个“会标红的漂亮页面”，而应该是一套真的能进企业流程、能减少返工、能让团队愿意信任的工作系统。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary magnetic" href="./v9-auth-login.html">开始审查</a>
+          <a class="btn btn-outline" href="#preview">观看产品演示</a>
+          <a class="btn btn-dark" href="./v9-auth-login.html">申请企业方案</a>
+        </div>
+        <div class="hero-footnotes">
+          <span>法条溯源可追踪</span>
+          <span>审查到修改完整闭环</span>
+          <span>SaaS 与私有化部署双支持</span>
+        </div>
+      </div>
+
+      <div class="hero-stage reveal" id="heroStage">
+        <div class="floating-tag">
+          <span>本次审查结论</span>
+          <strong>5 处核心风险</strong>
+          <small>3 处高风险，2 处中风险。法条引用已校验，建议稿可直接进入编辑流程。</small>
+        </div>
+
+        <div class="stage-card" id="stageCard">
+          <div class="stage-topbar">
+            <div class="stage-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="stage-status">CT-2026-001 审查进行中</div>
+          </div>
+
+          <div class="stage-grid">
+            <div class="contract-sheet">
+              <div class="sheet-meta">
+                <span>采购合同 / PDF / 15 页</span>
+                <span>甲方：粤教科技 · 乙方：广林家具</span>
+              </div>
+              <div class="sheet-title">办公家具采购合同</div>
+
+              <div class="sheet-section">
+                <h4>第三条 付款条件</h4>
+                <p>甲方应于合同签订后三日内支付总额 <span class="risk-mark high">50% 作为预付款</span>；货到验收合格后支付 45%；剩余 5% 于质保期满后支付。</p>
+              </div>
+
+              <div class="sheet-section">
+                <h4>第七条 违约责任</h4>
+                <p>乙方逾期交付超过十五日，甲方有权解除合同，并要求乙方支付总额 <span class="risk-mark high">50% 违约金</span>。</p>
+              </div>
+
+              <div class="sheet-section">
+                <h4>第八条 验收标准</h4>
+                <p>产品应符合 <span class="risk-mark comment">相关国家质量标准</span>，甲方在收到产品后十五个工作日内组织验收。</p>
+              </div>
+
+              <div class="sheet-section">
+                <h4>第十二条 保密义务</h4>
+                <p>双方对于商业秘密承担 <span class="risk-mark medium">永久保密义务</span>，未经对方书面许可不得向任何第三方披露。</p>
+              </div>
+            </div>
+
+            <div class="analysis-rail">
+              <div class="rail-card high">
+                <div class="rail-level">HIGH RISK</div>
+                <strong>预付款比例过高</strong>
+                <p>50% 预付款显著高于常见区间，建议降低比例并绑定履约保函或节点验收安排。</p>
+              </div>
+              <div class="rail-card high">
+                <div class="rail-level">HIGH RISK</div>
+                <strong>违约金约定过重</strong>
+                <p>违约责任表达明显偏重，可能在司法实践中被调减，建议回收至合理范围。</p>
+              </div>
+              <div class="rail-card comment">
+                <div class="rail-level">LEGAL BASIS</div>
+                <strong>法条与说明已关联</strong>
+                <p>每条风险都挂接法条来源、引用说明与修改建议，不只是给出一个“AI 判断结果”。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-panel">
+          <div class="mini-kicker">企业落地关注点</div>
+          <div class="mini-row">
+            <span>平均审查耗时</span>
+            <strong>68 秒</strong>
+          </div>
+          <div class="mini-row">
+            <span>法条引用校验</span>
+            <strong>99.7%</strong>
+          </div>
+          <div class="mini-row">
+            <span>支持方式</span>
+            <strong>SaaS / 私有化</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-ribbon reveal">
+    <div class="trust-track">
+      <div class="trust-chip">
+        <span>Review Logic</span>
+        <strong>逐条判断</strong>
+        <p>不是关键词扫一遍，而是按条款语义、责任关系和上下文结构来审查。</p>
+      </div>
+      <div class="trust-chip">
+        <span>Action Output</span>
+        <strong>建议可执行</strong>
+        <p>不仅告诉你哪里有风险，还给出更接近真实业务写法的修改建议。</p>
+      </div>
+      <div class="trust-chip">
+        <span>Team Workflow</span>
+        <strong>团队可协作</strong>
+        <p>审查、编辑、复审、定稿、归档，应该是一条完整流程，不是一页孤立报告。</p>
+      </div>
+      <div class="trust-chip">
+        <span>Enterprise Ready</span>
+        <strong>适合企业上线</strong>
+        <p>支持权限隔离、审计留痕、多租户管理与后续私有化落地。</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="proof">
+    <div class="section-head wide reveal">
+      <div class="kicker">Evidence Layer</div>
+      <h2>把真实团队场景、真实审查证据和真实交付结果直接放到首页里</h2>
+    </div>
+
+    <div class="proof-grid">
+      <div class="proof-main reveal">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80" alt="法务团队讨论合同">
+        <div class="proof-main-copy">
+          <div>
+            <h3>让法务、业务与管理层，在同一份合同上说同一种语言</h3>
+            <p>系统把原文、风险解释、法条依据、修改建议和输出结果放在同一条链路里，团队在协作时看到的是一份可沟通、可判断、可定稿的工作成果，而不是零散结论。</p>
+          </div>
+          <div class="proof-badge">
+            <span>企业真正想要</span>
+            <strong>更少返工</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="proof-side">
+        <div class="proof-side-card image-card reveal">
+          <div class="image-wrap">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80" alt="合同与办公桌细节">
+          </div>
+          <div>
+            <h3>产品证据，比口号更能让人信服</h3>
+            <p>把报告样张、法条挂接、修改痕迹、审查留痕展示出来，比再写一段“为什么我们更专业”更有力量。</p>
+            <ul>
+              <li>逐条风险说明，不只报一个结论</li>
+              <li>建议稿可直接进入编辑，不用手动返工</li>
+              <li>每次处理形成可回溯的操作痕迹</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proof-side-card reveal">
+          <h3>可信感，应该来自密集证据，而不是大字标题</h3>
+          <div class="evidence-rack">
+            <div class="evidence-chip">
+              <div>
+                <strong>法条溯源</strong>
+                <span>每条风险挂接法条、条文说明与适用理由，降低“看起来像对，其实没有依据”的情况。</span>
+              </div>
+              <code>Law Trace</code>
+            </div>
+            <div class="evidence-chip">
+              <div>
+                <strong>版本留痕</strong>
+                <span>原文、建议稿、定稿三层对照，适合企业归档、复核和协作流转。</span>
+              </div>
+              <code>Audit Trail</code>
+            </div>
+            <div class="evidence-chip">
+              <div>
+                <strong>交付结果</strong>
+                <span>不是只显示“审查完成”，而是给出一条能落地执行的修改路径。</span>
+              </div>
+              <code>Actionable</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" id="preview">
+    <div class="section-head reveal">
+      <div class="kicker">Product Preview</div>
+      <h2>一眼看懂产品如何工作</h2>
+      <p>从审查、编辑到报告输出，完整展示产品的核心路径。</p>
+    </div>
+
+    <div class="product-preview reveal">
+      <div class="preview-tabs">
+        <div class="preview-tab-buttons">
+          <button class="preview-tab active" data-preview-tab="review">审查视图</button>
+          <button class="preview-tab" data-preview-tab="revise">修改建议</button>
+          <button class="preview-tab" data-preview-tab="report">报告输出</button>
+        </div>
+        <div class="preview-caption">审查、编辑、报告三种状态可切换查看</div>
+      </div>
+
+      <div class="preview-stage">
+        <div class="preview-document">
+          <div class="preview-document-top">
+            <span id="previewMetaLeft">合同正文 / 风险标注模式</span>
+            <span id="previewMetaRight">实时定位对应条款</span>
+          </div>
+          <h3 id="previewTitle">办公家具采购合同</h3>
+
+          <div class="preview-block">
+            <h4 id="previewBlockOneTitle">第三条 付款条件</h4>
+            <p id="previewBlockOneText">甲方应于合同签订后三日内支付总额 <span class="risk-mark high">50% 作为预付款</span>，建议改为分阶段付款并补充履约保障安排。</p>
+          </div>
+
+          <div class="preview-block">
+            <h4 id="previewBlockTwoTitle">第七条 违约责任</h4>
+            <p id="previewBlockTwoText">逾期交付超过十五日，甲方有权解除合同，并要求乙方支付 <span class="risk-mark medium">总额 50% 违约金</span>，系统建议改为更合理区间。</p>
+          </div>
+
+          <div class="preview-block">
+            <h4 id="previewBlockThreeTitle">第十二条 保密义务</h4>
+            <p id="previewBlockThreeText">双方承担 <span class="risk-mark comment">永久保密义务</span>，系统提示应约定明确期限与例外场景。</p>
+          </div>
+        </div>
+
+        <div class="preview-panel">
+          <div class="preview-panel-head">
+            <strong id="panelTitle">风险审查结果</strong>
+            <span id="panelMeta">5 处提示 / 逐条定位</span>
+          </div>
+
+          <div class="insight-card high">
+            <div class="level">HIGH RISK</div>
+            <strong id="insightOneTitle">预付款比例过高</strong>
+            <p id="insightOneText">当前比例偏高，建议降至更合理区间，并绑定节点交付或保函安排。</p>
+            <div class="insight-meta" id="insightOneMeta">条款 3.1 · 已关联法条来源</div>
+          </div>
+
+          <div class="insight-card medium">
+            <div class="level">MEDIUM RISK</div>
+            <strong id="insightTwoTitle">违约金约定需收敛</strong>
+            <p id="insightTwoText">系统建议将违约责任调整为与实际损失和司法裁量更匹配的表达。</p>
+            <div class="insight-meta" id="insightTwoMeta">条款 7.1 · 可一键应用建议</div>
+          </div>
+
+          <div class="insight-card comment">
+            <div class="level">LEGAL COMMENT</div>
+            <strong id="insightThreeTitle">保密条款建议设置期限</strong>
+            <p id="insightThreeText">除商业秘密外，普通保密信息通常建议约定明确期限、范围和披露例外。</p>
+            <div class="insight-meta" id="insightThreeMeta">条款 12.1 · 报告页可查看说明</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities">
+    <div class="section-head wide reveal">
+      <div class="kicker">Core Capabilities</div>
+      <h2>核心能力</h2>
+      <p>从文档进入系统，到风险形成结论，再到建议落地与企业协作，能力是连成一条线的。</p>
+    </div>
+
+    <div class="scope-stack">
+      <div class="scope-row reveal">
+        <div class="scope-copy">
+          <div class="scope-index">01</div>
+          <h3>让合同先被看懂，再被判断</h3>
+          <p>系统先把 PDF、Word、扫描件和图片里的正文、条款、表格、主体信息拆出来，再进入后续审查。这样给出的风险判断才不是漂在空中的一句话，而是建立在真实文档结构之上。</p>
+          <ul>
+            <li>支持多格式合同进入同一审查流程</li>
+            <li>自动提取正文、条款、表格与签章区域</li>
+            <li>扫描件按质量分层处理，避免低质识别误导结果</li>
+          </ul>
+        </div>
+        <div class="scope-visual">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="合同解析场景">
+          <div class="scope-badge">
+            <span>Structured Parsing</span>
+            <strong>先把合同读懂，再开始审查</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="scope-row reverse reveal">
+        <div class="scope-visual">
+          <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80" alt="风险判断场景">
+          <div class="scope-badge">
+            <span>Risk Reasoning</span>
+            <strong>逐条分析，而不是只做关键词命中</strong>
+          </div>
+        </div>
+        <div class="scope-copy">
+          <div class="scope-index" style="background:rgba(200,135,66,0.12);color:var(--accent)">02</div>
+          <h3>把风险说清楚，而不是只把条款标红</h3>
+          <p>围绕付款、责任、违约、验收、知识产权、保密等核心条款做上下文判断，并同步挂接法条依据、风险解释与修改建议，让结果更接近真实法务工作方式。</p>
+          <ul>
+            <li>高、中、低风险分层输出</li>
+            <li>法条依据与风险解释同步展示</li>
+            <li>建议修改尽量贴近业务实际写法</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scope-row reveal">
+        <div class="scope-copy">
+          <div class="scope-index" style="background:rgba(95,119,104,0.12);color:var(--sage)">03</div>
+          <h3>把审查结果推进到定稿，而不是停在报告页</h3>
+          <p>审查完成后，系统继续承接修改、复审、版本留痕和团队协作。对于企业来说，真正有价值的不是一份孤立报告，而是一套可以进入内部流程的定稿能力。</p>
+          <ul>
+            <li>支持建议稿直接进入编辑流程</li>
+            <li>局部修改后增量复审，减少重复耗时</li>
+            <li>适配团队协作、权限控制与版本追踪</li>
+          </ul>
+        </div>
+        <div class="scope-visual">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="团队协作与定稿场景">
+          <div class="scope-badge">
+            <span>Review To Delivery</span>
+            <strong>从审查走到修改、复审与定稿</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="editorial">
+    <div class="section-head wide reveal">
+      <div class="kicker">Why ContractGuard</div>
+      <h2>为什么选择 ContractGuard</h2>
+      <p>把审查能力、修改效率和企业协作放进同一个系统里，才是一套真正能落地的合同产品。</p>
+    </div>
+
+    <div class="why-showcase reveal">
+      <div class="why-copy">
+        <div class="why-tabs">
+          <button class="why-tab active" data-why="logic">
+            <strong>专业判断路径</strong>
+            <span>审查逻辑、依据来源与风险结论同屏呈现</span>
+          </button>
+          <button class="why-tab" data-why="revision">
+            <strong>修改闭环能力</strong>
+            <span>不只发现问题，还把建议稿、编辑动作和复审串起来</span>
+          </button>
+          <button class="why-tab" data-why="workflow">
+            <strong>企业协作落地</strong>
+            <span>适合团队分工、版本追踪和企业内部真实流程</span>
+          </button>
+        </div>
+
+        <h3 id="whyTitle">更接近专业法务的判断路径</h3>
+        <p id="whyText">系统先做结构化解析，再做风险判断、法条匹配、交叉校验与结果组织。重点不是“标红了哪里”，而是为什么标红、结论依据是什么、建议修改之后会降低什么风险。</p>
+
+        <div class="why-points">
+          <div class="why-point">
+            <b>路径</b>
+            <span id="whyPointOne">原文定位、风险解释、法条来源、修改建议在同一条链路里连续呈现。</span>
+          </div>
+          <div class="why-point">
+            <b>结果</b>
+            <span id="whyPointTwo">业务团队能看懂风险，法务团队能快速判断建议是否可采纳。</span>
+          </div>
+          <div class="why-point">
+            <b>价值</b>
+            <span id="whyPointThree">让审查结论更像真实工作成果，而不是一段孤立的 AI 输出。</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-visual">
+        <img id="whyImage" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80" alt="法务判断与分析场景">
+        <div class="why-overlay">
+          <h4 id="whyOverlayTitle">审查逻辑可被理解</h4>
+          <p id="whyOverlayText">不是只有风险等级，而是把判断逻辑、依据来源和建议动作一起展示出来。</p>
+          <div class="why-metrics">
+            <div class="why-metric">
+              <span id="whyMetricLabelOne">判断链路</span>
+              <strong id="whyMetricValueOne">可追踪</strong>
+            </div>
+            <div class="why-metric">
+              <span id="whyMetricLabelTwo">建议表达</span>
+              <strong id="whyMetricValueTwo">可执行</strong>
+            </div>
+            <div class="why-metric">
+              <span id="whyMetricLabelThree">团队理解</span>
+              <strong id="whyMetricValueThree">更一致</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="section-head wide reveal">
+      <div class="kicker">Three Steps</div>
+      <h2>从上传合同到输出建议稿与报告，三步完成完整审查流程</h2>
+      <p>上传文件、AI 审查、定稿输出在同一条流程里完成，结果可查看、可协作、可交付。</p>
+    </div>
+
+    <div class="process-shell reveal">
+      <div class="process-top">
+        <div class="process-step active" data-step="upload">
+          <div class="process-number">1</div>
+          <strong>上传合同</strong>
+          <p>支持 PDF、Word、扫描件和图片。入口直接，上传后自动识别合同类型与结构。</p>
+        </div>
+        <div class="process-step" data-step="analyze">
+          <div class="process-number">2</div>
+          <strong>AI 自动审查</strong>
+          <p>逐条分析、法条关联、交叉校验同步进行，过程可见，结果不是黑箱。</p>
+        </div>
+        <div class="process-step" data-step="deliver">
+          <div class="process-number">3</div>
+          <strong>定稿与输出</strong>
+          <p>进入修改建议、形成报告、留存版本，真正把审查结果变成可交付成果。</p>
+        </div>
+      </div>
+
+      <div class="process-stage">
+        <div class="process-preview">
+          <div class="process-screen active" data-screen="upload">
+            <div class="upload-scene">
+              <div class="upload-dropzone">
+                <div>
+                  <strong>拖拽上传合同</strong>
+                  <span>支持 PDF / DOCX / PNG / JPG，最大 50MB</span>
+                </div>
+              </div>
+              <div class="upload-file-row">
+                <div class="file-chip">
+                  <strong>采购合同.pdf</strong>
+                  <span>12 页 · OCR 自动识别</span>
+                </div>
+                <div class="file-chip">
+                  <strong>技术服务协议.docx</strong>
+                  <span>9 页 · 保留文本结构</span>
+                </div>
+                <div class="file-chip">
+                  <strong>扫描合同.jpg</strong>
+                  <span>自动提取正文与签章</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-screen" data-screen="analyze">
+            <div class="analyze-scene">
+              <div class="analysis-flow">
+                <strong>当前处理流程</strong>
+                <div class="flow-item">
+                  <span>Parser 结构化解析合同正文与表格</span>
+                  <b>完成</b>
+                </div>
+                <div class="flow-item">
+                  <span>Analyzer 逐条识别高风险与法条依据</span>
+                  <b>进行中</b>
+                </div>
+                <div class="flow-item">
+                  <span>Validator 校验来源与报告完整性</span>
+                  <b>待执行</b>
+                </div>
+              </div>
+              <div class="analysis-board">
+                <div class="board-card">
+                  <strong>高风险：违约责任过重</strong>
+                  <p>违约金比例显著偏高，建议改为更接近司法裁量区间的表达。</p>
+                </div>
+                <div class="board-card">
+                  <strong>中风险：验收标准模糊</strong>
+                  <p>建议补充明确国标、方法、节点与争议处理方式。</p>
+                </div>
+                <div class="board-card">
+                  <strong>法条关联已挂接</strong>
+                  <p>报告输出时可同步查看来源、解释与适用理由。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="process-screen" data-screen="deliver">
+            <div class="deliver-scene">
+              <div class="deliver-report">
+                <h4>审查结果报告</h4>
+                <div class="report-bars">
+                  <div class="report-bar">
+                    <strong>高风险处理建议覆盖率</strong>
+                    <div class="report-track"><div class="report-fill high"></div></div>
+                  </div>
+                  <div class="report-bar">
+                    <strong>中风险解释清晰度</strong>
+                    <div class="report-track"><div class="report-fill medium"></div></div>
+                  </div>
+                  <div class="report-bar">
+                    <strong>定稿流程留痕完整性</strong>
+                    <div class="report-track"><div class="report-fill green"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="deliver-actions">
+                <div class="deliver-chip">
+                  <strong>修改建议稿</strong>
+                  <span>可直接进入编辑器应用 AI 建议，保留原文与建议稿对照。</span>
+                </div>
+                <div class="deliver-chip">
+                  <strong>报告导出</strong>
+                  <span>支持 PDF、审查摘要与企业内部归档留存。</span>
+                </div>
+                <div class="deliver-chip">
+                  <strong>版本快照</strong>
+                  <span>每次处理形成历史记录，适合协作和责任追踪。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-side">
+          <div>
+            <h4>审查过程全程可见</h4>
+            <p>每一步当前状态、风险结果与最终输出都在同一界面内连续呈现。</p>
+          </div>
+          <div class="process-side-card">
+            <strong>文件接入</strong>
+            <span>支持 PDF、Word、扫描件和图片，上传后自动识别正文结构与关键条款。</span>
+          </div>
+          <div class="process-side-card">
+            <strong>风险定位</strong>
+            <span>逐条展示风险等级、法条依据和修改建议，业务与法务能同步判断。</span>
+          </div>
+          <div class="process-side-card">
+            <strong>结果输出</strong>
+            <span>直接进入建议稿、导出审查报告并保留版本快照，减少重复返工。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-shell reveal">
+      <div class="cta-content">
+        <div class="cta-copy">
+          <h2>开始让每一份合同审查更快、更稳、更可交付</h2>
+          <p>上传合同后即可获得逐条风险说明、法条依据与可执行修改建议，首轮审查、复核和报告输出在一个系统里完成。</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-accent magnetic" href="./v9-auth-login.html">开始体验</a>
+          <a class="btn btn-outline" href="./v9-auth-login.html">预约演示</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <strong>支持哪些合同文件格式？</strong>
+        <p>支持 PDF、DOCX、扫描件与常见图片格式，上传后自动完成文本提取、结构识别与条款切分。</p>
+      </div>
+      <div class="faq-item reveal">
+        <strong>能否直接给出修改建议？</strong>
+        <p>系统会同步输出风险解释、法条依据和建议稿，法务可直接进入编辑与复审流程，不用手动二次整理。</p>
+      </div>
+      <div class="faq-item reveal">
+        <strong>是否适合多人协作使用？</strong>
+        <p>支持版本留痕、结果对照和团队协同处理，业务、法务和管理层可以围绕同一份合同连续推进。</p>
+      </div>
+      <div class="faq-item reveal">
+        <strong>是否支持企业私有化部署？</strong>
+        <p>支持 SaaS 使用方式与企业私有化部署方案，可根据数据隔离、权限控制和内部系统接入要求进行配置。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 ContractGuard · Enterprise AI Contract Review
+  </div>
+</div>
+
+<script>
+const nav = document.getElementById("nav");
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 18);
+});
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.16 });
+
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+const heroStage = document.getElementById("heroStage");
+const stageCard = document.getElementById("stageCard");
+
+if (heroStage && stageCard) {
+  heroStage.addEventListener("mousemove", (event) => {
+    const rect = heroStage.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    stageCard.style.transform = `rotateY(${x * 7}deg) rotateX(${y * -7}deg) translateZ(0)`;
+  });
+
+  heroStage.addEventListener("mouseleave", () => {
+    stageCard.style.transform = "rotateY(0deg) rotateX(0deg)";
+  });
+}
+
+document.querySelectorAll(".magnetic").forEach((button) => {
+  button.addEventListener("mousemove", (event) => {
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
+    button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+  });
+
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "translate(0, 0)";
+  });
+});
+
+const whyStates = {
+  logic: {
+    title: "更接近专业法务的判断路径",
+    text: "系统先做结构化解析，再做风险判断、法条匹配、交叉校验与结果组织。重点不是“标红了哪里”，而是为什么标红、结论依据是什么、建议修改之后会降低什么风险。",
+    pointOne: "原文定位、风险解释、法条来源、修改建议在同一条链路里连续呈现。",
+    pointTwo: "业务团队能看懂风险，法务团队能快速判断建议是否可采纳。",
+    pointThree: "让审查结论更像真实工作成果，而不是一段孤立的 AI 输出。",
+    overlayTitle: "审查逻辑可被理解",
+    overlayText: "不是只有风险等级，而是把判断逻辑、依据来源和建议动作一起展示出来。",
+    metricLabelOne: "判断链路",
+    metricValueOne: "可追踪",
+    metricLabelTwo: "建议表达",
+    metricValueTwo: "可执行",
+    metricLabelThree: "团队理解",
+    metricValueThree: "更一致",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80"
+  },
+  revision: {
+    title: "把审查结果推进到定稿，而不是停在报告页",
+    text: "审查完成后，系统继续承接修改、复审、版本留痕和团队协作。对于企业来说，真正有价值的不是一份孤立报告，而是一套可以进入内部流程的定稿能力。",
+    pointOne: "支持建议稿直接进入编辑流程。",
+    pointTwo: "局部修改后增量复审，减少重复耗时。",
+    pointThree: "适配团队协作、权限控制和版本追踪。",
+    overlayTitle: "修改闭环可继续推进",
+    overlayText: "建议稿、编辑动作和复审路径能够连成一条完整链路。",
+    metricLabelOne: "修改入口",
+    metricValueOne: "直接",
+    metricLabelTwo: "复审方式",
+    metricValueTwo: "增量",
+    metricLabelThree: "交付结果",
+    metricValueThree: "定稿",
+    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80"
+  },
+  workflow: {
+    title: "企业最终愿意买单的，是它真的能进入流程",
+    text: "合同系统不是给一个人单独玩的，而是给企业团队协作使用的。谁上传、谁修改、谁确认、哪一版定稿、后续怎么追溯，这些问题如果首页说不清楚，用户就很难相信这是一套可以落地的产品。",
+    pointOne: "版本快照、审查日志、留痕归档可以稳定沉淀。",
+    pointTwo: "团队分工、角色权限与责任边界更清晰。",
+    pointThree: "把“能用”做成“能接流程”，才是从 demo 走向系统的关键。",
+    overlayTitle: "企业流程可被承接",
+    overlayText: "版本、权限、审计和协作都在同一套系统里完成。",
+    metricLabelOne: "版本",
+    metricValueOne: "可追溯",
+    metricLabelTwo: "权限",
+    metricValueTwo: "可分层",
+    metricLabelThree: "流程",
+    metricValueThree: "可承接",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1400&q=80"
+  }
+};
+
+const whyButtons = document.querySelectorAll("[data-why]");
+const whyTitle = document.getElementById("whyTitle");
+const whyText = document.getElementById("whyText");
+const whyPointOne = document.getElementById("whyPointOne");
+const whyPointTwo = document.getElementById("whyPointTwo");
+const whyPointThree = document.getElementById("whyPointThree");
+const whyOverlayTitle = document.getElementById("whyOverlayTitle");
+const whyOverlayText = document.getElementById("whyOverlayText");
+const whyMetricLabelOne = document.getElementById("whyMetricLabelOne");
+const whyMetricValueOne = document.getElementById("whyMetricValueOne");
+const whyMetricLabelTwo = document.getElementById("whyMetricLabelTwo");
+const whyMetricValueTwo = document.getElementById("whyMetricValueTwo");
+const whyMetricLabelThree = document.getElementById("whyMetricLabelThree");
+const whyMetricValueThree = document.getElementById("whyMetricValueThree");
+const whyImage = document.getElementById("whyImage");
+
+function setWhyState(key) {
+  const state = whyStates[key];
+  if (!state) return;
+  whyTitle.textContent = state.title;
+  whyText.textContent = state.text;
+  whyPointOne.textContent = state.pointOne;
+  whyPointTwo.textContent = state.pointTwo;
+  whyPointThree.textContent = state.pointThree;
+  whyOverlayTitle.textContent = state.overlayTitle;
+  whyOverlayText.textContent = state.overlayText;
+  whyMetricLabelOne.textContent = state.metricLabelOne;
+  whyMetricValueOne.textContent = state.metricValueOne;
+  whyMetricLabelTwo.textContent = state.metricLabelTwo;
+  whyMetricValueTwo.textContent = state.metricValueTwo;
+  whyMetricLabelThree.textContent = state.metricLabelThree;
+  whyMetricValueThree.textContent = state.metricValueThree;
+  whyImage.src = state.image;
+
+  whyButtons.forEach((button) => {
+    button.classList.toggle("active", button.getAttribute("data-why") === key);
+  });
+}
+
+whyButtons.forEach((button) => {
+  button.addEventListener("click", () => setWhyState(button.getAttribute("data-why")));
+});
+
+setWhyState("logic");
+
+const previewStates = {
+  review: {
+    metaLeft: "合同正文 / 风险标注模式",
+    metaRight: "实时定位对应条款",
+    title: "办公家具采购合同",
+    blockOneTitle: "第三条 付款条件",
+    blockOneText: '甲方应于合同签订后三日内支付总额 <span class="risk-mark high">50% 作为预付款</span>，建议改为分阶段付款并补充履约保障安排。',
+    blockTwoTitle: "第七条 违约责任",
+    blockTwoText: '逾期交付超过十五日，甲方有权解除合同，并要求乙方支付 <span class="risk-mark medium">总额 50% 违约金</span>，系统建议改为更合理区间。',
+    blockThreeTitle: "第十二条 保密义务",
+    blockThreeText: '双方承担 <span class="risk-mark comment">永久保密义务</span>，系统提示应约定明确期限与例外场景。',
+    panelTitle: "风险审查结果",
+    panelMeta: "5 处提示 / 逐条定位",
+    insightOneTitle: "预付款比例过高",
+    insightOneText: "当前比例偏高，建议降至更合理区间，并绑定节点交付或保函安排。",
+    insightOneMeta: "条款 3.1 · 已关联法条来源",
+    insightTwoTitle: "违约金约定需收敛",
+    insightTwoText: "系统建议将违约责任调整为与实际损失和司法裁量更匹配的表达。",
+    insightTwoMeta: "条款 7.1 · 可一键应用建议",
+    insightThreeTitle: "保密条款建议设置期限",
+    insightThreeText: "除商业秘密外，普通保密信息通常建议约定明确期限、范围和披露例外。",
+    insightThreeMeta: "条款 12.1 · 报告页可查看说明"
+  },
+  revise: {
+    metaLeft: "编辑建议 / 差异对照模式",
+    metaRight: "原文、建议稿与最终稿可切换",
+    title: "修改建议稿",
+    blockOneTitle: "第三条 付款条件（建议）",
+    blockOneText: '甲方于合同签订后三日内支付总额 <span class="risk-mark comment">30% 作为预付款</span>，剩余款项按到货验收与质保节点分阶段支付。',
+    blockTwoTitle: "第七条 违约责任（建议）",
+    blockTwoText: '逾期交付时，违约金比例建议控制在 <span class="risk-mark medium">合理区间内</span>，并以实际损失为基础进行约定。',
+    blockThreeTitle: "第十二条 保密义务（建议）",
+    blockThreeText: '除商业秘密外，双方保密义务建议设置为 <span class="risk-mark comment">合同终止后三年</span>，并约定法定披露例外。',
+    panelTitle: "修改建议列表",
+    panelMeta: "支持采纳 / 忽略 / 手动编辑",
+    insightOneTitle: "一键应用建议稿",
+    insightOneText: "高风险条款可直接替换为建议版本，同时保留原文对照，避免误改。",
+    insightOneMeta: "编辑器内实时保存差异",
+    insightTwoTitle: "支持人工微调",
+    insightTwoText: "如果企业有固定模板表达，法务可基于建议稿继续手工优化，无需从头重写。",
+    insightTwoMeta: "适配企业已有规则",
+    insightThreeTitle: "版本留痕自动生成",
+    insightThreeText: "每次采纳、修改和定稿都保留时间与状态信息，方便内部归档和协作。",
+    insightThreeMeta: "适合团队多角色协作"
+  },
+  report: {
+    metaLeft: "审查报告 / 输出模式",
+    metaRight: "风险摘要、法条依据与行动建议",
+    title: "合同审查报告",
+    blockOneTitle: "总体结论",
+    blockOneText: '本次审查识别 <span class="risk-mark high">3 处高风险</span>、<span class="risk-mark medium">2 处中风险</span>，建议优先处理付款、违约责任与保密条款。',
+    blockTwoTitle: "法条依据",
+    blockTwoText: '报告已同步挂接 <span class="risk-mark comment">法条原文、条款编号与适用说明</span>，降低“看不懂理由”的情况。',
+    blockThreeTitle: "建议动作",
+    blockThreeText: '支持导出 <span class="risk-mark comment">审查摘要、建议稿、最终定稿报告</span>，方便发给业务、法务与管理层。',
+    panelTitle: "输出结果",
+    panelMeta: "可导出 / 可归档 / 可复审",
+    insightOneTitle: "高风险优先级清晰",
+    insightOneText: "报告不只列问题，还按严重程度排序，帮助团队先处理真正影响签约的条款。",
+    insightOneMeta: "适合管理层快速判断",
+    insightTwoTitle: "法条来源一并给出",
+    insightTwoText: "每条结论都能回溯出处，便于内部复核，也避免纯模型表述带来的不确定性。",
+    insightTwoMeta: "适合法务复核与归档",
+    insightThreeTitle: "进入下一轮复审更轻松",
+    insightThreeText: "改完后只需对变化部分增量复审，不必整份合同全部重跑。",
+    insightThreeMeta: "更节省时间与 Token 成本"
+  }
+};
+
+const previewIds = {
+  metaLeft: "previewMetaLeft",
+  metaRight: "previewMetaRight",
+  title: "previewTitle",
+  blockOneTitle: "previewBlockOneTitle",
+  blockOneText: "previewBlockOneText",
+  blockTwoTitle: "previewBlockTwoTitle",
+  blockTwoText: "previewBlockTwoText",
+  blockThreeTitle: "previewBlockThreeTitle",
+  blockThreeText: "previewBlockThreeText",
+  panelTitle: "panelTitle",
+  panelMeta: "panelMeta",
+  insightOneTitle: "insightOneTitle",
+  insightOneText: "insightOneText",
+  insightOneMeta: "insightOneMeta",
+  insightTwoTitle: "insightTwoTitle",
+  insightTwoText: "insightTwoText",
+  insightTwoMeta: "insightTwoMeta",
+  insightThreeTitle: "insightThreeTitle",
+  insightThreeText: "insightThreeText",
+  insightThreeMeta: "insightThreeMeta"
+};
+
+document.querySelectorAll("[data-preview-tab]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const key = button.getAttribute("data-preview-tab");
+    const state = previewStates[key];
+    if (!state) return;
+
+    document.querySelectorAll("[data-preview-tab]").forEach((tab) => tab.classList.remove("active"));
+    button.classList.add("active");
+
+    Object.entries(previewIds).forEach(([stateKey, elementId]) => {
+      const element = document.getElementById(elementId);
+      if (!element) return;
+      if (stateKey.toLowerCase().includes("text")) {
+        element.innerHTML = state[stateKey];
+      } else {
+        element.textContent = state[stateKey];
+      }
+    });
+  });
+});
+
+const processSteps = document.querySelectorAll(".process-step");
+const processScreens = document.querySelectorAll(".process-screen");
+
+function activateProcess(stepKey) {
+  processSteps.forEach((step) => {
+    step.classList.toggle("active", step.getAttribute("data-step") === stepKey);
+  });
+  processScreens.forEach((screen) => {
+    screen.classList.toggle("active", screen.getAttribute("data-screen") === stepKey);
+  });
+}
+
+processSteps.forEach((step) => {
+  const key = step.getAttribute("data-step");
+  step.addEventListener("mouseenter", () => activateProcess(key));
+  step.addEventListener("click", () => activateProcess(key));
+});
+</script>
+</body>
+</html>

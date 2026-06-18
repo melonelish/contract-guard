@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContractGuard Premium Workspace Preview</title>
+<style>
+  :root {
+    --bg: #081116;
+    --bg-soft: #0d1920;
+    --panel: rgba(10, 20, 26, 0.72);
+    --panel-strong: rgba(14, 26, 33, 0.9);
+    --panel-warm: rgba(241, 233, 216, 0.94);
+    --paper: #f2eadc;
+    --paper-line: rgba(20, 24, 28, 0.12);
+    --text: #edf1eb;
+    --muted: rgba(237, 241, 235, 0.62);
+    --ink: #12212a;
+    --ink-soft: rgba(18, 33, 42, 0.72);
+    --teal: #6fc6b8;
+    --teal-strong: #95f3df;
+    --brass: #d8b96f;
+    --rose: #eb7f6f;
+    --amber: #f2b85f;
+    --line: rgba(255, 255, 255, 0.09);
+    --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+    --radius-xl: 28px;
+    --radius-lg: 20px;
+    --radius-md: 16px;
+    --radius-sm: 12px;
+    --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+    --font-mono: "Cascadia Code", "JetBrains Mono", monospace;
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    min-height: 100%;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(111, 198, 184, 0.2), transparent 34%),
+      radial-gradient(circle at 85% 12%, rgba(216, 185, 111, 0.16), transparent 22%),
+      linear-gradient(145deg, #081116 0%, #09161c 44%, #111d24 100%);
+    color: var(--text);
+    font-family: var(--font-sans);
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  body::before {
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 120px 120px;
+    mask-image: radial-gradient(circle at center, black 42%, transparent 100%);
+  }
+
+  body::after {
+    background: linear-gradient(180deg, rgba(8, 17, 22, 0) 0%, rgba(8, 17, 22, 0.4) 70%, rgba(8, 17, 22, 0.8) 100%);
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  .app {
+    position: relative;
+    z-index: 1;
+    width: min(1520px, calc(100vw - 32px));
+    margin: 20px auto;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    background: rgba(7, 14, 19, 0.72);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .app::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 24%),
+      radial-gradient(circle at top right, rgba(149, 243, 223, 0.08), transparent 28%);
+    pointer-events: none;
+  }
+
+  .topbar,
+  .hero,
+  .mode-row,
+  .workspace,
+  .bottom-strip {
+    position: relative;
+    z-index: 1;
+  }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 8px 8px 24px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .brand-mark {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 15px;
+    background: linear-gradient(140deg, rgba(149, 243, 223, 0.18), rgba(216, 185, 111, 0.22));
+    border: 1px solid rgba(149, 243, 223, 0.24);
+    overflow: hidden;
+  }
+
+  .brand-mark::before,
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 11px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .brand-mark::after {
+    inset: 14px;
+    background: linear-gradient(135deg, rgba(149, 243, 223, 0.44), rgba(216, 185, 111, 0.08));
+  }
+
+  .brand-copy strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .brand-copy span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .top-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .pill,
+  .ghost-btn,
+  .stage-btn,
+  .risk-item,
+  .action-btn,
+  .mini-stat,
+  .lens-btn {
+    transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease), opacity 180ms var(--ease), box-shadow 180ms var(--ease);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .pill strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--teal-strong);
+    box-shadow: 0 0 0 0 rgba(149, 243, 223, 0.45);
+    animation: pulse 2.2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(149, 243, 223, 0.45); }
+    70% { box-shadow: 0 0 0 12px rgba(149, 243, 223, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(149, 243, 223, 0); }
+  }
+
+  .ghost-btn,
+  .action-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 11px 16px;
+    cursor: pointer;
+  }
+
+  .ghost-btn:hover,
+  .action-btn:hover,
+  .stage-btn:hover,
+  .risk-item:hover,
+  .lens-btn:hover,
+  .mini-stat:hover {
+    transform: translateY(-1px);
+    border-color: rgba(149, 243, 223, 0.26);
+  }
+
+  .ghost-btn.primary,
+  .action-btn.primary {
+    background: linear-gradient(135deg, rgba(149, 243, 223, 0.18), rgba(149, 243, 223, 0.07));
+    border-color: rgba(149, 243, 223, 0.36);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .hero-card,
+  .signal-board,
+  .doc-panel,
+  .side-panel,
+  .bottom-strip {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    background: var(--panel);
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-card {
+    padding: 34px;
+    min-height: 300px;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    overflow: hidden;
+  }
+
+  .eyebrow {
+    color: var(--brass);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    margin: 0;
+    max-width: 11ch;
+    font-family: var(--font-serif);
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+
+  .hero-copy {
+    margin-top: 18px;
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    align-self: end;
+    margin-top: 28px;
+  }
+
+  .mini-stat {
+    padding: 18px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .mini-stat span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .mini-stat strong {
+    display: block;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+
+  .mini-stat em {
+    display: block;
+    margin-top: 8px;
+    font-style: normal;
+    color: rgba(237, 241, 235, 0.76);
+    font-size: 13px;
+  }
+
+  .signal-board {
+    padding: 24px;
+    display: grid;
+    gap: 14px;
+    align-content: start;
+  }
+
+  .signal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .signal-head strong {
+    display: block;
+    font-size: 22px;
+    letter-spacing: -0.03em;
+  }
+
+  .signal-head span {
+    display: block;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .signal-meter {
+    position: relative;
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  }
+
+  .signal-meter::before {
+    content: "";
+    position: absolute;
+    inset: 18px 18px auto;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+  }
+
+  .meter-row {
+    display: grid;
+    grid-template-columns: 112px 1fr 46px;
+    gap: 12px;
+    align-items: center;
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .meter-label {
+    color: var(--muted);
+  }
+
+  .meter-track {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--teal), var(--brass));
+  }
+
+  .meter-value {
+    text-align: right;
+    color: var(--text);
+    font-family: var(--font-mono);
+  }
+
+  .mode-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .stage-rail,
+  .lens-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .stage-btn,
+  .lens-btn {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 12px 16px;
+    cursor: pointer;
+  }
+
+  .stage-btn.active,
+  .lens-btn.active {
+    color: var(--text);
+    border-color: rgba(149, 243, 223, 0.34);
+    background: rgba(149, 243, 223, 0.12);
+  }
+
+  .stage-btn small,
+  .lens-btn small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: rgba(237, 241, 235, 0.56);
+  }
+
+  .workspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.24fr) 420px;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .doc-panel {
+    padding: 18px;
+  }
+
+  .doc-shell {
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(7, 12, 16, 0.82), rgba(7, 12, 16, 0.48));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .doc-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  }
+
+  .doc-meta strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .doc-meta span {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .doc-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .scan-line {
+    width: 88px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .scan-line::before {
+    content: "";
+    display: block;
+    width: 38%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(149, 243, 223, 0.15), rgba(149, 243, 223, 0.85), rgba(149, 243, 223, 0.15));
+    animation: scan 2.8s infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateX(-120%); }
+    100% { transform: translateX(320%); }
+  }
+
+  .document-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    transition: grid-template-columns 260ms var(--ease);
+  }
+
+  .app.compare-mode .document-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .paper,
+  .revision-sheet {
+    min-height: 820px;
+    padding: 34px 38px 50px;
+  }
+
+  .paper {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 40px),
+      linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.02)),
+      var(--paper);
+    color: var(--ink);
+  }
+
+  .revision-sheet {
+    display: none;
+    border-left: 1px solid rgba(18, 33, 42, 0.12);
+    background:
+      linear-gradient(180deg, rgba(111, 198, 184, 0.08), transparent 100px),
+      #f8f3ea;
+    color: var(--ink);
+  }
+
+  .app.compare-mode .revision-sheet {
+    display: block;
+  }
+
+  .paper-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .paper-head strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .paper-head span,
+  .paper-head small {
+    display: block;
+    margin-top: 8px;
+    color: var(--ink-soft);
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .paper-badge {
+    align-self: flex-start;
+    border: 1px solid rgba(18, 33, 42, 0.14);
+    border-radius: 999px;
+    padding: 10px 14px;
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .clause-list {
+    display: grid;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .clause {
+    position: relative;
+    padding: 22px 20px 20px 24px;
+    border-radius: 20px;
+    border: 1px solid rgba(18, 33, 42, 0.08);
+    background: rgba(255, 255, 255, 0.36);
+    transition: transform 180ms var(--ease), box-shadow 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+  }
+
+  .clause::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 18px;
+    bottom: 18px;
+    width: 4px;
+    border-radius: 999px;
+    background: rgba(18, 33, 42, 0.14);
+  }
+
+  .clause.is-active {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 40px rgba(11, 18, 24, 0.12);
+    border-color: rgba(111, 198, 184, 0.38);
+    background: rgba(255, 255, 255, 0.76);
+  }
+
+  .clause[data-risk="high"]::before,
+  .risk-dot.high,
+  .revision-tag.high {
+    background: var(--rose);
+  }
+
+  .clause[data-risk="medium"]::before,
+  .risk-dot.medium,
+  .revision-tag.medium {
+    background: var(--amber);
+  }
+
+  .clause[data-risk="watch"]::before,
+  .risk-dot.watch,
+  .revision-tag.watch {
+    background: var(--teal);
+  }
+
+  .clause-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .clause-top strong {
+    display: block;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .clause-top span {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+
+  .severity-chip {
+    padding: 9px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(18, 33, 42, 0.06);
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .clause p {
+    margin: 16px 0 0;
+    line-height: 1.95;
+    color: rgba(18, 33, 42, 0.92);
+    font-size: 15px;
+  }
+
+  mark {
+    padding: 0.08em 0.26em;
+    border-radius: 8px;
+    background: rgba(216, 185, 111, 0.26);
+    color: inherit;
+  }
+
+  .clause-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    color: var(--ink-soft);
+    font-size: 12px;
+  }
+
+  .revision-sheet h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .revision-sheet p {
+    margin: 10px 0 0;
+    color: var(--ink-soft);
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .revision-stack {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .revision-card {
+    padding: 18px 18px 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(18, 33, 42, 0.08);
+    background: rgba(255, 255, 255, 0.42);
+  }
+
+  .revision-card strong {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+
+  .revision-tag {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    flex: none;
+  }
+
+  .revision-card blockquote {
+    margin: 14px 0 0;
+    padding: 0 0 0 16px;
+    border-left: 2px solid rgba(18, 33, 42, 0.12);
+    color: rgba(18, 33, 42, 0.86);
+    line-height: 1.9;
+  }
+
+  .side-panel {
+    padding: 18px;
+    display: grid;
+    gap: 14px;
+  }
+
+  .panel-card {
+    padding: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  }
+
+  .panel-card h2,
+  .panel-card h3 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: -0.03em;
+  }
+
+  .panel-card p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.75;
+    font-size: 13px;
+  }
+
+  .risk-stack {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .risk-item {
+    display: grid;
+    grid-template-columns: 12px 1fr auto;
+    gap: 12px;
+    align-items: start;
+    width: 100%;
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.025);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .risk-item.active {
+    background: rgba(149, 243, 223, 0.11);
+    border-color: rgba(149, 243, 223, 0.32);
+  }
+
+  .risk-dot {
+    width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    border-radius: 999px;
+  }
+
+  .risk-copy strong {
+    display: block;
+    font-size: 14px;
+  }
+
+  .risk-copy span {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .risk-meta {
+    color: rgba(237, 241, 235, 0.74);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .detail-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .detail-block {
+    padding: 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .detail-block strong {
+    display: block;
+    font-size: 12px;
+    color: rgba(237, 241, 235, 0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .detail-block p,
+  .detail-block ul {
+    margin: 10px 0 0;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  .detail-block ul {
+    padding-left: 18px;
+  }
+
+  .detail-block li + li {
+    margin-top: 8px;
+  }
+
+  .agent-flow {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .agent-row {
+    display: grid;
+    grid-template-columns: 88px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .agent-row strong {
+    color: var(--text);
+  }
+
+  .agent-bar {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+  }
+
+  .agent-bar span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: calc(var(--fill, 50) * 1%);
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(149, 243, 223, 0.92), rgba(216, 185, 111, 0.92));
+  }
+
+  .action-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .action-btn.secondary {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .bottom-strip {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 0.7fr;
+    gap: 16px;
+    padding: 18px;
+    margin-top: 18px;
+  }
+
+  .bottom-card {
+    padding: 8px 2px;
+  }
+
+  .bottom-card strong {
+    display: block;
+    font-size: 16px;
+  }
+
+  .bottom-card p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 13px;
+  }
+
+  .timeline {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .timeline span {
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    font-size: 12px;
+    color: rgba(237, 241, 235, 0.74);
+  }
+
+  .focus-mode .hero,
+  .focus-mode .bottom-strip,
+  .focus-mode .topbar,
+  .focus-mode .mode-row {
+    opacity: 0.18;
+    transform: scale(0.985);
+    pointer-events: none;
+  }
+
+  .focus-mode .workspace {
+    grid-template-columns: minmax(0, 1fr) 460px;
+  }
+
+  .focus-mode .doc-panel,
+  .focus-mode .side-panel {
+    box-shadow: 0 34px 80px rgba(0, 0, 0, 0.32);
+  }
+
+  .applied-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: rgba(149, 243, 223, 0.12);
+    border: 1px solid rgba(149, 243, 223, 0.28);
+    color: var(--teal-strong);
+    font-size: 12px;
+    margin-top: 14px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  @media (max-width: 1180px) {
+    .hero,
+    .workspace,
+    .bottom-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .side-panel {
+      order: -1;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .app {
+      width: min(100vw - 14px, 100%);
+      margin: 7px auto;
+      padding: 10px;
+      border-radius: 24px;
+    }
+
+    .hero-card,
+    .signal-board,
+    .doc-panel,
+    .side-panel,
+    .bottom-strip {
+      border-radius: 22px;
+    }
+
+    .hero-card,
+    .paper,
+    .revision-sheet {
+      padding: 24px;
+    }
+
+    h1 {
+      max-width: none;
+      font-size: 42px;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .paper-head,
+    .doc-toolbar,
+    .topbar,
+    .mode-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .document-grid,
+    .app.compare-mode .document-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .revision-sheet {
+      display: block;
+      border-left: 0;
+      border-top: 1px solid rgba(18, 33, 42, 0.12);
+    }
+
+    .agent-row {
+      grid-template-columns: 1fr;
+    }
+
+    .bottom-strip {
+      gap: 8px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>ContractGuard</strong>
+          <span>企业级合同智能审查工作台预览</span>
+        </div>
+      </div>
+      <div class="top-actions">
+        <div class="pill">
+          <span class="pulse" aria-hidden="true"></span>
+          <span>审查任务 <strong id="task-id">CG-REVIEW-2026-0616</strong></span>
+        </div>
+        <button class="ghost-btn" id="focus-toggle" type="button">专注模式</button>
+        <button class="ghost-btn" id="compare-toggle" type="button">对比修订</button>
+        <button class="ghost-btn primary" id="demo-toggle" type="button">演示流程</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <article class="hero-card">
+        <div class="eyebrow">Premium Legal Intelligence Workspace</div>
+        <h1>把真正危险的条款，从整份合同里剥离出来。</h1>
+        <p class="hero-copy">
+          这不是普通后台。ContractGuard 的前端应该像一张连续工作的审查桌面，让上传、理解、
+          风险定位、证据回溯、修订应用和导出报告始终在一条连贯链路里完成。
+        </p>
+        <div class="hero-grid">
+          <div class="mini-stat">
+            <span>当前批次风险总数</span>
+            <strong id="hero-risk-count">06</strong>
+            <em>2 条高风险，2 条中风险，2 条观察项</em>
+          </div>
+          <div class="mini-stat">
+            <span>结构化解析完成度</span>
+            <strong id="hero-coverage">98%</strong>
+            <em>正文、表格、签章页与付款节点均已锚定</em>
+          </div>
+          <div class="mini-stat">
+            <span>法律依据置信区间</span>
+            <strong id="hero-confidence">91%</strong>
+            <em>已关联法条、标准条款模板与历史修订偏好</em>
+          </div>
+        </div>
+      </article>
+
+      <aside class="signal-board">
+        <div class="signal-head">
+          <div>
+            <strong id="stage-title">Clause Reasoning</strong>
+            <span id="stage-copy">多 Agent 正在并行切分条款、拉取法条依据并回收交叉冲突。</span>
+          </div>
+          <div class="pill"><strong id="stage-index">03 / 05</strong></div>
+        </div>
+
+        <div class="signal-meter">
+          <div class="meter-row">
+            <div class="meter-label">文档解析</div>
+            <div class="meter-track"><div class="meter-fill" id="meter-parse" style="width:100%"></div></div>
+            <div class="meter-value">100</div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">风险推理</div>
+            <div class="meter-track"><div class="meter-fill" id="meter-reasoning" style="width:72%"></div></div>
+            <div class="meter-value">072</div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">修订生成</div>
+            <div class="meter-track"><div class="meter-fill" id="meter-drafting" style="width:48%"></div></div>
+            <div class="meter-value">048</div>
+          </div>
+          <div class="meter-row">
+            <div class="meter-label">报告校验</div>
+            <div class="meter-track"><div class="meter-fill" id="meter-validate" style="width:22%"></div></div>
+            <div class="meter-value">022</div>
+          </div>
+        </div>
+
+        <div class="panel-card">
+          <h3>审查镜头</h3>
+          <p>
+            前端不该只显示“有几个风险”，而是要告诉用户系统正在看哪里、为什么判它有问题、
+            如果直接应用建议会改成什么，以及这一步已经走到哪了。
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="mode-row">
+      <div class="stage-rail" id="stage-rail">
+        <button class="stage-btn" data-stage="0" type="button">Ingest<small>上传与指纹建档</small></button>
+        <button class="stage-btn" data-stage="1" type="button">Parse<small>正文、表格、签章锚定</small></button>
+        <button class="stage-btn active" data-stage="2" type="button">Reason<small>条款推理与交叉校验</small></button>
+        <button class="stage-btn" data-stage="3" type="button">Draft<small>修订建议与红线草案</small></button>
+        <button class="stage-btn" data-stage="4" type="button">Report<small>报告定稿与导出</small></button>
+      </div>
+      <div class="lens-row" id="lens-row">
+        <button class="lens-btn active" data-lens="workspace" type="button">工作台视角<small>文档与证据联动</small></button>
+        <button class="lens-btn" data-lens="risk" type="button">风险优先<small>侧栏聚焦高风险队列</small></button>
+        <button class="lens-btn" data-lens="board" type="button">管理视图<small>进度、覆盖率与团队偏好</small></button>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <article class="doc-panel">
+        <div class="doc-shell">
+          <div class="doc-toolbar">
+            <div class="doc-meta">
+              <strong>设备采购与售后服务合同</strong>
+              <span>版本 V3.2 · 乙方送审稿 · 14 页 · 付款节点含表格结构</span>
+            </div>
+            <div class="doc-status">
+              <span>解析中的证据链</span>
+              <div class="scan-line" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="document-grid">
+            <div class="paper">
+              <div class="paper-head">
+                <div>
+                  <strong>合同正文审查画布</strong>
+                  <span>点击右侧风险队列，左侧会直接跳到对应条款并高亮核心问题。</span>
+                  <small>甲方：宁州智造集团有限公司 · 乙方：华浦设备系统有限公司</small>
+                </div>
+                <div class="paper-badge">Live Annotation Layer</div>
+              </div>
+
+              <div class="clause-list">
+                <section class="clause" data-clause="payment" data-risk="high">
+                  <div class="clause-top">
+                    <div>
+                      <strong>第 6 条 付款条件与验收触发</strong>
+                      <span>第 5 页 · 付款节点表格 · 涉及尾款释放条件</span>
+                    </div>
+                    <div class="severity-chip">High Risk</div>
+                  </div>
+                  <p id="clause-payment-original">
+                    甲方应在设备到货并完成签收后 <mark>三个工作日内支付合同总价的 80%</mark>，
+                    剩余 20% 于设备连续运行满三个月后支付。若甲方未在前述期限内完成支付，
+                    乙方有权暂停全部售后支持且不承担任何后续损失。
+                  </p>
+                  <div class="clause-foot">
+                    <span>问题：预付款与验收标准未绑定，尾款释放缺少可量化验收口径</span>
+                    <span>建议：将付款节点改为“到货验收 + 性能验收 + 质保扣留”三段式</span>
+                  </div>
+                </section>
+
+                <section class="clause" data-clause="liability" data-risk="high">
+                  <div class="clause-top">
+                    <div>
+                      <strong>第 11 条 违约责任</strong>
+                      <span>第 8 页 · 违约上限缺失 · 与售后条款存在强关联</span>
+                    </div>
+                    <div class="severity-chip">High Risk</div>
+                  </div>
+                  <p id="clause-liability-original">
+                    任一方违反本合同约定的，应赔偿守约方因此遭受的全部损失，
+                    包括但不限于直接损失、间接损失、可得利益损失、律师费、仲裁费及维权成本。
+                    乙方对设备延迟交付不设专门违约金上限。
+                  </p>
+                  <div class="clause-foot">
+                    <span>问题：无限损失承担在采购合同中对甲方不利，且与服务责任范围未对齐</span>
+                    <span>建议：区分直接损失与间接损失，并设置违约责任上限和例外</span>
+                  </div>
+                </section>
+
+                <section class="clause" data-clause="warranty" data-risk="medium">
+                  <div class="clause-top">
+                    <div>
+                      <strong>第 9 条 质保与售后响应</strong>
+                      <span>第 7 页 · 售后 SLA 描述不闭环</span>
+                    </div>
+                    <div class="severity-chip">Medium</div>
+                  </div>
+                  <p id="clause-warranty-original">
+                    乙方承诺在收到故障通知后尽快安排技术人员处理，必要时提供远程支持。
+                    若问题复杂，可根据实际情况延长处理时间。
+                  </p>
+                  <div class="clause-foot">
+                    <span>问题：没有响应时间、到场时间、恢复时限与替代方案</span>
+                    <span>建议：补充 2h 响应、24h 到场、72h 恢复或备机机制</span>
+                  </div>
+                </section>
+
+                <section class="clause" data-clause="jurisdiction" data-risk="medium">
+                  <div class="clause-top">
+                    <div>
+                      <strong>第 14 条 争议解决</strong>
+                      <span>第 11 页 · 管辖约定与签约地不一致</span>
+                    </div>
+                    <div class="severity-chip">Medium</div>
+                  </div>
+                  <p id="clause-jurisdiction-original">
+                    因本合同引起的争议，双方应提交乙方所在地人民法院处理。
+                    本合同签订地为江苏省宁州市。
+                  </p>
+                  <div class="clause-foot">
+                    <span>问题：签订地与管辖地脱节，易造成管辖争议与维权成本上升</span>
+                    <span>建议：统一为合同签订地或甲方所在地有管辖权的法院</span>
+                  </div>
+                </section>
+
+                <section class="clause" data-clause="data" data-risk="watch">
+                  <div class="clause-top">
+                    <div>
+                      <strong>第 4 条 设备接入与数据权限</strong>
+                      <span>第 3 页 · 涉及运行数据回传</span>
+                    </div>
+                    <div class="severity-chip">Observe</div>
+                  </div>
+                  <p id="clause-data-original">
+                    乙方可在设备运行期间调取必要的运行数据用于优化服务质量，但无需逐次征得甲方确认。
+                  </p>
+                  <div class="clause-foot">
+                    <span>问题：未明确数据范围、脱敏要求、保存期限与删除机制</span>
+                    <span>建议：增加最小必要原则、脱敏、留痕与删除责任</span>
+                  </div>
+                </section>
+              </div>
+            </div>
+
+            <div class="revision-sheet">
+              <h3>修订后的可落地文本</h3>
+              <p>
+                这里不是简单把建议堆成列表，而是直接呈现可以进入编辑器或红线模式的改写结果。
+              </p>
+              <div class="revision-stack" id="revision-stack">
+                <div class="revision-card">
+                  <strong><span class="revision-tag high"></span>付款节点重写</strong>
+                  <blockquote id="revision-payment">
+                    合同签订后支付 20% 预付款；设备到货并完成书面初验后支付 50%；
+                    连续稳定运行满三个月且性能验收通过后支付 20%；剩余 10% 作为质保金，
+                    于质保期届满且无争议事项后 10 个工作日内支付。
+                  </blockquote>
+                </div>
+                <div class="revision-card">
+                  <strong><span class="revision-tag high"></span>违约责任重写</strong>
+                  <blockquote id="revision-liability">
+                    违约方应赔偿守约方因此遭受的直接损失。除因故意、重大过失、知识产权侵权、
+                    保密义务违反外，任一方累计赔偿责任以合同总价的 30% 为上限。
+                  </blockquote>
+                </div>
+                <div class="revision-card">
+                  <strong><span class="revision-tag medium"></span>售后 SLA 重写</strong>
+                  <blockquote id="revision-warranty">
+                    乙方应在接到故障通知后 2 小时内响应，24 小时内到场，72 小时内修复；
+                    无法修复时，应提供临时替代设备或经甲方书面同意的替代方案。
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="side-panel">
+        <section class="panel-card">
+          <h2>风险队列</h2>
+          <p>右侧不是“摘要栏”，而是整个审查过程的操作面板。</p>
+          <div class="risk-stack" id="risk-stack">
+            <button class="risk-item active" data-risk-id="payment" type="button">
+              <span class="risk-dot high" aria-hidden="true"></span>
+              <span class="risk-copy">
+                <strong>付款条件过于前置</strong>
+                <span>付款释放与验收闭环断开，甲方现金流与履约保障同时暴露。</span>
+              </span>
+              <span class="risk-meta">P5</span>
+            </button>
+            <button class="risk-item" data-risk-id="liability" type="button">
+              <span class="risk-dot high" aria-hidden="true"></span>
+              <span class="risk-copy">
+                <strong>违约责任无限扩大</strong>
+                <span>未区分直接损失与间接损失，也没有责任上限。</span>
+              </span>
+              <span class="risk-meta">P8</span>
+            </button>
+            <button class="risk-item" data-risk-id="warranty" type="button">
+              <span class="risk-dot medium" aria-hidden="true"></span>
+              <span class="risk-copy">
+                <strong>售后承诺不可执行</strong>
+                <span>SLA 文字宽泛，无法考核乙方是否履约。</span>
+              </span>
+              <span class="risk-meta">P7</span>
+            </button>
+            <button class="risk-item" data-risk-id="jurisdiction" type="button">
+              <span class="risk-dot medium" aria-hidden="true"></span>
+              <span class="risk-copy">
+                <strong>管辖条款与签约地冲突</strong>
+                <span>争议解决地点不利于甲方且容易引发程序问题。</span>
+              </span>
+              <span class="risk-meta">P11</span>
+            </button>
+            <button class="risk-item" data-risk-id="data" type="button">
+              <span class="risk-dot watch" aria-hidden="true"></span>
+              <span class="risk-copy">
+                <strong>运行数据权限边界模糊</strong>
+                <span>需补数据范围、脱敏与删除责任。</span>
+              </span>
+              <span class="risk-meta">P3</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="panel-card">
+          <h3 id="detail-title">付款条件过于前置</h3>
+          <p id="detail-summary">
+            乙方以到货签收作为 80% 付款触发点，但合同没有把“初验、性能验收、质保留存”
+            写成连续条件，这会让甲方在设备未真正达标前就基本完成支付。
+          </p>
+
+          <div class="detail-grid">
+            <div class="detail-block">
+              <strong>法理依据</strong>
+              <p id="detail-basis">建议按验收义务、质保责任和风险对价平衡原则重写付款结构，并确保验收条件可被书面证明。</p>
+            </div>
+            <div class="detail-block">
+              <strong>证据链</strong>
+              <ul id="detail-evidence">
+                <li>付款节点表格没有区分“到货签收”和“性能验收”。</li>
+                <li>售后与违约责任条款未形成质保扣留闭环。</li>
+                <li>尾款比例过低，无法形成持续履约约束。</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <strong>建议动作</strong>
+              <p id="detail-action">改写为 20% 预付款 + 50% 初验 + 20% 性能验收 + 10% 质保金，并在附件中写明验收标准。</p>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="action-btn primary" id="apply-btn" type="button">应用该建议</button>
+            <button class="action-btn secondary" id="locate-btn" type="button">定位到正文</button>
+          </div>
+          <div class="applied-badge hidden" id="applied-badge">修订草案已写入对比面板，可继续进入编辑器或红线模式。</div>
+        </section>
+
+        <section class="panel-card">
+          <h3>多 Agent 回收链路</h3>
+          <p>前端可以把底层编排可视化，但不需要做成廉价流程图。</p>
+          <div class="agent-flow">
+            <div class="agent-row">
+              <strong>Parser</strong>
+              <div class="agent-bar" style="--fill:100"><span></span></div>
+              <span>表格识别稳定</span>
+            </div>
+            <div class="agent-row">
+              <strong>Analyzer</strong>
+              <div class="agent-bar" style="--fill:86"><span></span></div>
+              <span>并行审查中</span>
+            </div>
+            <div class="agent-row">
+              <strong>Validator</strong>
+              <div class="agent-bar" style="--fill:42"><span></span></div>
+              <span>交叉校验启动</span>
+            </div>
+            <div class="agent-row">
+              <strong>Drafter</strong>
+              <div class="agent-bar" style="--fill:57"><span></span></div>
+              <span>修订草案生成</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="bottom-strip">
+      <div class="bottom-card">
+        <strong>为什么这个方向更适合 ContractGuard</strong>
+        <p>
+          法律科技产品不是社交产品，也不该是通用运营后台。用户真正需要的是一块能承载判断、
+          证据、修订和输出的连续工作台，而不是一屏幕零散的小卡片。
+        </p>
+      </div>
+      <div class="bottom-card">
+        <strong>你以后可以继续扩展的交互</strong>
+        <div class="timeline">
+          <span>双屏对比审查</span>
+          <span>证据抽屉</span>
+          <span>红线打印</span>
+          <span>团队批注层</span>
+          <span>法条追溯</span>
+        </div>
+      </div>
+      <div class="bottom-card">
+        <strong>本页目标</strong>
+        <p>
+          先证明视觉语言和交互框架成立，再决定是否把它拆进 React 页面系统。
+        </p>
+      </div>
+    </section>
+  </div>
+
+<script>
+  const stageData = [
+    {
+      title: "Contract Intake",
+      copy: "文件指纹、租户隔离、版本号与基础元数据已经建档，准备进入文档解析层。",
+      index: "01 / 05",
+      meters: [32, 0, 0, 0]
+    },
+    {
+      title: "Structured Parsing",
+      copy: "PDF 正文、表格、签章页和段落锚点正在同步落入统一结构化层。",
+      index: "02 / 05",
+      meters: [100, 18, 0, 0]
+    },
+    {
+      title: "Clause Reasoning",
+      copy: "多 Agent 正在并行切分条款、拉取法条依据并回收交叉冲突。",
+      index: "03 / 05",
+      meters: [100, 72, 48, 22]
+    },
+    {
+      title: "Draft Generation",
+      copy: "高风险条款已开始生成可应用的修订草案，并准备进入对比模式。",
+      index: "04 / 05",
+      meters: [100, 100, 84, 54]
+    },
+    {
+      title: "Report Finalization",
+      copy: "审查结论、法理依据与修改建议已准备汇总成可导出的正式报告。",
+      index: "05 / 05",
+      meters: [100, 100, 100, 100]
+    }
+  ];
+
+  const riskData = {
+    payment: {
+      clause: "payment",
+      title: "付款条件过于前置",
+      summary: "乙方以到货签收作为 80% 付款触发点，但合同没有把“初验、性能验收、质保留存”写成连续条件，这会让甲方在设备未真正达标前就基本完成支付。",
+      basis: "建议按验收义务、质保责任和风险对价平衡原则重写付款结构，并确保验收条件可被书面证明。",
+      evidence: [
+        "付款节点表格没有区分“到货签收”和“性能验收”。",
+        "售后与违约责任条款未形成质保扣留闭环。",
+        "尾款比例过低，无法形成持续履约约束。"
+      ],
+      action: "改写为 20% 预付款 + 50% 初验 + 20% 性能验收 + 10% 质保金，并在附件中写明验收标准。"
+    },
+    liability: {
+      clause: "liability",
+      title: "违约责任无限扩大",
+      summary: "当前条款把间接损失、可得利益和所有维权成本一次性全纳入，却没有赔偿上限，容易造成不成比例的责任暴露。",
+      basis: "通常需要区分直接损失与间接损失，同时保留故意、重大过失、知识产权侵权等例外情形。",
+      evidence: [
+        "未设置累计赔偿责任上限。",
+        "将可得利益损失直接并入默认赔偿范围。",
+        "与设备延迟交付、售后责任条款之间没有配套边界。"
+      ],
+      action: "设置累计赔偿上限，并单列故意、重大过失、知识产权与保密义务违约的例外。"
+    },
+    warranty: {
+      clause: "warranty",
+      title: "售后承诺不可执行",
+      summary: "“尽快处理”“必要时远程支持”一类表达无法转成 SLA，也就无法形成服务履约标准。",
+      basis: "建议把响应、到场、恢复和备机四类义务拆开写，并明确违约后果或替代方案。",
+      evidence: [
+        "缺少响应时限与到场时限。",
+        "没有恢复目标或替代方案。",
+        "故障升级路径和联系人机制未写明。"
+      ],
+      action: "补充 2h 响应、24h 到场、72h 恢复以及不能修复时的备机机制。"
+    },
+    jurisdiction: {
+      clause: "jurisdiction",
+      title: "管辖条款与签约地冲突",
+      summary: "签约地在甲方所在地，但争议解决被约到乙方所在地法院，程序成本和诉讼便利性都对甲方不利。",
+      basis: "争议解决条款应与签订地、履行地或优势主体的维权路径保持一致，避免无必要的不利法院选择。",
+      evidence: [
+        "签订地已明确为江苏省宁州市。",
+        "管辖地却单方指定乙方所在地法院。",
+        "与履行地和设备安装地关系不明确。"
+      ],
+      action: "优先统一为甲方所在地或合同签订地有管辖权的法院。"
+    },
+    data: {
+      clause: "data",
+      title: "运行数据权限边界模糊",
+      summary: "乙方可自行调取运行数据，但合同没有限定范围、目的、保留期限和删除责任，数据权限边界过宽。",
+      basis: "建议采用最小必要原则，明确数据类别、脱敏义务、存储期限和删除触发条件。",
+      evidence: [
+        "未列明可回传的数据种类。",
+        "没有规定是否涉及商业秘密或个人信息。",
+        "缺少日志留存与删除回执。"
+      ],
+      action: "增加数据范围、用途、脱敏、保存期限、删除回执和违约责任。"
+    }
+  };
+
+  const app = document.getElementById("app");
+  const stageTitle = document.getElementById("stage-title");
+  const stageCopy = document.getElementById("stage-copy");
+  const stageIndex = document.getElementById("stage-index");
+  const meterParse = document.getElementById("meter-parse");
+  const meterReasoning = document.getElementById("meter-reasoning");
+  const meterDrafting = document.getElementById("meter-drafting");
+  const meterValidate = document.getElementById("meter-validate");
+  const stageButtons = Array.from(document.querySelectorAll(".stage-btn"));
+  const lensButtons = Array.from(document.querySelectorAll(".lens-btn"));
+  const riskButtons = Array.from(document.querySelectorAll(".risk-item"));
+  const clauses = Array.from(document.querySelectorAll(".clause"));
+  const detailTitle = document.getElementById("detail-title");
+  const detailSummary = document.getElementById("detail-summary");
+  const detailBasis = document.getElementById("detail-basis");
+  const detailEvidence = document.getElementById("detail-evidence");
+  const detailAction = document.getElementById("detail-action");
+  const appliedBadge = document.getElementById("applied-badge");
+  const compareToggle = document.getElementById("compare-toggle");
+  const focusToggle = document.getElementById("focus-toggle");
+  const demoToggle = document.getElementById("demo-toggle");
+  const applyBtn = document.getElementById("apply-btn");
+  const locateBtn = document.getElementById("locate-btn");
+  const heroRiskCount = document.getElementById("hero-risk-count");
+  const heroCoverage = document.getElementById("hero-coverage");
+  const heroConfidence = document.getElementById("hero-confidence");
+
+  let currentRisk = "payment";
+  let demoTimer = null;
+
+  function setStage(index) {
+    const data = stageData[index];
+    stageTitle.textContent = data.title;
+    stageCopy.textContent = data.copy;
+    stageIndex.textContent = data.index;
+    meterParse.style.width = data.meters[0] + "%";
+    meterReasoning.style.width = data.meters[1] + "%";
+    meterDrafting.style.width = data.meters[2] + "%";
+    meterValidate.style.width = data.meters[3] + "%";
+
+    stageButtons.forEach((button, buttonIndex) => {
+      button.classList.toggle("active", buttonIndex === index);
+    });
+
+    heroCoverage.textContent = (86 + index * 3) + "%";
+    heroConfidence.textContent = (87 + index * 2) + "%";
+  }
+
+  function setLens(lens) {
+    lensButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.lens === lens);
+    });
+
+    app.classList.remove("focus-mode");
+    if (lens === "risk") {
+      setRisk("liability");
+    }
+    if (lens === "board") {
+      setStage(4);
+    }
+  }
+
+  function setRisk(id) {
+    currentRisk = id;
+    const data = riskData[id];
+
+    riskButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.riskId === id);
+    });
+
+    clauses.forEach((clause) => {
+      const isActive = clause.dataset.clause === data.clause;
+      clause.classList.toggle("is-active", isActive);
+      if (isActive) {
+        clause.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+
+    detailTitle.textContent = data.title;
+    detailSummary.textContent = data.summary;
+    detailBasis.textContent = data.basis;
+    detailAction.textContent = data.action;
+    detailEvidence.innerHTML = "";
+    data.evidence.forEach((item) => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      detailEvidence.appendChild(li);
+    });
+    appliedBadge.classList.add("hidden");
+  }
+
+  function applySuggestion() {
+    app.classList.add("compare-mode");
+    compareToggle.classList.add("active");
+    appliedBadge.classList.remove("hidden");
+    const target = document.querySelector('[data-clause="' + riskData[currentRisk].clause + '"]');
+    if (target) {
+      target.classList.add("is-active");
+    }
+  }
+
+  function toggleCompare() {
+    app.classList.toggle("compare-mode");
+    compareToggle.classList.toggle("active", app.classList.contains("compare-mode"));
+  }
+
+  function toggleFocus() {
+    app.classList.toggle("focus-mode");
+    focusToggle.classList.toggle("active", app.classList.contains("focus-mode"));
+  }
+
+  function stopDemo() {
+    if (demoTimer) {
+      clearInterval(demoTimer);
+      demoTimer = null;
+      demoToggle.classList.remove("active");
+      demoToggle.textContent = "演示流程";
+    }
+  }
+
+  function startDemo() {
+    if (demoTimer) {
+      stopDemo();
+      return;
+    }
+
+    let stageIndexValue = 0;
+    const demoRisks = ["payment", "liability", "warranty", "jurisdiction", "data"];
+
+    demoToggle.classList.add("active");
+    demoToggle.textContent = "停止演示";
+    setStage(stageIndexValue);
+    setRisk(demoRisks[0]);
+
+    demoTimer = setInterval(() => {
+      stageIndexValue = (stageIndexValue + 1) % stageData.length;
+      setStage(stageIndexValue);
+      setRisk(demoRisks[stageIndexValue] || demoRisks[0]);
+      heroRiskCount.textContent = String(6 + stageIndexValue).padStart(2, "0");
+      if (stageIndexValue === 3) {
+        app.classList.add("compare-mode");
+        compareToggle.classList.add("active");
+      }
+      if (stageIndexValue === 0) {
+        app.classList.remove("compare-mode");
+        compareToggle.classList.remove("active");
+      }
+    }, 1800);
+  }
+
+  stageButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      stopDemo();
+      setStage(Number(button.dataset.stage));
+    });
+  });
+
+  lensButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      stopDemo();
+      setLens(button.dataset.lens);
+    });
+  });
+
+  riskButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      stopDemo();
+      setRisk(button.dataset.riskId);
+    });
+  });
+
+  applyBtn.addEventListener("click", () => {
+    stopDemo();
+    applySuggestion();
+  });
+
+  locateBtn.addEventListener("click", () => {
+    stopDemo();
+    const target = document.querySelector('[data-clause="' + riskData[currentRisk].clause + '"]');
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      target.classList.add("is-active");
+    }
+  });
+
+  compareToggle.addEventListener("click", () => {
+    stopDemo();
+    toggleCompare();
+  });
+
+  focusToggle.addEventListener("click", () => {
+    stopDemo();
+    toggleFocus();
+  });
+
+  demoToggle.addEventListener("click", startDemo);
+
+  setStage(2);
+  setRisk("payment");
+</script>
+</body>
+</html>

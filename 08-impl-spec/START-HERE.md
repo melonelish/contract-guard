@@ -9,6 +9,7 @@
 **读**：
 - `01-project-structure.md` → 目录树
 - `04-technical/数据库设计.md` → DDL 直接复制
+- `07-testing/黄金样例与测试夹具.md` → 最终 ID 与样例契约
 - `.env.example` → 环境变量
 
 **做**：
@@ -95,7 +96,8 @@
 **读**：
 - `04-technical/接口设计.md` → 端点定义
 - `04-technical/安全设计.md` → JWT + WebSocket 认证
-- `05-integration.md` → 缺失的请求/响应体 + 错误码
+- `04-api-supplement.md` → 缺失的请求/响应体 + 错误码
+- `07-testing/黄金样例与测试夹具.md` → 外部契约样例
 
 **做**：
 1. 写 `backend/app/api/deps.py`（get_db, get_current_user, get_redis）

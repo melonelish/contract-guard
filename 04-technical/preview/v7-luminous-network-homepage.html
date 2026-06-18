@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContractGuard Luminous Network Homepage</title>
+<style>
+  :root {
+    --bg: #f7f4ee;
+    --bg-2: #f1ece4;
+    --paper: #ffffff;
+    --paper-2: #fbfaf7;
+    --ink: #243746;
+    --muted: rgba(36, 55, 70, 0.66);
+    --line: rgba(36, 55, 70, 0.08);
+    --line-strong: rgba(36, 55, 70, 0.12);
+    --cyan: #55d8c8;
+    --cyan-soft: #c8fff7;
+    --gold: #f2c65d;
+    --peach: #f7a38d;
+    --shadow-lg: 0 36px 90px rgba(98, 105, 112, 0.14);
+    --shadow-md: 0 18px 38px rgba(98, 105, 112, 0.08);
+    --radius-xl: 44px;
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 16px;
+    --font-sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", "Noto Serif SC", "Songti SC", serif;
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 14% 10%, rgba(85, 216, 200, 0.12), transparent 22%),
+      radial-gradient(circle at 86% 14%, rgba(242, 198, 93, 0.13), transparent 22%),
+      linear-gradient(180deg, #fbfaf6 0%, #f5f1e9 40%, #f7f4ee 100%);
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(rgba(36, 55, 70, 0.016) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(36, 55, 70, 0.016) 1px, transparent 1px);
+    background-size: 120px 120px;
+    mask-image: radial-gradient(circle at center, black 34%, transparent 100%);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  .shell {
+    width: min(1480px, calc(100vw - 24px));
+    margin: 0 auto;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    backdrop-filter: blur(18px);
+    background: linear-gradient(180deg, rgba(251, 250, 246, 0.88), rgba(251, 250, 246, 0.68));
+    border-bottom: 1px solid rgba(36, 55, 70, 0.05);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 4px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .brand-mark {
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 17px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(230, 247, 243, 0.92));
+    border: 1px solid var(--line);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), var(--shadow-md);
+  }
+
+  .brand-mark::before,
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+  }
+
+  .brand-mark::before {
+    inset: 11px;
+    border: 1px solid rgba(85, 216, 200, 0.18);
+  }
+
+  .brand-mark::after {
+    inset: 17px;
+    background: linear-gradient(180deg, rgba(85, 216, 200, 0.86), rgba(85, 216, 200, 0.28));
+  }
+
+  .brand-copy strong {
+    display: block;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .brand-copy span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link,
+  .ghost-btn,
+  .primary-btn,
+  .mini-btn,
+  .tab-btn,
+  .selector-btn {
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.62);
+    transition: transform 180ms var(--ease), border-color 180ms var(--ease), background 180ms var(--ease);
+  }
+
+  .nav-link,
+  .ghost-btn,
+  .mini-btn,
+  .tab-btn,
+  .selector-btn {
+    padding: 10px 14px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .primary-btn {
+    padding: 12px 20px;
+    cursor: pointer;
+    color: var(--ink);
+    background: linear-gradient(135deg, rgba(85, 216, 200, 0.18), rgba(255, 255, 255, 0.96));
+    border-color: rgba(85, 216, 200, 0.24);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+  }
+
+  .nav-link:hover,
+  .ghost-btn:hover,
+  .primary-btn:hover,
+  .mini-btn:hover,
+  .tab-btn:hover,
+  .selector-btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(85, 216, 200, 0.28);
+  }
+
+  section {
+    padding: 38px 0;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .hero-copy {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--line);
+    color: rgba(36, 55, 70, 0.72);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 12px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--cyan);
+    box-shadow: 0 0 0 0 rgba(85, 216, 200, 0.42);
+    animation: pulse 2.4s infinite;
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(85, 216, 200, 0.42); }
+    100% { box-shadow: 0 0 0 14px rgba(85, 216, 200, 0); }
+  }
+
+  .hero-copy h1 {
+    margin: 24px auto 0;
+    max-width: 11ch;
+    font-family: var(--font-serif);
+    font-size: clamp(56px, 7vw, 98px);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    font-weight: 600;
+  }
+
+  .hero-copy h1 span {
+    display: block;
+    background: linear-gradient(135deg, #1f3341 0%, #2b6772 52%, #35c6b2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-copy p {
+    max-width: 820px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+  }
+
+  .hero-scene {
+    position: relative;
+    height: 760px;
+  }
+
+  .hero-panel {
+    position: absolute;
+    inset: 34px 3% 0;
+    border-radius: 56px;
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(236, 232, 224, 0.92)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 52%);
+    border: 1px solid rgba(36, 55, 70, 0.05);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.96),
+      inset 0 -34px 56px rgba(214, 207, 197, 0.24),
+      0 42px 92px rgba(118, 124, 132, 0.12);
+    overflow: hidden;
+  }
+
+  .hero-panel::before,
+  .hero-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero-panel::before {
+    background:
+      linear-gradient(150deg, transparent 8%, rgba(36, 55, 70, 0.028) 8.4%, transparent 8.8%) 10% 18% / 24% 18% no-repeat,
+      linear-gradient(150deg, transparent 8%, rgba(36, 55, 70, 0.028) 8.4%, transparent 8.8%) 58% 15% / 22% 16% no-repeat,
+      linear-gradient(150deg, transparent 8%, rgba(36, 55, 70, 0.028) 8.4%, transparent 8.8%) 22% 66% / 26% 18% no-repeat,
+      linear-gradient(150deg, transparent 8%, rgba(36, 55, 70, 0.028) 8.4%, transparent 8.8%) 70% 66% / 22% 18% no-repeat;
+    opacity: 0.72;
+  }
+
+  .hero-panel::after {
+    background:
+      radial-gradient(circle at 50% 58%, rgba(85, 216, 200, 0.12), transparent 20%),
+      radial-gradient(circle at 50% 58%, rgba(255, 255, 255, 0.76), transparent 38%);
+  }
+
+  .beam {
+    position: absolute;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, rgba(85, 216, 200, 0.34), rgba(85, 216, 200, 0.12), transparent);
+    box-shadow: 0 0 8px rgba(85, 216, 200, 0.16);
+    overflow: hidden;
+    transform-origin: left center;
+  }
+
+  .beam::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 16%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.84), transparent);
+    animation: travel 3.6s linear infinite;
+  }
+
+  @keyframes travel {
+    from { transform: translateX(-220%); }
+    to { transform: translateX(620%); }
+  }
+
+  .beam.tl { left: 33%; top: 44%; width: 12%; transform: rotate(18deg); }
+  .beam.tr { right: 33%; top: 44%; width: 12%; transform: rotate(-18deg); }
+  .beam.bl { left: 34%; top: 54%; width: 11%; transform: rotate(-18deg); }
+  .beam.br { right: 34%; top: 54%; width: 11%; transform: rotate(18deg); }
+
+  .scene-3d {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  .scene-node {
+    position: absolute;
+    width: 206px;
+    height: 148px;
+    transition: transform 220ms var(--ease);
+  }
+
+  .node-base,
+  .node-surface {
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #ffffff, #ece8e0);
+    border: 1px solid rgba(36, 55, 70, 0.06);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.94),
+      0 18px 30px rgba(98, 105, 112, 0.1);
+  }
+
+  .node-surface {
+    inset: 18px 16px 38px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff, #f8f5ef);
+  }
+
+  .node-ring {
+    position: absolute;
+    left: 50%;
+    top: 54px;
+    width: 82px;
+    height: 82px;
+    margin-left: -41px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255,255,255,0.98) 0 38%, rgba(85,216,200,0.08) 38% 54%, rgba(85,216,200,0.4) 54% 58%, rgba(85,216,200,0.08) 58% 72%, rgba(85,216,200,0.03) 72%);
+    box-shadow: 0 0 12px rgba(85, 216, 200, 0.1);
+  }
+
+  .node-icon-card {
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 90px;
+    height: 102px;
+    margin-left: -45px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,249,0.92));
+    border: 1px solid rgba(85, 216, 200, 0.14);
+    box-shadow: 0 10px 22px rgba(98, 105, 112, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(18px);
+  }
+
+  .node-icon-card::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(36, 55, 70, 0.04);
+  }
+
+  .node-label {
+    position: absolute;
+    left: 24px;
+    bottom: -12px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(36, 55, 70, 0.06);
+    box-shadow: 0 10px 20px rgba(98, 105, 112, 0.08);
+    font-size: 13px;
+    color: rgba(36, 55, 70, 0.64);
+  }
+
+  .status-leds {
+    position: absolute;
+    left: 24px;
+    bottom: 28px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .status-leds span {
+    width: 6px;
+    height: 16px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #68edbf, #46dca8);
+    box-shadow: 0 0 6px rgba(70, 220, 168, 0.18);
+  }
+
+  .status-port {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    width: 14px;
+    height: 9px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #f8cf73, #efb842);
+  }
+
+  .icon {
+    position: relative;
+    width: 58px;
+    height: 58px;
+  }
+
+  .doc-icon::before,
+  .doc-icon::after,
+  .calendar-icon::before,
+  .calendar-icon::after,
+  .chat-icon::before,
+  .chat-icon::after,
+  .shield-icon::before,
+  .shield-icon::after {
+    content: "";
+    position: absolute;
+  }
+
+  .doc-icon::before {
+    inset: 8px 12px 12px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ecfffb, #ffffff);
+    border: 2px solid rgba(85, 216, 200, 0.34);
+  }
+
+  .doc-icon::after {
+    left: 22px;
+    top: 16px;
+    width: 22px;
+    height: 28px;
+    border-left: 5px solid rgba(242, 198, 93, 0.94);
+    border-bottom: 5px solid rgba(242, 198, 93, 0.94);
+    transform: rotate(-22deg);
+    border-radius: 0 0 5px 5px;
+  }
+
+  .calendar-icon::before {
+    inset: 10px 8px 14px;
+    border-radius: 16px;
+    background: linear-gradient(180deg, #edfffb, #ffffff);
+    border: 2px solid rgba(85, 216, 200, 0.3);
+  }
+
+  .calendar-icon::after {
+    inset: 20px 12px 18px;
+    width: 10px;
+    height: 10px;
+    border-radius: 8px;
+    background: rgba(85, 216, 200, 0.2);
+    box-shadow:
+      0 14px 0 rgba(85, 216, 200, 0.2),
+      14px 0 0 rgba(85, 216, 200, 0.2),
+      14px 14px 0 rgba(242, 198, 93, 0.94),
+      28px 0 0 rgba(85, 216, 200, 0.2),
+      28px 14px 0 rgba(85, 216, 200, 0.2);
+  }
+
+  .chat-icon::before,
+  .chat-icon::after {
+    border-radius: 18px;
+    background: linear-gradient(180deg, #ffffff, #effffb);
+    border: 2px solid rgba(85, 216, 200, 0.3);
+  }
+
+  .chat-icon::before {
+    left: 8px;
+    top: 14px;
+    width: 24px;
+    height: 22px;
+  }
+
+  .chat-icon::after {
+    right: 7px;
+    top: 8px;
+    width: 28px;
+    height: 24px;
+  }
+
+  .chat-tail-a,
+  .chat-tail-b {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(180deg, #ffffff, #effffb);
+    border-left: 2px solid rgba(85, 216, 200, 0.3);
+    border-bottom: 2px solid rgba(85, 216, 200, 0.3);
+    transform: rotate(-40deg);
+  }
+
+  .chat-tail-a { left: 14px; top: 32px; }
+  .chat-tail-b { right: 16px; top: 26px; }
+
+  .shield-icon::before {
+    left: 14px;
+    top: 8px;
+    width: 30px;
+    height: 40px;
+    background: linear-gradient(180deg, #fffbe8, #ffffff);
+    border: 2px solid rgba(85, 216, 200, 0.3);
+    clip-path: polygon(50% 0%, 100% 18%, 100% 54%, 50% 100%, 0% 54%, 0% 18%);
+  }
+
+  .shield-icon::after {
+    left: 22px;
+    top: 16px;
+    width: 14px;
+    height: 18px;
+    background: linear-gradient(180deg, #ffd94c, #f2c65d);
+    clip-path: polygon(50% 0%, 100% 18%, 100% 54%, 50% 100%, 0% 54%, 0% 18%);
+  }
+
+  .hub {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 412px;
+    height: 270px;
+    margin-left: -206px;
+    margin-top: -44px;
+    transform-style: preserve-3d;
+    transition: transform 240ms var(--ease);
+  }
+
+  .hub-base,
+  .hub-mid,
+  .hub-top {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 24px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(241,249,247,0.94));
+    border: 1px solid rgba(85, 216, 200, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.94),
+      0 18px 36px rgba(98, 105, 112, 0.08);
+  }
+
+  .hub-base {
+    width: 360px;
+    height: 84px;
+    bottom: 0;
+  }
+
+  .hub-mid {
+    width: 300px;
+    height: 72px;
+    bottom: 48px;
+  }
+
+  .hub-top {
+    width: 250px;
+    height: 112px;
+    bottom: 92px;
+    overflow: hidden;
+  }
+
+  .hub-top::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(85, 216, 200, 0.08), rgba(255, 255, 255, 0.96));
+    border: 1px solid rgba(85, 216, 200, 0.12);
+  }
+
+  .hub-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 66px;
+    letter-spacing: -0.08em;
+    color: rgba(36, 55, 70, 0.28);
+  }
+
+  .hub-glow {
+    position: absolute;
+    left: 50%;
+    top: 67%;
+    width: 340px;
+    height: 90px;
+    margin-left: -170px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(85, 216, 200, 0.12), transparent 72%);
+    filter: blur(8px);
+    animation: breathe 5.6s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(0.96); opacity: 0.72; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .node-tl { left: 18%; top: 26%; }
+  .node-tr { right: 18%; top: 26%; }
+  .node-bl { left: 22%; top: 52%; }
+  .node-br { right: 22%; top: 52%; }
+
+  .orb {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.94), rgba(85,216,200,0.34));
+    box-shadow: 0 0 10px rgba(85, 216, 200, 0.12);
+    animation: drift 8s ease-in-out infinite;
+  }
+
+  .orb.a { left: 20%; top: 20%; }
+  .orb.b { right: 20%; top: 24%; animation-delay: 1.1s; }
+  .orb.c { left: 30%; top: 66%; animation-delay: 2.1s; }
+  .orb.d { right: 26%; top: 68%; animation-delay: 1.7s; }
+
+  @keyframes drift {
+    0%, 100% { transform: translateY(0); opacity: 0.82; }
+    50% { transform: translateY(-14px); opacity: 1; }
+  }
+
+  .hero-strip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+
+  .strip-pill {
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    color: rgba(36, 55, 70, 0.62);
+    box-shadow: var(--shadow-md);
+  }
+
+  .surface-band {
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    background:
+      radial-gradient(circle at 14% 10%, rgba(85, 216, 200, 0.1), transparent 22%),
+      radial-gradient(circle at 84% 14%, rgba(242, 198, 93, 0.12), transparent 22%),
+      linear-gradient(180deg, #f7f4ee 0%, #f3eee4 100%);
+  }
+
+  .logo-cloud {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .logo-chip {
+    padding: 14px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--line);
+    color: rgba(36, 55, 70, 0.58);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 12px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .section-header,
+  .stats-wave,
+  .experience-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .section-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 4vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .section-copy,
+  .sticky-copy p {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+    margin-top: 22px;
+  }
+
+  .story-main,
+  .story-side {
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.74);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .story-main {
+    padding: 30px;
+    min-height: 580px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-main h3,
+  .story-side h4 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: -0.05em;
+  }
+
+  .story-main p,
+  .story-side p {
+    margin: 14px 0 0;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .story-side {
+    padding: 24px;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .story-stack {
+    display: grid;
+    gap: 18px;
+  }
+
+  .story-graphic {
+    position: absolute;
+    right: 22px;
+    bottom: 20px;
+    width: 56%;
+    aspect-ratio: 1.04;
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(231,247,243,0.92));
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .story-graphic svg,
+  .mini-graphic svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .mini-graphic {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 154px;
+    height: 132px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .path-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .path-node {
+    padding: 18px 20px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+  }
+
+  .path-node strong {
+    display: block;
+    font-size: 18px;
+  }
+
+  .path-node p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .sticky-copy {
+    position: sticky;
+    top: 108px;
+    padding-top: 10px;
+  }
+
+  .selector-row,
+  .tab-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .selector-row {
+    margin-top: 24px;
+  }
+
+  .selector-btn.active,
+  .tab-btn.active {
+    background: rgba(85, 216, 200, 0.14);
+    border-color: rgba(85, 216, 200, 0.24);
+    color: var(--ink);
+  }
+
+  .experience-stage {
+    padding: 28px;
+    border-radius: 38px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .browser-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 18px;
+  }
+
+  .window-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .window-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(36, 55, 70, 0.14);
+  }
+
+  .window-dots span:nth-child(1) { background: var(--peach); }
+  .window-dots span:nth-child(2) { background: var(--gold); }
+  .window-dots span:nth-child(3) { background: var(--cyan); }
+
+  .url-pill {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--line);
+    color: rgba(36, 55, 70, 0.54);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 13px;
+  }
+
+  .demo-canvas {
+    margin-top: 18px;
+    min-height: 620px;
+  }
+
+  .demo-view {
+    display: none;
+  }
+
+  .demo-view.active {
+    display: block;
+    animation: fadeUp 420ms var(--ease) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .upload-flow,
+  .review-flow,
+  .report-flow {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+  }
+
+  .compare-flow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .flow-main,
+  .flow-side,
+  .flow-sheet,
+  .report-cover {
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-md);
+  }
+
+  .flow-main {
+    padding: 24px;
+    border-radius: 30px;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .flow-main h3,
+  .flow-sheet h3,
+  .report-cover h3 {
+    margin: 0;
+    font-size: 34px;
+    letter-spacing: -0.05em;
+  }
+
+  .flow-main p,
+  .flow-sheet p,
+  .report-cover p {
+    margin: 14px 0 0;
+    color: var(--muted);
+    line-height: 1.85;
+  }
+
+  .flow-side {
+    padding: 16px;
+    border-radius: 26px;
+    display: grid;
+    gap: 14px;
+    align-content: start;
+  }
+
+  .metric-tile,
+  .report-box,
+  .risk-item {
+    padding: 18px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid var(--line);
+  }
+
+  .metric-tile span,
+  .report-box span {
+    display: block;
+    color: rgba(36, 55, 70, 0.54);
+    font-size: 12px;
+  }
+
+  .metric-tile strong,
+  .report-box strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 30px;
+    letter-spacing: -0.04em;
+  }
+
+  .upload-stack {
+    position: absolute;
+    right: 26px;
+    bottom: 18px;
+    width: 250px;
+    height: 210px;
+  }
+
+  .upload-stack span {
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--line);
+    box-shadow: 0 20px 38px rgba(98, 105, 112, 0.12);
+  }
+
+  .upload-stack span:nth-child(1) { transform: rotate(-8deg) translateY(18px); }
+  .upload-stack span:nth-child(2) { transform: rotate(-3deg) translateY(8px); }
+  .upload-stack span:nth-child(3) {
+    transform: rotate(4deg);
+    background:
+      linear-gradient(180deg, rgba(36, 55, 70, 0.06), transparent 24px),
+      rgba(255, 255, 255, 0.98);
+  }
+
+  .upload-stack span:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 48px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(36, 55, 70, 0.12);
+    box-shadow: 0 28px 0 rgba(36, 55, 70, 0.1), 0 56px 0 rgba(36, 55, 70, 0.1), 0 84px 0 rgba(36, 55, 70, 0.1);
+  }
+
+  .risk-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .risk-item strong {
+    display: block;
+    font-size: 15px;
+  }
+
+  .risk-item p {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .flow-sheet,
+  .report-cover {
+    padding: 24px;
+    border-radius: 30px;
+    min-height: 450px;
+  }
+
+  .flow-sheet.light {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 242, 234, 0.94));
+  }
+
+  .delta {
+    margin-top: 16px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(85, 216, 200, 0.12);
+    border: 1px solid rgba(85, 216, 200, 0.18);
+    color: rgba(36, 55, 70, 0.76);
+  }
+
+  .report-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .pillar-field {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .pillar {
+    min-height: 280px;
+    padding: 28px 22px;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .pillar strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 5vw, 76px);
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+
+  .pillar span {
+    display: block;
+    margin-top: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 13px;
+  }
+
+  .final-cta {
+    padding: 44px;
+    border-radius: 42px;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(85, 216, 200, 0.14), transparent 26%),
+      radial-gradient(circle at 84% 22%, rgba(242, 198, 93, 0.16), transparent 24%),
+      linear-gradient(180deg, rgba(255,255,255,0.92), rgba(246,241,232,0.86));
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .final-cta h2 {
+    margin: 0;
+    max-width: 11ch;
+    font-family: var(--font-serif);
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .final-cta p {
+    max-width: 720px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+  }
+
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 1180px) {
+    .section-header,
+    .stats-wave,
+    .experience-layout,
+    .upload-flow,
+    .review-flow,
+    .report-flow,
+    .compare-flow,
+    .story-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-copy h1 {
+      max-width: none;
+    }
+
+    .hero-scene {
+      height: 660px;
+    }
+
+    .scene-3d {
+      transform: scale(0.9);
+      transform-origin: center top;
+    }
+
+    .story-graphic,
+    .mini-graphic {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      width: 100%;
+      margin-top: 18px;
+    }
+
+    .path-row,
+    .pillar-field,
+    .report-metrics {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+    .shell {
+      width: min(100vw - 14px, 100%);
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .hero {
+      min-height: auto;
+      padding-bottom: 20px;
+    }
+
+    .hero-copy h1 {
+      font-size: 48px;
+    }
+
+    .hero-copy p {
+      font-size: 15px;
+    }
+
+    .hero-scene {
+      height: 540px;
+    }
+
+    .scene-3d {
+      transform: scale(0.68);
+      transform-origin: center top;
+    }
+
+    .browser-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .path-row,
+    .pillar-field,
+    .report-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-stage,
+    .flow-main,
+    .flow-side,
+    .flow-sheet,
+    .report-cover,
+    .final-cta,
+    .story-main,
+    .story-side,
+    .pillar {
+      border-radius: 28px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="nav">
+    <div class="shell nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div class="brand-copy">
+          <strong>ContractGuard</strong>
+          <span>AI Native Contract Intelligence</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a class="nav-link" href="#story">产品叙事</a>
+        <a class="nav-link" href="#demo">交互演示</a>
+        <a class="nav-link" href="#metrics">核心指标</a>
+        <a class="nav-link" href="#final">开始试用</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="ghost-btn" id="motionToggle" type="button">增强动效</button>
+        <a class="primary-btn" href="#final">预约演示</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal in-view">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Premium Contract Intelligence
+          </div>
+          <h1>
+            新一代 AI 合同审查，
+            <span>应该像一个真实运转的系统。</span>
+          </h1>
+          <p>
+            这版不再追求廉价发光和堆叠白盒，而是用更克制的体块、阴影、材质和网络关系，
+            去表达 ContractGuard 作为企业级合同智能系统的专业感与高级感。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#demo">查看动态演示</a>
+            <a class="ghost-btn" href="#story">向下浏览场景</a>
+          </div>
+        </div>
+
+        <div class="hero-scene reveal" id="heroWrap">
+          <div class="hero-panel"></div>
+          <div class="hub-glow"></div>
+          <div class="beam tl"></div>
+          <div class="beam tr"></div>
+          <div class="beam bl"></div>
+          <div class="beam br"></div>
+
+          <div class="scene-3d" id="scene3d">
+            <div class="scene-node node-tl" data-depth="10">
+              <div class="node-base"></div>
+              <div class="node-surface"></div>
+              <div class="node-ring"></div>
+              <div class="node-icon-card">
+                <div class="icon doc-icon"></div>
+              </div>
+              <div class="status-leds"><span></span><span></span><span></span></div>
+              <div class="status-port"></div>
+              <div class="node-label">合同起草</div>
+            </div>
+
+            <div class="scene-node node-tr" data-depth="12">
+              <div class="node-base"></div>
+              <div class="node-surface"></div>
+              <div class="node-ring"></div>
+              <div class="node-icon-card">
+                <div class="icon calendar-icon"></div>
+              </div>
+              <div class="status-leds"><span></span><span></span><span></span></div>
+              <div class="status-port"></div>
+              <div class="node-label">履约节点</div>
+            </div>
+
+            <div class="scene-node node-bl" data-depth="14">
+              <div class="node-base"></div>
+              <div class="node-surface"></div>
+              <div class="node-ring"></div>
+              <div class="node-icon-card">
+                <div class="icon chat-icon">
+                  <span class="chat-tail-a"></span>
+                  <span class="chat-tail-b"></span>
+                </div>
+              </div>
+              <div class="status-leds"><span></span><span></span><span></span></div>
+              <div class="status-port"></div>
+              <div class="node-label">条款协商</div>
+            </div>
+
+            <div class="scene-node node-br" data-depth="16">
+              <div class="node-base"></div>
+              <div class="node-surface"></div>
+              <div class="node-ring"></div>
+              <div class="node-icon-card">
+                <div class="icon shield-icon"></div>
+              </div>
+              <div class="status-leds"><span></span><span></span><span></span></div>
+              <div class="status-port"></div>
+              <div class="node-label">风险控制</div>
+            </div>
+
+            <div class="hub" id="hub">
+              <div class="hub-base"></div>
+              <div class="hub-mid"></div>
+              <div class="hub-top">
+                <div class="hub-label">AI</div>
+              </div>
+            </div>
+
+            <div class="orb a"></div>
+            <div class="orb b"></div>
+            <div class="orb c"></div>
+            <div class="orb d"></div>
+          </div>
+        </div>
+
+        <div class="hero-strip reveal">
+          <div class="strip-pill">企业级合同智能审查</div>
+          <div class="strip-pill">多 Agent 推理编排</div>
+          <div class="strip-pill">法理依据与可落地修订</div>
+          <div class="strip-pill">SaaS + 私有化部署</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="surface-band">
+      <section class="shell reveal" id="story">
+        <div class="logo-cloud">
+          <div class="logo-chip">Legal Ops</div>
+          <div class="logo-chip">Enterprise</div>
+          <div class="logo-chip">Procurement</div>
+          <div class="logo-chip">Law Firm</div>
+          <div class="logo-chip">Compliance</div>
+          <div class="logo-chip">Private Deploy</div>
+        </div>
+      </section>
+
+      <section class="shell reveal">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Visual Story</div>
+            <h2 class="section-title">不是说“我们有 AI”。<br>而是让你看见系统在运行。</h2>
+          </div>
+          <div>
+            <p class="section-copy">
+              参考你喜欢的那类成熟官网之后，我把重点收敛成一件事：
+              先建立统一的空间和材质语言，再让产品能力自然地发生，而不是堆很多“会动的盒子”假装高级。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell reveal">
+        <div class="story-grid">
+          <article class="story-main">
+            <h3>合同在上传后，不该掉进一个黑箱。</h3>
+            <p>
+              它会被拆成正文、表格、签章、付款节点、责任边界和争议解决路径。
+              首页要把这件事视觉化，而不是只告诉用户“系统会自动分析”。
+            </p>
+            <div class="story-graphic">
+              <svg viewBox="0 0 640 560" xmlns="http://www.w3.org/2000/svg">
+                <rect x="34" y="46" width="332" height="438" rx="28" fill="#f9f3e8"/>
+                <rect x="56" y="88" width="220" height="12" rx="6" fill="#d6c8b5"/>
+                <rect x="56" y="118" width="280" height="10" rx="5" fill="#dfd3c0"/>
+                <rect x="56" y="142" width="252" height="10" rx="5" fill="#dfd3c0"/>
+                <rect x="56" y="204" width="286" height="106" rx="18" fill="#fffdfa" stroke="#d9cfbf"/>
+                <rect x="56" y="334" width="286" height="90" rx="18" fill="#fffdfa" stroke="#d9cfbf"/>
+                <rect x="404" y="80" width="180" height="122" rx="24" fill="rgba(85,216,200,0.18)" stroke="rgba(85,216,200,0.34)"/>
+                <rect x="404" y="228" width="180" height="144" rx="24" fill="rgba(247,163,141,0.14)" stroke="rgba(247,163,141,0.3)"/>
+                <rect x="404" y="396" width="180" height="86" rx="24" fill="rgba(242,198,93,0.14)" stroke="rgba(242,198,93,0.3)"/>
+                <path d="M366 140 C410 140 406 140 406 140" stroke="rgba(85,216,200,0.58)" stroke-width="3" stroke-dasharray="6 8"/>
+                <path d="M366 290 C420 290 406 290 406 290" stroke="rgba(247,163,141,0.58)" stroke-width="3" stroke-dasharray="6 8"/>
+                <path d="M366 430 C420 430 406 430 406 430" stroke="rgba(242,198,93,0.58)" stroke-width="3" stroke-dasharray="6 8"/>
+                <circle cx="366" cy="140" r="8" fill="#55d8c8"/>
+                <circle cx="366" cy="290" r="8" fill="#f7a38d"/>
+                <circle cx="366" cy="430" r="8" fill="#f2c65d"/>
+              </svg>
+            </div>
+          </article>
+
+          <div class="story-stack">
+            <article class="story-side">
+              <h4>证据层应该被看见。</h4>
+              <p>法条、标准条款、交叉冲突和修订依据不是附加说明，而是品牌可信度最重要的画面。</p>
+              <div class="mini-graphic">
+                <svg viewBox="0 0 180 140" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="18" y="18" width="144" height="104" rx="20" fill="rgba(255,255,255,0.92)"/>
+                  <rect x="36" y="40" width="72" height="10" rx="5" fill="rgba(36,55,70,0.42)"/>
+                  <rect x="36" y="60" width="112" height="8" rx="4" fill="rgba(36,55,70,0.14)"/>
+                  <rect x="36" y="76" width="96" height="8" rx="4" fill="rgba(36,55,70,0.14)"/>
+                  <rect x="116" y="34" width="28" height="28" rx="10" fill="rgba(85,216,200,0.32)"/>
+                  <rect x="116" y="74" width="28" height="28" rx="10" fill="rgba(242,198,93,0.3)"/>
+                </svg>
+              </div>
+            </article>
+
+            <article class="story-side">
+              <h4>建议不是结论，而是下一步动作。</h4>
+              <p>更好的合同首页，会把“AI 发现问题”直接连到“AI 帮你改写、对比、进入红线和报告”。</p>
+              <div class="mini-graphic">
+                <svg viewBox="0 0 180 140" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="18" y="20" width="144" height="100" rx="18" fill="rgba(255,255,255,0.94)"/>
+                  <rect x="34" y="38" width="52" height="8" rx="4" fill="rgba(36,55,70,0.42)"/>
+                  <rect x="34" y="58" width="112" height="8" rx="4" fill="rgba(36,55,70,0.16)"/>
+                  <rect x="34" y="78" width="98" height="8" rx="4" fill="rgba(85,216,200,0.54)"/>
+                  <rect x="34" y="96" width="122" height="8" rx="4" fill="rgba(36,55,70,0.16)"/>
+                </svg>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell reveal">
+        <div class="path-row">
+          <article class="path-node">
+            <strong>Upload</strong>
+            <p>上传动作本身就应该被设计成一个开场事件，而不是普通表单。</p>
+          </article>
+          <article class="path-node">
+            <strong>Understand</strong>
+            <p>让用户看见系统如何拆解和理解合同结构，而不是只看到转圈加载。</p>
+          </article>
+          <article class="path-node">
+            <strong>Decide</strong>
+            <p>把风险、证据和优先级做成可操作信息，而不是一堆列表文字。</p>
+          </article>
+          <article class="path-node">
+            <strong>Ship</strong>
+            <p>把建议送进修订、红线和报告，而不是停留在“分析已完成”。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell reveal" id="demo">
+        <div class="experience-layout">
+          <aside class="sticky-copy">
+            <div class="eyebrow">Interactive Demo</div>
+            <h2 class="section-title">首页本身就应该是一场产品试驾。</h2>
+            <p>
+              我保留了你喜欢的动态感，但把它收敛到了一个更像真实产品的结构里。
+              这里不再是满屏乱飞的“科技风盒子”，而是一个可切换状态、可解释产品能力的动态演示区。
+            </p>
+            <div class="selector-row" id="sceneSelectors">
+              <button class="selector-btn active" data-scene="upload" type="button">上传状态</button>
+              <button class="selector-btn" data-scene="review" type="button">审查状态</button>
+              <button class="selector-btn" data-scene="compare" type="button">修订状态</button>
+              <button class="selector-btn" data-scene="report" type="button">报告状态</button>
+            </div>
+          </aside>
+
+          <div class="experience-stage">
+            <div class="browser-bar">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="url-pill">contractguard.ai/experience/live-demo</div>
+              <button class="mini-btn" id="autoplayToggle" type="button">自动演示</button>
+            </div>
+
+            <div class="tab-row">
+              <button class="tab-btn active" data-demo="upload" type="button">上传引导</button>
+              <button class="tab-btn" data-demo="review" type="button">条款审查</button>
+              <button class="tab-btn" data-demo="compare" type="button">修订对比</button>
+              <button class="tab-btn" data-demo="report" type="button">报告输出</button>
+            </div>
+
+            <div class="demo-canvas">
+              <div class="demo-view active" id="demo-upload">
+                <div class="upload-flow">
+                  <div class="flow-main">
+                    <h3>拖入合同，系统立刻开始拆解结构。</h3>
+                    <p>支持 PDF、Word、扫描件。正文、表格、签章和附件层级会在第一时间被结构化。</p>
+                    <div class="hero-actions" style="justify-content:flex-start;">
+                      <button class="primary-btn" type="button">上传合同</button>
+                      <button class="ghost-btn" type="button">查看样本</button>
+                    </div>
+                    <div class="upload-stack" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="flow-side">
+                    <div class="metric-tile"><span>支持文件</span><strong>PDF / DOCX</strong></div>
+                    <div class="metric-tile"><span>最大文件</span><strong>50MB</strong></div>
+                    <div class="metric-tile"><span>结构化解析</span><strong>14 Pages</strong></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-view" id="demo-review">
+                <div class="review-flow">
+                  <div class="flow-main">
+                    <h3>系统不是只给结论，而是给定位和依据。</h3>
+                    <p>点击任何风险，都会定位到对应条款，并告诉用户为什么它危险、如何修订更稳妥。</p>
+                    <div class="risk-list">
+                      <div class="risk-item">
+                        <strong>高风险 · 付款条件过于前置</strong>
+                        <p>到货后 3 个工作日支付 80%，但没有性能验收与质保留存。</p>
+                      </div>
+                      <div class="risk-item">
+                        <strong>高风险 · 违约责任无限扩大</strong>
+                        <p>未设置累计赔偿上限，同时把间接损失默认纳入。</p>
+                      </div>
+                      <div class="risk-item">
+                        <strong>中风险 · 售后 SLA 不闭环</strong>
+                        <p>缺少响应时限、到场时间、恢复目标和替代方案。</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flow-side">
+                    <div class="metric-tile"><span>风险总数</span><strong>06</strong></div>
+                    <div class="metric-tile"><span>法律依据命中</span><strong>91%</strong></div>
+                    <div class="metric-tile"><span>优先处理</span><strong>付款 / 责任</strong></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-view" id="demo-compare">
+                <div class="compare-flow">
+                  <div class="flow-sheet light">
+                    <h3>原始条款</h3>
+                    <p>甲方应在设备到货并完成签收后 3 个工作日内支付合同总价的 80%，剩余 20% 于连续运行满三个月后支付。</p>
+                    <div class="delta">问题：付款节点没有与可证明的验收条件绑定。</div>
+                  </div>
+                  <div class="flow-sheet">
+                    <h3>AI 修订建议</h3>
+                    <p>合同签订后支付 20% 预付款；设备到货并完成书面初验后支付 50%；连续稳定运行满三个月且性能验收通过后支付 20%；剩余 10% 作为质保金。</p>
+                    <div class="delta">结果：付款结构与履约风险重新对齐，可直接进入编辑器或红线模式。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-view" id="demo-report">
+                <div class="report-flow">
+                  <div class="flow-side">
+                    <div class="metric-tile"><span>报告状态</span><strong>Ready</strong></div>
+                    <div class="metric-tile"><span>法条与依据</span><strong>24 条</strong></div>
+                    <div class="metric-tile"><span>建议可应用率</span><strong>88%</strong></div>
+                  </div>
+                  <div class="report-cover">
+                    <h3>一份能直接发给法务、业务和管理层的审查报告。</h3>
+                    <p>摘要、优先级、证据、法理依据、修改建议、风险结论，一次成稿。</p>
+                    <div class="report-metrics">
+                      <div class="report-box"><span>高风险</span><strong>02</strong></div>
+                      <div class="report-box"><span>中风险</span><strong>02</strong></div>
+                      <div class="report-box"><span>观察项</span><strong>02</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell reveal" id="metrics">
+        <div class="stats-wave">
+          <div>
+            <div class="eyebrow">Benchmark</div>
+            <h2 class="section-title">可信度也应该被设计，而不是塞进三张小卡片。</h2>
+            <p class="section-copy">
+              这里我不再用歪斜装置，而是用更稳定的竖向体块承接数据。这样既保留空间感，也不会破坏整页的专业气质。
+            </p>
+          </div>
+          <div class="pillar-field">
+            <div class="pillar">
+              <strong class="counter" data-target="15">0</strong>
+              <span>分钟级完成一份标准合同审查</span>
+            </div>
+            <div class="pillar">
+              <strong class="counter" data-target="95">0</strong>
+              <span>风险覆盖目标，结合结构化解析和交叉校验形成闭环</span>
+            </div>
+            <div class="pillar">
+              <strong class="counter" data-target="24">0</strong>
+              <span>一份典型合同可回收的法条与依据数量</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell reveal" id="final">
+        <div class="final-cta">
+          <div class="eyebrow">Final Conversion</div>
+          <h2>如果首屏是一套高级动画，下面就必须还是同一个世界。</h2>
+          <p>
+            这版的重点不是单独做一个酷首屏，而是让首屏的体块、材质、光感和系统关系，一路贯穿到叙事、演示、指标和结尾。
+            这样用户才会觉得这是一个认真打磨过的品牌站，而不是拼接起来的页面。
+          </p>
+          <div class="cta-actions">
+            <button class="primary-btn" type="button">预约企业演示</button>
+            <button class="ghost-btn" type="button">下载产品手册</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script>
+  const revealItems = document.querySelectorAll(".reveal");
+  const counters = document.querySelectorAll(".counter");
+  const demoButtons = document.querySelectorAll("[data-demo]");
+  const selectorButtons = document.querySelectorAll("[data-scene]");
+  const demoViews = document.querySelectorAll(".demo-view");
+  const heroWrap = document.getElementById("heroWrap");
+  const scene3d = document.getElementById("scene3d");
+  const hub = document.getElementById("hub");
+  const nodes = document.querySelectorAll(".scene-node");
+  const autoplayToggle = document.getElementById("autoplayToggle");
+  const motionToggle = document.getElementById("motionToggle");
+
+  let autoplay = null;
+  let motionOn = true;
+  const demoOrder = ["upload", "review", "compare", "report"];
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+      }
+    });
+  }, { threshold: 0.18 });
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting || entry.target.dataset.started) {
+        return;
+      }
+      entry.target.dataset.started = "1";
+      const target = Number(entry.target.dataset.target);
+      const suffix = target === 15 ? "m" : target === 24 ? "" : "%";
+      const start = performance.now();
+      const duration = 1400;
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const value = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+        entry.target.textContent = value + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          entry.target.textContent = target + suffix;
+        }
+      }
+
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.35 });
+
+  counters.forEach((counter) => counterObserver.observe(counter));
+
+  function activateDemo(name) {
+    demoButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.demo === name);
+    });
+    selectorButtons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.scene === name);
+    });
+    demoViews.forEach((view) => {
+      view.classList.toggle("active", view.id === "demo-" + name);
+    });
+  }
+
+  function stopAutoplay() {
+    if (!autoplay) {
+      return;
+    }
+    clearInterval(autoplay);
+    autoplay = null;
+    autoplayToggle.textContent = "自动演示";
+    autoplayToggle.classList.remove("active");
+  }
+
+  function toggleAutoplay() {
+    if (autoplay) {
+      stopAutoplay();
+      return;
+    }
+
+    let index = demoOrder.findIndex((item) => document.querySelector("[data-demo].active").dataset.demo === item);
+    autoplayToggle.textContent = "停止演示";
+    autoplayToggle.classList.add("active");
+    autoplay = setInterval(() => {
+      index = (index + 1) % demoOrder.length;
+      activateDemo(demoOrder[index]);
+    }, 1800);
+  }
+
+  demoButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      stopAutoplay();
+      activateDemo(button.dataset.demo);
+    });
+  });
+
+  selectorButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      stopAutoplay();
+      activateDemo(button.dataset.scene);
+      document.getElementById("demo").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  autoplayToggle.addEventListener("click", toggleAutoplay);
+
+  function resetScene() {
+    scene3d.style.transform = "";
+    hub.style.transform = "";
+    nodes.forEach((node) => {
+      node.style.transform = "";
+    });
+  }
+
+  heroWrap.addEventListener("mousemove", (event) => {
+    if (!motionOn || window.innerWidth < 900) {
+      return;
+    }
+
+    const rect = heroWrap.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    scene3d.style.transform = "rotateX(" + (y * -5) + "deg) rotateY(" + (x * 7) + "deg)";
+    hub.style.transform = "translate(" + (x * 12) + "px," + (y * 10) + "px)";
+    nodes.forEach((node) => {
+      const depth = Number(node.dataset.depth || 10);
+      node.style.transform = "translate(" + (x * depth) + "px," + (y * depth) + "px)";
+    });
+  });
+
+  heroWrap.addEventListener("mouseleave", resetScene);
+
+  motionToggle.addEventListener("click", () => {
+    motionOn = !motionOn;
+    motionToggle.textContent = motionOn ? "增强动效" : "动效已减弱";
+    if (!motionOn) {
+      resetScene();
+    }
+  });
+</script>
+</body>
+</html>
