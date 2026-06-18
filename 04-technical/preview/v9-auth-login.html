@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ContractGuard - 登录</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f1e9;
+  --bg-soft: #fbf8f3;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --ink: #18242f;
+  --ink-soft: #5c6875;
+  --ink-muted: #8c97a4;
+  --line: rgba(24, 36, 47, 0.1);
+  --brand: #2d5e89;
+  --accent: #c88742;
+  --success: #5f7768;
+  --shadow-lg: 0 26px 72px rgba(25, 38, 52, 0.12);
+  --shadow-md: 0 14px 34px rgba(25, 38, 52, 0.08);
+  --radius-xl: 30px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-sans: "Manrope", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-serif: "Noto Serif SC", "STSong", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 14% 16%, rgba(200, 135, 66, 0.13), transparent 26%),
+    radial-gradient(circle at 84% 12%, rgba(45, 94, 137, 0.12), transparent 24%),
+    linear-gradient(180deg, #fbf7f1 0%, #f6f1e9 48%, #faf7f1 100%);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.ambient-grid,
+.ambient-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ambient-grid {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(24, 36, 47, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 36, 47, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.36), transparent 84%);
+}
+
+.ambient-rings::before,
+.ambient-rings::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid rgba(45, 94, 137, 0.1);
+}
+
+.ambient-rings::before {
+  width: 460px;
+  height: 460px;
+  right: -140px;
+  top: 60px;
+}
+
+.ambient-rings::after {
+  width: 340px;
+  height: 340px;
+  left: -110px;
+  bottom: 80px;
+}
+
+.nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 34px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #18344a 0%, #4b789f 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  box-shadow: 0 16px 28px rgba(45, 94, 137, 0.2);
+}
+
+.brand-copy strong {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.brand-copy span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--ink-soft);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.86);
+  transform: translateY(-1px);
+}
+
+.shell {
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 74px);
+  display: grid;
+  place-items: center;
+  padding: 36px 20px 56px;
+}
+
+.auth-wrap {
+  width: min(100%, 460px);
+}
+
+.auth-panel {
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at top right, rgba(200, 135, 66, 0.08), transparent 24%),
+    linear-gradient(180deg, var(--surface-strong), rgba(248, 244, 237, 0.96));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--success), #8baa95);
+}
+
+.auth-panel h1 {
+  margin: 18px 0 10px;
+  font-family: var(--font-serif);
+  font-size: 34px;
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+
+.auth-panel p {
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.82;
+  color: var(--ink-soft);
+}
+
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.input-shell input {
+  width: 100%;
+  height: 54px;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(24, 36, 47, 0.1);
+  background: rgba(251, 247, 241, 0.9);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.input-shell input:focus {
+  border-color: rgba(45, 94, 137, 0.36);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 0 0 4px rgba(45, 94, 137, 0.08);
+}
+
+.helper-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--brand);
+}
+
+.helper-row a {
+  color: var(--brand);
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.primary-btn {
+  margin-top: 6px;
+  color: #fff;
+  background: linear-gradient(135deg, #234c74 0%, #4b769f 100%);
+  box-shadow: 0 18px 32px rgba(45, 94, 137, 0.22);
+}
+
+.secondary-btn {
+  margin-top: 4px;
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(24, 36, 47, 0.1);
+  color: var(--ink);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0;
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(24, 36, 47, 0.08);
+}
+
+.mini-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.mini-links a {
+  color: var(--ink-soft);
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.trust-item {
+  padding: 12px 10px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(24, 36, 47, 0.08);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.trust-item strong {
+  display: block;
+  font-size: 12px;
+}
+
+.trust-item span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 680ms var(--ease), transform 680ms var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .nav {
+    padding: 18px 18px 0;
+  }
+
+  .auth-panel {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .auth-panel h1 {
+    font-size: 30px;
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="ambient-grid"></div>
+  <div class="ambient-rings"></div>
+
+  <nav class="nav">
+    <a class="brand" href="./v8-editorial-homepage.html">
+      <div class="brand-mark">CG</div>
+      <div class="brand-copy">
+        <strong>ContractGuard</strong>
+        <span>Enterprise AI Contract Review</span>
+      </div>
+    </a>
+    <a class="nav-link" href="./v8-editorial-homepage.html">返回首页</a>
+  </nav>
+
+  <main class="shell">
+    <div class="auth-wrap">
+      <section class="auth-panel reveal">
+        <div class="eyebrow">企业安全登录</div>
+        <h1>登录 ContractGuard</h1>
+        <p>继续处理你的合同审查任务、修改建议稿与团队协作记录。</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="account">企业邮箱 / 手机号</label>
+            <div class="input-shell">
+              <input id="account" type="text" value="legal@contractguard.cn">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">登录密码</label>
+            <div class="input-shell">
+              <input id="password" type="password" value="ContractGuard2026">
+            </div>
+          </div>
+
+          <div class="helper-row">
+            <label class="check">
+              <input type="checkbox" checked>
+              <span>记住登录状态</span>
+            </label>
+            <a href="javascript:void(0)">忘记密码</a>
+          </div>
+
+          <a class="primary-btn magnetic" href="./v10-workspace-dashboard.html">登录并进入系统</a>
+
+          <div class="divider">或</div>
+
+          <a class="secondary-btn" href="./v10-workspace-dashboard.html">通过企业微信登录</a>
+          <a class="secondary-btn" href="./v10-workspace-dashboard.html">通过企业 SSO 登录</a>
+        </div>
+
+        <div class="mini-links">
+          <a href="javascript:void(0)">申请企业账号</a>
+          <a href="javascript:void(0)">联系销售</a>
+        </div>
+      </section>
+
+      <div class="trust-strip reveal">
+        <div class="trust-item">
+          <strong>组织隔离</strong>
+          <span>企业数据独立</span>
+        </div>
+        <div class="trust-item">
+          <strong>连续承接</strong>
+          <span>登录后直接继续任务</span>
+        </div>
+        <div class="trust-item">
+          <strong>统一入口</strong>
+          <span>支持账号与企业 SSO</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+document.querySelectorAll(".magnetic").forEach((button) => {
+  button.addEventListener("mousemove", (event) => {
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
+    button.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+  });
+
+  button.addEventListener("mouseleave", () => {
+    button.style.transform = "translate(0, 0)";
+  });
+});
+</script>
+</body>
+</html>

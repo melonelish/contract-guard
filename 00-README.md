@@ -1,151 +1,175 @@
-# ContractGuard — Intelligent Contract Risk Review System
+# ContractGuard — 智能合同风险审查系统
 
-> Project Codename: ContractGuard  
-> Version: v1.0  
-> Last Updated: 2026-06-15  
-> Classification: Internal
+> 项目代号：ContractGuard  
+> 版本：v1.0  
+> 最后更新：2026-06-15  
+> 密级：内部
 
 ---
 
-## 1. Overview
+## 一、项目概述
 
-ContractGuard is an enterprise-grade intelligent contract risk review system powered by LLMs and a multi-Agent collaborative architecture. Its core value proposition — "upload a contract PDF, auto-generate a review report" — compresses traditional manual clause-by-clause review (avg. 3 hours/contract) to 15 minutes, while boosting risk detection coverage from ~70% (human review) to ~95%.
+ContractGuard 是一套基于大语言模型（LLM）和多 Agent 协作架构的企业级智能合同风险审查系统。系统以"上传合同 PDF，自动生成审查报告"为核心价值，将传统人工逐条审查（平均 3 小时/份）压缩至 15 分钟，风险识别覆盖率从人眼的 ~70% 提升至 ~95%。
 
-### Core Capabilities
+### 核心能力
 
-| Capability | Description |
+| 能力 | 描述 |
 |---|---|
-| Deep Document Parsing | Supports PDF/Word/scanned documents; auto-extracts body text, tables, and signature regions |
-| Intelligent Clause Analysis | Per-clause legal qualification, cross-referencing statutes and precedents, outputting risk levels |
-| Cross-Reference Validation | Detects logical contradictions between different clauses within the same contract |
-| Missing Clause Detection | Auto-identifies standard clauses that should be present but are absent |
-| Structured Reporting | Auto-generates review reports with original text citations, legal references, and amendment suggestions |
+| 文档深度解析 | 支持 PDF/Word/扫描件，自动提取正文、表格、签章区域 |
+| 条款智能分析 | 逐条法律定性，关联法条与判例，输出风险等级 |
+| 逻辑交叉校验 | 检测合同内不同条款之间的逻辑矛盾 |
+| 缺失项检测 | 自动识别应当存在但缺失的标准条款 |
+| 结构化报告 | 自动生成含原文引用、法条依据、修改建议的审查报告 |
 
-### Delivery Models
+### 交付形态
 
-- **SaaS Cloud Edition**: Targeting SMEs, pay-per-contract pricing
-- **On-Premise Deployment**: Targeting large enterprises / law firms, Docker/K8s deployment
-- **WeChat Mini Program**: Convenient upload and instant viewing
+- **SaaS 云端版**：面向中小企业，按合同份数付费
+- **私有化部署版**：面向大型企业/律所，Docker/K8s 部署
+- **微信小程序**：便捷上传与即时查看
 
 ---
 
-## 2. Document Navigation
+## 二、文档导航
 
 ```
-ContractGuard/docs/
-├── 00-README.md                    ← This document
-├── 01-business/                    ← Business Case Layer (7 docs)
-│   ├── business-plan.md
-│   ├── market-analysis.md
-│   ├── product-positioning.md
-│   ├── business-model.md
-│   ├── financial-projections.md
-│   ├── competitive-analysis.md
-│   └── pricing-and-cost-control.md  ★ New
-├── 02-product/                     ← Product Definition Layer (5 docs)
+ContractGuard/
+├── 00-README.md                    ← 本文档
+├── 01-business/                    ← 商业论证层（7篇）
+│   ├── 商业计划书.md
+│   ├── 市场需求分析.md
+│   ├── 产品定位.md
+│   ├── 商业模式.md
+│   ├── 财务预测.md
+│   ├── 竞争分析.md
+│   └── 收费模式与成本风控.md          ★ 新增
+├── 02-product/                     ← 产品定义层（5篇）
 │   ├── PRD.md
-│   ├── user-personas.md
-│   ├── user-journey-map.md
-│   ├── prototype-design.md
-│   └── dual-pane-comparison-and-diff.md  ★ New (Review-Edit-Print Loop)
-├── 03-agent/                       ← AI Agent Layer ★Core★ (7 docs)
+│   ├── 用户画像.md
+│   ├── 原型设计说明.md
+│   └── 双屏对比与差异可视化设计.md    ★ 新增（审查-编辑-打印闭环）
+│   └── 前端页面状态机与异常流.md      ★ 新增
+├── 03-agent/                       ← AI Agent 层 ★核心★（8篇）
 │   ├── AGENTS.md
-│   ├── system-prompts.md
-│   ├── agent-responsibilities.md
-│   ├── agent-collaboration-protocol.md
-│   ├── agent-evaluation.md
-│   ├── tool-specifications.md
-│   └── drafting-review-loop-and-annotation-bridge.md  ★ New
-├── 04-technical/                   ← Technical Design Layer
-│   ├── architecture-design.md
-│   ├── technology-selection.md
-│   ├── database-design.md
-│   ├── API-design.md
-│   ├── module-division.md
-│   ├── deployment-architecture.md
-│   ├── security-design.md
-│   └── preview/                     ★ New
-│       └── index.html               ← Product preview page (design system + interaction prototype)
-├── 05-ai-coding/                   ← AI Coding Standards Layer
-│   ├── coding-standards.md
-│   ├── testing-standards.md
-│   ├── code-review-standards.md
-│   └── commit-standards.md
-├── 06-project/                     ← Project Management Layer
-│   ├── project-charter.md
-│   ├── execution-plan.md
-│   ├── WBS.md
-│   ├── milestones.md
-│   ├── risk-management.md
-│   └── meeting-minutes.md
-└── 07-testing/                     ← Testing & Acceptance Layer
-    ├── test-plan.md
-    ├── test-cases.md
-    ├── acceptance-criteria.md
-    ├── test-report.md
-    └── performance-test-report.md
+│   ├── 系统提示词设计.md
+│   ├── Agent职责划分.md
+│   ├── Agent协作协议.md
+│   ├── Agent评测标准.md
+│   ├── 工具调用规范.md
+│   ├── 起草审查闭环与Annotation桥.md  ★ 新增
+│   └── 为什么不使用LangChain-自研方案说明.md  ★ 新增
+├── 04-technical/                   ← 技术设计层（9篇）
+│   ├── 系统架构设计.md
+│   ├── 技术选型.md
+│   ├── 数据库设计.md
+│   ├── 数据库种子数据与测试夹具设计.md  ★ 新增
+│   ├── 接口设计.md
+│   ├── API与Schema固定契约.md       ★ 新增
+│   ├── 错误码与失败处理设计.md      ★ 新增
+│   ├── LLM Unified Wrapper Layer Design.md  ★ 新增
+│   ├── 安全设计.md
+│   └── preview/                     ★ 新增
+│       └── index.html               ← 产品预览页（设计系统 + 交互原型）
+├── 05-ai-coding/                   ← AI 编码规范层（1篇）
+│   └── 编码规范.md
+├── 06-project/                     ← 项目管理层（4篇）
+│   ├── 项目章程.md
+│   ├── 执行计划.md
+│   ├── WBS工作分解.md
+│   └── 风险管理.md
+├── 07-testing/                     ← 测试验收层（2篇）
+│   ├── 验收标准.md
+│   └── 黄金样例与测试夹具.md          ★ 新增（给 Agent 的对照输入输出）
+└── 08-impl-spec/                   ← AI 编码实现规格（给 Agent 直接执行）
+    ├── README.md                   ← 规格说明书说明
+    ├── START-HERE.md               ← 编码顺序指南
+    ├── 01-project-structure.md     ← 目录结构
+    ├── 02-agent-framework.md       ← Agent 框架接口
+    ├── 03-state-machine.md         ← 状态机与重试策略
+    ├── 04-api-supplement.md        ← API 请求/响应补充
+    └── 05-integration.md           ← Redis/Settings/调用链
 ```
 
 ---
 
-## 3. Reading Guide
+## 三、阅读指南
 
-| Role | Recommended Reading Order |
+| 角色 | 推荐阅读顺序 |
 |---|---|
-| Investors / Decision Makers | 00 → business-plan → financial-projections → pricing-and-cost-control |
-| Product Managers | 00 → PRD → user-personas → dual-pane-comparison-and-diff |
-| AI Engineers | 00 → AGENTS → agent-collaboration-protocol → drafting-review-loop-and-annotation-bridge → agent-evaluation |
-| Backend Engineers | 00 → architecture-design → API-design → security-design |
-| Frontend Engineers | 00 → dual-pane-comparison-and-diff → architecture-design |
-| Project Managers | 00 → project-charter → execution-plan → risk-management |
-| QA Engineers | 00 → test-plan → test-cases → acceptance-criteria |
+| 投资人/决策者 | 00 → 商业计划书 → 财务预测 → 收费模式与成本风控 |
+| 产品经理 | 00 → PRD → 用户画像 → 双屏对比与差异可视化设计 |
+| AI 工程师 | 00 → AGENTS → Agent协作协议 → 起草审查闭环与Annotation桥 → 评测标准 |
+| 后端工程师 | 00 → 系统架构 → API与Schema固定契约 → 数据库设计 → 安全设计 |
+| 前端工程师 | 00 → 双屏对比与差异可视化设计 → 前端页面状态机与异常流 → 接口设计 |
+| 项目经理 | 00 → 项目章程 → 执行计划 → 风险管理 |
+| 测试工程师 | 00 → 验收标准 → 黄金样例与测试夹具 |
 
 ---
 
-## 4. Key Metrics
+## 四、项目关键指标
 
-| Metric | Target |
+| 指标 | 目标值 |
 |---|---|
-| Review Turnaround | ≤ 15 min (baseline: 3 hours manual) |
-| Risk Detection Accuracy | ≥ 90% (vs. licensed attorney review) |
-| System Availability | 99.9% |
-| API Response Latency | P95 ≤ 30s (including LLM inference) |
-| Supported Formats | PDF / Word / Scanned / Image |
-| Max File Size | 50MB |
-| Concurrent Reviews | ≥ 100 contracts/sec |
+| 合同审查耗时 | ≤ 15 分钟（人工基准：3 小时） |
+| 风险识别准确率 | ≥ 90%（与执业律师审查结果对比） |
+| 系统可用性 | 99.9% |
+| API 响应延迟 | P95 ≤ 30s（含 LLM 推理时间） |
+| 支持文件格式 | PDF / Word / 扫描件 / 图片 |
+| 最大文件大小 | 50MB |
+| 并发审查数 | ≥ 20 份/分钟（初期）；架构可水平扩展至更高 |
 
 ---
 
-## 5. Quick Start
+## 五、快速开始
 
-### 5.1 Preview the Prototype
+### 5.1 预览交互原型
 
 ```bash
-# Open the interactive prototype directly in your browser
-open 04-technical/preview/index.html
+# 直接在浏览器中打开交互原型
+start 04-technical/preview/index.html
 ```
 
-The prototype demonstrates the core user experience: document viewer with inline risk marks, collapsible risk cards, dual-pane comparison, built-in editor (TipTap-based) with AI suggestion cards, and print-ready layout. No server required — open directly in any modern browser.
+原型展示了完整的用户体验：带风险标记的文档查看器、可折叠风险卡片、双屏对比、内置编辑器（基于 TipTap）及 AI 建议卡片、打印就绪布局。无需服务器，直接用浏览器打开即可。
 
-### 5.2 Run Full Stack (Development)
+### 5.2 启动完整开发环境
 
 ```bash
-# 1. Clone and configure
-cp .env.example .env       # Edit .env with your LLM API keys
+# 1. 克隆并配置
+cp .env.example .env       # 编辑 .env 填入你的 LLM API Key
 
-# 2. Start all services
+# 2. 启动所有基础设施
 docker compose up -d       # PostgreSQL, Redis, ES, Milvus, MinIO, Vault
 
-# 3. Install backend dependencies
-pip install -e ".[dev]"    # See pyproject.toml for full list
+# 3. 安装后端依赖
+pip install -e ".[dev]"    # 详见 pyproject.toml
 
-# 4. Start backend
+# 4. 启动后端
 cd backend && uvicorn app.main:app --reload --port 8000
 
-# 5. Start frontend (separate terminal)
+# 5. 启动前端（新终端）
 cd frontend && npm install && npm run dev
 ```
 
 ---
 
-*This documentation system follows the "Evolution of Documentation Systems in the AI-Driven Development Era" standard, suitable for enterprise-grade AI project delivery at scale.*
+## 六、Agent 直接开发前必读
+
+如果目标是“把这套文档直接交给 Agent 开发，并尽量减少返工和调试”，阅读顺序必须固定为：
+
+1. `AGENTS.md`（仓库根目录治理入口）
+2. `00-README.md`
+3. `03-agent/AGENTS.md`
+4. `04-technical/系统架构设计.md`
+5. `04-technical/数据库设计.md`
+6. `04-technical/接口设计.md`
+7. `04-technical/错误码与失败处理设计.md`
+8. `07-testing/黄金样例与测试夹具.md`
+9. `08-impl-spec/START-HERE.md`
+
+### 裁判原则
+
+- 同一个问题只能有一个最终答案
+- `04-technical/数据库设计.md`、`04-technical/接口设计.md`、`08-impl-spec/04-api-supplement.md` 若冲突，以“更具体且更新”的文档为准，并在修改后同步另外两份
+- 所有外部可见 ID、状态枚举、错误码、事件名，必须能在文档中找到唯一口径
+- 示例不是随意样例；示例中的字段名、类型、事件名默认就是实现契约
+
+*本文档体系参照《AI 驱动开发时代的文档体系演进》标准构建，适用于百万级企业 AI 项目交付。*
