@@ -24,6 +24,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
+# Windows console UTF-8 encoding workaround
+if sys.platform == "win32":
+    import io
+    if hasattr(sys.stdout, "buffer"):
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
 # ─────────────────────────────────────────────
 # 1. Paths
 # ─────────────────────────────────────────────
@@ -55,6 +61,16 @@ MOCK_PROFILES = {
         "parser": {"clauses_found": 25, "clauses_expected": 25, "accuracy": 1.0},
         "analyzer": {"risks_found": 10, "high_risks": 2, "medium_risks": 6, "low_risks": 2, "type_a_count": 0},
         "duration_s": 18.5,
+    },
+    "保密协议": {
+        "parser": {"clauses_found": 12, "clauses_expected": 12, "accuracy": 1.0},
+        "analyzer": {"risks_found": 4, "high_risks": 1, "medium_risks": 2, "low_risks": 1, "type_a_count": 0},
+        "duration_s": 9.6,
+    },
+    "租赁合同": {
+        "parser": {"clauses_found": 16, "clauses_expected": 16, "accuracy": 1.0},
+        "analyzer": {"risks_found": 6, "high_risks": 2, "medium_risks": 3, "low_risks": 1, "type_a_count": 0},
+        "duration_s": 11.3,
     },
 }
 
@@ -106,15 +122,33 @@ def run_real_review(sample_path: Path, sample_meta: dict | None = None) -> dict:
 # ─────────────────────────────────────────────
 
 def collect_samples(max_samples: Optional[int] = None, sample_dir: Optional[str] = None) -> list[Path]:
-    """Collect sample files from the directory tree."""
+    """Collect sample files from the directory tree.
+
+    Priority: expected_output.json as sample anchor (directory-level sample).
+    Falls back to .docx/.pdf/.json files for legacy compatibility.
+    """
     search_dir = Path(sample_dir) if sample_dir else SAMPLES_DIR
     if not search_dir.exists():
         print(f"[WARN] 样本目录不存在: {search_dir}")
         return []
 
     samples: list[Path] = []
+    seen_dirs: set[str] = set()
+
+    # 1) Collect expected_output.json as sample anchors (one per directory)
     for root, _, files in os.walk(search_dir):
+        if "expected_output.json" in files:
+            p = Path(root) / "expected_output.json"
+            samples.append(p)
+            seen_dirs.add(str(root))
+
+    # 2) Legacy: collect .docx/.pdf/.json in dirs without expected_output.json
+    for root, _, files in os.walk(search_dir):
+        if str(root) in seen_dirs:
+            continue  # already covered by expected_output.json
         for f in files:
+            if f == "expected_output.json":
+                continue
             if f.endswith((".docx", ".pdf", ".json")):
                 samples.append(Path(root) / f)
 
@@ -124,10 +158,35 @@ def collect_samples(max_samples: Optional[int] = None, sample_dir: Optional[str]
     return sorted(samples)
 
 
+def _load_expected(sample_dir: Path) -> dict | None:
+    """Load expected_output.json from a sample directory, if present."""
+    expected_path = sample_dir / "expected_output.json"
+    if not expected_path.exists():
+        return None
+    try:
+        with open(expected_path, encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        print(f"[WARN] 无法解析 {expected_path}: {e}")
+        return None
+
+
+def _has_contract_source(sample_dir: Path) -> bool:
+    """Check whether a contract_source.md exists in the directory."""
+    return (sample_dir / "contract_source.md").exists()
+
+
 def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None = None) -> dict:
     """Run a single sample evaluation."""
-    sample_id = sample_path.stem
-    sample_dir = sample_path.parent.name
+    # Detect whether this is an expected_output.json anchor or a legacy file
+    is_expected_anchor = sample_path.name == "expected_output.json"
+    sample_dir_path = sample_path.parent
+    sample_dir = sample_dir_path.name
+
+    if is_expected_anchor:
+        sample_id = sample_dir  # use directory name e.g. "01-采购合同"
+    else:
+        sample_id = sample_path.stem
 
     if mode == "real":
         result = run_real_review(sample_path, sample_meta)
@@ -135,7 +194,8 @@ def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None =
 
     # Default: mock
     mock = _mock_response(sample_id, sample_dir)
-    return {
+
+    result = {
         "sample_id": sample_id,
         "sample_file": sample_path.name,
         "mode": "mock",
@@ -149,6 +209,38 @@ def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None =
         "duration_s": mock["duration_s"],
         "note": mock.get("note", ""),
     }
+
+    # If this is an expected_output.json anchor, enrich with ground-truth comparison
+    if is_expected_anchor:
+        expected = _load_expected(sample_dir_path)
+        has_source = _has_contract_source(sample_dir_path)
+        result["has_contract_source"] = has_source
+        if expected:
+            result["expected"] = {
+                "contract_type": expected.get("contract_type"),
+                "priority": expected.get("priority"),
+                "test_focus": expected.get("test_focus", []),
+                "risks_count": {
+                    "high": sum(1 for r in expected.get("expected_risks", []) if r.get("risk_level") == "high"),
+                    "medium": sum(1 for r in expected.get("expected_risks", []) if r.get("risk_level") == "medium"),
+                    "low": sum(1 for r in expected.get("expected_risks", []) if r.get("risk_level") == "low"),
+                },
+                "missing_clauses_count": len(expected.get("expected_missing_clauses", [])),
+                "has_conflicts": expected.get("has_conflicts", False),
+                "conflicts_count": len(expected.get("conflicts", [])),
+                "type_a_forbidden": expected.get("type_a_forbidden", False),
+            }
+            # Align mock data with expected for meaningful comparison
+            e_risks = result["expected"]["risks_count"]
+            result["analyzer"]["high_risks"] = e_risks["high"]
+            result["analyzer"]["medium_risks"] = e_risks["medium"]
+            result["analyzer"]["low_risks"] = e_risks["low"]
+            result["analyzer"]["risks_found"] = e_risks["high"] + e_risks["medium"] + e_risks["low"]
+            result["parser"]["clauses_expected"] = expected.get("clauses_expected",
+                                                               result["parser"].get("clauses_expected", 0))
+            result["parser"]["clauses_found"] = result["parser"]["clauses_expected"]
+
+    return result
 
 
 def batch_run(mode: str = "mock", max_samples: Optional[int] = None) -> dict:
@@ -189,7 +281,16 @@ def batch_run(mode: str = "mock", max_samples: Optional[int] = None) -> dict:
 
 
 def compare_runs(run_a: str, run_b: str) -> None:
-    """Human-friendly comparison of two run results."""
+    """Human-friendly comparison of two run results.
+
+    Compares per-sample:
+      - status changes (passed/failed/skipped)
+      - risk counts (high/medium/low/total)
+      - missing clauses count
+      - conflicts presence
+      - duration delta
+    Gracefully degrades when a field is missing from either result.
+    """
     def load(path: Path):
         if not path.exists():
             print(f"[ERROR] 找不到文件: {path}")
@@ -197,41 +298,106 @@ def compare_runs(run_a: str, run_b: str) -> None:
         with open(path, encoding="utf-8") as f:
             return json.load(f)
 
+    def _safe_get(d: dict, *keys, default=None) -> Any:
+        """Safely navigate nested dict keys, returning default on any failure."""
+        cur = d
+        for k in keys:
+            if not isinstance(cur, dict):
+                return default
+            cur = cur.get(k)
+            if cur is None:
+                return default
+        return cur
+
     data_a = load(RESULTS_DIR / f"{run_a}.json")
     data_b = load(RESULTS_DIR / f"{run_b}.json")
     if not data_a or not data_b:
         return
 
-    print(f"\n{'='*50}")
-    print(f"📊 对比: {run_a}  vs  {run_b}")
-    print(f"{'='*50}")
-    print(f"  基准通过数: {data_a.get('passed', '?')}/{data_a.get('samples_count', '?')}")
-    print(f"  对比通过数: {data_b.get('passed', '?')}/{data_b.get('samples_count', '?')}")
-    print(f"  Type A 变化: {data_a.get('type_a_total', 0)} → {data_b.get('type_a_total', 0)}")
+    print(f"\n{'='*56}")
+    print(f"  Compare: {run_a}  vs  {run_b}")
+    print(f"{'='*56}")
+
+    # ── Summary ──
+    sc_a = data_a.get("samples_count", 0)
+    sc_b = data_b.get("samples_count", 0)
+    print(f"  Samples      : {sc_a} → {sc_b}  ({'+' if sc_b >= sc_a else ''}{sc_b - sc_a})")
+    print(f"  Passed       : {data_a.get('passed', '?')} → {data_b.get('passed', '?')}")
+    print(f"  Failed       : {data_a.get('failed', '?')} → {data_b.get('failed', '?')}")
+    print(f"  Type-A total : {data_a.get('type_a_total', 0)} → {data_b.get('type_a_total', 0)}")
     print()
 
-    # Per-sample comparison
+    # ── Per-sample detail ──
     results_a: list = data_a.get("results", [])
     results_b: list = data_b.get("results", [])
-    map_a = {r["sample_id"]: r for r in results_a}
-    map_b = {r["sample_id"]: r for r in results_b}
-    changed = 0
-    for sid in set(map_a) | set(map_b):
+    map_a = {r.get("sample_id", "?"): r for r in results_a}
+    map_b = {r.get("sample_id", "?"): r for r in results_b}
+    all_ids = sorted(set(map_a) | set(map_b))
+
+    changes = 0
+    cols = ("Sample", "Status", "Risks(H/M/L)", "Missing", "Conflict", "Duration")
+    header = f"  {'':20s}  {'':8s}  {'':14s}  {'':7s}  {'':8s}  {'':8s}"
+    print(f"  {'Sample':20s}  {'Status':8s}  {'Risks(H/M/L)':14s}  {'Missing':7s}  {'Conflict':8s}  {'Duration':8s}")
+    print(f"  {'-'*20}  {'-'*8}  {'-'*14}  {'-'*7}  {'-'*8}  {'-'*8}")
+
+    for sid in all_ids:
         ra = map_a.get(sid, {})
         rb = map_b.get(sid, {})
-        if ra.get("status") != rb.get("status"):
-            changed += 1
-            sa = ra.get("status", "?")
-            sb = rb.get("status", "?")
-            print(f"   ⚠ {sid}: {sa} → {sb}" if ra else f"   + {sid}: - → {sb}" if rb else f"   - {sid}: {sa} → -")
-        else:
-            da = ra.get("duration_s", 0) or 0
-            db = rb.get("duration_s", 0) or 0
-            if da != db:
-                print(f"   ~ {sid}: 耗时 {da}s → {db}s")
 
-    if changed == 0:
-        print("  ✅ 两次运行结果一致，无状态变化。")
+        # Status
+        sta = ra.get("status", "?")
+        stb = rb.get("status", "?")
+        status_str = f"{sta}→{stb}" if sta != stb else sta
+        if sta != stb:
+            changes += 1
+
+        # Risk counts — gracefully extract from analyzer dict
+        def risk_str(r: dict) -> str:
+            if not isinstance(r, dict):
+                return "?/?/?"
+            az = r.get("analyzer", {}) if isinstance(r.get("analyzer"), dict) else {}
+            h = az.get("high_risks", "?")
+            m = az.get("medium_risks", "?")
+            l = az.get("low_risks", "?")
+            return f"{h}/{m}/{l}"
+
+        risk_a = risk_str(ra)
+        risk_b = risk_str(rb)
+        risk_str_out = f"{risk_a}→{risk_b}" if risk_a != risk_b else risk_a
+        if risk_a != risk_b:
+            changes += 1
+
+        # Missing clauses — from expected.missing_clauses_count
+        mc_a = _safe_get(ra, "expected", "missing_clauses_count", default="?")
+        mc_b = _safe_get(rb, "expected", "missing_clauses_count", default="?")
+        mc_str = f"{mc_a}→{mc_b}" if mc_a != mc_b else str(mc_a)
+
+        # Conflicts — from expected.has_conflicts
+        cf_a = _safe_get(ra, "expected", "has_conflicts")
+        cf_b = _safe_get(rb, "expected", "has_conflicts")
+        if cf_a is None and cf_b is None:
+            cf_str = "-"
+        elif cf_a == cf_b:
+            cf_str = "Y" if cf_a else "N"
+        else:
+            cf_str = f"{'Y' if cf_a else 'N'}→{'Y' if cf_b else 'N'}"
+            changes += 1
+
+        # Duration
+        da = ra.get("duration_s", 0) or 0
+        db = rb.get("duration_s", 0) or 0
+        dur_str = f"{da:.1f}s→{db:.1f}s" if abs(da - db) > 0.05 else f"{da:.1f}s"
+        if abs(da - db) > 0.05:
+            changes += 1
+
+        print(f"  {sid:20s}  {status_str:8s}  {risk_str_out:14s}  {mc_str:7s}  {cf_str:8s}  {dur_str:8s}")
+
+    print()
+    if changes == 0:
+        print("  No changes detected between the two runs.")
+    else:
+        print(f"  {changes} field(s) changed across all samples.")
+    print(f"{'='*56}\n")
 
 
 def list_runs() -> None:

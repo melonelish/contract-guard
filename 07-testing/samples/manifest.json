@@ -57,7 +57,7 @@
       "expected_risks": { "high": 1, "medium": 2, "low": 1, "type_a_forbidden": true },
       "test_focus": ["保密期限", "保密范围", "违约责任"],
       "reason": "短合同典型用例",
-      "status": "not_yet"
+      "status": "ready"
     },
     {
       "id": "S005",
@@ -71,7 +71,7 @@
       "expected_risks": { "high": 2, "medium": 3, "low": 1, "type_a_forbidden": true },
       "test_focus": ["押金退还", "装修权限", "续租条款"],
       "reason": "常见商务合同类型",
-      "status": "not_yet"
+      "status": "ready"
     },
     {
       "id": "E001",

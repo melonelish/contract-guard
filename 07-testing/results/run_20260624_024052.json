@@ -1,0 +1,217 @@
+{
+  "run_id": "run_20260624_024052",
+  "timestamp": "2026-06-24T02:40:52.557790+00:00",
+  "mode": "mock",
+  "samples_count": 5,
+  "passed": 5,
+  "failed": 0,
+  "skipped": 0,
+  "type_a_total": 0,
+  "results": [
+    {
+      "sample_id": "01-采购合同",
+      "sample_file": "expected_output.json",
+      "mode": "mock",
+      "status": "passed",
+      "parser": {
+        "clauses_found": 18,
+        "clauses_expected": 18,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 9,
+        "high_risks": 3,
+        "medium_risks": 4,
+        "low_risks": 2,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 14.2,
+      "note": "mock result — 非真实 LLM 调用",
+      "has_contract_source": true,
+      "expected": {
+        "contract_type": "采购合同",
+        "priority": "P0",
+        "test_focus": [
+          "预付款比例",
+          "违约金上限",
+          "验收标准"
+        ],
+        "risks_count": {
+          "high": 3,
+          "medium": 4,
+          "low": 2
+        },
+        "missing_clauses_count": 2,
+        "has_conflicts": true,
+        "conflicts_count": 1,
+        "type_a_forbidden": true
+      }
+    },
+    {
+      "sample_id": "02-劳动合同",
+      "sample_file": "expected_output.json",
+      "mode": "mock",
+      "status": "passed",
+      "parser": {
+        "clauses_found": 22,
+        "clauses_expected": 22,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 9,
+        "high_risks": 4,
+        "medium_risks": 3,
+        "low_risks": 2,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 12.8,
+      "note": "mock result — 非真实 LLM 调用",
+      "has_contract_source": true,
+      "expected": {
+        "contract_type": "劳动合同",
+        "priority": "P0",
+        "test_focus": [
+          "竞业限制",
+          "试用期",
+          "解除条件"
+        ],
+        "risks_count": {
+          "high": 4,
+          "medium": 3,
+          "low": 2
+        },
+        "missing_clauses_count": 3,
+        "has_conflicts": false,
+        "conflicts_count": 0,
+        "type_a_forbidden": true
+      }
+    },
+    {
+      "sample_id": "03-技术开发合同",
+      "sample_file": "expected_output.json",
+      "mode": "mock",
+      "status": "passed",
+      "parser": {
+        "clauses_found": 25,
+        "clauses_expected": 25,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 11,
+        "high_risks": 3,
+        "medium_risks": 5,
+        "low_risks": 3,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 18.5,
+      "note": "mock result — 非真实 LLM 调用",
+      "has_contract_source": true,
+      "expected": {
+        "contract_type": "技术开发合同",
+        "priority": "P0",
+        "test_focus": [
+          "知识产权归属",
+          "验收标准",
+          "源代码交付"
+        ],
+        "risks_count": {
+          "high": 3,
+          "medium": 5,
+          "low": 3
+        },
+        "missing_clauses_count": 3,
+        "has_conflicts": true,
+        "conflicts_count": 1,
+        "type_a_forbidden": true
+      }
+    },
+    {
+      "sample_id": "04-保密协议",
+      "sample_file": "expected_output.json",
+      "mode": "mock",
+      "status": "passed",
+      "parser": {
+        "clauses_found": 12,
+        "clauses_expected": 12,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 4,
+        "high_risks": 1,
+        "medium_risks": 2,
+        "low_risks": 1,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 9.6,
+      "note": "mock result — 非真实 LLM 调用",
+      "has_contract_source": true,
+      "expected": {
+        "contract_type": "保密协议",
+        "priority": "P1",
+        "test_focus": [
+          "保密期限",
+          "保密范围",
+          "违约责任"
+        ],
+        "risks_count": {
+          "high": 1,
+          "medium": 2,
+          "low": 1
+        },
+        "missing_clauses_count": 2,
+        "has_conflicts": true,
+        "conflicts_count": 1,
+        "type_a_forbidden": true
+      }
+    },
+    {
+      "sample_id": "05-租赁合同",
+      "sample_file": "expected_output.json",
+      "mode": "mock",
+      "status": "passed",
+      "parser": {
+        "clauses_found": 16,
+        "clauses_expected": 16,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 6,
+        "high_risks": 2,
+        "medium_risks": 3,
+        "low_risks": 1,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 11.3,
+      "note": "mock result — 非真实 LLM 调用",
+      "has_contract_source": true,
+      "expected": {
+        "contract_type": "租赁合同",
+        "priority": "P1",
+        "test_focus": [
+          "押金退还",
+          "装修权限",
+          "续租条款"
+        ],
+        "risks_count": {
+          "high": 2,
+          "medium": 3,
+          "low": 1
+        },
+        "missing_clauses_count": 3,
+        "has_conflicts": true,
+        "conflicts_count": 1,
+        "type_a_forbidden": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "contract_type": "采购合同",
+  "priority": "P0",
+  "test_focus": [
+    "预付款比例",
+    "违约金上限",
+    "验收标准"
+  ],
+  "expected_risks": [
+    {
+      "risk_id": "R001",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "clause_ref": "第六条 6.1",
+      "title": "预付款比例过高",
+      "description": "预付款比例达30%，且到货后累计付款已至70%，甲方在最终验收前已支付绝大部分款项，缺少对乙方的有效履约约束。",
+      "suggested_revision": "建议将预付款降至10%-15%，提高验收款比例至40%，增强甲方付款控制权。",
+      "legal_basis": "《民法典》第五百二十七条（不安抗辩权）",
+      "confidence": 0.91
+    },
+    {
+      "risk_id": "R002",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "clause_ref": "第三条 3.4 / 第十条 10.2",
+      "title": "违约金上限存在内部冲突",
+      "description": "第三条约定延迟交付违约金上限为5%，但第十条通用违约金为10%，两条违约金上限不一致，存在适用争议。",
+      "suggested_revision": "统一违约金上限比例，明确各项违约责任的计算基数和上限。",
+      "legal_basis": "《民法典》第五百八十五条（违约金的调整）",
+      "confidence": 0.88
+    },
+    {
+      "risk_id": "R003",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "clause_ref": "第五条 5.3",
+      "title": "验收不合格处罚偏轻",
+      "description": "累计3次验收不合格的违约金为20%，但甲方已付款至70%，违约金不足以覆盖已付款项的资金占用成本和替换采购的溢价损失。",
+      "suggested_revision": "建议首次验收不合格即触发阶段性违约金（如每次5%），累计不合格的违约金不低于已付款项的30%。",
+      "legal_basis": "《民法典》第五百七十七条（违约责任一般规定）",
+      "confidence": 0.85
+    },
+    {
+      "risk_id": "R004",
+      "risk_level": "medium",
+      "risk_category": "交付条款",
+      "clause_ref": "第三条 3.2",
+      "title": "交付时间未定义工作日或自然日",
+      "description": "45个工作日的交付期限未明确起算条件（合同生效日、预付款到账日还是技术确认完成日），存在争议空间。",
+      "suggested_revision": "明确交付期限起算点为'乙方收到预付款且双方完成技术交底确认后'。",
+      "legal_basis": "《民法典》第五百一十条（合同约定不明确的处理）",
+      "confidence": 0.82
+    },
+    {
+      "risk_id": "R005",
+      "risk_level": "medium",
+      "risk_category": "质保条款",
+      "clause_ref": "第七条 7.1",
+      "title": "质保期从最终验收起算对甲方不利",
+      "description": "质保期自「最终验收合格」起算，但最终验收需稳定运行30日，实际质保覆盖时间被压缩。",
+      "suggested_revision": "建议核心部件（如硬盘、电源）的质保期从到货验收起算，或延长质保期至18个月。",
+      "legal_basis": "《民法典》第六百二十一条（买受人的检验义务）",
+      "confidence": 0.79
+    },
+    {
+      "risk_id": "R006",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "clause_ref": "第十条 10.2",
+      "title": "通用违约金10%偏低",
+      "description": "通用违约金仅为合同总价的10%，对于160余万元的合同而言，约束力较弱。",
+      "suggested_revision": "建议将通用违约金提高至20%-30%，并增加'按日计收'的持续性违约条款。",
+      "legal_basis": "《民法典》第五百八十四条（可预见规则）",
+      "confidence": 0.76
+    },
+    {
+      "risk_id": "R007",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "clause_ref": "第十二条 12.2",
+      "title": "管辖条款偏向甲方但可能被认定无效",
+      "description": "约定'甲方所在地法院管辖'属于格式条款中的单方管辖约定，在特定情况下可能被法院认定无效。",
+      "suggested_revision": "建议改为'被告所在地'或'合同履行地'法院管辖，增强条款效力稳定性。",
+      "legal_basis": "《民事诉讼法》第三十五条、《民法典》第四百九十六条（格式条款）",
+      "confidence": 0.74
+    },
+    {
+      "risk_id": "R008",
+      "risk_level": "low",
+      "risk_category": "保密条款",
+      "clause_ref": "第九条 9.1",
+      "title": "保密期限偏短",
+      "description": "保密期限仅为合同终止后3年，对于涉及核心技术和商业模式的设备采购合同而言偏短。",
+      "suggested_revision": "建议将涉及核心技术的保密信息期限延长至合同终止后5年或永久。",
+      "legal_basis": "《反不正当竞争法》第九条（商业秘密保护）",
+      "confidence": 0.71
+    },
+    {
+      "risk_id": "R009",
+      "risk_level": "low",
+      "risk_category": "质保条款",
+      "clause_ref": "第七条 7.2",
+      "title": "售后响应时间缺少违约后果",
+      "description": "约定4小时响应8小时到场，但未约定未达标的后果，条款可执行性弱。",
+      "suggested_revision": "增加未达标时的服务费扣减或按次罚款机制。",
+      "legal_basis": "《民法典》第五百七十七条",
+      "confidence": 0.68
+    }
+  ],
+  "expected_missing_clauses": [
+    {
+      "name": "质量异议处理条款",
+      "reason": "采购合同通常应明确质量异议的提出期限、处理流程及举证责任分配。",
+      "severity": "medium"
+    },
+    {
+      "name": "培训与交付文档条款",
+      "reason": "设备采购通常附带技术培训、操作手册、维护手册等交付物，合同中未明确列出。",
+      "severity": "low"
+    }
+  ],
+  "has_conflicts": true,
+  "conflicts": [
+    {
+      "clause_a": "第三条 3.4",
+      "clause_b": "第十条 10.2",
+      "conflict_type": "value",
+      "description": "延迟交付违约金上限(5%)与通用违约金比例(10%)数值不一致，存在适用冲突。"
+    }
+  ],
+  "type_a_forbidden": true,
+  "total_pages": 12,
+  "clauses_expected": 18
+}
