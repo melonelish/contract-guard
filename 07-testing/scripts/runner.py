@@ -42,8 +42,21 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 os.makedirs(SAMPLES_DIR, exist_ok=True)
 
 
+# ═══════════════════════════════════════════════════════════
+# 2. Result structure specification
+# ═══════════════════════════════════════════════════════════
+# Each result dict follows a three-layer structure:
+#
+#   [input_meta]    — sample identity, manifest data, run config
+#   [execution]     — mock/real review output: parser, analyzer, duration_s
+#   [expected]      — ground truth loaded from expected_output.json (present for directory-level samples)
+#
+# For --compare output, a fourth layer is appended:
+#   [comparison]    — delta indicators: status_change, risk_delta, duration_delta
+
+
 # ─────────────────────────────────────────────
-# 2. Mock implementation
+# 2a. Mock implementation
 # ─────────────────────────────────────────────
 # Graded by sample type for varied mock feedback
 MOCK_PROFILES = {
@@ -90,7 +103,7 @@ def _mock_response(sample_id: str, sample_dir: str = "") -> dict:
 
 
 # ─────────────────────────────────────────────
-# 3. Real-mode adapter point
+# 2b. Real-mode adapter point
 # ─────────────────────────────────────────────
 # 适配点: 替换此函数以接入真实审查接口
 # 入参: sample_path (文件路径), sample_meta (dict, manifest 中的元数据)
@@ -118,7 +131,7 @@ def run_real_review(sample_path: Path, sample_meta: dict | None = None) -> dict:
 
 
 # ─────────────────────────────────────────────
-# 4. Core logic
+# 3. Sample collection
 # ─────────────────────────────────────────────
 
 def collect_samples(max_samples: Optional[int] = None, sample_dir: Optional[str] = None) -> list[Path]:
@@ -158,6 +171,10 @@ def collect_samples(max_samples: Optional[int] = None, sample_dir: Optional[str]
     return sorted(samples)
 
 
+# ─────────────────────────────────────────────
+# 4. Per-sample execution
+# ─────────────────────────────────────────────
+
 def _load_expected(sample_dir: Path) -> dict | None:
     """Load expected_output.json from a sample directory, if present."""
     expected_path = sample_dir / "expected_output.json"
@@ -177,7 +194,13 @@ def _has_contract_source(sample_dir: Path) -> bool:
 
 
 def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None = None) -> dict:
-    """Run a single sample evaluation."""
+    """Run a single sample evaluation.
+
+    Returns a dict with three layers:
+      [input_meta]  — sample_id, sample_file, mode, contract_type
+      [execution]   — parser, analyzer, duration_s, status, note
+      [expected]    — ground truth from expected_output.json (absent for legacy files)
+    """
     # Detect whether this is an expected_output.json anchor or a legacy file
     is_expected_anchor = sample_path.name == "expected_output.json"
     sample_dir_path = sample_path.parent
@@ -188,17 +211,33 @@ def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None =
     else:
         sample_id = sample_path.stem
 
+    # Detect contract type from directory name
+    contract_type = ""
+    for key in MOCK_PROFILES:
+        if key in sample_dir or key in sample_id:
+            contract_type = key
+            break
+
     if mode == "real":
         result = run_real_review(sample_path, sample_meta)
-        return {"sample_id": sample_id, "sample_file": sample_path.name, "mode": "real", **result}
+        return {
+            "sample_id": sample_id,
+            "sample_file": sample_path.name,
+            "contract_type": contract_type,
+            "mode": "real",
+            **result,
+        }
 
     # Default: mock
     mock = _mock_response(sample_id, sample_dir)
 
     result = {
+        # ── [input_meta] ──
         "sample_id": sample_id,
         "sample_file": sample_path.name,
+        "contract_type": contract_type,
         "mode": "mock",
+        # ── [execution] ──
         "status": "passed",
         "parser": mock["parser"],
         "analyzer": {
@@ -216,10 +255,13 @@ def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None =
         has_source = _has_contract_source(sample_dir_path)
         result["has_contract_source"] = has_source
         if expected:
+            # ── [expected] ground truth layer ──
             result["expected"] = {
                 "contract_type": expected.get("contract_type"),
                 "priority": expected.get("priority"),
                 "test_focus": expected.get("test_focus", []),
+                "total_pages": expected.get("total_pages"),
+                "clauses_expected": expected.get("clauses_expected"),
                 "risks_count": {
                     "high": sum(1 for r in expected.get("expected_risks", []) if r.get("risk_level") == "high"),
                     "medium": sum(1 for r in expected.get("expected_risks", []) if r.get("risk_level") == "medium"),
@@ -243,8 +285,62 @@ def run_sample(sample_path: Path, mode: str = "mock", sample_meta: dict | None =
     return result
 
 
+# ─────────────────────────────────────────────
+# 5. Batch run + markdown output
+# ─────────────────────────────────────────────
+
+def _build_run_summary(meta: dict, run_id: str) -> str:
+    """Build markdown summary text for a batch run."""
+    lines = [
+        f"# 评测运行: `{run_id}`",
+        "",
+        f"| 项目 | 值 |",
+        f"|---|---|",
+        f"| 运行模式 | `{meta['mode']}` |",
+        f"| 时间戳 | {meta['timestamp']} |",
+        f"| 样本总数 | {meta['samples_count']} |",
+        f"| 通过 | {meta['passed']} |",
+        f"| 失败 | {meta['failed']} |",
+        f"| 跳过 | {meta['skipped']} |",
+        f"| Type-A 幻觉 | {meta['type_a_total']} |",
+        "",
+        "## 逐样本明细",
+        "",
+        "| 样本 | 合同类型 | 状态 | 高风险 | 中风险 | 低风险 | 缺失 | 冲突 | 耗时 |",
+        "|---|---|---|---|---|---|---|---|---|",
+    ]
+
+    for r in meta.get("results", []):
+        sid = r.get("sample_id", "?")
+        ctype = r.get("contract_type", "-")
+        status = r.get("status", "?")
+        az = r.get("analyzer", {}) if isinstance(r.get("analyzer"), dict) else {}
+        h = az.get("high_risks", "-")
+        m = az.get("medium_risks", "-")
+        lo = az.get("low_risks", "-")
+        exp = r.get("expected", {}) if isinstance(r.get("expected"), dict) else {}
+        mc = exp.get("missing_clauses_count", "-")
+        cf = "Y" if exp.get("has_conflicts") else ("N" if "has_conflicts" in exp else "-")
+        dur = f"{r.get('duration_s', 0):.1f}s"
+        status_emoji = {"passed": "✅", "failed": "❌", "skipped": "⏭️"}.get(status, "❓")
+        lines.append(f"| {sid} | {ctype} | {status_emoji} {status} | {h} | {m} | {lo} | {mc} | {cf} | {dur} |")
+
+    lines.append("")
+    lines.append("> 完整结果见对应 JSON 文件。")
+    return "\n".join(lines)
+
+
+def _write_md_summary(run_id: str, data: dict) -> Path:
+    """Write a markdown summary alongside the JSON result."""
+    md_path = RESULTS_DIR / f"{run_id}.md"
+    md_text = _build_run_summary(data, run_id)
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write(md_text)
+    return md_path
+
+
 def batch_run(mode: str = "mock", max_samples: Optional[int] = None) -> dict:
-    """Run batch evaluation."""
+    """Run batch evaluation. Produces both .json and .md output files."""
     samples = collect_samples(max_samples)
     run_id = f"run_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}"
 
@@ -268,20 +364,31 @@ def batch_run(mode: str = "mock", max_samples: Optional[int] = None) -> dict:
         "results": results,
     }
 
-    result_path = RESULTS_DIR / f"{run_id}.json"
-    with open(result_path, "w", encoding="utf-8") as f:
+    # Write JSON
+    json_path = RESULTS_DIR / f"{run_id}.json"
+    with open(json_path, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
+
+    # Write Markdown summary
+    md_path = _write_md_summary(run_id, summary)
 
     print(f"\n{'='*50}")
     print(f"✅ 运行完成: {run_id}")
     print(f"   样本数: {len(samples)}  通过: {passed}  失败: {failed}  跳过: {skipped}")
-    print(f"   结果文件: {result_path}")
+    print(f"   JSON : {json_path}")
+    print(f"   MD   : {md_path}")
     print(f"{'='*50}")
     return summary
 
 
-def compare_runs(run_a: str, run_b: str) -> None:
-    """Human-friendly comparison of two run results.
+# ─────────────────────────────────────────────
+# 6. Compare + save to file
+# ─────────────────────────────────────────────
+
+def compare_runs(run_a: str, run_b: str) -> Optional[dict]:
+    """Compare two run results and save the comparison to a markdown file.
+
+    Returns a comparison dict; also writes {RESULTS_DIR}/compare_{A}_vs_{B}.md
 
     Compares per-sample:
       - status changes (passed/failed/skipped)
@@ -289,6 +396,7 @@ def compare_runs(run_a: str, run_b: str) -> None:
       - missing clauses count
       - conflicts presence
       - duration delta
+
     Gracefully degrades when a field is missing from either result.
     """
     def load(path: Path):
@@ -312,15 +420,30 @@ def compare_runs(run_a: str, run_b: str) -> None:
     data_a = load(RESULTS_DIR / f"{run_a}.json")
     data_b = load(RESULTS_DIR / f"{run_b}.json")
     if not data_a or not data_b:
-        return
+        return None
 
+    # ── Build markdown output ──
+    md_lines = [
+        f"# 评测对比: `{run_a}` vs `{run_b}`",
+        "",
+        f"## 总体摘要",
+        "",
+    ]
+
+    sc_a = data_a.get("samples_count", 0)
+    sc_b = data_b.get("samples_count", 0)
+    md_lines.append(f"| 指标 | 基准 ({run_a}) | 对比 ({run_b}) | 变化 |")
+    md_lines.append(f"|---|---|---|---|")
+    md_lines.append(f"| 样本数 | {sc_a} | {sc_b} | {sc_b - sc_a:+d} |")
+    md_lines.append(f"| 通过 | {data_a.get('passed', '?')} | {data_b.get('passed', '?')} | - |")
+    md_lines.append(f"| 失败 | {data_a.get('failed', '?')} | {data_b.get('failed', '?')} | - |")
+    md_lines.append(f"| Type-A | {data_a.get('type_a_total', 0)} | {data_b.get('type_a_total', 0)} | - |")
+    md_lines.append("")
+
+    # ── Console output ──
     print(f"\n{'='*56}")
     print(f"  Compare: {run_a}  vs  {run_b}")
     print(f"{'='*56}")
-
-    # ── Summary ──
-    sc_a = data_a.get("samples_count", 0)
-    sc_b = data_b.get("samples_count", 0)
     print(f"  Samples      : {sc_a} → {sc_b}  ({'+' if sc_b >= sc_a else ''}{sc_b - sc_a})")
     print(f"  Passed       : {data_a.get('passed', '?')} → {data_b.get('passed', '?')}")
     print(f"  Failed       : {data_a.get('failed', '?')} → {data_b.get('failed', '?')}")
@@ -334,24 +457,29 @@ def compare_runs(run_a: str, run_b: str) -> None:
     map_b = {r.get("sample_id", "?"): r for r in results_b}
     all_ids = sorted(set(map_a) | set(map_b))
 
+    md_lines.append("## 逐样本明细")
+    md_lines.append("")
+    md_lines.append("| Sample | Status | Risks(H/M/L) | Missing | Conflict | Duration |")
+    md_lines.append("|---|---|---|---|---|---|")
+
     changes = 0
-    cols = ("Sample", "Status", "Risks(H/M/L)", "Missing", "Conflict", "Duration")
-    header = f"  {'':20s}  {'':8s}  {'':14s}  {'':7s}  {'':8s}  {'':8s}"
     print(f"  {'Sample':20s}  {'Status':8s}  {'Risks(H/M/L)':14s}  {'Missing':7s}  {'Conflict':8s}  {'Duration':8s}")
     print(f"  {'-'*20}  {'-'*8}  {'-'*14}  {'-'*7}  {'-'*8}  {'-'*8}")
+
+    row_changes = 0  # track per-sample structural change count
 
     for sid in all_ids:
         ra = map_a.get(sid, {})
         rb = map_b.get(sid, {})
 
-        # Status
+        # ── Status ──
         sta = ra.get("status", "?")
         stb = rb.get("status", "?")
         status_str = f"{sta}→{stb}" if sta != stb else sta
         if sta != stb:
-            changes += 1
+            row_changes += 1
 
-        # Risk counts — gracefully extract from analyzer dict
+        # ── Risk counts ──
         def risk_str(r: dict) -> str:
             if not isinstance(r, dict):
                 return "?/?/?"
@@ -365,14 +493,14 @@ def compare_runs(run_a: str, run_b: str) -> None:
         risk_b = risk_str(rb)
         risk_str_out = f"{risk_a}→{risk_b}" if risk_a != risk_b else risk_a
         if risk_a != risk_b:
-            changes += 1
+            row_changes += 1
 
-        # Missing clauses — from expected.missing_clauses_count
+        # ── Missing clauses ──
         mc_a = _safe_get(ra, "expected", "missing_clauses_count", default="?")
         mc_b = _safe_get(rb, "expected", "missing_clauses_count", default="?")
         mc_str = f"{mc_a}→{mc_b}" if mc_a != mc_b else str(mc_a)
 
-        # Conflicts — from expected.has_conflicts
+        # ── Conflicts ──
         cf_a = _safe_get(ra, "expected", "has_conflicts")
         cf_b = _safe_get(rb, "expected", "has_conflicts")
         if cf_a is None and cf_b is None:
@@ -381,24 +509,44 @@ def compare_runs(run_a: str, run_b: str) -> None:
             cf_str = "Y" if cf_a else "N"
         else:
             cf_str = f"{'Y' if cf_a else 'N'}→{'Y' if cf_b else 'N'}"
-            changes += 1
+            row_changes += 1
 
-        # Duration
+        # ── Duration ──
         da = ra.get("duration_s", 0) or 0
         db = rb.get("duration_s", 0) or 0
         dur_str = f"{da:.1f}s→{db:.1f}s" if abs(da - db) > 0.05 else f"{da:.1f}s"
         if abs(da - db) > 0.05:
-            changes += 1
+            row_changes += 1
 
         print(f"  {sid:20s}  {status_str:8s}  {risk_str_out:14s}  {mc_str:7s}  {cf_str:8s}  {dur_str:8s}")
+        md_lines.append(f"| {sid} | {status_str} | {risk_str_out} | {mc_str} | {cf_str} | {dur_str} |")
+
+    changes = row_changes
 
     print()
     if changes == 0:
         print("  No changes detected between the two runs.")
+        md_lines.append("")
+        md_lines.append("**结论**: 两次运行结果完全一致，无变化。")
     else:
         print(f"  {changes} field(s) changed across all samples.")
+        md_lines.append("")
+        md_lines.append(f"**结论**: {changes} 处字段发生变化。")
     print(f"{'='*56}\n")
 
+    # ── Save comparison markdown ──
+    compare_id = f"compare_{run_a}_vs_{run_b}"
+    md_path = RESULTS_DIR / f"{compare_id}.md"
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(md_lines))
+    print(f"📄 对比报告已保存: {md_path}")
+
+    return {"compare_id": compare_id, "run_a": run_a, "run_b": run_b, "changes_count": changes}
+
+
+# ─────────────────────────────────────────────
+# 7. List runs
+# ─────────────────────────────────────────────
 
 def list_runs() -> None:
     """List completed runs."""
@@ -414,14 +562,17 @@ def list_runs() -> None:
             with open(r, encoding="utf-8") as f:
                 d = json.load(f)
             status = f"✅ {d.get('passed', 0)}/{d.get('samples_count', 0)} 通过 | mode={d.get('mode','?')}"
+            # Also check if .md companion exists
+            md_file = r.with_suffix(".md")
+            has_md = " + MD" if md_file.exists() else ""
         except Exception:
             status = "⚠ 解析失败"
-        print(f"  {r.stem}  {status}")
+        print(f"  {r.stem}  {status}{has_md}")
     print()
 
 
 # ─────────────────────────────────────────────
-# 5. CLI
+# 8. CLI
 # ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(description="ContractGuard 评测运行器")
@@ -432,7 +583,7 @@ def main():
     parser.add_argument("--limit", type=int, default=None,
                         help="限制样本数（--samples 的别名）")
     parser.add_argument("--compare", nargs=2, metavar=("RUN_A", "RUN_B"),
-                        help="对比两次运行结果")
+                        help="对比两次运行结果，同时保存对比报告")
     parser.add_argument("--list", action="store_true",
                         help="列出已完成运行")
     args = parser.parse_args()

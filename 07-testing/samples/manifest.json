@@ -15,7 +15,7 @@
       "expected_risks": { "high": 3, "medium": 4, "low": 2, "type_a_forbidden": true },
       "test_focus": ["预付款比例", "违约金上限", "验收标准"],
       "reason": "最标准合同类型，覆盖完整审查链路",
-      "status": "not_yet"
+      "status": "ready"
     },
     {
       "id": "S002",
@@ -29,7 +29,7 @@
       "expected_risks": { "high": 1, "medium": 3, "low": 1, "type_a_forbidden": true },
       "test_focus": ["竞业限制", "试用期", "解除条件"],
       "reason": "企业最高频合同类型，覆盖劳动关系审查",
-      "status": "not_yet"
+      "status": "ready"
     },
     {
       "id": "S003",
@@ -43,7 +43,7 @@
       "expected_risks": { "high": 2, "medium": 5, "low": 3, "type_a_forbidden": true },
       "test_focus": ["知识产权归属", "验收标准", "源代码交付"],
       "reason": "知识产权风险高发区，检验著作权归属判断",
-      "status": "not_yet"
+      "status": "ready"
     },
     {
       "id": "S004",
