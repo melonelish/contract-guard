@@ -1370,11 +1370,19 @@ export function ContractDetailPage() {
                     ? "审查未能完成，请查看错误详情或重新发起。"
                     : "发起审查后，系统将自动解析条款并生成风险报告。"}
             </p>
-            {/* Phase v12: Show review source */}
-            {report?.reviewed_draft && (
-              <p style={{ margin: "8px 0 0", fontSize: 13, color: "var(--accent)", fontWeight: 600 }}>
-                📝 当前报告基于草稿内容审查
-              </p>
+            {/* Phase v12: Show review source — 原合同审查 vs 草稿审查 */}
+            {activeReview?.reviewed_draft != null && (
+              <Tag
+                color={activeReview.reviewed_draft ? "orange" : "blue"}
+                style={{ marginTop: 8, fontWeight: 600 }}
+              >
+                {activeReview.reviewed_draft ? "草稿审查" : "原合同审查"}
+              </Tag>
+            )}
+            {report?.reviewed_draft && activeReview?.reviewed_draft == null && (
+              <Tag color="orange" style={{ marginTop: 8, fontWeight: 600 }}>
+                草稿审查
+              </Tag>
             )}
           </div>
 

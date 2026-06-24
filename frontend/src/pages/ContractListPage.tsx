@@ -286,7 +286,14 @@ export function ContractListPage() {
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                       <strong style={{ fontSize: 14 }}>{item.title ?? "未命名合同"}</strong>
-                      {statusTag(lr)}
+                      <Space size={4}>
+                        {lr?.reviewed_draft != null && (
+                          <Tag color={lr.reviewed_draft ? "orange" : "blue"} style={{ margin: 0, fontWeight: 600, fontSize: 10 }}>
+                            {lr.reviewed_draft ? "草稿审查" : "原合同审查"}
+                          </Tag>
+                        )}
+                        {statusTag(lr)}
+                      </Space>
                     </div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <div>

@@ -51,6 +51,7 @@ export interface ReviewBrief {
   status: string;
   progress: number;
   summary: ReviewSummary | null;
+  reviewed_draft?: boolean;
   error_detail?: string | null;
   created_at: string;
 }

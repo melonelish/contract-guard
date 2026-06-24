@@ -1,0 +1,33 @@
+{
+  "run_id": "run_20260624_020303",
+  "timestamp": "2026-06-24T02:03:03.608389+00:00",
+  "mode": "mock",
+  "samples_count": 1,
+  "passed": 1,
+  "skipped": 0,
+  "type_a_total": 0,
+  "results": [
+    {
+      "sample_id": "sample_001",
+      "sample_file": "sample_001.json",
+      "status": "passed",
+      "mode": "mock",
+      "parser": {
+        "clauses_found": 18,
+        "clauses_expected": 18,
+        "accuracy": 1.0
+      },
+      "analyzer": {
+        "risks_found": 5,
+        "high_risks": 3,
+        "medium_risks": 4,
+        "low_risks": 2,
+        "type_a_count": 0,
+        "false_positives": [],
+        "false_negatives": []
+      },
+      "duration_s": 14.2,
+      "note": "mock — 非真实 LLM 调用，仅供脚本通路验证"
+    }
+  ]
+}

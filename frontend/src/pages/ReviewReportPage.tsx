@@ -551,6 +551,14 @@ export function ReviewReportPage() {
               >
                 {report.contract_title ?? "审查报告"}
               </Typography.Title>
+              <Space size={8}>
+                <Tag
+                  color={report.reviewed_draft ? "orange" : "blue"}
+                  style={{ fontWeight: 600 }}
+                >
+                  {report.reviewed_draft ? "草稿审查" : "原合同审查"}
+                </Tag>
+              </Space>
             </Space>
             <Space direction="vertical" align="end" size={8}>
               <Tag
