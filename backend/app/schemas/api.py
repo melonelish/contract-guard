@@ -203,6 +203,7 @@ class ReviewBriefPayload(BaseModel):
     status: str
     progress: int
     summary: ReviewSummaryPayload | None = None
+    reviewed_draft: bool = False
     error_detail: str | None = None
     created_at: datetime
 

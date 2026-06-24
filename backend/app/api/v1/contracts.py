@@ -46,6 +46,7 @@ def build_review_brief(review) -> ReviewBriefPayload | None:
         status=review.status,
         progress=review.progress,
         summary=summary,
+        reviewed_draft=review.reviewed_draft,
         error_detail=review.error_detail,
         created_at=review.created_at,
     )
