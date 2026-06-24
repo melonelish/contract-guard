@@ -1,0 +1,19 @@
+{
+  "contract_id": "contract-026",
+  "contract_type": "产品代理销售协议",
+  "title": "产品代理销售协议",
+  "word_count": 3028,
+  "clause_count": 14,
+  "risk_count": 10,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "hard",
+  "tags": [
+    "代理协议",
+    "安全产品",
+    "佣金计算",
+    "客户归属",
+    "技术支持",
+    "竞业限制"
+  ]
+}

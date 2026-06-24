@@ -1,0 +1,50 @@
+{
+  "sample_id": "contract-033-consultant-marketing",
+  "contract_type": "品牌营销顾问协议",
+  "title": "品牌营销顾问协议 - 元气森林与华扬联众品牌策划服务",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "其他",
+    "排他性",
+    "数据安全",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "其他",
+    "排他性",
+    "知识产权"
+  ],
+  "expected_risk_count": 14,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "媒体投放费用承担与审批流程存在逻辑矛盾。第3.4款约定'媒体投放费用由甲方承担'，第7.2款约定'乙方应协助甲方制定媒体投放计划'。但合同未明确：(1)媒体投放...",
+    "营销效果承诺与付款条件存在逻辑矛盾。第5.1款约定'提升品牌知名度和销售额'，但第4.1款约定按月支付固定费用。这意味着无论营销效果如何，乙方都能获得固定的服务..."
+  ],
+  "expected_missing_clauses": 6,
+  "missing_clause_names": [
+    "营销数据报告条款（详细）",
+    "危机公关配合条款（详细）",
+    "第三方供应商管理条款（详细）",
+    "营销效果考核条款",
+    "服务团队稳定性条款",
+    "品牌资产保护条款"
+  ],
+  "missing_clause_high": [
+    "营销数据报告条款（详细）",
+    "危机公关配合条款（详细）"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "著作权法",
+    "反垄断法",
+    "劳动合同法",
+    "反不正当竞争法"
+  ],
+  "notes": ""
+}

@@ -1,0 +1,195 @@
+{
+  "id": "8d3af856-54bb-4a59-a421-098216d91f6d",
+  "contract_id": "c229211a-a09a-4adc-95b5-3ea7df81d9c6",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 7,
+    "medium": 1,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条6.3",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "合同模型达到行业领先水平即视为验收通过。",
+      "legal_analysis": "验收标准模糊，'行业领先水平'无客观定义，易引发争议。",
+      "legal_basis": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "验收标准不具体，可能导致甲方无法有效验收或乙方主张已达标。",
+      "suggested_revision": "明确验收标准，如AUC≥0.85、KS≥0.3等具体指标，并引用附件四。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第十二条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应采取必要的技术措施保障数据安全...发生数据泄露事件时，乙方应在2小时内通知甲方...",
+      "legal_analysis": "数据安全责任不完整，缺乏违约赔偿和具体应急措施。",
+      "legal_basis": "基于《个人信息保护法》法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同未规定数据泄露的赔偿责任，可能无法弥补甲方损失。",
+      "suggested_revision": "增加数据泄露的赔偿责任条款，明确乙方承担直接损失和间接损失。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "本合同项下开发完成的合同模型...的知识产权归甲方所有。乙方在开发过程中使用的自有算法框架...的知识产权仍归乙方所有。",
+      "legal_analysis": "知识产权归属可能引发争议，尤其是对衍生作品和改进技术的处理。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "知识产权条款不够细化，可能导致乙方保留部分权利。",
+      "suggested_revision": "明确界定衍生作品的归属，并约定改进技术的处理方式。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "无具体条款",
+      "risk_level": "high",
+      "risk_category": "系统安全",
+      "original_text": "合同未明确系统安全责任划分。",
+      "legal_analysis": "AI模型部署后，安全漏洞责任不清，可能影响甲方生产环境。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方开发的模型可能存在安全风险，但合同未明确责任。",
+      "suggested_revision": "增加条款，明确乙方在模型安全方面的责任，包括漏洞修复和赔偿。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第十三条",
+      "risk_level": "high",
+      "risk_category": "运维责任",
+      "original_text": "质保期内，乙方应提供以下服务...模型出现重大问题时，乙方应在4小时内响应，24小时内提供解决方案。",
+      "legal_analysis": "运维SLA不明确，尤其是模型监控服务期的保障不足。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "质保期响应时间合理，但监控服务缺乏具体SLA指标。",
+      "suggested_revision": "细化监控服务的SLA，如可用性99.9%、响应时间等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "无具体条款",
+      "risk_level": "high",
+      "risk_category": "技术管理",
+      "original_text": "合同未涉及技术方案确认流程。",
+      "legal_analysis": "技术方案确认流程缺失，可能导致开发方向错误或变更失控。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方可能无法在开发过程中确认技术方案，增加项目风险。",
+      "suggested_revision": "增加条款，要求乙方提交技术方案供甲方确认，并规定变更流程。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方违约责任：（一）乙方未按合同约定的时间节点完成阶段性交付物的，应及时向甲方说明原因并提交整改计划；（二）乙方延迟交付的，甲方有权要求乙方加快进度。",
+      "legal_analysis": "乙方违约责任过轻，缺乏经济赔偿，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方违约无赔偿，可能无法激励乙方按时交付。",
+      "suggested_revision": "增加乙方违约的违约金或赔偿责任，与甲方违约责任对等。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第二条2.2",
+      "risk_level": "medium",
+      "risk_category": "合作范围",
+      "original_text": "乙方应确保合同模型达到行业领先水平。",
+      "legal_analysis": "合作范围定义模糊，'行业领先水平'无客观标准。",
+      "legal_basis": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "合同模型质量要求不明确，可能导致交付标准争议。",
+      "suggested_revision": "明确具体性能指标，避免使用模糊描述。",
+      "confidence": 0.9
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第六条6.3",
+      "clause_b": "附件四",
+      "conflict_type": "logic",
+      "description": "验收标准在正文模糊，但依赖附件，附件内容未知可能导致不一致。"
+    },
+    {
+      "clause_a": "第四条4.2",
+      "clause_b": "第十二条",
+      "conflict_type": "logic",
+      "description": "数据脱敏要求与数据安全法规可能冲突，如果脱敏不彻底。"
+    },
+    {
+      "clause_a": "第七条",
+      "clause_b": "第十一条",
+      "conflict_type": "logic",
+      "description": "付款与里程碑对应，但乙方违约无赔偿，逻辑不一致。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "技术方案确认流程",
+      "reason": "确保开发方向正确，减少变更风险，避免项目偏离需求。"
+    },
+    {
+      "name": "灾难恢复机制",
+      "reason": "AI模型涉及关键金融业务，需有备份和恢复计划以保障业务连续性。"
+    },
+    {
+      "name": "知识产权侵权赔偿",
+      "reason": "明确侵权时的责任，保护甲方免受第三方索赔损失。"
+    },
+    {
+      "name": "数据备份与迁移",
+      "reason": "保障数据安全，避免供应商锁定，便于未来系统切换。"
+    },
+    {
+      "name": "争议调解条款",
+      "reason": "促进友好解决，减少诉讼成本和时间，符合商业惯例。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4446,
+    "completion_tokens": 5625,
+    "latency_ms": 96781,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T07:59:50.565786",
+  "completed_at": "2026-06-19T08:01:27.814189",
+  "created_at": "2026-06-19T07:59:50.540489"
+}

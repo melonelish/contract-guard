@@ -1,0 +1,36 @@
+{
+  "sample_id": "contract-009-saas-crm",
+  "contract_type": "SaaS CRM服务协议",
+  "title": "SaaS CRM客户关系管理系统服务协议",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "SLA",
+    "其他",
+    "响应时间",
+    "数据安全",
+    "条款缺失",
+    "解约条件",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "SLA",
+    "其他",
+    "数据安全"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "第6.1条规定'系统内数据归甲方所有'，但第6.2条规定备份数据的'管理和使用权归乙方所有'。备份数据是系统内数据的副本，两条款在数据归属上存在根本性矛盾。",
+    "第5.1条承诺年可用性99.9%，但第5.3条免责条款排除了几乎所有可能导致停机的场景（计划维护、甲方原因、不可抗力、第三方原因、安全事件），使得SLA承诺实际...",
+    "第5.4条规定可用性不达标最高减免当月费用的20%（约6000元/月），但第9.2条约定违约方应赔偿超出违约金的实际损失。两条款在赔偿标准上存在冲突。"
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [],
+  "missing_clause_high": [
+    "",
+    ""
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

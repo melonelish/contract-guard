@@ -1,0 +1,72 @@
+{
+  "contract_id": "contract-006",
+  "contract_type": "techservice_maintenance",
+  "contradictions": [
+    {
+      "contradiction_id": "C006-01",
+      "clause_a": {
+        "clause_ref": "第5.2条",
+        "content": "紧急情况2小时内响应，并尽快恢复系统正常运行。"
+      },
+      "clause_b": {
+        "clause_ref": "第1.6条",
+        "content": "'紧急情况'指影响核心系统正常运行的突发状况。"
+      },
+      "contradiction_type": "definition_inconsistency",
+      "description": "第5.2条要求'紧急情况2小时内响应'，但第1.6条对'紧急情况'的定义过于宽泛——'影响核心系统正常运行的突发状况'。按照此定义，任何导致系统性能下降（即使仅下降1%）的情况都可能被认定为'紧急情况'，都要求2小时内响应。这在实际操作中既不现实，也不合理。",
+      "severity": "high",
+      "suggestion": "应建立故障分级体系，将故障分为P0（系统宕机）、P1（严重功能异常）、P2（性能下降）、P3（轻微异常），各级别分别约定响应时间和恢复时间。"
+    },
+    {
+      "contradiction_id": "C006-02",
+      "clause_a": {
+        "clause_ref": "第4.2条",
+        "content": "驻场人员应具备相关经验，能够胜任相应岗位的工作要求。"
+      },
+      "clause_b": {
+        "clause_ref": "第8.7条",
+        "content": "乙方应确保驻场人员具备相应的技术能力和资质。"
+      },
+      "contradiction_type": "standard_inconsistency",
+      "description": "第4.2条要求'具备相关经验'，第8.7条要求'具备相应的技术能力和资质'。两个条款对人员要求的表述不一致：'经验'侧重于工作年限和项目经历，'技术能力和资质'侧重于技能水平和专业认证。合同未明确以哪个标准为准，可能导致执行争议。",
+      "severity": "medium",
+      "suggestion": "应统一人员要求标准，明确具体的技术能力要求和资质认证要求。"
+    },
+    {
+      "contradiction_id": "C006-03",
+      "clause_a": {
+        "clause_ref": "第6.3条",
+        "content": "甲方于每月10日前向乙方支付上月服务费，即每月支付人民币40万元。"
+      },
+      "clause_b": {
+        "clause_ref": "第5.2条、第5.3条",
+        "content": "紧急情况2小时内响应；一般故障4小时内响应，8小时内处理完毕。"
+      },
+      "contradiction_type": "payment_performance_decoupling",
+      "description": "第6.3条约定按月固定支付40万元，但第5.2条和第5.3条约定了SLA要求。付款条件与SLA完全脱钩：无论乙方是否达到SLA要求，甲方都需支付全额服务费。这导致SLA要求缺乏有效的约束机制。",
+      "severity": "medium",
+      "suggestion": "应建立与SLA挂钩的付款机制，如将服务费分为基础费用和绩效费用，绩效费用根据SLA达成情况支付。"
+    },
+    {
+      "contradiction_id": "C006-04",
+      "clause_a": {
+        "clause_ref": "第9.2条",
+        "content": "保密期限为本合同有效期内及合同终止后2年。"
+      },
+      "clause_b": {
+        "clause_ref": "第9.1条",
+        "content": "双方应对在合同履行过程中知悉的对方保密信息承担保密义务。"
+      },
+      "contradiction_type": "scope_duration_mismatch",
+      "description": "第9.1条约定保密义务覆盖'合同履行过程中知悉的'所有保密信息，但第9.2条将保密期限限定为'合同终止后2年'。对于银行核心系统，客户信息、系统架构等保密信息的敏感性远超2年，2年保密期限过短。",
+      "severity": "medium",
+      "suggestion": "应根据保密信息的类型设置差异化的保密期限，核心系统架构和客户信息的保密期限应不低于5年。"
+    }
+  ],
+  "contradiction_summary": {
+    "total": 4,
+    "high": 1,
+    "medium": 3,
+    "low": 0
+  }
+}

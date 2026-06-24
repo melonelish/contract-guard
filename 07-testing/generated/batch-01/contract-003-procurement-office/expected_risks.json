@@ -1,0 +1,115 @@
+{
+  "contract_id": "contract-003",
+  "contract_type": "采购合同",
+  "total_risks": 12,
+  "risks": [
+    {
+      "risk_id": "R001",
+      "clause_ref": "2.1",
+      "risk_type": "范围模糊",
+      "severity": "高",
+      "description": "采购范围定义模糊，'办公用品及耗材'无具体清单，易引发交付争议",
+      "location": "第二条 采购范围",
+      "suggestion": "应明确列出采购物品清单，或约定以附件形式明确品类、规格、品牌等信息"
+    },
+    {
+      "risk_id": "R002",
+      "clause_ref": "3.2",
+      "risk_type": "自动续约陷阱",
+      "severity": "高",
+      "description": "合同自动续期一年且续期次数不限，任何一方不得单方面拒绝续期，严重限制甲方退出权利",
+      "location": "第三条 合同期限",
+      "suggestion": "应允许任何一方在续期前书面通知不续约，或设置最长续期期限"
+    },
+    {
+      "risk_id": "R003",
+      "clause_ref": "3.4",
+      "risk_type": "权利失衡",
+      "severity": "中",
+      "description": "禁止任何一方以业务调整、组织架构变动等理由单方面拒绝续期，限制了合同解除权",
+      "location": "第三条 合同期限",
+      "suggestion": "应允许在合理通知期后解除合同，如提前90日书面通知"
+    },
+    {
+      "risk_id": "R004",
+      "clause_ref": "4.3",
+      "risk_type": "金额超支风险",
+      "severity": "高",
+      "description": "合同总价封顶50万元，但允许超出30%（即最多65万元），实际封顶形同虚设",
+      "location": "第四条 价格与总价",
+      "suggestion": "应明确超支需经甲方书面审批，或设置更严格的超支限制条件"
+    },
+    {
+      "risk_id": "R005",
+      "clause_ref": "8.2-8.3",
+      "risk_type": "退换货限制",
+      "severity": "高",
+      "description": "退换货仅限收货当日且需原包装未拆封，条件过于苛刻，实际难以执行",
+      "location": "第八条 退换货条款",
+      "suggestion": "应延长退换货期限至7-15日，允许合理拆封验收后仍可退换"
+    },
+    {
+      "risk_id": "R006",
+      "clause_ref": "9.2, 10.3",
+      "risk_type": "条款矛盾",
+      "severity": "中",
+      "description": "发票条款与付款条款存在矛盾，第9.2条要求先开票后付款，但第10.3条约定先收到发票并核验无误后才付款，实际操作可能产生歧义",
+      "location": "第九条、第十条",
+      "suggestion": "应统一发票与付款的先后顺序，明确约定'先票后款'或'先款后票'的具体流程"
+    },
+    {
+      "risk_id": "R007",
+      "clause_ref": "11",
+      "risk_type": "质量保证缺失",
+      "severity": "高",
+      "description": "缺少详细的质量保证条款，如质保期、质量标准、检测方法、不合格品处理流程等",
+      "location": "第十一条 质量责任",
+      "suggestion": "应增加详细的质量保证条款，包括质保期限、质量标准、抽检机制、不合格品处理等"
+    },
+    {
+      "risk_id": "R008",
+      "clause_ref": "17",
+      "risk_type": "保密条款不足",
+      "severity": "中",
+      "description": "保密条款过于简单，仅约定合同内容保密，未涵盖商业秘密、价格信息、采购量等敏感信息",
+      "location": "第十七条 保密条款",
+      "suggestion": "应扩大保密范围，包括但不限于：采购价格、采购数量、供应商信息、甲方需求信息等"
+    },
+    {
+      "risk_id": "R009",
+      "clause_ref": "6.3",
+      "risk_type": "违约金不对等",
+      "severity": "低",
+      "description": "乙方延迟交付违约金为每日0.5%，甲方延迟付款违约金仅为每日0.05%，比例相差10倍",
+      "location": "第六条、第十二条",
+      "suggestion": "应平衡双方违约金比例，或明确约定违约金的合理性依据"
+    },
+    {
+      "risk_id": "R010",
+      "clause_ref": "11.3",
+      "risk_type": "赔偿限制",
+      "severity": "中",
+      "description": "质量赔偿仅限直接损失，排除间接损失和预期利益损失，可能无法充分保护甲方权益",
+      "location": "第十一条 质量责任",
+      "suggestion": "应根据实际情况评估赔偿范围，对重大质量问题可适当扩大赔偿范围"
+    },
+    {
+      "risk_id": "R011",
+      "clause_ref": "5.3",
+      "risk_type": "订单确认风险",
+      "severity": "低",
+      "description": "乙方逾期未确认采购订单视为接受，可能导致乙方被迫履行不利订单",
+      "location": "第五条 采购订单",
+      "suggestion": "应设置合理的订单确认期限，并允许乙方在合理理由下拒绝订单"
+    },
+    {
+      "risk_id": "R012",
+      "clause_ref": "附件",
+      "risk_type": "附件缺失",
+      "severity": "中",
+      "description": "合同附件一（采购品类清单）、附件二（价格清单）、附件四（质量标准说明）均未提供，关键条款缺乏依据",
+      "location": "附件清单",
+      "suggestion": "应在合同签订前完成所有附件的编制和确认，确保合同条款有据可依"
+    }
+  ]
+}

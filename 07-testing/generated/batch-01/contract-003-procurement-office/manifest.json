@@ -1,0 +1,20 @@
+{
+  "contract_id": "contract-003",
+  "contract_type": "采购合同",
+  "title": "办公用品采购合同",
+  "word_count": 3076,
+  "clause_count": 20,
+  "risk_count": 12,
+  "missing_count": 4,
+  "contradiction_count": 3,
+  "difficulty": "medium",
+  "tags": [
+    "采购合同",
+    "框架协议",
+    "办公用品",
+    "自动续期",
+    "退换货",
+    "发票条款",
+    "质量保证"
+  ]
+}

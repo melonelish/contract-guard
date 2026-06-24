@@ -1,0 +1,189 @@
+{
+  "id": "0950a4c0-049c-4c92-91f0-a416b82463db",
+  "contract_id": "d8c0a13c-e394-4396-ab3f-8e196ab42a67",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条6.7",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应采取合理的技术措施保障甲方数据安全，包括但不限于数据加密存储与传输、访问权限控制、操作日志审计、入侵检测与防御等。乙方应每年至少进行一次第三方安全评估，并将评估报告提交甲方审阅。",
+      "legal_analysis": "合同未明确个人信息保护义务，如数据主体权利、泄露通知等，可能违反数据保护法规，增加合规风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同只提技术安全，没说清楚怎么保护客户个人信息，容易违法或出事。",
+      "suggested_revision": "增加条款明确个人信息处理规则、数据泄露通知机制，并参照《个人信息保护法》制定义务。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第六条6.4和6.5",
+      "risk_level": "high",
+      "risk_category": "数据迁移",
+      "original_text": "合同终止后，乙方应甲方要求提供数据导出服务，导出格式为CSV格式。甲方应在合同终止后30日内完成数据导出，逾期乙方有权删除甲方数据。乙方不提供数据导出API接口，数据导出仅支持CSV格式批量导出方式。",
+      "legal_analysis": "限制数据导出格式和方式，造成供应商锁定，增加切换成本，可能违反数据可携带权原则。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据只能导出CSV，没有API，换系统很麻烦，可能被乙方绑死。",
+      "suggested_revision": "增加数据导出API接口支持，明确导出格式选项，并延长数据保留期至合同终止后90日。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第五条和2.4",
+      "risk_level": "high",
+      "risk_category": "服务水平",
+      "original_text": "第五条服务水平承诺（SLA）；2.4 乙方技术支持服务响应标准如下：紧急故障响应时间不超过30分钟，解决时间不超过4小时；严重故障响应时间不超过2小时，解决时间不超过8小时；一般故障响应时间不超过4小时，解决时间不超过2个工作日；功能建议与优化需求响应时间不超过3个工作日。",
+      "legal_analysis": "SLA主要承诺可用性，但系统故障响应时间未在SLA中明确，技术支持响应与SLA脱节，服务标准模糊易生争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "可用性保证有，但故障响应时间没写进SLA，服务好坏说不清。",
+      "suggested_revision": "将技术支持响应标准整合到SLA中，明确系统故障的响应和解决时间，并作为附件细化。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第二条2.1",
+      "risk_level": "high",
+      "risk_category": "服务范围",
+      "original_text": "乙方为甲方提供以下SaaS CRM服务：（一）客户信息管理模块：包括客户档案建立、客户分级、联系记录管理等；（二）销售流程管理模块：包括商机跟踪、销售漏斗、报价管理、合同管理等；（三）售后服务管理模块：包括工单管理、服务记录、客户满意度调查等；（四）报表分析模块：包括销售报表、客户分析、业绩统计等基础报表功能。",
+      "legal_analysis": "服务模块描述笼统，功能细节未明，附件中可能详细但正文未指定验收标准，易引发交付质量争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务内容说得太简单，具体功能不清楚，以后可能扯皮。",
+      "suggested_revision": "在正文中引用附件一详细功能清单，并增加服务验收标准条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第九条9.1",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "任何一方违反本合同约定的，违约方应向守约方支付违约金，违约金金额为合同总金额的10%。",
+      "legal_analysis": "固定违约金可能过分高于实际损失，根据《民法典》第585条，当事人可请求法院或仲裁机构调整。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金一刀切10%，可能太高或太低，不公平。",
+      "suggested_revision": "修改为违约金根据违约程度和实际损失计算，或约定损失赔偿额计算方法。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十条4.4",
+      "risk_level": "medium",
+      "risk_category": "合同解除",
+      "original_text": "因甲方原因提前解除合同的，甲方应支付剩余服务期限费用的30%作为提前终止补偿金。",
+      "legal_analysis": "补偿金比例较高，可能构成不公平格式条款，单方面限制甲方合同解除权。",
+      "legal_basis": "《中华人民共和国民法典》第五百六十二条（合同约定解除）",
+      "basis_excerpt": "当事人协商一致，可以解除合同。当事人可以约定一方解除合同的事由。解除合同的事由发生时，解除权人可以解除合同。",
+      "basis_source": "《中华人民共和国民法典》第五百六十二条（合同约定解除）",
+      "plain_explanation": "提前解约要付30%剩余费用，太苛刻，对甲方不公平。",
+      "suggested_revision": "降低补偿比例或根据实际损失计算，增加乙方违约时的对等补偿条款。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第五条5.5",
+      "risk_level": "medium",
+      "risk_category": "服务水平",
+      "original_text": "前款补偿为甲方就可用性不达标所能获得的唯一且全部救济，补偿金额上限为当月服务费的20%。",
+      "legal_analysis": "将补偿作为唯一救济且上限低，可能排除甲方其他索赔权利，如实际损失赔偿，不公平。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务不达标只赔一点钱，不能要其他赔偿，限制了甲方权利。",
+      "suggested_revision": "删除“唯一且全部救济”表述，允许甲方就实际损失主张赔偿，并提高补偿上限。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第六条6.6",
+      "risk_level": "low",
+      "risk_category": "数据安全",
+      "original_text": "乙方应建立完善的数据备份与灾难恢复机制，每日对甲方数据进行全量备份，备份数据异地存储且保留期限不少于180日。乙方应每半年进行一次灾难恢复演练，并将演练报告提交甲方备查。",
+      "legal_analysis": "备份机制完善，但未明确灾难恢复时间目标（RTO）和恢复点目标（RPO），可能影响数据恢复时效和业务连续性。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据备份有，但没说明出事要多久恢复，可能耽误业务。",
+      "suggested_revision": "增加灾难恢复时间目标（RTO）和恢复点目标（RPO）的具体指标。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十三条",
+      "clause_b": "第十一条",
+      "conflict_type": "logic",
+      "description": "条款编号重复：第十三条争议解决内容使用了11.1和11.2的编号，与第十一条用户账号管理混淆，属于编辑错误。"
+    },
+    {
+      "clause_a": "第十二条（通知与送达）",
+      "clause_b": "第十二条（其他约定）",
+      "conflict_type": "logic",
+      "description": "存在两个第十二条，一个为通知与送达，一个为其他约定，编号冲突，易引起混淆。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "个人信息保护条款",
+      "reason": "合同涉及客户数据，可能包含个人信息，需明确数据处理规则、主体权利和泄露通知义务，以符合《个人信息保护法》。"
+    },
+    {
+      "name": "服务等级协议详细指标",
+      "reason": "SLA仅提可用性，缺失系统故障响应时间、恢复时效等详细指标，应整合技术支持标准到SLA中。"
+    },
+    {
+      "name": "数据泄露应急响应机制",
+      "reason": "缺乏数据泄露事件的通知时限、处理流程和责任划分，增加安全风险。"
+    },
+    {
+      "name": "知识产权许可范围",
+      "reason": "未明确甲方使用服务平台的具体许可范围，如用户数限制、功能使用权限等，易生争议。"
+    },
+    {
+      "name": "合同终止过渡期安排",
+      "reason": "合同终止后数据导出和系统关闭过渡期未细化，可能影响业务连续性。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4096,
+    "completion_tokens": 5589,
+    "latency_ms": 88861,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:38:42.973686",
+  "completed_at": "2026-06-19T08:40:12.221784",
+  "created_at": "2026-06-19T08:38:42.952597"
+}

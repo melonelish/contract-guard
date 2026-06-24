@@ -1,0 +1,71 @@
+{
+  "sample_id": "contract-006-techservice-maintenance",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.099712",
+  "success": true,
+  "expected_risk_topics": [
+    "SLA",
+    "人员管理",
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失",
+    "资质",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "人员管理",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "应急响应",
+    "数据安全",
+    "服务标准",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失"
+  ],
+  "detected_high_risk_topics": [
+    "人员管理",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "应急响应",
+    "数据安全",
+    "服务标准",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "SLA",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失",
+    "资质"
+  ],
+  "unexpected_topics": [
+    "合作范围",
+    "合同完整性",
+    "应急响应",
+    "数据安全",
+    "服务标准"
+  ],
+  "topic_recall": 0.333,
+  "topic_precision": 0.375,
+  "high_risk_recall": 0.2,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 4,
+  "legal_basis_coverage": 0.5,
+  "overall_score": 0.322,
+  "notes": ""
+}

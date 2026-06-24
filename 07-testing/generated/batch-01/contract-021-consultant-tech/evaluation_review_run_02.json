@@ -1,0 +1,46 @@
+{
+  "sample_id": "contract-021-consultant-tech",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.300081",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "劳动关系",
+    "合作范围",
+    "知识产权",
+    "竞业限制"
+  ],
+  "detected_risk_topics": [
+    "竞业限制"
+  ],
+  "expected_high_risk_topics": [
+    "劳动关系",
+    "合作范围",
+    "知识产权",
+    "竞业限制"
+  ],
+  "detected_high_risk_topics": [
+    "竞业限制"
+  ],
+  "missing_expected_topics": [
+    "付款条件",
+    "保密义务",
+    "劳动关系",
+    "合作范围",
+    "知识产权"
+  ],
+  "unexpected_topics": [],
+  "topic_recall": 0.167,
+  "topic_precision": 1.0,
+  "high_risk_recall": 0.25,
+  "contradiction_hit": false,
+  "contradiction_expected": 2,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 0,
+  "legal_basis_coverage": 1.0,
+  "overall_score": 0.271,
+  "notes": ""
+}

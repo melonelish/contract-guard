@@ -1,0 +1,47 @@
+{
+  "sample_id": "contract-006-techservice-maintenance",
+  "contract_type": "techservice_maintenance",
+  "title": "系统运维服务合同",
+  "difficulty": "high",
+  "expected_risk_topics": [
+    "SLA",
+    "人员管理",
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失",
+    "资质",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 4,
+  "contradiction_summaries": [
+    "第5.2条要求'紧急情况2小时内响应'，但第1.6条对'紧急情况'的定义过于宽泛——'影响核心系统正常运行的突发状况'。按照此定义，任何导致系统性能下降（即使仅...",
+    "第4.2条要求'具备相关经验'，第8.7条要求'具备相应的技术能力和资质'。两个条款对人员要求的表述不一致：'经验'侧重于工作年限和项目经历，'技术能力和资质'...",
+    "第6.3条约定按月固定支付40万元，但第5.2条和第5.3条约定了SLA要求。付款条件与SLA完全脱钩：无论乙方是否达到SLA要求，甲方都需支付全额服务费。这导...",
+    "第9.1条约定保密义务覆盖'合同履行过程中知悉的'所有保密信息，但第9.2条将保密期限限定为'合同终止后2年'。对于银行核心系统，客户信息、系统架构等保密信息的..."
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [
+    "应急响应预案条款",
+    "知识转移条款",
+    "合规审计配合条款",
+    "驻场人员安全管理条款",
+    "业务连续性保障条款"
+  ],
+  "missing_clause_high": [
+    "应急响应预案条款",
+    "驻场人员安全管理条款"
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

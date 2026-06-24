@@ -1,0 +1,225 @@
+{
+  "id": "d8f01d28-0011-4a3a-b7a5-edd6f081b745",
+  "contract_id": "9f991a29-4c60-409c-b292-273b4b62b4f9",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 11,
+    "high": 9,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "渗透测试范围：对甲方核心系统进行安全测试。",
+      "legal_analysis": "核心系统定义模糊，范围不明确，易引发履约争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "未明确哪些系统为核心系统，乙方可能漏测或甲方要求扩大范围。",
+      "suggested_revision": "明确列举核心系统清单（如网银系统、核心账务系统等）作为附件。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第五条/第六条",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "乙方应按照行业标准和最佳实践提供服务...甲方应在收到后10个工作日内确认。",
+      "legal_analysis": "验收标准主观，无客观量化指标，甲方确认后无后果约定，易产生纠纷。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "行业标准和最佳实践过于模糊，且甲方确认与否无法律后果，验收易拖延。",
+      "suggested_revision": "增加客观验收指标（如漏洞扫描覆盖率≥95%），约定甲方逾期未确认视为通过。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第七条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "如甲方未能在规定时间内完成漏洞修复，乙方不承担因此导致的安全责任。",
+      "legal_analysis": "完全免除乙方责任，违反公平原则，可能因乙方测试或建议过失导致损失时免责。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "即使乙方修复建议有误或测试遗漏，只要甲方未按时修复，乙方全免责，对甲方不公平。",
+      "suggested_revision": "修改为：因乙方过错导致甲方未及时修复的，乙方应承担相应责任。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第十二条（违约责任）",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方未按约定时间完成服务的，每逾期一日，应按合同总价的万分之五向甲方支付违约金。甲方逾期付款的，每逾期一日，应按逾期金额的万分之五向乙方支付违约金。",
+      "legal_analysis": "违约金计算基数不对等，乙方基数（总价80万）远高于甲方基数（逾期金额），显失公平。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方违约按总价80万计算，甲方违约按实际逾期金额计算，对甲方极为不利。",
+      "suggested_revision": "统一以逾期涉及金额为基数计算违约金，或者约定对等比例。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "missing_001",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少服务成果知识产权归属条款，可能导致安全报告、加固方案等成果权属不清。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "不明确成果归谁，乙方可能将报告用于其他客户或主张著作权。",
+      "suggested_revision": "增加条款：服务过程中产生的所有成果（包括报告、方案等）知识产权归甲方所有。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应...防止数据泄露、丢失或损坏。",
+      "legal_analysis": "未约定发生数据泄露事件后的通知义务和应急响应流程，违反《数据安全法》要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "若发生数据泄露，乙方无需立即通知甲方，可能导致损失扩大。",
+      "suggested_revision": "增加条款：发生数据安全事件时，乙方应在2小时内通知甲方并启动应急响应。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "合同生效后15日内，支付合同总价的50%。",
+      "legal_analysis": "首付比例过高，且与交付成果脱钩，若乙方履约不力甲方风险较大。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "先付40万，乙方可能拖延或质量差，甲方追回困难。",
+      "suggested_revision": "降低首付至30%，并与交付阶段性成果挂钩。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第二条",
+      "risk_level": "medium",
+      "risk_category": "不公平条款",
+      "original_text": "服务期限届满，如双方均未提出书面异议，服务期限自动延长一个月。",
+      "legal_analysis": "自动续约条款，可能使甲方被动续约，增加支付义务。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方若忘记提出异议，则自动延长1个月并需支付额外费用。",
+      "suggested_revision": "改为：如需续约，双方另行书面协商。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（合同中未发现验收不合格处理条款）",
+      "legal_analysis": "无法确定验收不合格后的整改、扣款或解除合同等处理方式。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少验收不合格处理条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加验收不合格处理条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "（合同中未发现服务人员资质不符后果条款）",
+      "legal_analysis": "未约定乙方派驻人员资质不满足要求时的更换和责任。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务人员资质不符后果条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务人员资质不符后果条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现保密违约金合理性条款）",
+      "legal_analysis": "固定200万元违约金可能与实际损失不符，应约定可调整。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少保密违约金合理性条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加保密违约金合理性条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十二条（违约责任）",
+      "clause_b": "第十二条（保密义务）",
+      "conflict_type": "logic",
+      "description": "合同出现两个第十二条，条款编号重复，造成引用歧义。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "未明确服务成果（如报告、方案）的知识产权归属，易引发权属争议。"
+    },
+    {
+      "name": "验收不合格处理条款",
+      "reason": "无法确定验收不合格后的整改、扣款或解除合同等处理方式。"
+    },
+    {
+      "name": "数据安全事件应急响应条款",
+      "reason": "缺少数据泄露后的通知、应急和补救措施，违反《数据安全法》要求。"
+    },
+    {
+      "name": "服务人员资质不符后果条款",
+      "reason": "未约定乙方派驻人员资质不满足要求时的更换和责任。"
+    },
+    {
+      "name": "保密违约金合理性条款",
+      "reason": "固定200万元违约金可能与实际损失不符，应约定可调整。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 5151,
+    "completion_tokens": 2930,
+    "latency_ms": 30879,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:15:39.122947",
+  "completed_at": "2026-06-22T02:16:22.310853",
+  "created_at": "2026-06-22T02:15:39.097160"
+}

@@ -1,0 +1,179 @@
+{
+  "id": "ac8196e1-9e46-4c80-9d9f-784a20844e51",
+  "contract_id": "3c29514a-ca59-4682-8e24-86d7ef5eb0d3",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 6,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第6.3条",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "应用功能完整、运行稳定即视为验收通过。",
+      "legal_analysis": "验收标准过于笼统，未定义具体指标，易引发争议。根据《民法典》第511条，质量要求不明确的，应参照行业标准履行。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "验收时没有明确标准，可能导致双方对“功能完整、运行稳定”理解不同，产生纠纷。",
+      "suggested_revision": "建议在附件五中明确具体验收指标，如功能点列表、性能测试标准、兼容性测试机型等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未规定数据安全措施和个人信息保护义务，存在数据泄露风险，违反《个人信息保护法》等法规。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有数据安全条款，用户数据和交易数据可能面临安全威胁，且无法明确责任。",
+      "suggested_revision": "增加条款，明确数据加密、访问控制、安全审计、泄露应急响应等要求。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "安全责任",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未划分系统安全责任，如漏洞修复、攻击防护，可能导致安全事件时责任不清。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。\n出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "plain_explanation": "应用涉及支付，安全至关重要，但合同未明确安全责任归属和响应机制。",
+      "suggested_revision": "增加条款，约定安全责任划分、定期安全评估、事件响应时间等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "无数据备份与恢复条款，数据丢失或损坏时无法及时恢复，影响业务连续性。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有备份计划，一旦数据出错，可能造成重大损失。",
+      "suggested_revision": "增加条款，明确备份频率、存储位置、恢复测试等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "业务连续性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少业务连续性保障和应急响应机制，服务中断时缺乏恢复计划。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "应用需要高可用性，但合同未约定灾难恢复和应急流程。",
+      "suggested_revision": "增加条款，定义RTO和RPO，制定应急响应计划。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_065",
+      "clause_code": "第6.5条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "甲方逾期未组织验收且未书面说明原因的，视为验收通过。",
+      "legal_analysis": "该条款单方面免除乙方责任，可能构成不公平格式条款，限制甲方验收权利。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果甲方因故未验收，自动视为通过，对甲方不公，可能掩盖质量问题。",
+      "suggested_revision": "修改为视为验收通过需双方书面确认，或延长验收期限。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_084",
+      "clause_code": "第8.4-8.5条",
+      "risk_level": "medium",
+      "risk_category": "知识产权",
+      "original_text": "本合同项下开发完成的应用程序（不包括第三方组件）的知识产权归甲方所有。乙方在开发过程中使用的自有技术框架、工具库、通用组件等的知识产权仍归乙方所有。",
+      "legal_analysis": "第三方组件的知识产权和使用许可可能未明确，易引发侵权纠纷。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方用的第三方组件如果许可冲突，可能导致应用侵权，责任不清。",
+      "suggested_revision": "明确第三方组件的许可证类型和范围，确保与甲方权利不冲突。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_122",
+      "clause_code": "第12.2条",
+      "risk_level": "medium",
+      "risk_category": "运营管理",
+      "original_text": "质保期内，乙方应提供以下服务：...（三）应用出现重大故障时，乙方应在2小时内响应，12小时内提供解决方案。",
+      "legal_analysis": "响应时间仅针对重大故障，未定义一般故障；且质保期后无保障，SLA不足。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只有重大故障有响应，日常问题无保障；质保期后服务缺失。",
+      "suggested_revision": "明确各级故障的响应时间，并约定质保期后的维护服务条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_065",
+      "clause_b": "cl_072",
+      "conflict_type": "logic",
+      "description": "如果甲方逾期未验收，应用视为验收通过，但付款节点是试运行30天后，可能导致未真正验收就付款。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与隐私保护条款",
+      "reason": "合同涉及用户个人信息和交易数据，应明确数据安全责任、加密措施、泄露通知义务等，以符合《个人信息保护法》要求。"
+    },
+    {
+      "name": "系统安全责任条款",
+      "reason": "应用涉及支付功能，需划分安全漏洞修复责任、安全事件响应机制，防止数据泄露和系统攻击。"
+    },
+    {
+      "name": "数据备份与恢复条款",
+      "reason": "为保障业务连续性，应约定数据备份频率、恢复测试、灾难恢复计划等。"
+    },
+    {
+      "name": "业务连续性与应急响应条款",
+      "reason": "应用上线后需确保服务可用性，应约定应急响应流程、故障恢复时间目标等。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4638,
+    "completion_tokens": 7566,
+    "latency_ms": 114611,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:38:01.198974",
+  "completed_at": "2026-06-19T09:39:56.544903",
+  "created_at": "2026-06-19T09:38:01.180261"
+}

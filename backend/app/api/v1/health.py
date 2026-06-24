@@ -4,11 +4,9 @@ from fastapi import APIRouter
 from redis.asyncio import Redis
 from sqlalchemy import text
 
-from app.db.session import get_engine
-
 from app.config import get_settings
+from app.db.session import get_engine
 from app.schemas.api import APIResponse, HealthPayload
-
 
 router = APIRouter()
 settings = get_settings()

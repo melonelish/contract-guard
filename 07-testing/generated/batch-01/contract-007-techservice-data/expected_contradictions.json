@@ -1,0 +1,57 @@
+{
+  "contract_id": "contract-007",
+  "contract_type": "techservice_data",
+  "contradictions": [
+    {
+      "contradiction_id": "C007-01",
+      "clause_a": {
+        "clause_ref": "第11.2条",
+        "content": "乙方为履行本合同而交付的项目成果的知识产权归甲方所有。"
+      },
+      "clause_b": {
+        "clause_ref": "第11.3条",
+        "content": "乙方在项目过程中使用的方法论、工具和平台，其知识产权归乙方所有。"
+      },
+      "contradiction_type": "ip_boundary_ambiguity",
+      "description": "第11.2条约定项目成果归甲方，第11.3条约定方法论归乙方。问题在于：数据治理项目的核心交付物（如数据治理方案、数据标准规范）既包含甲方的业务知识，也包含乙方的方法论应用。两者边界不清，可能导致知识产权争议。",
+      "severity": "medium",
+      "suggestion": "应明确界定'项目成果'与'方法论'的边界，建议以'是否基于甲方特定业务需求定制'作为判定标准，定制化成果归甲方，通用方法论归乙方。"
+    },
+    {
+      "contradiction_id": "C007-02",
+      "clause_a": {
+        "clause_ref": "第5.2条第（二）项",
+        "content": "数据质量显著提升。"
+      },
+      "clause_b": {
+        "clause_ref": "第6.3条",
+        "content": "项目整体验收通过后10个工作日内，甲方支付合同总额的30%，即84万元。"
+      },
+      "contradiction_type": "acceptance_payment_mismatch",
+      "description": "第5.2条的验收标准过于主观（'显著提升'），但第6.3条将30%的款项（84万元）与整体验收挂钩。如果双方对'显著提升'的理解存在分歧，可能导致验收争议，进而影响84万元款项的支付。",
+      "severity": "medium",
+      "suggestion": "应将验收标准量化，明确具体的指标和计算方式，避免因主观判断导致的验收争议。"
+    },
+    {
+      "contradiction_id": "C007-03",
+      "clause_a": {
+        "clause_ref": "第9.1条",
+        "content": "乙方在项目过程中将接触甲方的大量业务数据，应采取合理措施保护数据安全。"
+      },
+      "clause_b": {
+        "clause_ref": "第10.2条",
+        "content": "保密期限为本合同有效期内及合同终止后1年。"
+      },
+      "contradiction_type": "security_duration_mismatch",
+      "description": "第9.1条承认乙方将接触'大量业务数据'，但第10.2条将保密期限限定为1年。对于大型国企的核心业务数据，1年保密期限与数据安全风险不匹配。乙方在项目中获取的数据知识（如数据架构、业务逻辑）在1年后仍具有商业价值。",
+      "severity": "medium",
+      "suggestion": "应延长保密期限至3-5年，或根据数据类型设置差异化的保密期限。"
+    }
+  ],
+  "contradiction_summary": {
+    "total": 3,
+    "high": 0,
+    "medium": 3,
+    "low": 0
+  }
+}

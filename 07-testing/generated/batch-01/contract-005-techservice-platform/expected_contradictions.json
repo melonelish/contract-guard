@@ -1,0 +1,57 @@
+{
+  "contract_id": "contract-005",
+  "contract_type": "platform_techservice",
+  "contradictions": [
+    {
+      "contradiction_id": "C005-01",
+      "clause_a": {
+        "clause_ref": "第9.2条",
+        "content": "乙方为履行本合同而专门开发的软件、工具及相关成果的知识产权归甲方所有。"
+      },
+      "clause_b": {
+        "clause_ref": "第9.3条",
+        "content": "乙方在提供服务过程中形成的技术积累和经验，乙方有权在其他项目中使用，但不得泄露甲方保密信息。"
+      },
+      "contradiction_type": "ip_ownership_conflict",
+      "description": "第9.2条约定专门开发成果归甲方，但第9.3条又允许乙方使用'技术积累'。问题在于：乙方为甲方开发的专用工具和方法，既可以被认定为'专门开发成果'（归甲方），也可以被认定为'技术积累'（乙方可用）。两条存在逻辑矛盾，边界不清。",
+      "severity": "medium",
+      "suggestion": "应明确界定'专门开发成果'与'技术积累'的区分标准，建议以'是否包含甲方专有信息'或'是否具有通用性'作为判定依据。"
+    },
+    {
+      "contradiction_id": "C005-02",
+      "clause_a": {
+        "clause_ref": "第5.1条",
+        "content": "乙方应确保平台系统可用性不低于行业标准。"
+      },
+      "clause_b": {
+        "clause_ref": "第11.5条",
+        "content": "乙方违约的最高赔偿金额不超过当月服务费用。"
+      },
+      "contradiction_type": "sla_remedy_conflict",
+      "description": "第5.1条要求系统可用性达到'行业标准'，但第11.5条将违约赔偿上限设为当月服务费（15万元）。如果系统可用性远低于行业标准，甲方的实际损失可能远超15万元，但赔偿却受到严格限制。这导致SLA要求与违约后果之间存在严重失衡。",
+      "severity": "high",
+      "suggestion": "应建立与SLA挂钩的赔偿机制，如可用性每降低0.1%赔偿当月服务费的10%，或设置更高的赔偿上限。"
+    },
+    {
+      "contradiction_id": "C005-03",
+      "clause_a": {
+        "clause_ref": "第3.2条",
+        "content": "合同期满前30日内，如双方均未书面提出终止合同，则本合同自动续约3年，续约次数不限。"
+      },
+      "clause_b": {
+        "clause_ref": "第3.3条",
+        "content": "任何一方如需提前终止本合同，应提前90日书面通知对方，并支付剩余服务期限服务费总额的50%作为违约金。"
+      },
+      "contradiction_type": "notice_period_conflict",
+      "description": "第3.2条要求在期满前30日内提出终止，但第3.3条要求提前90日通知。如果甲方想在2年期满后不续约，按第3.2条只需提前30天，但按第3.3条需要提前90天。两条关于通知期限的约定存在矛盾。",
+      "severity": "medium",
+      "suggestion": "应统一通知期限，明确'不续约'与'提前终止'是两种不同情形，分别约定不同的通知期限和违约责任。"
+    }
+  ],
+  "contradiction_summary": {
+    "total": 3,
+    "high": 1,
+    "medium": 2,
+    "low": 0
+  }
+}

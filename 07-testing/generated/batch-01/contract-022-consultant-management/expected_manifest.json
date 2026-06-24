@@ -1,0 +1,40 @@
+{
+  "sample_id": "contract-022-consultant-management",
+  "contract_type": "管理咨询顾问协议",
+  "title": "管理咨询服务协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "合作范围"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 2,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第四条承诺由资深合伙人李博士担任项目负责人，全程参与项目，暗示甲方支付高价购买的是高端咨询服务。但第八条第8.2款允许乙方将项目成果用于其他客户，这与高端定制服...",
+    "第五条约定签约即付50%（140万元），但第三条将项目分为三个阶段，诊断阶段（5-6月）仅占项目周期的1/3。首期付款比例（50%）与第一阶段工作量（约占30%..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "项目变更管理条款",
+    "项目沟通与汇报机制条款",
+    "乙方人员驻场与工作方式条款",
+    "项目验收标准与程序条款"
+  ],
+  "missing_clause_high": [
+    "项目变更管理条款",
+    "项目验收标准与程序条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "反不正当竞争法"
+  ],
+  "notes": ""
+}

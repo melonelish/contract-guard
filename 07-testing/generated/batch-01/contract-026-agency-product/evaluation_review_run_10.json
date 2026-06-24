@@ -1,0 +1,65 @@
+{
+  "sample_id": "contract-026-agency-product",
+  "review_run_file": "review_run_10.json",
+  "evaluated_at": "2026-06-22T11:31:06.360733",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "培训",
+    "客户归属",
+    "知识产权",
+    "竞业限制",
+    "管辖法院",
+    "销售指标"
+  ],
+  "detected_risk_topics": [
+    "佣金计算",
+    "区域保护",
+    "合同完整性",
+    "合同逻辑",
+    "培训",
+    "客户归属",
+    "违约责任",
+    "销售指标"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "培训",
+    "客户归属",
+    "销售指标"
+  ],
+  "detected_high_risk_topics": [
+    "佣金计算",
+    "区域保护",
+    "培训",
+    "客户归属",
+    "违约责任",
+    "销售指标"
+  ],
+  "missing_expected_topics": [
+    "付款条件",
+    "知识产权",
+    "竞业限制",
+    "管辖法院"
+  ],
+  "unexpected_topics": [
+    "合同完整性",
+    "合同逻辑",
+    "违约责任"
+  ],
+  "topic_recall": 0.556,
+  "topic_precision": 0.625,
+  "high_risk_recall": 0.8,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 1,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.875,
+  "overall_score": 0.776,
+  "notes": ""
+}

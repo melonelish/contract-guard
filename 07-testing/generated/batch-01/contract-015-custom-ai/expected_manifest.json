@@ -1,0 +1,49 @@
+{
+  "sample_id": "contract-015-custom-ai",
+  "contract_type": "AI模型定制开发合同",
+  "title": "信和消费金融智能风控模型定制开发合同",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "其他",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "其他",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "验收标准"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第五条第5.1款约定'本合同项下开发完成的合同模型（包括但不限于模型算法、模型参数、特征工程方案、技术文档等）的知识产权归甲方所有'，第5.4款约定'使用甲方数...",
+    "第四条第4.2款约定'甲方提供的数据应经过脱敏处理，不包含可直接识别个人身份的信息'，第4.3款约定'乙方应仅将甲方提供的数据用于本合同约定的模型训练目的'。但..."
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [
+    "模型可解释性条款",
+    "模型偏差与公平性条款",
+    "算法备案条款",
+    "模型监控与迭代详细条款",
+    "伦理审查条款"
+  ],
+  "missing_clause_high": [
+    "模型可解释性条款",
+    "模型偏差与公平性条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "计算机软件保护条例",
+    "个人信息保护法",
+    "互联网信息服务算法推荐管理规定",
+    "数据安全法",
+    "新一代人工智能伦理规范"
+  ],
+  "notes": ""
+}

@@ -1,0 +1,251 @@
+{
+  "id": "3c705180-4ed7-4a6c-b926-88ce759ddf18",
+  "contract_id": "7a37069a-f583-4bfd-97f3-030d04decf33",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 11,
+    "medium": 1,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_012_3",
+      "clause_code": "第十二条第3款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "因乙方原因导致数据丢失的，乙方应承担赔偿责任，但赔偿金额不超过合同总额的10%。",
+      "legal_analysis": "该条款设定了过低的数据丢失赔偿上限，对甲方不公。核心业务数据（如ERP、MES）的价值远高于合同总额，且此限制可能构成不公平的格式条款，排除了甲方的主要权利。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据丢失赔偿最多只赔合同总价的10%，对于大型企业核心系统数据丢失来说，这个上限太低，无法弥补实际损失，对甲方很不利。",
+      "suggested_revision": "删除赔偿上限条款，或大幅提高赔偿上限至合理范围（如与甲方实际损失挂钩），并明确数据恢复的责任和费用承担。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_012_6",
+      "clause_code": "第十二条第6款",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方违约的最高赔偿金额不超过合同总额的20%。",
+      "legal_analysis": "该条款对乙方的总体违约赔偿责任设置了过低的上限（104万元），可能无法覆盖因迁移失败、重大延误或安全事故给上市公司带来的巨额业务损失、商誉损失和监管处罚风险。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "无论乙方犯多大错，最多赔偿104万元。对于520万的项目和可能造成的巨大业务中断损失，这个赔偿封顶极不合理，将大部分风险转移给了甲方。",
+      "suggested_revision": "删除或显著提高赔偿上限，并区分不同违约行为（如根本违约、一般违约）设定不同的赔偿责任。对于故意或重大过失造成的损失，不应设限。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定迁移过程中产生的方案、工具、脚本及改造后系统代码的知识产权归属。根据委托开发合同的一般规则，成果知识产权应约定归属，否则可能引发争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同没写迁移产生的技术方案、工具代码归谁。未来可能产生知识产权纠纷，影响甲方对系统的控制和后续使用。",
+      "suggested_revision": "增加“知识产权”条款，明确约定：因履行本合同产生的所有知识产权成果（包括但不限于迁移方案、定制脚本、改造代码等）的财产权归甲方所有。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "响应时间",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "作为技术迁移服务，合同缺少关于服务等级协议（SLA）的关键约定，如迁移各阶段响应时间、故障恢复时效（RTO）、数据恢复点目标（RPO）等。这使服务质量无法量化考核。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同没有约定乙方响应问题的速度、系统出故障后多久要恢复、数据最多能丢失多久。甲方的核心业务连续性没有保障。",
+      "suggested_revision": "增加“服务等级协议（SLA）”附件，明确约定各阶段服务响应时间、故障解决时限、RTO、RPO等关键指标及未达标的补偿措施。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同缺少详细的应急响应和回滚方案条款。虽有“回滚”定义，但未规定回滚触发条件、操作流程、时间要求及回滚失败时的责任。这对保障迁移失败后业务恢复至关重要。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没写迁移失败怎么办。万一迁移出问题，没有明确的应急和回滚计划，可能导致业务长时间中断，损失无法估量。",
+      "suggested_revision": "增加“应急响应与回滚”条款，详细规定迁移失败的定义、回滚启动决策机制、回滚操作方案、时间要求及回滚过程中各方责任。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005_2",
+      "clause_code": "第五条第2款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（二）系统性能达到迁移前水平或合同约定标准；",
+      "legal_analysis": "验收标准中的性能要求表述模糊。“迁移前水平”未量化，“合同约定标准”但合同中并未约定具体性能指标（如并发用户数、响应时间）。这给验收带来巨大争议风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "验收标准说性能要和迁移前一样或按合同约定，但合同根本没约定具体性能是多少。以后容易扯皮，甲方可能无法有效验收。",
+      "suggested_revision": "将性能标准具体化、量化，并作为合同附件。例如，明确核心系统的具体性能指标（TPS、响应时间等），并约定基准测试方法和环境。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_006_3",
+      "clause_code": "第六条第3款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "（一）合同签署后10个工作日内，甲方支付合同总额的20%，即104万元；",
+      "legal_analysis": "付款条件与里程碑不完全挂钩。首付款（20%）在合同签署后即支付，此时乙方仅承担合同义务，未开始实质工作，预付款比例偏高，增加了甲方的资金风险。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "刚签合同就要付104万，但乙方还没开始干活。这相当于给了乙方大量无担保的预付款，甲方资金风险大。",
+      "suggested_revision": "调整付款节点，降低预付款比例，使付款与具体、可验证的交付成果（如“迁移方案经甲方书面批准”）紧密挂钩。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007_4",
+      "clause_code": "第七条第4款",
+      "risk_level": "medium",
+      "risk_category": "供应链风险",
+      "original_text": "云资源费用的具体金额和支付方式由双方另行约定。",
+      "legal_analysis": "对于大型云迁移项目，云资源是重大成本项。合同仅约定由甲方承担，但具体金额和支付方式留待“另行约定”，存在成本不确定性和后续争议风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "云资源费用是笔大钱，但合同里只说“另外谈”。这可能导致后期因费用问题产生纠纷，影响项目进行。",
+      "suggested_revision": "将云资源费用预估作为合同附件，并约定计价模式、支付流程和成本优化责任，避免后续争议。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "SLA",
+      "original_text": "（合同中未发现服务等级协议（SLA）与性能基准）",
+      "legal_analysis": "作为系统迁移服务，需明确约定服务可用性、响应时间、故障恢复时效（RTO/RPO）等量化指标，以保障甲方业务连续性并便于考核。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务等级协议（SLA）与性能基准，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务等级协议（SLA）与性能基准。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现应急响应与回滚方案）",
+      "legal_analysis": "核心系统迁移存在失败风险，合同必须包含详细的应急计划、回滚操作流程及责任划分，以最大程度降低迁移失败带来的业务中断风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少应急响应与回滚方案，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加应急响应与回滚方案。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "技术管理",
+      "original_text": "（合同中未发现技术方案确认流程与变更管控细则）",
+      "legal_analysis": "虽有审批原则，但缺少对方案内容标准、审批合理期限、变更请求与评估流程的具体规定，易导致项目延期和争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少技术方案确认流程与变更管控细则，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加技术方案确认流程与变更管控细则。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现迁移后维护支持条款）",
+      "legal_analysis": "合同有“迁移后支持”但未明确支持期限、内容、响应级别、费用等。迁移后是系统稳定关键期，需明确乙方的保障义务和甲方的权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少迁移后维护支持条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加迁移后维护支持条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_005_2",
+      "clause_b": "cl_004",
+      "conflict_type": "logic",
+      "description": "验收标准（第五条）要求性能达到“合同约定标准”，但迁移方案（第四条）需审批后实施，而合同本身未预先约定任何具体的性能基准标准。这导致验收标准缺乏可执行的具体依据。"
+    },
+    {
+      "clause_a": "cl_006_3_2",
+      "clause_b": "cl_004_3",
+      "conflict_type": "timeline",
+      "description": "付款节点（第六条）“迁移方案审批通过后”支付第二期，但迁移方案审批（第四条）的时限未约定。乙方可能拖延提交或修改方案以延迟审批，从而影响甲方付款时间，形成矛盾。"
+    },
+    {
+      "clause_a": "cl_012_3",
+      "clause_b": "cl_012_6",
+      "conflict_type": "numeric",
+      "description": "数据丢失赔偿上限为合同总额10%（第十二条第3款），而总体违约赔偿上限为合同总额20%（第十二条第6款）。若发生数据丢失且同时构成其他违约，两个上限如何适用可能产生计算冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "技术开发服务合同必须明确约定服务过程中产生的技术成果、文档、代码等知识产权的归属，以避免后续权属纠纷。"
+    },
+    {
+      "name": "服务等级协议（SLA）与性能基准",
+      "reason": "作为系统迁移服务，需明确约定服务可用性、响应时间、故障恢复时效（RTO/RPO）等量化指标，以保障甲方业务连续性并便于考核。"
+    },
+    {
+      "name": "应急响应与回滚方案",
+      "reason": "核心系统迁移存在失败风险，合同必须包含详细的应急计划、回滚操作流程及责任划分，以最大程度降低迁移失败带来的业务中断风险。"
+    },
+    {
+      "name": "技术方案确认流程与变更管控细则",
+      "reason": "虽有审批原则，但缺少对方案内容标准、审批合理期限、变更请求与评估流程的具体规定，易导致项目延期和争议。"
+    },
+    {
+      "name": "迁移后维护支持条款",
+      "reason": "合同有“迁移后支持”但未明确支持期限、内容、响应级别、费用等。迁移后是系统稳定关键期，需明确乙方的保障义务和甲方的权益。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 24,
+    "completion_tokens": 3751,
+    "latency_ms": 192531,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 4,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约责任",
+      "合同变更",
+      "验收",
+      "付款",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:25:29.287991",
+  "completed_at": "2026-06-19T09:28:42.480924",
+  "created_at": "2026-06-19T09:25:29.253578"
+}

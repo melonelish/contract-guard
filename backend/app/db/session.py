@@ -7,7 +7,6 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 
 from app.config import get_settings
 
-
 settings = get_settings()
 
 @lru_cache
@@ -32,3 +31,7 @@ def get_session_factory() -> async_sessionmaker[AsyncSession]:
 async def get_db_session() -> AsyncIterator[AsyncSession]:
     async with get_session_factory()() as session:
         yield session
+
+
+# Alias for startup tasks and background jobs
+async_session_factory = get_session_factory

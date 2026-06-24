@@ -1,0 +1,47 @@
+{
+  "sample_id": "contract-005-techservice-platform",
+  "contract_type": "platform_techservice",
+  "title": "平台技术服务合同",
+  "difficulty": "medium-high",
+  "expected_risk_topics": [
+    "SLA",
+    "不公平条款",
+    "合作范围",
+    "响应时间",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "管辖法院",
+    "赔偿责任",
+    "转让限制",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "SLA",
+    "不公平条款",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "违约责任"
+  ],
+  "expected_risk_count": 14,
+  "expected_high_risk_count": 6,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "第9.2条约定专门开发成果归甲方，但第9.3条又允许乙方使用'技术积累'。问题在于：乙方为甲方开发的专用工具和方法，既可以被认定为'专门开发成果'（归甲方），也...",
+    "第5.1条要求系统可用性达到'行业标准'，但第11.5条将违约赔偿上限设为当月服务费（15万元）。如果系统可用性远低于行业标准，甲方的实际损失可能远超15万元，...",
+    "第3.2条要求在期满前30日内提出终止，但第3.3条要求提前90日通知。如果甲方想在2年期满后不续约，按第3.2条只需提前30天，但按第3.3条需要提前90天。..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "数据备份与灾难恢复条款",
+    "人员变更通知条款",
+    "应急响应预案条款",
+    "服务水平报告条款"
+  ],
+  "missing_clause_high": [
+    "数据备份与灾难恢复条款"
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

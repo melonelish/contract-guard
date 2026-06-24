@@ -1,0 +1,183 @@
+{
+  "id": "e8d1480c-0c86-43b2-8a32-c91fbd147ba5",
+  "contract_id": "3d762b4c-7a73-4578-9b19-2b094034990b",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 3,
+    "medium": 4,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "无具体条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "合同未涉及数据保护条款",
+      "legal_analysis": "合同未规定乙方在代理过程中对客户个人信息和数据的保护义务，违反《个人信息保护法》和《民法典》诚信原则，可能导致隐私泄露和法律责任。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "代理商在销售过程中可能接触客户个人信息，但合同未要求其保护数据，可能导致隐私泄露和法律风险。",
+      "suggested_revision": "添加数据保护条款，明确乙方的数据处理义务、安全措施和违约责任。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第四条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "销售指标按以下方式计算：（一）以乙方实际销售金额为准；（二）不含退货、折扣等；（三）以甲方确认的销售订单为准。",
+      "legal_analysis": "甲方单方面确认销售订单，控制销售指标计算，可能滥用权利，导致乙方无法证明销售业绩，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "销售业绩的确认完全由甲方说了算，乙方可能因甲方不确认订单而达不到指标。",
+      "suggested_revision": "修改为销售指标以双方确认的订单为准，或引入第三方审计机制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "无",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "合同未提及乙方资质要求",
+      "legal_analysis": "乙方代理销售安全产品，可能需具备信息安全服务资质，合同未要求，可能导致违反行业监管规定，存在行政处罚风险。",
+      "legal_basis": "基于法理分析，《中华人民共和国网络安全法》相关",
+      "basis_excerpt": "无具体法条，基于行业监管。",
+      "basis_source": "基于《中华人民共和国网络安全法》对网络安全产品和服务的要求",
+      "plain_explanation": "代理安全产品需要特定资质，合同没提，乙方可能无证经营。",
+      "suggested_revision": "添加条款，要求乙方提供相关资质证明，并确保持续合规。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第九条",
+      "risk_level": "medium",
+      "risk_category": "知识产权",
+      "original_text": "乙方在代理过程中使用甲方的知识产权，应事先取得甲方书面同意。",
+      "legal_analysis": "使用知识产权需书面同意，但未明确同意流程和范围，可能导致侵权或操作困难，影响代理效率。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方用甲方品牌卖产品，但每次都要书面同意，太麻烦，可能无意侵权。",
+      "suggested_revision": "明确授权使用范围，提供标准授权书，简化流程。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第十一条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "任一方违反本协议约定，应向守约方支付违约金人民币100,000元。",
+      "legal_analysis": "固定违约金可能不公，过高或过低，违反《民法典》违约金可调整原则，可能无法覆盖实际损失。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "违约金固定10万，但违约损失可能更大或更小，不公平。",
+      "suggested_revision": "改为根据违约程度和实际损失计算违约金，或设置违约金上限。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第三条",
+      "risk_level": "medium",
+      "risk_category": "合同期限",
+      "original_text": "如任一方未提出终止，本协议自动续展1年。",
+      "legal_analysis": "自动续展可能限制合同终止权，乙方可能因疏忽被绑定长期合同，不利于灵活退出。",
+      "legal_basis": "《中华人民共和国民法典》第五百六十二条（合同约定解除）",
+      "basis_excerpt": "当事人协商一致，可以解除合同。当事人可以约定一方解除合同的事由。解除合同的事由发生时，解除权人可以解除合同。",
+      "basis_source": "《中华人民共和国民法典》第五百六十二条（合同约定解除）",
+      "plain_explanation": "合同到期会自动续期，除非主动通知不续，可能困住乙方。",
+      "suggested_revision": "改为续展需双方书面同意，或设置提前通知期。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第五条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "如乙方存在违规行为（如低价销售、跨区域销售等），甲方有权扣减或取消佣金。",
+      "legal_analysis": "“违规行为”定义模糊，可能被甲方任意解释，导致佣金损失，违反合同明确性原则。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "什么算违规甲方说了算，可能乱扣佣金。",
+      "suggested_revision": "明确违规行为的具体定义和标准，避免任意性。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十三条",
+      "risk_level": "low",
+      "risk_category": "通知条款",
+      "original_text": "涉及合同解除、违约等重大事项的通知应同时以邮政快递方式送达。",
+      "legal_analysis": "电子邮件送达不适用于重大事项，但可能增加通知成本，风险较低，但需确保地址有效。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "重要通知必须用快递，不能只发邮件，可能麻烦但合理。",
+      "suggested_revision": "保留，但明确快递地址和确认机制。",
+      "confidence": 0.6
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_012",
+      "clause_b": "cl_014",
+      "conflict_type": "numeric",
+      "description": "第十四条协议终止的编号错误，使用了与第十二条相同的编号前缀，导致条款编号混乱，可能引起误解。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据保护条款",
+      "reason": "合同涉及安全产品代理，可能处理客户个人信息，需明确数据保护义务和违约责任。"
+    },
+    {
+      "name": "乙方资质要求条款",
+      "reason": "乙方代理安全产品需符合行业监管，应要求提供相关资质证明。"
+    },
+    {
+      "name": "退出机制细节",
+      "reason": "合同终止后库存退还、佣金结算等细节未明确，可能导致争议。"
+    },
+    {
+      "name": "争议解决仲裁选项",
+      "reason": "目前仅规定诉讼，添加仲裁选项可提供更灵活、高效的争议解决方式。"
+    },
+    {
+      "name": "产品验收标准",
+      "reason": "产品质量验收标准未明确，可能影响销售和责任认定。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 3545,
+    "completion_tokens": 6466,
+    "latency_ms": 98084,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "质量标准",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T03:26:53.330539",
+  "completed_at": "2026-06-19T03:28:32.094771",
+  "created_at": "2026-06-19T03:26:53.299078"
+}

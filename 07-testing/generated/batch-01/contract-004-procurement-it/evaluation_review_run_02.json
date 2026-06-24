@@ -1,0 +1,68 @@
+{
+  "sample_id": "contract-004-procurement-it",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.073886",
+  "success": true,
+  "expected_risk_topics": [
+    "人员管理",
+    "付款条件",
+    "供应链风险",
+    "合同完整性",
+    "合规风险",
+    "数据安全",
+    "知识产权",
+    "解约条件",
+    "设备管理",
+    "责任限制",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "履行期限",
+    "知识产权",
+    "管辖法院",
+    "解约条件",
+    "质量标准",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "合同完整性",
+    "合规风险",
+    "数据安全",
+    "知识产权",
+    "验收标准"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "知识产权",
+    "质量标准"
+  ],
+  "missing_expected_topics": [
+    "人员管理",
+    "供应链风险",
+    "合同完整性",
+    "合规风险",
+    "数据安全",
+    "设备管理",
+    "责任限制",
+    "验收标准"
+  ],
+  "unexpected_topics": [
+    "履行期限",
+    "管辖法院"
+  ],
+  "topic_recall": 0.385,
+  "topic_precision": 0.714,
+  "high_risk_recall": 0.2,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.875,
+  "overall_score": 0.566,
+  "notes": ""
+}

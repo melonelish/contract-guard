@@ -1,0 +1,195 @@
+{
+  "id": "5e067d7f-7bb7-4904-97e8-270da1059bae",
+  "contract_id": "a4ab4a38-384d-460d-af76-936274afb840",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 4,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "劳动关系认定",
+      "original_text": "1.2 乙方应指定赵明律师作为甲方的主办律师，负责日常法律事务的处理。",
+      "legal_analysis": "乙方指定律师负责日常事务且可现场服务，可能被认定为事实劳动关系，导致甲方承担社保、工伤等责任。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方可能被视为雇主，需承担劳动法律责任。",
+      "suggested_revision": "明确乙方律师为独立承包方，约定工作自主性、工具自备等条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "1.1 乙方为甲方提供日常法律事务咨询服务，包括但不限于：（二）审查、修改甲方的合同、协议等法律文书；",
+      "legal_analysis": "乙方提供的法律意见、文书等未约定知识产权归属，可能引发版权纠纷。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "法律文书的版权归属不清晰，易产生争议。",
+      "suggested_revision": "增加条款约定乙方工作成果的知识产权归甲方所有。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "服务范围",
+      "original_text": "1.1 乙方为甲方提供日常法律事务咨询服务，包括但不限于：（一）解答甲方的法律咨询，提供法律意见；...",
+      "legal_analysis": "服务范围使用“包括但不限于”，定义模糊，可能导致乙方义务边界不清，甲方预期落空。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务内容不明确，容易引发责任推诿。",
+      "suggested_revision": "细化服务范围，或附加附件明确具体服务清单和交付标准。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "不公平格式条款",
+      "original_text": "11.5 乙方因过错导致甲方损失的，乙方应承担赔偿责任，但赔偿金额以乙方已收取的服务费总额为限。",
+      "legal_analysis": "赔偿责任上限可能免除乙方重大过失责任，对甲方不公平，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方责任上限过低，甲方风险无法充分弥补。",
+      "suggested_revision": "取消赔偿上限，或提高上限至合理水平，确保责任对等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "4.2 服务费按季度支付，甲方应在每季度首月10日前支付当季服务费60,000元。",
+      "legal_analysis": "季度预付但未与服务质量挂钩，可能对甲方不利，缺乏制约机制。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "甲方提前支付，但服务质量未保证。",
+      "suggested_revision": "建议改为服务后支付，或设置支付与考核挂钩的条款。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第七条",
+      "risk_level": "medium",
+      "risk_category": "数据安全",
+      "original_text": "7.1 乙方承诺对在服务过程中知悉的甲方商业秘密严格保密。",
+      "legal_analysis": "保密义务存在，但未涉及数据安全措施、泄露通知等具体义务，不符合数据保护要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密条款不具体，数据泄露风险高。",
+      "suggested_revision": "增加数据安全措施、泄露通知义务和相应违约责任。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第八条",
+      "risk_level": "medium",
+      "risk_category": "合规风险",
+      "original_text": "8.2 在本协议有效期内，乙方不得接受甲方直接竞争对手的委托，为甲方的直接竞争对手提供同类法律服务。",
+      "legal_analysis": "“直接竞争对手”未明确定义，可能导致利益冲突条款执行困难。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "竞争对手标准不清，易生争议。",
+      "suggested_revision": "明确定义竞争对手，或以附件列出清单。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第六条",
+      "risk_level": "medium",
+      "risk_category": "服务质量",
+      "original_text": "6.4 因乙方更换主办律师导致服务质量下降的，甲方有权要求扣减服务费。",
+      "legal_analysis": "“服务质量下降”无客观标准，可能导致扣减服务费时发生争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "质量下降标准模糊，扣减服务费易冲突。",
+      "suggested_revision": "定义服务质量指标，如响应时间、错误率等，作为考核依据。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十条 10.3",
+      "clause_b": "第五条 5.1, 5.2",
+      "conflict_type": "logic",
+      "description": "紧急法律事务处理费用包含在服务费中，但诉讼仲裁代理费用另行收取，如紧急事务涉及诉讼，费用归属不明确。"
+    },
+    {
+      "clause_a": "第十二条 12.3",
+      "clause_b": "第十三条 13.2",
+      "conflict_type": "timeline",
+      "description": "考核不合格可解除协议，但提前终止需提前30日通知，解除权行使时间可能冲突。"
+    },
+    {
+      "clause_a": "第十一条 11.5",
+      "clause_b": "第十一条 11.6",
+      "conflict_type": "logic",
+      "description": "乙方过错赔偿以服务费为限，但利益冲突赔偿无上限，赔偿责任标准不一致。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "劳动关系明确条款",
+      "reason": "明确乙方律师为独立承包方，避免被认定为事实劳动关系，减少甲方社保、工伤等风险。"
+    },
+    {
+      "name": "知识产权归属条款",
+      "reason": "约定乙方工作成果的知识产权归甲方所有，防止版权纠纷。"
+    },
+    {
+      "name": "数据安全具体措施条款",
+      "reason": "规定数据安全措施、泄露通知义务，符合个人信息保护要求。"
+    },
+    {
+      "name": "服务验收标准条款",
+      "reason": "明确服务质量的客观验收标准，避免考核争议。"
+    },
+    {
+      "name": "竞业限制条款",
+      "reason": "对乙方律师的竞业限制，防止利益冲突，保护甲方商业利益。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4203,
+    "completion_tokens": 5982,
+    "latency_ms": 95237,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:53:16.903295",
+  "completed_at": "2026-06-19T08:54:52.501483",
+  "created_at": "2026-06-19T08:53:16.888968"
+}

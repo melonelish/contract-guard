@@ -1,0 +1,65 @@
+{
+  "sample_id": "contract-001-procurement-equipment",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.012058",
+  "success": true,
+  "expected_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "保密义务",
+    "培训",
+    "知识产权",
+    "管辖法院",
+    "质量标准",
+    "违约责任",
+    "逻辑矛盾",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合同完整性",
+    "知识产权",
+    "管辖法院",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "知识产权",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合同完整性",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "交付条件",
+    "保密义务",
+    "培训",
+    "逻辑矛盾"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "合同完整性"
+  ],
+  "topic_recall": 0.6,
+  "topic_precision": 0.75,
+  "high_risk_recall": 0.8,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.375,
+  "overall_score": 0.716,
+  "notes": ""
+}

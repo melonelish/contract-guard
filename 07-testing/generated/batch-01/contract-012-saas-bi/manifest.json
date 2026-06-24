@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-012-saas-bi",
+  "contract_type": "SaaS商业智能分析平台服务协议",
+  "title": "SaaS BI商业智能分析平台服务协议",
+  "word_count": 3003,
+  "clause_count": 13,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "SaaS",
+    "BI",
+    "商业智能",
+    "数据分析",
+    "数据安全",
+    "分析免责",
+    "数据源接入",
+    "零售行业"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-013",
+  "contract_type": "软件定制开发合同",
+  "title": "华锐精密制造ERP系统定制开发合同",
+  "word_count": 3661,
+  "clause_count": 16,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "ERP系统",
+    "软件定制开发",
+    "知识产权矛盾",
+    "验收标准含糊",
+    "付款与交付脱钩",
+    "违约责任不对等",
+    "源代码交付缺失",
+    "制造业数字化转型"
+  ]
+}

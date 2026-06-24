@@ -1,0 +1,185 @@
+{
+  "id": "96af1e84-d709-4f34-b7ff-f1474b5b5a0d",
+  "contract_id": "72dfd4f4-295e-4c0b-80ae-d9858aef0d28",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 9,
+    "high": 6,
+    "medium": 3,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第五条 5.10",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方不得将甲方员工数据存储于中国境外的服务器或数据中心，如因业务需要确需跨境传输的，应事先取得甲方书面同意并完成个人信息出境安全评估等法定程序。",
+      "legal_analysis": "合同背景说明服务器部署在境外，与条款禁止境外存储存在矛盾。数据跨境传输需符合《个人信息保护法》的严格条件，否则构成合规风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "背景说服务器在境外，但合同禁止存储境外，需同意和评估，存在法律冲突和数据泄露风险。",
+      "suggested_revision": "明确数据存储位置为境内，或修改背景说明；确保跨境传输完成安全评估等法定程序。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第三条 3.3",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "合同到期前30日，如双方均未提出书面异议，本合同自动续约1年。",
+      "legal_analysis": "自动续约条款可能限制甲方选择权，未充分提示对方注意，构成不公平格式条款，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同自动续约，甲方可能无意中续约，需明确退出机制以避免被动。",
+      "suggested_revision": "增加甲方可在到期前书面通知不续约的条款，或取消自动续约改为双方协商续约。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第二条 2.2, 2.6",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "乙方有权根据产品发展需要，对服务平台的功能进行调整、升级或下线。乙方有权根据产品发展需要对服务平台进行功能升级和优化，但涉及核心功能的重大变更应提前30日书面通知甲方，并提供必要的过渡期支持和培训。",
+      "legal_analysis": "乙方单方面变更服务功能，可能影响甲方业务连续性，导致服务范围模糊和履行不符合约定，构成违约风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方可以随意变更功能，甲方可能无法适应新系统，业务中断风险高。",
+      "suggested_revision": "限制功能变更需甲方同意，或明确变更范围、补偿机制；确保核心功能稳定性。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第九条 9.4",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "乙方因故意或重大过失导致甲方数据丢失的，乙方应承担合理赔偿责任，但赔偿上限不超过甲方已支付的服务费用总额。",
+      "legal_analysis": "赔偿上限可能远低于实际损失，特别是数据丢失可能造成重大业务损失，限制乙方责任，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据丢失赔偿仅限已付费用，可能不足补偿甲方实际损失，如业务中断、声誉损害。",
+      "suggested_revision": "取消赔偿上限或提高上限，与实际损失挂钩；明确损失计算范围。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第四条 4.5",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "上述费用基于甲方现有员工规模（约500人），如甲方员工规模超过600人，乙方有权调整服务费用。",
+      "legal_analysis": "乙方单方面调整费用，未说明调整机制、幅度和协商程序，可能构成不公平格式条款。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "员工增加时乙方可以涨价，但未约定如何调整，甲方可能面临不可控成本。",
+      "suggested_revision": "明确调整规则，如按比例调整、设定上限或需双方协商一致。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条 6.4",
+      "risk_level": "medium",
+      "risk_category": "响应时间",
+      "original_text": "服务平台可用性未达到承诺标准时，甲方有权获得相应补偿，具体标准见附件二。",
+      "legal_analysis": "SLA补偿标准在附件中，但合同未提供附件具体内容，可能导致补偿机制不明确，影响甲方权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "补偿标准未在合同中明确，附件可能缺失或不合理，甲方索赔困难。",
+      "suggested_revision": "在合同正文中明确补偿标准，或确保附件双方确认并作为合同组成部分。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第五条 5.5",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "合同终止后，乙方应甲方要求提供数据导出服务。甲方应在合同终止后15日内完成数据导出，逾期乙方有权删除甲方数据。",
+      "legal_analysis": "数据导出机制简单，未包括导出格式、技术支持、费用等细节，可能导致数据迁移困难，影响数据可携带权。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据导出条款过于简略，15日期限可能不足，逾期删除数据对甲方不利。",
+      "suggested_revision": "详细规定数据导出格式、支持时间、费用；延长导出期限至30日或更久。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同缺失数据安全事件响应机制，SaaS服务应明确安全事件报告、处理、通知流程，以符合数据安全法规要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "缺少安全事件响应机制，数据泄露时双方责任不清，可能违反法律义务。",
+      "suggested_revision": "增加条款明确安全事件响应流程、通知时限、补救措施和责任划分。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现服务降级处理条款）",
+      "legal_analysis": "合同未约定服务降级或中断时的处理方案，可能影响甲方业务连续性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务降级处理条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务降级处理条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "背景说明",
+      "clause_b": "第五条 5.10",
+      "conflict_type": "logic",
+      "description": "合同背景说明服务器部署在境外，但第五条5.10禁止数据存储于境外，存在逻辑矛盾。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全事件响应机制",
+      "reason": "SaaS服务应明确安全事件报告、处理和通知流程，以遵守数据安全法规并保障甲方权益。"
+    },
+    {
+      "name": "服务降级处理条款",
+      "reason": "合同未约定服务降级或中断时的处理方案，可能影响甲方业务连续性。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4442,
+    "completion_tokens": 7407,
+    "latency_ms": 112303,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:35:49.416183",
+  "completed_at": "2026-06-19T09:37:42.417489",
+  "created_at": "2026-06-19T09:35:49.383435"
+}

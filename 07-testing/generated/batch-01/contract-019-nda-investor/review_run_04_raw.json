@@ -1,0 +1,245 @@
+{
+  "id": "40ffa483-62b2-4065-81ce-3c60b3fa359e",
+  "contract_id": "ee9aa96a-f50c-4e47-9f5a-fa6a0ed10cf6",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 8,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第6.1条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方应向甲方支付违约金人民币叁佰万元整（¥3,000,000.00）",
+      "legal_analysis": "固定违约金300万可能过分高于实际损失，违反公平原则，可请求调整。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金数额固定，可能远超实际损失，对乙方显失公平。",
+      "suggested_revision": "改为赔偿甲方实际损失，或设置违约金上限与损失挂钩。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第3.6条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "乙方及其关联公司不得从事与甲方主营业务存在直接竞争关系的业务投资或经营活动。",
+      "legal_analysis": "该条款过度限制乙方正常投资自由，可能构成不公平格式条款。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "投资方需投资多个项目，此条款不合理限制其商业活动。",
+      "suggested_revision": "删除或修改为仅禁止利用保密信息从事竞争业务。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "保密信息包括技术资料、源代码等，但未约定知识产权归属和保护，易引发争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "技术信息泄露可能涉及知识产权，合同应明确归属和保护措施。",
+      "suggested_revision": "增加条款，明确保密信息中知识产权归甲方所有，乙方不得侵犯。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "保密信息包含电子数据，但未明确数据安全标准和责任，存在泄露风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据保护措施应具体化，避免因标准不清导致泄露。",
+      "suggested_revision": "增加条款，规定数据加密、访问控制等具体安全标准。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第4.2条",
+      "risk_level": "medium",
+      "risk_category": "保密期限",
+      "original_text": "本协议期满后，乙方的保密义务自动解除。",
+      "legal_analysis": "保密期仅6个月，期满后义务自动解除，可能无法保护长期商业秘密。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "商业秘密保密义务应持续到信息成为公知，6个月期限过短。",
+      "suggested_revision": "改为保密义务持续至保密信息成为公知信息之日。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第2.1条",
+      "risk_level": "medium",
+      "risk_category": "保密信息范围",
+      "original_text": "其他信息：甲方标注为“保密”或根据信息性质应被视为保密的其他信息。",
+      "legal_analysis": "定义过于宽泛，可能包含非保密信息，增加乙方不确定义务。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密信息范围模糊，可能导致乙方承担不必要责任。",
+      "suggested_revision": "明确判定标准，如“经双方书面确认或具有明确保密标识的信息”。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第9.3条",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "original_text": "任何一方均有权向甲方所在地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "管辖法院约定为甲方所在地，可能对乙方不公平，违反诉讼便利原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "诉讼管辖偏袒甲方，增加乙方维权成本和难度。",
+      "suggested_revision": "改为向合同签订地或被告所在地有管辖权的法院提起诉讼。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第7.1条",
+      "risk_level": "low",
+      "risk_category": "信息管理",
+      "original_text": "乙方应在十五（15）日内返还或销毁其所持有的全部保密信息及其副本。",
+      "legal_analysis": "返还或销毁要求明确，但未规定销毁标准和确认方式，可能执行不彻底。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "销毁标准不明确，可能导致信息残留风险。",
+      "suggested_revision": "明确销毁方式，如“物理销毁或电子不可恢复删除”，并提供书面确认。",
+      "confidence": 0.6
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现知识产权保护条款）",
+      "legal_analysis": "保密信息包括技术资料，需明确知识产权归属和保护，避免争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少知识产权保护条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加知识产权保护条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现保密义务延续条款）",
+      "legal_analysis": "商业秘密保密义务应持续到信息公知，避免期限过短。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少保密义务延续条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加保密义务延续条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "（合同中未发现合规声明条款）",
+      "legal_analysis": "投资交易可能涉及行业监管，应声明合规义务。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少合规声明条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加合规声明条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现个人数据保护条款）",
+      "legal_analysis": "客户信息可能涉及个人数据，需符合数据保护法律。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少个人数据保护条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加个人数据保护条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第4.2条",
+      "clause_b": "第3.1条",
+      "conflict_type": "timeline",
+      "description": "第4.2条规定保密期满后义务解除，但第3.1条要求保密义务持续，可能逻辑冲突。"
+    },
+    {
+      "clause_a": "第3.6条",
+      "clause_b": "第3.3条",
+      "conflict_type": "logic",
+      "description": "第3.6条禁止竞争业务，与第3.3条仅限投资评估目的可能矛盾，过度限制。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权保护条款",
+      "reason": "保密信息包括技术资料，需明确知识产权归属和保护，避免争议。"
+    },
+    {
+      "name": "数据安全具体措施条款",
+      "reason": "电子数据需明确安全标准和责任，防止泄露。"
+    },
+    {
+      "name": "保密义务延续条款",
+      "reason": "商业秘密保密义务应持续到信息公知，避免期限过短。"
+    },
+    {
+      "name": "合规声明条款",
+      "reason": "投资交易可能涉及行业监管，应声明合规义务。"
+    },
+    {
+      "name": "个人数据保护条款",
+      "reason": "客户信息可能涉及个人数据，需符合数据保护法律。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 66,
+    "completion_tokens": 5725,
+    "latency_ms": 228683,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 5,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "保密",
+      "争议解决",
+      "管辖"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:37:18.099565",
+  "completed_at": "2026-06-22T02:41:07.344446",
+  "created_at": "2026-06-22T02:37:18.065147"
+}

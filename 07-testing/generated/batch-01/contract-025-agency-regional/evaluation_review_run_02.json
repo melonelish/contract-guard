@@ -1,0 +1,53 @@
+{
+  "sample_id": "contract-025-agency-regional",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.341066",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "合作范围",
+    "管辖法院",
+    "违约责任",
+    "销售指标"
+  ],
+  "detected_risk_topics": [
+    "管辖法院",
+    "解约条件",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "销售指标"
+  ],
+  "detected_high_risk_topics": [
+    "管辖法院",
+    "解约条件",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "合作范围",
+    "销售指标"
+  ],
+  "unexpected_topics": [
+    "解约条件"
+  ],
+  "topic_recall": 0.286,
+  "topic_precision": 0.667,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": false,
+  "contradiction_expected": 2,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 0,
+  "legal_basis_coverage": 0.0,
+  "overall_score": 0.1,
+  "notes": ""
+}

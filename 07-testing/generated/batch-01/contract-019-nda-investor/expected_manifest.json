@@ -1,0 +1,49 @@
+{
+  "sample_id": "contract-019-nda-investor",
+  "contract_type": "投资方保密协议",
+  "title": "投资方保密协议（云帆智能科技与鼎盛资本）",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "保密义务",
+    "其他",
+    "条款缺失",
+    "管辖法院",
+    "违约责任",
+    "适用法律"
+  ],
+  "expected_high_risk_topics": [
+    "保密义务",
+    "其他",
+    "违约责任"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第3.1条规定'未经甲方事先书面同意，不得向任何第三方披露'，但第5.3条又允许乙方'与其专业顾问共享保密信息'。两个条款存在逻辑矛盾：如果必须经甲方书面同意才...",
+    "第4.1条约定保密期限为6个月，第4.3条约定'如投资交易在保密期限内完成，双方可另行签订新的保密协议'。但投资交易从尽职调查到最终交割通常需要6-12个月，6..."
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [
+    "关联公司约束条款",
+    "信息安全保护措施条款",
+    "争议解决条款",
+    "投资竞争对手限制条款",
+    "反向尽职调查限制条款"
+  ],
+  "missing_clause_high": [
+    "关联公司约束条款",
+    "信息安全保护措施条款",
+    "争议解决条款"
+  ],
+  "expected_legal_basis_topics": [
+    "反不正当竞争法",
+    "民法典",
+    "网络安全法",
+    "数据安全法",
+    "民事诉讼法",
+    "仲裁法",
+    "涉外民事关系法律适用法"
+  ],
+  "notes": ""
+}

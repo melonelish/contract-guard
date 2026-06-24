@@ -1,0 +1,189 @@
+{
+  "id": "c225c942-1808-482a-8a1c-a2688e0262be",
+  "contract_id": "8e42f859-4b07-491e-bfcc-15d2c5369afb",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "9.1 本合同项下开发完成的软件系统（包括但不限于源代码、目标代码、技术文档、设计方案等）的知识产权归甲方所有。",
+      "legal_analysis": "第9.1条明确知识产权归甲方，但第9.2条乙方工具知识产权归乙方，若集成深度模糊，可能引发权属争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "软件知识产权归甲方，但乙方保留自有工具权利，如果界限不清，后续使用可能产生纠纷。",
+      "suggested_revision": "建议明确界定乙方工具范围，并约定集成部分的知识产权处理方式。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "5.3 系统功能满足业务需求即视为验收通过。",
+      "legal_analysis": "验收标准过于抽象，未量化，易导致验收争议。依据民法典511条，质量要求不明时按通常标准履行。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "验收条件说“满足业务需求”太模糊，双方可能对标准理解不同，导致付款延迟或纠纷。",
+      "suggested_revision": "建议细化验收标准，如基于附件五明确测试用例和通过条件。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "6.2 付款方式按以下时间节点分期支付：（二）合同签订后第3个月末，甲方支付合同总价的15%；等。",
+      "legal_analysis": "付款基于时间而非交付验收，可能资金风险高，甲方在未验收情况下支付大部分款项。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "付款按固定时间支付，而不是基于项目里程碑验收，可能导致乙方在交付前收到过多款项，甲方风险大。",
+      "suggested_revision": "建议将付款与阶段性验收挂钩，如每阶段验收后支付相应比例。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "11.2 乙方违约责任：（三）乙方延迟交付超过30天的，甲方有权要求乙方承担相应的违约责任。",
+      "legal_analysis": "乙方违约责任描述模糊，缺乏具体违约金或赔偿计算方式，而甲方违约责任明确，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "甲方违约有明确违约金，但乙方违约只说“承担相应责任”，不公平，可能导致甲方损失难以追偿。",
+      "suggested_revision": "建议为乙方延迟交付设定具体违约金或赔偿标准。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "需求管理",
+      "original_text": "4.2 需求变更双方协商处理。",
+      "legal_analysis": "需求变更条款过于简单，未规定变更流程、影响评估和费用调整，易导致范围蔓延和争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "变更只写“协商处理”，没有具体规则，如果甲方频繁变更，可能影响项目进度和成本。",
+      "suggested_revision": "建议细化变更流程，包括评估、批准、费用调整和时间延长机制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十条",
+      "risk_level": "medium",
+      "risk_category": "保密义务",
+      "original_text": "10.4 保密义务自合同签订之日起生效，持续至合同终止后3年内有效。",
+      "legal_analysis": "保密义务期限合理，但未约定违约赔偿，泄露保密信息时损失难定。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密期3年没问题，但违反保密义务的后果没写，如果泄密，甲方可能无法获得足够赔偿。",
+      "suggested_revision": "建议增加违约赔偿条款，明确泄露保密信息的法律责任。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第三条",
+      "risk_level": "medium",
+      "risk_category": "项目进度",
+      "original_text": "3.1 项目总开发周期为12个月...具体里程碑节点如下...",
+      "legal_analysis": "里程碑基于时间，但未明确每个阶段的交付物验收标准，进度管理可能松散。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "项目计划按月划分，但每个阶段交付什么、如何验收没说清，可能拖延。",
+      "suggested_revision": "建议为每个里程碑定义明确交付物和验收条件。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十二条",
+      "risk_level": "low",
+      "risk_category": "质保服务",
+      "original_text": "12.2 质保期内，乙方应提供以下服务：（一）免费修复系统运行过程中出现的软件缺陷和故障；",
+      "legal_analysis": "质保服务未明确缺陷严重性分类和响应时间分级，可能影响服务效果。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "质保只说修复缺陷，但没规定不同问题的响应和解决时间，可能服务不及时。",
+      "suggested_revision": "建议细化缺陷分类和对应SLA（服务等级协议）。",
+      "confidence": 0.6
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第五条第2款",
+      "clause_b": "第五条第5款",
+      "conflict_type": "timeline",
+      "description": "第5.2条要求甲方在15个工作日内验收，但第5.5条规定逾期未组织验收视为通过，可能产生时间逻辑矛盾，影响验收效力。"
+    },
+    {
+      "clause_a": "第六条第2款",
+      "clause_b": "第五条",
+      "conflict_type": "logic",
+      "description": "付款基于时间节点，而验收在后期阶段，可能导致甲方在未验收情况下支付大部分款项，风险不对等。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "ERP系统涉及敏感业务数据和人力资源信息，需明确数据安全责任和合规要求。"
+    },
+    {
+      "name": "知识产权侵权责任条款",
+      "reason": "虽约定知识产权归属，但未明确第三方侵权时的责任分担和赔偿机制。"
+    },
+    {
+      "name": "不可抗力定义条款",
+      "reason": "合同中提及不可抗力但未定义，易引发争议。"
+    },
+    {
+      "name": "保险要求条款",
+      "reason": "建议要求乙方购买职业责任险以覆盖潜在损失。"
+    },
+    {
+      "name": "合同终止后数据处理条款",
+      "reason": "合同终止后，如何处理和返还数据未约定，可能引发数据安全风险。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4811,
+    "completion_tokens": 6813,
+    "latency_ms": 100617,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "质量标准",
+      "验收"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T03:17:53.119897",
+  "completed_at": "2026-06-19T03:19:37.212021",
+  "created_at": "2026-06-19T03:17:53.002567"
+}

@@ -1,0 +1,67 @@
+{
+  "sample_id": "contract-006-techservice-maintenance",
+  "review_run_file": "review_run_03.json",
+  "evaluated_at": "2026-06-22T11:31:06.103034",
+  "success": true,
+  "expected_risk_topics": [
+    "SLA",
+    "人员管理",
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失",
+    "资质",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "合同完整性",
+    "响应时间",
+    "安全责任",
+    "数据安全",
+    "知识产权",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "响应时间",
+    "安全责任",
+    "条款缺失"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "响应时间",
+    "安全责任",
+    "数据安全",
+    "知识产权",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "SLA",
+    "人员管理",
+    "保密义务",
+    "条款缺失",
+    "资质"
+  ],
+  "unexpected_topics": [
+    "合同完整性",
+    "数据安全",
+    "知识产权",
+    "验收标准"
+  ],
+  "topic_recall": 0.444,
+  "topic_precision": 0.5,
+  "high_risk_recall": 0.6,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 1,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 2,
+  "legal_basis_coverage": 0.625,
+  "overall_score": 0.532,
+  "notes": ""
+}

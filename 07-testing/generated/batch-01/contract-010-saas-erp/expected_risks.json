@@ -1,0 +1,113 @@
+{
+  "contract_id": "contract-010-saas-erp",
+  "risks": [
+    {
+      "risk_id": "R001",
+      "category": "功能范围",
+      "severity": "high",
+      "title": "功能范围定义含糊",
+      "description": "第2.1条使用'ERP核心功能'表述，未列明具体功能清单。对于年费120万元的ERP系统，功能范围不清可能导致交付争议和额外费用。",
+      "clause_reference": "2.1, 1.2",
+      "suggestion": "在附件一中详细列明所有功能模块的具体功能清单，明确每个功能的交付标准。"
+    },
+    {
+      "risk_id": "R002",
+      "category": "知识产权",
+      "severity": "high",
+      "title": "定制开发知识产权归属不清",
+      "description": "第8.2条规定甲方额外付费的定制开发成果知识产权归乙方所有。甲方支付了定制开发费用却不拥有知识产权，权利义务严重不对等。",
+      "clause_reference": "8.2, 8.3",
+      "suggestion": "明确定制开发成果知识产权归甲方所有，或至少约定甲方享有独家使用权。"
+    },
+    {
+      "risk_id": "R003",
+      "category": "费用透明",
+      "severity": "high",
+      "title": "数据迁移费用不透明",
+      "description": "第5.3条规定数据迁移费用'另行报价'，未约定报价机制、费用上限或甲方异议权。数据迁移是ERP实施的关键环节，费用不透明可能导致预算失控。",
+      "clause_reference": "5.3",
+      "suggestion": "明确数据迁移费用的计算方式、报价流程和费用上限。"
+    },
+    {
+      "risk_id": "R004",
+      "category": "服务水平",
+      "severity": "high",
+      "title": "正常办公时间定义缺失",
+      "description": "第6.1条承诺'正常办公时间'可用性99.5%，但未定义'正常办公时间'的具体时段。对于制造企业，可能需要7×24小时或跨时区服务。",
+      "clause_reference": "6.1, 1.5",
+      "suggestion": "明确定义'正常办公时间'的具体时段，或根据甲方实际业务需求约定服务时间。"
+    },
+    {
+      "risk_id": "R005",
+      "category": "用户授权",
+      "severity": "high",
+      "title": "并发用户限制与价格调整矛盾",
+      "description": "合同正文未明确授权用户数，但提及'详见附件一'。可能存在合同正文与附件约定不一致的风险，导致用户数争议和费用纠纷。",
+      "clause_reference": "7.1",
+      "suggestion": "在合同正文中明确授权用户数，确保正文与附件约定一致。"
+    },
+    {
+      "risk_id": "R006",
+      "category": "业务连续性",
+      "severity": "high",
+      "title": "缺少业务连续性保障条款",
+      "description": "合同未约定灾难恢复、业务连续性计划、数据备份策略等关键条款。ERP系统承载企业核心业务，缺少业务连续性保障可能导致重大业务中断风险。",
+      "clause_reference": "全文缺失",
+      "suggestion": "增加业务连续性保障条款，明确灾难恢复目标（RTO/RPO）、备份策略、应急响应机制等。"
+    },
+    {
+      "risk_id": "R007",
+      "category": "数据管理",
+      "severity": "medium",
+      "title": "缺少数据保留与销毁条款",
+      "description": "合同未约定数据保留期限、合同终止后的数据处理方式、数据销毁标准等。ERP系统包含企业核心业务数据，缺少此条款存在数据管理风险。",
+      "clause_reference": "全文缺失",
+      "suggestion": "增加数据保留与销毁条款，明确数据保留期限、销毁方式和确认机制。"
+    },
+    {
+      "risk_id": "R008",
+      "category": "费用结构",
+      "severity": "medium",
+      "title": "付款方式与服务考核脱节",
+      "description": "第4.3条约定年付方式，但ERP系统实施通常需要按月考核交付进度。年付方式与月度考核脱节，可能导致服务质量难以约束。",
+      "clause_reference": "4.3",
+      "suggestion": "建议调整为按季度付款或与里程碑挂钩的付款方式。"
+    },
+    {
+      "risk_id": "R009",
+      "category": "合同解除",
+      "severity": "medium",
+      "title": "提前终止补偿金过高",
+      "description": "第11.4条规定甲方提前解除需支付剩余服务期限费用的50%作为补偿金。对于2年期合同，提前1年解除需支付60万元，可能构成对甲方的不合理约束。",
+      "clause_reference": "11.4",
+      "suggestion": "降低提前终止补偿金比例，或设置递减机制（如提前时间越长，补偿比例越低）。"
+    },
+    {
+      "risk_id": "R010",
+      "category": "知识产权",
+      "severity": "medium",
+      "title": "定制开发源代码不开放",
+      "description": "第8.3条规定定制开发源代码不向甲方开放。甲方支付了定制开发费用却无法获得源代码，存在供应商锁定风险。",
+      "clause_reference": "8.3",
+      "suggestion": "要求乙方提供源代码托管或在特定条件下（如乙方停止服务）开放源代码。"
+    },
+    {
+      "risk_id": "R011",
+      "category": "数据迁移",
+      "severity": "medium",
+      "title": "数据迁移责任边界不清",
+      "description": "第5条仅约定乙方'协助'数据迁移，未明确迁移工作的责任主体、验收标准和质量保证。",
+      "clause_reference": "5.1",
+      "suggestion": "明确数据迁移的责任主体、验收标准、数据完整性保证和迁移失败的补救措施。"
+    },
+    {
+      "risk_id": "R012",
+      "category": "技术支持",
+      "severity": "low",
+      "title": "技术支持服务标准模糊",
+      "description": "第2.4条提及技术支持服务标准见附件三，但合同正文未约定基本的响应时间和服务承诺。",
+      "clause_reference": "2.4",
+      "suggestion": "在合同正文中约定基本的技术支持响应时间和服务承诺。"
+    }
+  ]
+}

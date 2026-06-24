@@ -1,0 +1,20 @@
+{
+  "contract_id": "contract-032",
+  "contract_type": "网络安全服务合同",
+  "title": "网络安全服务合同 - 中信银行渗透测试与安全加固",
+  "word_count": 3014,
+  "clause_count": 16,
+  "risk_count": 14,
+  "missing_count": 6,
+  "contradiction_count": 2,
+  "difficulty": "medium",
+  "tags": [
+    "网络安全",
+    "渗透测试",
+    "安全加固",
+    "数据安全",
+    "监管合规",
+    "金融机构",
+    "保密义务"
+  ]
+}

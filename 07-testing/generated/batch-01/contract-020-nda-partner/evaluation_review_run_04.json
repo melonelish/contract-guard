@@ -1,0 +1,51 @@
+{
+  "sample_id": "contract-020-nda-partner",
+  "review_run_file": "review_run_04.json",
+  "evaluated_at": "2026-06-22T11:31:06.291481",
+  "success": true,
+  "expected_risk_topics": [
+    "保密义务",
+    "条款缺失",
+    "知识产权",
+    "违约责任",
+    "适用法律"
+  ],
+  "detected_risk_topics": [
+    "保密义务",
+    "知识产权",
+    "竞业限制",
+    "管辖法院",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "保密义务",
+    "知识产权",
+    "适用法律"
+  ],
+  "detected_high_risk_topics": [
+    "保密义务",
+    "知识产权",
+    "竞业限制",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "条款缺失",
+    "适用法律"
+  ],
+  "unexpected_topics": [
+    "竞业限制",
+    "管辖法院"
+  ],
+  "topic_recall": 0.6,
+  "topic_precision": 0.6,
+  "high_risk_recall": 0.667,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.5,
+  "overall_score": 0.702,
+  "notes": ""
+}

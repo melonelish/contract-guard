@@ -1,0 +1,20 @@
+{
+  "contract_id": "contract-031",
+  "contract_type": "医疗器械采购合同",
+  "title": "医疗器械采购合同 - 协和医院高端医疗影像设备采购",
+  "word_count": 3019,
+  "clause_count": 14,
+  "risk_count": 15,
+  "missing_count": 6,
+  "contradiction_count": 3,
+  "difficulty": "medium",
+  "tags": [
+    "医疗器械",
+    "设备采购",
+    "验收标准",
+    "售后服务",
+    "注册证",
+    "培训服务",
+    "付款条件"
+  ]
+}

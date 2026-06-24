@@ -36,7 +36,7 @@ export function AppLayout() {
             alignItems: "center",
           }}
         >
-          <Space size={14}>
+          <Space size={14} style={{ cursor: "pointer" }} onClick={() => navigate("/workspace")}>
             <Avatar
               size={44}
               icon={<FileSearchOutlined />}
@@ -44,10 +44,10 @@ export function AppLayout() {
             />
             <div>
               <Typography.Title level={4} style={{ margin: 0 }}>
-                ContractGuard Workspace
+                ContractGuard
               </Typography.Title>
               <Typography.Text type="secondary">
-                上传、归档并准备进入审查闭环
+                工作台
               </Typography.Text>
             </div>
           </Space>

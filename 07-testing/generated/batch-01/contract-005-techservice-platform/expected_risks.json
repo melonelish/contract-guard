@@ -1,0 +1,138 @@
+{
+  "contract_id": "contract-005",
+  "contract_type": "platform_techservice",
+  "risks": [
+    {
+      "risk_id": "R005-01",
+      "clause_ref": "第5.1条",
+      "risk_level": "high",
+      "risk_type": "sla_ambiguity",
+      "title": "SLA标准模糊",
+      "description": "合同仅约定'系统可用性不低于行业标准'，未明确具体数值（如99.9%或99.99%），也未定义'行业标准'的具体来源和计算方式。一旦发生纠纷，双方对标准的理解可能产生重大分歧。",
+      "suggestion": "应明确约定系统可用性的具体百分比（如99.95%），并约定计算公式、统计周期、测量方法和免责时段。"
+    },
+    {
+      "risk_id": "R005-02",
+      "clause_ref": "第2.1条第（二）项",
+      "risk_level": "high",
+      "risk_type": "scope_ambiguity",
+      "title": "服务范围边界不清",
+      "description": "第2.1条第（二）项仅约定'平台相关技术支持'，未列明具体服务项，导致服务范围边界模糊。乙方可能以'不在服务范围内'为由拒绝提供服务，甲方也可能对服务内容产生过度预期。",
+      "suggestion": "应在附件一中详细列明所有服务项，包括具体的服务内容、服务频次、响应时间、交付物等。"
+    },
+    {
+      "risk_id": "R005-03",
+      "clause_ref": "第8条",
+      "risk_level": "high",
+      "risk_type": "data_ownership_ambiguity",
+      "title": "数据归属权不明",
+      "description": "第8条虽然约定'甲方数据的所有权归甲方所有'，但未约定合同终止后乙方代管数据的返还方式、时间限制和违约责任。乙方可能拖延或拒绝返还数据。",
+      "suggestion": "应明确约定合同终止后数据返还的具体时限、格式、方式，以及逾期未返还的违约责任。"
+    },
+    {
+      "risk_id": "R005-04",
+      "clause_ref": "第9.2条、第9.3条",
+      "risk_level": "medium",
+      "risk_type": "ip_contradiction",
+      "title": "知识产权条款矛盾",
+      "description": "第9.2条约定'为履行本合同而专门开发的软件、工具及相关成果的知识产权归甲方所有'，但第9.3条又约定'乙方在提供服务过程中形成的技术积累和经验，乙方有权在其他项目中使用'。两者边界不清，乙方可能以'技术积累'为由使用甲方专属成果。",
+      "suggestion": "应明确界定'专门开发成果'与'技术积累'的边界，约定具体的判定标准和争议解决机制。"
+    },
+    {
+      "risk_id": "R005-05",
+      "clause_ref": "第11.5条",
+      "risk_level": "high",
+      "risk_type": "liability_too_light",
+      "title": "违约责任过轻",
+      "description": "第11.5条约定'乙方违约的最高赔偿金额不超过当月服务费用'，即最高赔偿仅15万元，相对于360万元合同总额和甲方可能遭受的业务损失，违约成本过低，不足以约束乙方履约。",
+      "suggestion": "应根据违约类型和严重程度设置分层赔偿机制，重大违约的赔偿上限应不低于合同总额的20%。"
+    },
+    {
+      "risk_id": "R005-06",
+      "clause_ref": "缺失",
+      "risk_level": "high",
+      "risk_type": "missing_clause",
+      "title": "缺少数据备份与灾难恢复条款",
+      "description": "合同未约定数据备份策略、备份频率、备份存储位置、灾难恢复时间目标（RTO）和恢复点目标（RPO）。一旦发生数据丢失或系统灾难，无法确定责任和恢复方案。",
+      "suggestion": "应增加数据备份与灾难恢复专章，明确备份策略、RTO、RPO、灾难恢复演练频次等。"
+    },
+    {
+      "risk_id": "R005-07",
+      "clause_ref": "缺失",
+      "risk_level": "medium",
+      "risk_type": "missing_clause",
+      "title": "缺少人员变更通知条款",
+      "description": "合同未约定乙方服务人员变更时的通知义务和甲方的审批权利。乙方可能频繁更换服务人员，影响服务连续性和质量。",
+      "suggestion": "应增加人员变更通知条款，约定核心人员变更需提前通知甲方并获得同意，以及新人员的资质要求。"
+    },
+    {
+      "risk_id": "R005-08",
+      "clause_ref": "第3.2条、第3.3条",
+      "risk_level": "high",
+      "risk_type": "unfair_terms",
+      "title": "自动续约与解约条款不公平",
+      "description": "第3.2条约定自动续约3年且续约次数不限，第3.3条约定提前解约需支付剩余期限50%费用。这意味着甲方一旦签约，将被长期绑定，提前解约成本极高。以2年期满为例，若甲方想解约，需支付3年×180万×50%=270万元违约金。",
+      "suggestion": "应缩短自动续约期限（如1年），降低提前解约违约金比例（如20%），并约定甲方的无条件解约权。"
+    },
+    {
+      "risk_id": "R005-09",
+      "clause_ref": "第5.3条",
+      "risk_level": "medium",
+      "risk_type": "response_time_ambiguity",
+      "title": "故障响应时间不明确",
+      "description": "第5.3条仅约定'接到通知后及时响应并处理'，未明确'及时'的具体时限，也未区分故障等级。不同严重程度的故障应有不同的响应和恢复时间要求。",
+      "suggestion": "应明确约定各等级故障的响应时间、恢复时间和升级机制。"
+    },
+    {
+      "risk_id": "R005-10",
+      "clause_ref": "第11.2条",
+      "risk_level": "medium",
+      "risk_type": "remedy_insufficient",
+      "title": "违约救济措施单一",
+      "description": "第11.2条仅约定'减免当月服务费'作为乙方违约的救济措施，缺乏其他救济手段如限期整改、合同解除、损害赔偿等。",
+      "suggestion": "应增加多种违约救济措施，包括限期整改、服务降级补偿、合同解除权等。"
+    },
+    {
+      "risk_id": "R005-11",
+      "clause_ref": "第8.2条",
+      "risk_level": "medium",
+      "risk_type": "data_security_weak",
+      "title": "数据安全保护措施不具体",
+      "description": "第8.2条仅约定'采取合理措施保护甲方数据安全'，未明确具体的保护措施、安全标准和审计要求。",
+      "suggestion": "应明确约定数据加密标准、访问控制措施、安全审计频次、安全事件响应流程等。"
+    },
+    {
+      "risk_id": "R005-12",
+      "clause_ref": "第4.5条",
+      "risk_level": "low",
+      "risk_type": "penalty_rate_high",
+      "title": "滞纳金比例偏高",
+      "description": "第4.5条约定逾期付款滞纳金为每日0.05%，折合年化18.25%，高于一般商业贷款利率，可能被法院认定为过高。",
+      "suggestion": "建议将滞纳金比例调整为每日0.03%-0.04%，或约定参照LPR计算。"
+    },
+    {
+      "risk_id": "R005-13",
+      "clause_ref": "第13.3条",
+      "risk_level": "low",
+      "risk_type": "jurisdiction_favorable_to_one_party",
+      "title": "管辖法院约定偏向甲方",
+      "description": "第13.3条约定由甲方所在地法院管辖，对乙方不利，可能增加乙方的维权成本。",
+      "suggestion": "建议约定由合同签订地或履行地法院管辖，或约定仲裁条款。"
+    },
+    {
+      "risk_id": "R005-14",
+      "clause_ref": "第7.6条",
+      "risk_level": "low",
+      "risk_type": "subcontracting_restriction_unclear",
+      "title": "转包限制不明确",
+      "description": "第7.6条约定'不得擅自将服务转包给第三方'，但未明确'擅自'的定义，也未约定经甲方同意的转包程序和限制条件。",
+      "suggestion": "应明确约定转包的审批程序、转包范围限制、转包方资质要求等。"
+    }
+  ],
+  "risk_summary": {
+    "total": 14,
+    "high": 5,
+    "medium": 6,
+    "low": 3
+  }
+}

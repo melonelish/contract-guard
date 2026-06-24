@@ -1,0 +1,53 @@
+{
+  "contract_id": "contract-011-saas-hr",
+  "missing_clauses": [
+    {
+      "clause_id": "M001",
+      "category": "数据合规",
+      "title": "数据处理协议（DPA）",
+      "description": "合同缺少专门的数据处理协议，未明确数据处理目的、方式、范围、双方权利义务、数据处理者的义务等。HR系统处理大量个人信息，必须签订DPA以满足《个人信息保护法》要求。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第21条"
+    },
+    {
+      "clause_id": "M002",
+      "category": "数据安全",
+      "title": "数据跨境传输条款",
+      "description": "合同未约定数据跨境传输的合规安排。乙方服务器在境外，HR数据跨境传输需进行安全评估、签订标准合同或取得个人信息主体同意。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第38-40条"
+    },
+    {
+      "clause_id": "M003",
+      "category": "个人信息保护",
+      "title": "个人信息主体权利保障条款",
+      "description": "合同未约定员工（个人信息主体）的知情权、同意权、查阅权、更正权、删除权、可携带权等权利保障机制。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第44-49条"
+    },
+    {
+      "clause_id": "M004",
+      "category": "数据安全",
+      "title": "数据泄露通知与应急响应条款",
+      "description": "合同未约定数据泄露事件发生后的通知时限、通知方式、应急响应措施、损失赔偿等。HR数据泄露可能涉及大量员工隐私。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第57条"
+    },
+    {
+      "clause_id": "M005",
+      "category": "合规审计",
+      "title": "数据处理审计权条款",
+      "description": "合同未约定甲方对乙方数据处理活动的审计权。作为数据控制者，甲方有权对数据处理者进行监督和审计。",
+      "importance": "medium",
+      "reference": "《个人信息保护法》第54条"
+    },
+    {
+      "clause_id": "M006",
+      "category": "数据安全",
+      "title": "数据加密与安全措施条款",
+      "description": "合同未约定数据加密标准、访问控制、安全审计等安全措施。HR数据包含身份证号、薪资等高度敏感信息，必须有明确的安全保障条款。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第51条"
+    }
+  ]
+}

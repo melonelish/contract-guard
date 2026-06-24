@@ -1,0 +1,245 @@
+{
+  "id": "a6ebbf01-871c-4fd8-ba73-b4f5e7cf711d",
+  "contract_id": "b01f8738-7167-428a-88bb-dca1b4d1dd12",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 10,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_010",
+      "clause_code": "第十条第1款",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "任何一方违反本合同约定的，违约方应向守约方支付违约金，违约金金额为合同总金额的10%。",
+      "legal_analysis": "违约金采用固定比例，未与可能造成的实际损失挂钩，不符合公平原则和违约金补偿性原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "无论违约造成多大损失，违约金都是固定的，可能远低于实际损失导致赔偿不足，或高于损失被法院调减。",
+      "suggested_revision": "建议改为“违约方应赔偿因其违约给对方造成的实际损失”，或约定一个与损失挂钩的计算方式。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条第3款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "首年费用于合同签订后15个工作日内支付；（二）第二年费用于第二个服务年度开始前30日内支付。",
+      "legal_analysis": "付款条件与服务交付（上线）严重脱钩。首年费需在系统预计上线前全额支付，甲方承担了乙方无法按时上线或服务不达标的风险。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "服务还没开始用就要付全款，如果乙方迟迟不交付或服务差，甲方钱已付完，非常被动。",
+      "suggested_revision": "建议将首期付款与系统上线里程碑挂钩，例如“系统正式上线验收合格后15日内支付首年费用”。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第八条第2、3款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "甲方委托乙方进行的定制开发，其知识产权归乙方所有，甲方享有永久使用权。定制开发成果的源代码不向甲方开放，甲方仅享有使用许可。",
+      "legal_analysis": "定制开发成果的知识产权完全归属乙方，甲方无法控制源代码，存在供应商锁定风险，且未来甲方业务定制化需求可能受制于乙方。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方花钱做的定制功能，所有权却属于乙方，且无法看到代码。万一合作终止，甲方可能无法维护或迁移这些功能。",
+      "suggested_revision": "建议约定定制开发部分的知识产权归甲方所有，或至少约定甲方拥有源代码的托管权和访问权。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条第7款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方不得将甲方业务数据存储于中国境外的服务器或数据中心，如因业务需要确需跨境传输的，应事先取得甲方书面同意并符合相关法律法规要求。",
+      "legal_analysis": "条款提及了数据本地化，但未明确约定“相关法律法规要求”的具体内容，特别是未提及个人信息出境的安全评估或标准合同等《个人信息保护法》要求的路径，合规义务不清晰。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "虽然说数据不能出境，但没说清楚如果真的要出去，具体要怎么合规。甲方的员工数据、客户数据可能面临出境风险。",
+      "suggested_revision": "建议明确列出数据跨境传输需遵守的法定条件，如安全评估、标准合同备案等，并约定因乙方违规导致数据出境的违约责任。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条第3款",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "以下情形不计入不可用时长：（一）乙方提前通知的计划性维护；（二）因甲方原因导致的不可用；（三）因不可抗力导致的不可用；（四）因第三方服务商原因导致的不可用。",
+      "legal_analysis": "SLA可用性计算排除了大量情形，可能导致99.5%的承诺名存实亡。特别是“乙方提前通知的计划性维护”无时长限制，“第三方服务商原因”范围过宽，易成为乙方免责借口。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "看起来99.5%的可用率很高，但很多情况都不算故障。乙方可以安排大量维护时间，或者把问题归咎给第三方，实际服务时间可能大打折扣。",
+      "suggested_revision": "建议限制计划性维护的时长（如每月不超过X小时），并明确第三方服务商的定义和免责的具体情形。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未包含服务降级或终止时乙方对甲方数据的具体处理方案，包括数据保留期限、安全销毁证明等。这与SaaS合同数据可迁移性的核心要求不符。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同结束时，乙方如何处理甲方的业务数据？是删除、保留还是归还？没有约定，甲方的数据资产安全缺乏保障。",
+      "suggested_revision": "建议增加条款，明确合同终止后乙方应在规定期限内提供完整的数据导出服务，并安全删除服务器上的所有甲方数据，同时提供删除证明。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第二条第6款",
+      "risk_level": "medium",
+      "risk_category": "培训",
+      "original_text": "乙方有权根据产品发展需要对服务平台进行功能升级和优化，但涉及核心功能的重大变更应提前30日书面通知甲方，并提供必要的过渡期支持和培训。",
+      "legal_analysis": "仅约定重大变更时的培训义务，未明确常规产品使用培训、新员工入职培训的责任、内容和费用。这可能导致甲方无法充分利用系统，或产生额外培训成本。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同只说了大改功能时要培训，但日常的使用指导、新功能上线培训等没规定。甲方员工可能不会用，影响系统价值发挥。",
+      "suggested_revision": "建议增加专门的培训条款，明确乙方向甲方提供初始培训、定期进阶培训以及新版本上线培训的义务、标准及费用承担方式。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_011",
+      "clause_code": "第十一条第3款",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "合同解除后，乙方应在60日内配合甲方完成数据导出和系统迁移工作。",
+      "legal_analysis": "仅规定了数据导出的时间框架，但未明确导出的数据格式、完整性标准以及是否收取额外费用。在合同解除（尤其是乙方违约解除）时，此模糊规定可能阻碍甲方顺利迁移。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同说会配合导出数据，但没说用什么格式给，数据全不全，要不要收钱。真到分手时，可能因此扯皮。",
+      "suggested_revision": "建议在附件或本条中明确数据导出的格式（如通用的CSV、SQL）、完整性要求、交付标准及导出是否包含在服务费内。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现个人信息保护与数据处理协议）",
+      "legal_analysis": "SaaS系统会处理甲方大量员工及业务数据，需明确双方在个人信息处理方面的角色、目的、范围、安全措施及法律责任，以满足《个人信息保护法》的合规要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少个人信息保护与数据处理协议，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加个人信息保护与数据处理协议。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现服务降级与终止的数据处理方案）",
+      "legal_analysis": "保障甲方数据资产安全与可迁移性，避免供应商锁定，是SaaS合同的核心条款，原合同未明确合同终止后数据的保留、归还或销毁流程。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务降级与终止的数据处理方案，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务降级与终止的数据处理方案。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现明确的违约责任阶梯）",
+      "legal_analysis": "现有单一固定比例的违约金条款可能不公平且难以适用，应根据违约的性质和后果（如数据泄露、服务长时间中断）设定不同等级的违约责任。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少明确的违约责任阶梯，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加明确的违约责任阶梯。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "业务连续性",
+      "original_text": "（合同中未发现业务连续性计划）",
+      "legal_analysis": "针对可能发生的重大故障或灾难，乙方应向甲方披露其业务连续性和灾难恢复计划，确保服务能持续提供或快速恢复。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少业务连续性计划，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加业务连续性计划。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_010",
+      "clause_b": "cl_010",
+      "conflict_type": "logic",
+      "description": "违约责任条款内部逻辑矛盾。第1款设定固定比例违约金，第2款又规定损失超过违约金需赔偿，但第1款的固定违约金本身可能低于或高于实际损失，导致条款适用混乱。"
+    },
+    {
+      "clause_a": "cl_004",
+      "clause_b": "cl_003",
+      "conflict_type": "timeline",
+      "description": "付款时间与服务开始时间矛盾。首年费用需在合同签订后15日内支付（第4条），而服务期限自系统上线之日起计算（第3条），上线时间可能在60个工作日之后，存在付款远早于服务交付的矛盾。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "个人信息保护与数据处理协议",
+      "reason": "SaaS系统会处理甲方大量员工及业务数据，需明确双方在个人信息处理方面的角色、目的、范围、安全措施及法律责任，以满足《个人信息保护法》的合规要求。"
+    },
+    {
+      "name": "服务降级与终止的数据处理方案",
+      "reason": "保障甲方数据资产安全与可迁移性，避免供应商锁定，是SaaS合同的核心条款，原合同未明确合同终止后数据的保留、归还或销毁流程。"
+    },
+    {
+      "name": "明确的违约责任阶梯",
+      "reason": "现有单一固定比例的违约金条款可能不公平且难以适用，应根据违约的性质和后果（如数据泄露、服务长时间中断）设定不同等级的违约责任。"
+    },
+    {
+      "name": "培训支持义务条款",
+      "reason": "作为企业级SaaS服务，持续、有效的培训是甲方成功使用系统的关键，合同应明确乙方的初始、常规及应急培训责任。"
+    },
+    {
+      "name": "业务连续性计划",
+      "reason": "针对可能发生的重大故障或灾难，乙方应向甲方披露其业务连续性和灾难恢复计划，确保服务能持续提供或快速恢复。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 54,
+    "completion_tokens": 3607,
+    "latency_ms": 64824,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:58:12.926330",
+  "completed_at": "2026-06-19T09:59:18.092113",
+  "created_at": "2026-06-19T09:58:12.908914"
+}

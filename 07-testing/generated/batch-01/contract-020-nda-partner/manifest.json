@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-020",
+  "contract_type": "合作伙伴保密协议",
+  "title": "合作伙伴保密协议（宏远精密制造与瑞联新材料）",
+  "word_count": 3098,
+  "clause_count": 11,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "合作伙伴保密协议",
+    "联合研发",
+    "航空航天",
+    "背景知识产权",
+    "保密期限矛盾",
+    "适用法律冲突",
+    "跨境仲裁",
+    "成果归属"
+  ]
+}

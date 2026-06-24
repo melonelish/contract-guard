@@ -1,0 +1,19 @@
+{
+  "contract_id": "contract-023",
+  "contract_type": "法律顾问协议",
+  "title": "常年法律顾问服务协议",
+  "word_count": 3019,
+  "clause_count": 16,
+  "risk_count": 10,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "medium",
+  "tags": [
+    "法律顾问",
+    "律师服务",
+    "利益冲突",
+    "保密义务",
+    "服务质量考核",
+    "费用结构"
+  ]
+}

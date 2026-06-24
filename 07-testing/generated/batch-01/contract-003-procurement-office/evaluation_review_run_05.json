@@ -1,0 +1,73 @@
+{
+  "sample_id": "contract-003-procurement-office",
+  "review_run_file": "review_run_05.json",
+  "evaluated_at": "2026-06-22T11:31:06.059810",
+  "success": true,
+  "expected_risk_topics": [
+    "保密义务",
+    "合作范围",
+    "权利失衡",
+    "条款缺失",
+    "自动续约陷阱",
+    "订单确认风险",
+    "质量标准",
+    "赔偿责任",
+    "违约责任",
+    "退换货限制",
+    "逻辑矛盾",
+    "金额超支风险"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "保密义务",
+    "合同完整性",
+    "条款缺失",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "合作范围",
+    "自动续约陷阱",
+    "质量标准",
+    "退换货限制",
+    "金额超支风险"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "合同完整性",
+    "条款缺失",
+    "质量标准",
+    "违约责任",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "合作范围",
+    "权利失衡",
+    "自动续约陷阱",
+    "订单确认风险",
+    "赔偿责任",
+    "退换货限制",
+    "逻辑矛盾",
+    "金额超支风险"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "付款条件",
+    "合同完整性",
+    "验收标准"
+  ],
+  "topic_recall": 0.333,
+  "topic_precision": 0.5,
+  "high_risk_recall": 0.2,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 1,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.75,
+  "overall_score": 0.529,
+  "notes": ""
+}

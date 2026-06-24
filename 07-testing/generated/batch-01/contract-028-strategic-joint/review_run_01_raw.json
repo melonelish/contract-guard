@@ -1,0 +1,195 @@
+{
+  "id": "ecfbd042-28fe-49ec-8999-0226f6cb3a99",
+  "contract_id": "a816778b-7583-4d6f-8b6b-6e0d00d812a6",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 4,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "合作期间产生的知识产权，包括但不限于专利、软件著作权、技术秘密等，由双方共同所有。双方均有权独立使用合作产生的知识产权，无需征得另一方同意，也无需向另一方支付使用费。",
+      "legal_analysis": "知识产权共同所有但使用权无限制，可能导致权利滥用和利益冲突，违背知识产权专有性原则。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "双方共有知识产权，使用无限制，易引发纠纷，需明确使用和收益规则。",
+      "suggested_revision": "建议明确共同所有权行使方式，对外许可需双方同意，收益分配单独约定。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "无",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "合同未规定研发成果的验收标准和流程。",
+      "legal_analysis": "技术开发合同缺乏验收标准，易导致交付物质量争议，影响合同目的实现。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同没写怎么验收研发成果，可能对质量有争议。",
+      "suggested_revision": "增加验收条款，明确验收标准、程序、时间和不合格处理方式。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "甲方出资分期支付：第一期：本协议生效后15个工作日内支付人民币600万元；第二期：2027年1月31日前支付人民币500万元；第三期：2028年1月31日前支付人民币500万元。",
+      "legal_analysis": "付款时间固定，未与研发里程碑挂钩，甲方资金风险高，乙方无绩效压力。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "付款按时间点，不管研发进度，可能资金浪费。",
+      "suggested_revision": "建议付款与研发阶段成果验收挂钩，确保资金使用效率。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条",
+      "risk_level": "high",
+      "risk_category": "收益分配",
+      "original_text": "合作产生的收益，包括但不限于技术许可费、技术转让费、产品销售收入等，由双方按五五分成的比例进行分配。",
+      "legal_analysis": "收益分配五五分成，但出资比例甲方80%，可能显失公平，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "出资多收益却平分，对甲方不公平，可能引发纠纷。",
+      "suggested_revision": "建议收益分配比例考虑出资和贡献度，可协商调整为与出资比例一致。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第一条",
+      "risk_level": "medium",
+      "risk_category": "合作范围",
+      "original_text": "合作范围包括但不限于：（一）AI基础算法研究与开发；（二）AI技术在垂直行业的应用研究；（三）联合培养研究生和博士后研究人员；（四）共同申请国家级科研项目；（五）举办学术会议和技术交流活动。",
+      "legal_analysis": "范围表述过于宽泛，使用“包括但不限于”，易导致合作边界不清，引发执行争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合作范围太模糊，可能双方理解不同，导致合作混乱。",
+      "suggested_revision": "建议明确具体合作项目清单，界定核心和扩展范围，避免歧义。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第九条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "任何一方违反本协议约定的，违约方应向守约方支付违约金，违约金数额为违约涉及金额的10%。",
+      "legal_analysis": "违约金固定为10%，可能不合理，过高或过低；未区分违约严重程度。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金固定10%，可能太高或太低，应该根据实际损失调整。",
+      "suggested_revision": "建议违约金条款细化，考虑违约性质和损失程度，允许调整机制。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第七条",
+      "risk_level": "medium",
+      "risk_category": "保密义务",
+      "original_text": "本条保密义务自本协议终止之日起一年内有效。",
+      "legal_analysis": "保密期仅一年，对于技术秘密和商业秘密可能过短，无法充分保护。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密只管一年，技术秘密可能泄露，保护不足。",
+      "suggested_revision": "建议延长保密期限至合理时间，如协议终止后三年或技术秘密公开前。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十条",
+      "risk_level": "medium",
+      "risk_category": "技术成果转化",
+      "original_text": "合作产生的技术成果，双方同意优先在甲方的产业体系内进行转化应用。",
+      "legal_analysis": "优先转化给甲方，但未明确补偿机制，可能限制乙方权益和成果市场化。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "成果优先给甲方用，乙方可能得不到公平回报。",
+      "suggested_revision": "建议明确优先转化的条件、补偿方式和期限，确保公平性。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_003",
+      "clause_b": "cl_004",
+      "conflict_type": "logic",
+      "description": "出资比例（甲方80%）与收益分配比例（五五分成）逻辑上不对等，可能导致显失公平。"
+    },
+    {
+      "clause_a": "cl_001",
+      "clause_b": "cl_008",
+      "conflict_type": "logic",
+      "description": "知识产权共同所有（第五条）但技术成果转化优先给甲方（第十条），可能冲突并限制乙方权利。"
+    },
+    {
+      "clause_a": "第十三条",
+      "clause_b": "条款内容",
+      "conflict_type": "numeric",
+      "description": "第十三条争议解决标题与内容编号冲突，内容引用“11.1”应为13.1。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "验收标准与流程",
+      "reason": "技术开发合同必须明确研发成果的验收标准、程序和不合格处理，以避免质量争议。"
+    },
+    {
+      "name": "数据安全与隐私保护",
+      "reason": "合作可能涉及研发数据或个人信息，需明确数据安全责任和保护措施。"
+    },
+    {
+      "name": "系统安全责任划分",
+      "reason": "联合研发可能涉及系统安全，应划分安全事件响应和责任归属。"
+    },
+    {
+      "name": "竞争限制条款",
+      "reason": "防止合作期间或终止后，一方利用合作成果进行不当竞争，保护双方利益。"
+    },
+    {
+      "name": "争议解决法院指定",
+      "reason": "第十三条只提诉讼，未指定具体法院，易导致管辖权争议，应明确约定。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4215,
+    "completion_tokens": 5610,
+    "latency_ms": 85820,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:58:27.716193",
+  "completed_at": "2026-06-19T08:59:53.929147",
+  "created_at": "2026-06-19T08:58:27.697043"
+}

@@ -1,0 +1,34 @@
+{
+  "contract_id": "contract-001",
+  "contract_type": "采购合同",
+  "total_contradictions": 3,
+  "contradictions": [
+    {
+      "contradiction_id": "C001",
+      "clause_a": "第七条第7.2款",
+      "clause_b": "第十二条第12.3款",
+      "conflict_type": "logic",
+      "description": "第7.2款乙方保证合同设备'不存在设计、制造缺陷'，但第12.3款却约定'甲方因使用合同设备而侵犯第三方知识产权的，由甲方自行承担责任'。如果设备存在设计缺陷（如使用了侵犯第三方专利的技术），根据第7.2款乙方应承担责任，但根据第12.3款甲方需自行承担，两条款存在逻辑矛盾。",
+      "severity": "high",
+      "suggested_resolution": "删除第12.3款或修改为：因合同设备侵犯第三方知识产权导致甲方损失的，乙方应承担赔偿责任，该责任属于第7.2款质量保证的范围。"
+    },
+    {
+      "contradiction_id": "C002",
+      "clause_a": "第二条第2.5款",
+      "clause_b": "附件清单",
+      "conflict_type": "logic",
+      "description": "第二条第2.5款引用'附件A'提供技术培训服务，但附件清单的编号体系为'附件一、附件二、附件三'，'附件A'的编号与其他附件的编号体系不一致，存在引用矛盾。",
+      "severity": "medium",
+      "suggested_resolution": "统一附件编号体系，将'附件A'改为'附件四：技术培训服务方案'，并在正文中统一引用。"
+    },
+    {
+      "contradiction_id": "C003",
+      "clause_a": "第九条第9.1款第（二）项",
+      "clause_b": "第九条第9.2款",
+      "conflict_type": "amount",
+      "description": "第9.1款第（二）项约定甲方拒绝接收设备需支付合同总价15%的违约金（127.5万元），但第9.2款乙方违约仅退还未交付部分款项，无额外违约金。相同性质的违约行为（拒绝履行），甲方需支付127.5万元违约金，乙方则无需支付任何违约金，金额差异巨大，显失公平。",
+      "severity": "high",
+      "suggested_resolution": "平衡双方违约责任，乙方拒绝交货或交付不合格设备的违约金应与甲方拒绝接收设备的违约金标准一致。"
+    }
+  ]
+}

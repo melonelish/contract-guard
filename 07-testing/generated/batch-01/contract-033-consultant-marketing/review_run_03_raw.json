@@ -1,0 +1,215 @@
+{
+  "id": "860c8ae2-de73-459b-bd09-aaf5e365c5e0",
+  "contract_id": "47e104d3-1f6a-4555-a53f-8973f5318e20",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 10,
+    "high": 10,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "1.1 乙方同意为甲方提供以下品牌营销顾问服务：（一）品牌策划服务；（二）数字营销服务；（三）社交媒体运营服务；（四）内容创作服务。",
+      "legal_analysis": "服务范围仅列举服务大类，未明确各项服务的具体内容、交付成果、工作量或服务标准，易引发履行争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同只说了做什么，没说做成什么样，容易扯皮。",
+      "suggested_revision": "细化服务清单，明确每项服务的具体内容、预期交付物、工作量（如每月内容创作数量）及验收标准，并作为附件。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "服务标准",
+      "original_text": "5.1 乙方承诺通过本协议约定的服务，提升甲方的品牌知名度和销售额。5.4 具体的营销效果目标由双方另行协商确定，详见附件一。",
+      "legal_analysis": "核心服务效果承诺过于笼统，具体目标依赖附件，但附件不在正文中。若附件未及时签订或目标不清晰，合同效力存在瑕疵，难以衡量乙方履约情况。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "合同正文中承诺的效果目标不具体，主要目标都放在附件里，如果附件没弄好，合同就像没写目标一样。",
+      "suggested_revision": "在合同正文或明确纳入合同的附件中，约定具体、可量化的营销效果目标（如KPI），并明确未达标的处理方式。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "6.2 乙方在创作过程中使用的第三方素材（如图片、字体、音乐等），应确保已获得合法授权。",
+      "legal_analysis": "仅要求乙方确保已获授权，但未约定若发生第三方知识产权侵权时，责任（包括赔偿损失、应对诉讼）如何划分和承担，甲方存在连带风险。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "如果乙方用的素材侵权了，合同没写清楚谁来赔钱、谁去打官司，甲方可能会被牵连。",
+      "suggested_revision": "增加条款：若因乙方提供的素材引发第三方知识产权索赔，由乙方承担全部责任并赔偿甲方因此遭受的一切损失。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "9.4 任何一方违反保密义务的，应向守约方支付违约金，违约金为人民币100万元。",
+      "legal_analysis": "违约金采用固定高额（100万元），未考虑违约行为造成的实际损失差异，可能被认定为“过分高于造成的损失”，存在被司法调减的风险，且对双方构成不公平的格式条款。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "不管泄密造成的实际损失是多少，都要赔100万，这个金额可能太高了，法院可能会调整。",
+      "suggested_revision": "将违约金修改为与可能造成的损失挂钩，例如“违约金为相当于因此造成的直接经济损失的一定比例”，或设置合理上限。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定乙方服务团队的核心成员、人员资质及团队稳定性要求，也未明确关键人员变更的审批流程和服务质量保障，影响服务连续性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没说清楚谁来干活，乙方可以随时换人，换了人服务质量下降怎么办？",
+      "suggested_revision": "增加“项目团队与人员”条款，明确项目负责人、核心成员名单及职责，并约定未经甲方书面同意不得更换关键人员。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "乙方在服务中可能接触甲方客户数据、营销数据等，合同缺乏对数据安全保护、处理权限、保密措施及数据泄露应急责任的具体约定，存在数据泄露风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方会接触甲方的重要数据，但合同里没写怎么保护这些数据，万一泄露了责任不清。",
+      "suggested_revision": "增加“数据安全”条款，明确双方的数据保护义务、数据使用范围、安全措施及发生数据泄露时的责任承担。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同终止或到期后，乙方工作成果（如账号、素材库、数据分析报告）的完整移交、过渡期配合安排以及未完成工作的处理方式约定不完善。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同结束的时候，乙方做了一半的工作怎么办？账号、资料怎么交过来？没说清楚。",
+      "suggested_revision": "完善合同终止条款，明确终止后工作成果的移交清单、时限、交接配合义务以及未完成工作的费用结算方式。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第十四条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "13.2 乙方未按约定提供服务的，甲方有权要求乙方重新提供服务或退还相应费用。13.3 甲方逾期付款的，每逾期一日，应按逾期金额的万分之五向乙方支付违约金。",
+      "legal_analysis": "违约责任条款对双方不对等。乙方违约时，甲方救济措施有限（重做或退款），未约定违约金；而甲方违约需支付日万分之五违约金，且可能与实际损失脱节。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方干不好，甲方只能要求重做或退钱；甲方付晚了，就要每天付违约金。这对甲方不太公平。",
+      "suggested_revision": "平衡违约责任，例如为乙方的重大违约（如未达关键KPI）也设定违约金，并合理调整甲方逾期付款的违约金计算标准。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "人员管理",
+      "original_text": "（合同中未发现项目团队与人员管理）",
+      "legal_analysis": "顾问服务的核心是“人”，缺乏对服务团队稳定性、关键人员资质和更换程序的约束，直接影响服务质量和连续性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少项目团队与人员管理，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加项目团队与人员管理。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现合同终止与过渡安排）",
+      "legal_analysis": "缺乏合同终止或届满时的工作交接、资料移交、过渡期支持等具体安排，可能导致业务中断或纠纷。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少合同终止与过渡安排，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加合同终止与过渡安排。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十三条",
+      "clause_b": "第十四条",
+      "conflict_type": "logic",
+      "description": "合同条款编号出现重叠和错误。“不可抗力”为第十三条，“违约责任”和“合同终止”均为第十四条，逻辑混乱，影响合同条款的准确引用。"
+    },
+    {
+      "clause_a": "cl_008",
+      "clause_b": "cl_014",
+      "conflict_type": "timeline",
+      "description": "保密义务（第九条）约定终止后三年内有效，而竞业限制（第十四条）仅约定终止后一年内有效，对于“保密”与“竞业限制”关联义务的时间期限约定不一致。"
+    },
+    {
+      "clause_a": "cl_004",
+      "clause_b": "cl_005",
+      "conflict_type": "logic",
+      "description": "第四条要求甲方在发票后15日内付款，第五条的效果承诺却依赖附件且无具体标准，可能导致甲方在对服务效果存疑时仍需按期付款，引发争议。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "项目团队与人员管理",
+      "reason": "顾问服务的核心是“人”，缺乏对服务团队稳定性、关键人员资质和更换程序的约束，直接影响服务质量和连续性。"
+    },
+    {
+      "name": "数据安全与个人信息保护",
+      "reason": "服务过程中必然涉及甲方商业数据，缺失相关义务约定，无法应对日益严格的数据安全法规要求，并存在泄露风险。"
+    },
+    {
+      "name": "合同终止与过渡安排",
+      "reason": "缺乏合同终止或届满时的工作交接、资料移交、过渡期支持等具体安排，可能导致业务中断或纠纷。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 27,
+    "completion_tokens": 3536,
+    "latency_ms": 74925,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:22:02.436431",
+  "completed_at": "2026-06-22T02:23:17.805367",
+  "created_at": "2026-06-22T02:22:02.417407"
+}

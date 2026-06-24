@@ -1,0 +1,251 @@
+{
+  "id": "1343484e-8fb3-4cdf-bf9f-f910e1d92591",
+  "contract_id": "33e6c7a3-731d-4ffd-8dcc-0577106b0167",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 10,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第2.2条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "标的物价格随行就市，由双方根据市场行情定期协商调整。每季度末双方应就下一季度价格进行沟通，但具体调整幅度和生效时间由双方另行确定。",
+      "legal_analysis": "价格调整条款过于模糊，未约定具体的调整机制和生效条件，可能导致履约争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "价格调整没有明确公式，容易扯皮。",
+      "suggested_revision": "明确价格调整的参考指数（如行业平均价、期货价格）和调整公式，约定协商不成时的解决办法。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第3.2条",
+      "risk_level": "high",
+      "risk_category": "供应链风险",
+      "original_text": "乙方交付的标的物数量允许在订单数量的基础上浮动±20%，甲方应按实际交付数量接收并结算。",
+      "legal_analysis": "数量浮动幅度过大，可能造成甲方库存积压或短缺，且甲方必须接受，有失公平。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方可以多送或少送20%，甲方都得买单，不公平。",
+      "suggested_revision": "将浮动幅度缩小至±5%，或约定甲方对超出部分有权拒收。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第5.4条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "如甲方延迟付款，每逾期一日，应按未付金额的5%向乙方支付违约金。",
+      "legal_analysis": "每日5%的违约金比例过高，可能被认定为过分高于实际损失。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "每天5%的罚金太高，法院可能不支持。",
+      "suggested_revision": "将违约金比例降低至每日万分之五（0.05%），并约定上限。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第11.3条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "甲方逾期付款的，每逾期一日，应按未付金额的5%向乙方支付违约金。",
+      "legal_analysis": "与第5.4条重复且比例过高，且乙方逾期交货违约金仅为0.5%，权利义务不对等。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "甲方逾期付款罚5%，乙方逾期交货只罚0.5%，不公平。",
+      "suggested_revision": "统一双方违约金比例为每日万分之五（0.05%），并设置上限。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第4.3条",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "标的物的质量标准执行GB/T 1355-1986（小麦粉）、GB 2716-2005（食用植物油）、GB 317-1998（白砂糖）等国家标准及附件三《质量技术要求》的约定。",
+      "legal_analysis": "引用的国家标准已废止或被替代（如GB/T 1355-1986已被GB/T 1355-2014替代），可能导致标准无效。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "用的旧标准现在不适用了，必须更新。",
+      "suggested_revision": "将引用标准更新为现行有效版本，如GB/T 1355-2014、GB 2716-2018、GB/T 317-1998（仍有效需确认）。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未约定不可抗力条款，发生自然灾害、政策变化等非双方过错事件时无法免责。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "缺不可抗力条款，出大事无法免责。",
+      "suggested_revision": "增加不可抗力条款，明确范围、通知义务和免责效果。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第12.2条",
+      "risk_level": "medium",
+      "risk_category": "合同期限",
+      "original_text": "合同期满前30日，如双方均未书面提出终止合同，则本合同自动续展一年，续展次数不限。",
+      "legal_analysis": "自动续展无次数限制且无需双方确认，可能导致一方被长期绑定，缺乏退出灵活性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同会一直自动续，想终止得提前30天通知，否则绑死。",
+      "suggested_revision": "约定最多续展次数（如2次），或要求续展需双方书面同意。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第16.2条",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "original_text": "协商不成的，任何一方均有权向合同签订地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "合同签订地为广州天河区，对乙方（江苏）不利，增加异地诉讼成本，且未明确级别管辖。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "只选甲方所在地法院，乙方打官司成本高。",
+      "suggested_revision": "约定由被告住所地或甲方所在地法院管辖，或增加仲裁选项。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现产品召回协作条款）",
+      "legal_analysis": "明确因原材料质量问题导致甲方产品召回时乙方的配合义务和费用承担。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少产品召回协作条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加产品召回协作条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现分批次订单临时调整机制）",
+      "legal_analysis": "为应对突发需求变化，允许在合理范围内调整已确认订单的交期或数量。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少分批次订单临时调整机制，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加分批次订单临时调整机制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "供应链风险",
+      "original_text": "（合同中未发现供应商审计条款）",
+      "legal_analysis": "赋予甲方实地检查乙方生产、质量体系的权利，确保持续合规。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少供应商审计条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加供应商审计条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现价格调整具体公式条款）",
+      "legal_analysis": "避免第2.2条模糊约定，建立客观的调价机制，减少争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少价格调整具体公式条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加价格调整具体公式条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第5.4条",
+      "clause_b": "第11.5条",
+      "conflict_type": "numeric",
+      "description": "第5.4条未设置违约金上限，第11.5条设置违约金总额不超过年度总金额20%，两者不一致。"
+    },
+    {
+      "clause_a": "第3.2条",
+      "clause_b": "第3.5条",
+      "conflict_type": "logic",
+      "description": "第3.2条允许交付数量浮动±20%，第3.5条规定订单一经确认不得单方变更，存在逻辑矛盾。"
+    },
+    {
+      "clause_a": "第11.1条",
+      "clause_b": "第11.3条",
+      "conflict_type": "logic",
+      "description": "乙方逾期交货违约金0.5%/日，甲方逾期付款违约金5%/日，严重不对等，违反公平原则。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "不可抗力条款",
+      "reason": "应对自然灾害、政策调整等不可预见事件导致的免责，保障合同公平履行。"
+    },
+    {
+      "name": "产品召回协作条款",
+      "reason": "明确因原材料质量问题导致甲方产品召回时乙方的配合义务和费用承担。"
+    },
+    {
+      "name": "分批次订单临时调整机制",
+      "reason": "为应对突发需求变化，允许在合理范围内调整已确认订单的交期或数量。"
+    },
+    {
+      "name": "供应商审计条款",
+      "reason": "赋予甲方实地检查乙方生产、质量体系的权利，确保持续合规。"
+    },
+    {
+      "name": "价格调整具体公式条款",
+      "reason": "避免第2.2条模糊约定，建立客观的调价机制，减少争议。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 5429,
+    "completion_tokens": 3321,
+    "latency_ms": 30086,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "质量标准"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:42:18.629115",
+  "completed_at": "2026-06-22T02:43:01.135817",
+  "created_at": "2026-06-22T02:42:18.606876"
+}

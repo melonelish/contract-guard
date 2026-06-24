@@ -1,0 +1,72 @@
+{
+  "contract_id": "contract-008",
+  "contract_type": "techservice_cloud",
+  "contradictions": [
+    {
+      "contradiction_id": "C008-01",
+      "clause_a": {
+        "clause_ref": "第3.3条",
+        "content": "系统迁移和切换应在周末进行，确保周一正常营业。"
+      },
+      "clause_b": {
+        "clause_ref": "第3.2条",
+        "content": "第三阶段（2026年11月-12月）：测试验证与上线切换。"
+      },
+      "contradiction_type": "timeline_conflict",
+      "description": "第3.3条要求周末迁移、周一正常营业，但第3.2条将测试验证与上线切换安排在同一阶段（2个月）。如果测试验证发现问题需要修复，可能无法在周末完成所有工作。此外，大型系统的迁移和切换通常需要更长的时间窗口，周末两天可能不足。",
+      "severity": "high",
+      "suggestion": "应延长迁移窗口（如利用长假），或制定分批次迁移方案，确保每批次迁移有充足的时间完成和回滚。"
+    },
+    {
+      "contradiction_id": "C008-02",
+      "clause_a": {
+        "clause_ref": "第11.2条",
+        "content": "因乙方原因导致迁移失败的，乙方应承担相应的违约责任，但因不可抗力、甲方原因或第三方原因导致的除外。"
+      },
+      "clause_b": {
+        "clause_ref": "第11.6条",
+        "content": "乙方违约的最高赔偿金额不超过合同总额的20%。"
+      },
+      "contradiction_type": "liability_scope_cap_conflict",
+      "description": "第11.2条约定乙方对迁移失败承担违约责任，但第11.6条将赔偿上限设为合同总额的20%（104万元）。同时，第11.2条的免责条款（'第三方原因'）范围过宽，可能使乙方轻易免除责任。这两个条款共同作用，导致甲方在迁移失败时难以获得充分赔偿。",
+      "severity": "medium",
+      "suggestion": "应缩小免责范围，提高赔偿上限，并建立与违约类型挂钩的分层赔偿机制。"
+    },
+    {
+      "contradiction_id": "C008-03",
+      "clause_a": {
+        "clause_ref": "第7.1条",
+        "content": "迁移期间的云资源费用由甲方承担。"
+      },
+      "clause_b": {
+        "clause_ref": "第7.3条",
+        "content": "乙方应合理使用云资源，避免浪费。"
+      },
+      "contradiction_type": "cost_control_mechanism_conflict",
+      "description": "第7.1条约定云资源费用由甲方承担，第7.3条要求乙方'合理使用'。但合同未约定'合理使用'的标准和费用上限，也未约定超支责任。如果乙方过度使用云资源，甲方需要承担高额费用，但缺乏有效的控制机制。",
+      "severity": "medium",
+      "suggestion": "应明确约定云资源费用的预估、审批流程、费用上限和超支责任。"
+    },
+    {
+      "contradiction_id": "C008-04",
+      "clause_a": {
+        "clause_ref": "第5.2条第（二）项",
+        "content": "系统性能达到迁移前水平或合同约定标准。"
+      },
+      "clause_b": {
+        "clause_ref": "缺失",
+        "content": "合同未约定性能基准测试方法和标准。"
+      },
+      "contradiction_type": "standard_implementation_gap",
+      "description": "第5.2条要求系统性能'达到迁移前水平或合同约定标准'，但合同未约定性能基准的测试方法、测试工具、测试环境和测试指标。没有明确的性能基准，无法判断是否达到'迁移前水平'，验收标准形同虚设。",
+      "severity": "medium",
+      "suggestion": "应增加性能基准测试条款，明确测试方法、工具、环境和指标。"
+    }
+  ],
+  "contradiction_summary": {
+    "total": 4,
+    "high": 1,
+    "medium": 3,
+    "low": 0
+  }
+}

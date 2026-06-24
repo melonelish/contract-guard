@@ -1,0 +1,239 @@
+{
+  "id": "9a07b02f-7c69-41c5-99d8-282fcaa023bd",
+  "contract_id": "92f0810a-b787-4400-996e-618d9ca4ccf2",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 9,
+    "medium": 2,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "应用功能完整、运行稳定即视为验收通过。",
+      "legal_analysis": "验收标准过于主观，缺乏量化指标，易引发争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "什么叫‘功能完整’和‘运行稳定’说不清楚，容易扯皮。",
+      "suggested_revision": "明确验收指标，如功能通过率≥99%、页面加载时间≤2秒、无严重Bug等。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方未按合同约定的时间节点完成阶段性交付物的，应及时向甲方说明原因并提交整改计划；乙方延迟交付的，甲方有权要求乙方加快进度。",
+      "legal_analysis": "乙方违约责任无违约金或赔偿，对甲方保护不足，合同权利义务失衡。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方延期没有任何罚款，只有口头要求加快，甲方太被动。",
+      "suggested_revision": "增加乙方延迟交付的违约金条款，如每延迟一天支付合同总价0.05%的违约金。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "乙方在开发过程中使用的自有技术框架、工具库、通用组件等的知识产权仍归乙方所有。",
+      "legal_analysis": "乙方保留的框架工具可能构成开发成果的组成部分，甲方无法自由修改或替换，存在依赖风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方用自己的框架开发，但框架不归甲方，以后想改功能可能还得找乙方。",
+      "suggested_revision": "明确乙方工具的范围，并要求源代码级交付或允许甲方在合同目的内永久使用。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同涉及用户个人信息和支付数据，未约定数据安全保护义务、数据泄露责任等，违反《个人信息保护法》要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "客户数据怎么保管、泄露了谁负责都没写，法律风险很大。",
+      "suggested_revision": "增加数据安全条款，明确乙方安全义务、数据加密、泄露通知及赔偿。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第十二条",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "应用出现重大故障时，乙方应在2小时内响应，12小时内提供解决方案。",
+      "legal_analysis": "响应时间定义不清（工作时间？24小时？），且仅要求‘提供解决方案’，未要求实际修复时间。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只说2小时响应，但没说几小时内修好，可能拖着不解决。",
+      "suggested_revision": "明确故障等级及对应修复时限，如P0级故障4小时内修复，P1级8小时内修复。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第七条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "应用开发完成并通过内部测试后5个工作日内，甲方支付合同总价的30%",
+      "legal_analysis": "'内部测试'由乙方单方进行，甲方未参与，可能导致甲方在未充分验证的情况下支付大额款项。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "乙方自己测试说通过了，甲方就要付30%款，万一到时候真上线出问题就晚了。",
+      "suggested_revision": "改为甲方参与验收测试通过后支付，或明确内部测试报告须经甲方确认。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第八条",
+      "risk_level": "medium",
+      "risk_category": "合规风险",
+      "original_text": "乙方应确保所使用的第三方组件的许可证类型与本合同约定的知识产权归属不冲突。",
+      "legal_analysis": "未约定第三方组件侵权时的责任承担，若第三方组件存在许可证合规问题（如GPL传染性），可能导致甲方应用被迫开源。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果乙方用了GPL的代码，甲方的整个APP可能都得开源。",
+      "suggested_revision": "增加乙方对第三方组件合规性的保证及侵权赔偿条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "缺失条款",
+      "risk_level": "low",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定源代码交付或托管机制，若乙方破产或停止经营，甲方可能无法获得源码进行后续维护。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "万一乙方不干了，甲方拿不到源代码就惨了。",
+      "suggested_revision": "增加源代码交付条款，约定开发完成后乙方将源码交付甲方或存入第三方托管。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "技术管理",
+      "original_text": "（合同中未发现技术方案变更管理条款）",
+      "legal_analysis": "开发过程中需求或技术方案变更频繁，需要约定变更流程、费用和工期调整机制。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少技术方案变更管理条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加技术方案变更管理条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "（合同中未发现业务连续性与灾难恢复条款）",
+      "legal_analysis": "甲方为年营收15亿元的连锁企业，需确保应用上线后业务连续性，应约定备份、灾备及应急恢复方案。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少业务连续性与灾难恢复条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加业务连续性与灾难恢复条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "交付条件",
+      "original_text": "（合同中未发现源代码交付或第三方托管条款）",
+      "legal_analysis": "确保甲方在乙方无法继续提供服务时能独立维护和修改应用，避免锁定风险。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "合同中缺少源代码交付或第三方托管条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加源代码交付或第三方托管条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "（合同中未发现不公平格式条款提示）",
+      "legal_analysis": "合同第11.2条乙方违约责任过轻，可能构成不公平格式条款，需调整以平衡双方权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少不公平格式条款提示，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加不公平格式条款提示。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_003",
+      "clause_b": "cl_005",
+      "conflict_type": "logic",
+      "description": "第8.6条称乙方工具永久免费许可甲方使用，但第8.5条保留乙方工具的知识产权，可能限制甲方的修改和再许可权利。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "应用涉及用户数据收集和处理，需要遵守《个人信息保护法》，明确数据处理目的、安全措施及泄露责任。"
+    },
+    {
+      "name": "技术方案变更管理条款",
+      "reason": "开发过程中需求或技术方案变更频繁，需要约定变更流程、费用和工期调整机制。"
+    },
+    {
+      "name": "业务连续性与灾难恢复条款",
+      "reason": "甲方为年营收15亿元的连锁企业，需确保应用上线后业务连续性，应约定备份、灾备及应急恢复方案。"
+    },
+    {
+      "name": "源代码交付或第三方托管条款",
+      "reason": "确保甲方在乙方无法继续提供服务时能独立维护和修改应用，避免锁定风险。"
+    },
+    {
+      "name": "不公平格式条款提示",
+      "reason": "合同第11.2条乙方违约责任过轻，可能构成不公平格式条款，需调整以平衡双方权益。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 5236,
+    "completion_tokens": 2715,
+    "latency_ms": 28839,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:46:31.489847",
+  "completed_at": "2026-06-22T02:47:13.482671",
+  "created_at": "2026-06-22T02:46:31.443845"
+}

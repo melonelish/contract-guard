@@ -1,0 +1,231 @@
+{
+  "id": "c890fda7-c73d-4b63-b247-6d258eddcd48",
+  "contract_id": "bf88b532-a846-4e56-8802-d6fdc3fb3d17",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 11,
+    "high": 7,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第四条（4.2）",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "本协议期满后，乙方的保密义务自动解除。",
+      "legal_analysis": "保密期限过短，期满后保密义务自动解除，可能导致商业秘密永久丧失保护。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "6个月后乙方可自由使用保密信息，对甲方不利。",
+      "suggested_revision": "建议保密义务持续至保密信息进入公有领域，或延长至3-5年。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第三条（3.6）",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "乙方承诺在投资交易评估期间及本协议有效期内，乙方及其关联公司不得从事与甲方主营业务存在直接竞争关系的业务投资或经营活动。",
+      "legal_analysis": "非竞争义务缺乏合理限制（地域、范围、期限），可能因过度限制投资方商业自由而无效。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "投资方可能被禁止投资同类企业，但无具体定义和期限，易引发争议。",
+      "suggested_revision": "明确竞争业务范围、地域和期限（如12个月内），或删除此条款。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条（6.1）",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方应支付违约金人民币叁佰万元整，并赔偿甲方因此遭受的全部损失。",
+      "legal_analysis": "违约金300万与赔偿全部损失并用，可能因过高被法院调减，且未约定上限。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金可能过高，且叠加全部损失赔偿，法律上可能被调整。",
+      "suggested_revision": "建议约定违约金为实际损失的X倍且设上限，或仅选其一。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第二条（2.3）",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "以下信息不属于保密信息：……（三）乙方能够证明在披露前已经合法拥有的信息；……",
+      "legal_analysis": "乙方证明已拥有的举证责任在乙方，但若乙方实际拥有却无法举证，可能争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方自证已拥有信息困难，可能导致不合理扩大保密范围。",
+      "suggested_revision": "建议增加‘乙方在尽职调查前已书面确认’等程序。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条（5.4）",
+      "risk_level": "medium",
+      "risk_category": "知识产权",
+      "original_text": "乙方及其关联公司不得利用保密信息从事以下行为：……（二）招揽、引诱甲方的员工……",
+      "legal_analysis": "限制招揽员工未明确时间，可能过度限制投资方正常招聘权利。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "投资方在交易后可能无法合法招聘甲方员工，不合理。",
+      "suggested_revision": "建议限制仅在本协议有效期内，并限定与投资评估相关的员工。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第五条（5.5）",
+      "risk_level": "medium",
+      "risk_category": "数据安全",
+      "original_text": "乙方如发现保密信息被泄露或存在泄露风险，应立即书面通知甲方。",
+      "legal_analysis": "“立即”不明确，可能导致响应延迟，缺乏具体时限，无法追究责任。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有规定具体通知时间，乙方可能拖延。",
+      "suggested_revision": "建议明确为‘24小时内’或‘2个工作日内’书面通知。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第九条（9.3）",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "original_text": "协商不成的，任何一方均有权向甲方所在地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "约定甲方所在地法院管辖，对乙方不利，可能增加诉讼成本，但合法。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "乙方需在甲方所在地应诉，增加维权成本。",
+      "suggested_revision": "建议约定被告所在地或中立的仲裁机构。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第七条（7.1）",
+      "risk_level": "low",
+      "risk_category": "合同完整性",
+      "original_text": "乙方应在十五（15）日内返还或销毁其所持有的全部保密信息及其副本。",
+      "legal_analysis": "15日时间较短，对于大量电子数据可能难以完全销毁，且未约定监督机制。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "时间紧，可能无法彻底清除。",
+      "suggested_revision": "建议延长至30日，并允许乙方以书面证明替代物理销毁。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现保密义务的持续性条款）",
+      "legal_analysis": "商业秘密保护要求保密义务应持续到信息进入公有领域，而非合同期满终止。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少保密义务的持续性条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加保密义务的持续性条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现不可抗力条款）",
+      "legal_analysis": "缺少不可抗力情况下的免责规定，可能因意外事件导致违约责任争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少不可抗力条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加不可抗力条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "（合同中未发现合规章节）",
+      "legal_analysis": "未涉及数据保护法（如个保法）的合规要求，可能违反强制性规定。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少合规章节，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加合规章节。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_001",
+      "clause_b": "cl_004",
+      "conflict_type": "logic",
+      "description": "保密期限仅6个月，但非竞争义务（3.6）仅限于协议有效期内，两者期限一致，但保密信息实际存在更久，非竞争期限过短。"
+    },
+    {
+      "clause_a": "cl_001",
+      "clause_b": "cl_003",
+      "conflict_type": "logic",
+      "description": "保密期满后义务解除，但违约条款仍适用？逻辑上违约应以义务存在为前提，但条款未明确。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "保密义务的持续性条款",
+      "reason": "商业秘密保护要求保密义务应持续到信息进入公有领域，而非合同期满终止。"
+    },
+    {
+      "name": "数据安全事件应急响应机制",
+      "reason": "缺乏具体的响应时间、报告流程和补救措施，对数据安全保护不足。"
+    },
+    {
+      "name": "背景知识产权条款",
+      "reason": "未明确甲方披露的技术信息中背景知识产权的归属及使用许可。"
+    },
+    {
+      "name": "不可抗力条款",
+      "reason": "缺少不可抗力情况下的免责规定，可能因意外事件导致违约责任争议。"
+    },
+    {
+      "name": "合规章节",
+      "reason": "未涉及数据保护法（如个保法）的合规要求，可能违反强制性规定。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 4810,
+    "completion_tokens": 2697,
+    "latency_ms": 30861,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 5,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "保密",
+      "争议解决",
+      "管辖"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:03:41.240944",
+  "completed_at": "2026-06-22T02:04:25.372981",
+  "created_at": "2026-06-22T02:03:41.221720"
+}

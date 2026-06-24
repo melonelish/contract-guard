@@ -1,0 +1,113 @@
+{
+  "contract_id": "contract-012-saas-bi",
+  "risks": [
+    {
+      "risk_id": "R001",
+      "category": "功能范围",
+      "severity": "high",
+      "title": "数据源接入范围含糊",
+      "description": "第2.2条承诺'支持主流数据源接入'，但未列明具体支持的数据源清单。'主流数据源'定义模糊，可能导致甲方期望的数据源无法接入。",
+      "clause_reference": "2.2",
+      "suggestion": "在附件一中详细列明支持的数据源类型和版本，明确不支持的数据源的处理方式。"
+    },
+    {
+      "risk_id": "R002",
+      "category": "分析质量",
+      "severity": "high",
+      "title": "分析结果准确性免责过宽",
+      "description": "第7.3条规定'乙方不对分析结果的准确性、完整性、及时性承担任何责任'，第7.5条规定基于分析结果的决策损失乙方不赔偿。此条款完全免除了乙方对分析质量的责任。",
+      "clause_reference": "7.3, 7.5",
+      "suggestion": "合理限定免责范围，明确乙方对数据处理准确性的责任，区分'分析建议'与'数据错误'。"
+    },
+    {
+      "risk_id": "R003",
+      "category": "数据安全",
+      "severity": "high",
+      "title": "数据安全责任不清",
+      "description": "合同背景提到乙方需访问甲方核心业务数据（销售、库存、供应链等），但第5.2条仅约定'采取必要的安全防护措施'，未明确具体安全标准和责任。",
+      "clause_reference": "5.2",
+      "suggestion": "明确数据加密标准、访问控制、安全审计、数据泄露通知等具体安全措施和责任。"
+    },
+    {
+      "risk_id": "R004",
+      "category": "性能指标",
+      "severity": "medium",
+      "title": "性能指标定义含糊",
+      "description": "第6.2条承诺'大数据量下保持流畅运行'、'响应时间在合理范围内'，未定义具体性能指标。'大数据量'和'合理范围'均为模糊表述。",
+      "clause_reference": "6.2",
+      "suggestion": "明确具体性能指标，如查询响应时间、并发用户数、数据处理吞吐量等。"
+    },
+    {
+      "risk_id": "R005",
+      "category": "费用结构",
+      "severity": "high",
+      "title": "数据存储期限与费用矛盾",
+      "description": "第5.3条约定数据存储期限为3年，但第4.2条说明费用仅含1年数据存储。第2-3年的数据存储费用需另行支付，费用结构不透明。",
+      "clause_reference": "4.2, 5.3",
+      "suggestion": "明确第2-3年数据存储费用标准，或调整费用包含的数据存储期限。"
+    },
+    {
+      "risk_id": "R006",
+      "category": "数据安全",
+      "severity": "high",
+      "title": "缺少数据加密存储条款",
+      "description": "合同未约定数据加密标准（传输加密、存储加密）。BI平台连接甲方多个核心业务系统，存储大量敏感商业数据，必须有明确的加密要求。",
+      "clause_reference": "全文缺失",
+      "suggestion": "增加数据加密条款，明确传输加密（TLS 1.2+）和存储加密（AES-256）标准。"
+    },
+    {
+      "risk_id": "R007",
+      "category": "数据使用",
+      "severity": "high",
+      "title": "缺少数据使用限制条款",
+      "description": "第5.5条规定乙方有权将'使用数据'用于产品改进和算法优化，但未明确限制数据使用范围。乙方可能利用甲方商业数据训练模型或提供给竞争对手。",
+      "clause_reference": "5.5",
+      "suggestion": "增加数据使用限制条款，明确禁止乙方将甲方数据用于除服务提供以外的任何目的。"
+    },
+    {
+      "risk_id": "R008",
+      "category": "服务水平",
+      "severity": "medium",
+      "title": "缺少服务水平报告条款",
+      "description": "合同未约定乙方定期提供服务水平报告的义务。甲方无法了解系统实际运行状况、性能指标达成情况等。",
+      "clause_reference": "全文缺失",
+      "suggestion": "增加服务水平报告条款，明确报告频率、内容和交付方式。"
+    },
+    {
+      "risk_id": "R009",
+      "category": "数据接入",
+      "severity": "medium",
+      "title": "数据接入责任边界不清",
+      "description": "第5.1条仅约定乙方'协助'数据接入，未明确接入工作的责任主体、验收标准和失败处理。",
+      "clause_reference": "5.1",
+      "suggestion": "明确数据接入的责任主体、验收标准、接入失败的处理方式和时限。"
+    },
+    {
+      "risk_id": "R010",
+      "category": "合同解除",
+      "severity": "medium",
+      "title": "提前终止补偿金过高",
+      "description": "第11.4条规定甲方提前解除需支付剩余服务期限费用的50%作为补偿金。对于2年期合同，提前1年解除需支付24万元。",
+      "clause_reference": "11.4",
+      "suggestion": "降低提前终止补偿金比例，或设置递减机制。"
+    },
+    {
+      "risk_id": "R011",
+      "category": "数据存储",
+      "severity": "medium",
+      "title": "数据存储费用不透明",
+      "description": "第4.5条提及超出期限的数据存储费用'另行收取'，但未约定收费标准和计算方式。",
+      "clause_reference": "4.5",
+      "suggestion": "明确数据存储费用的计算方式和收费标准。"
+    },
+    {
+      "risk_id": "R012",
+      "category": "技术支持",
+      "severity": "low",
+      "title": "技术支持响应时间未约定",
+      "description": "第2.4条提及技术支持服务标准见附件三，但合同正文未约定基本的响应时间和服务承诺。",
+      "clause_reference": "2.4",
+      "suggestion": "在合同正文中约定基本的技术支持响应时间和服务承诺。"
+    }
+  ]
+}

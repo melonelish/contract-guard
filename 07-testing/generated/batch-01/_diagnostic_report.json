@@ -1,0 +1,766 @@
+{
+  "summary": {
+    "total": 33,
+    "complete_files": 33,
+    "missing_files": 0,
+    "short_md": [
+      {
+        "name": "contract-001-procurement-equipment",
+        "chars": 2709
+      },
+      {
+        "name": "contract-003-procurement-office",
+        "chars": 2488
+      },
+      {
+        "name": "contract-005-techservice-platform",
+        "chars": 2112
+      },
+      {
+        "name": "contract-006-techservice-maintenance",
+        "chars": 2327
+      },
+      {
+        "name": "contract-007-techservice-data",
+        "chars": 2502
+      },
+      {
+        "name": "contract-008-techservice-cloud",
+        "chars": 2512
+      },
+      {
+        "name": "contract-009-saas-crm",
+        "chars": 2095
+      },
+      {
+        "name": "contract-010-saas-erp",
+        "chars": 2002
+      },
+      {
+        "name": "contract-011-saas-hr",
+        "chars": 1872
+      },
+      {
+        "name": "contract-012-saas-bi",
+        "chars": 2080
+      },
+      {
+        "name": "contract-014-custom-app",
+        "chars": 2884
+      },
+      {
+        "name": "contract-017-nda-bilateral",
+        "chars": 2055
+      },
+      {
+        "name": "contract-018-nda-employee",
+        "chars": 1996
+      },
+      {
+        "name": "contract-019-nda-investor",
+        "chars": 1393
+      },
+      {
+        "name": "contract-020-nda-partner",
+        "chars": 1893
+      },
+      {
+        "name": "contract-021-consultant-tech",
+        "chars": 2169
+      },
+      {
+        "name": "contract-022-consultant-management",
+        "chars": 2544
+      },
+      {
+        "name": "contract-023-consultant-legal",
+        "chars": 2526
+      },
+      {
+        "name": "contract-024-consultant-financial",
+        "chars": 2804
+      },
+      {
+        "name": "contract-025-agency-regional",
+        "chars": 2373
+      },
+      {
+        "name": "contract-026-agency-product",
+        "chars": 1884
+      },
+      {
+        "name": "contract-027-agency-online",
+        "chars": 2471
+      },
+      {
+        "name": "contract-028-strategic-joint",
+        "chars": 1984
+      },
+      {
+        "name": "contract-029-strategic-supply",
+        "chars": 2201
+      },
+      {
+        "name": "contract-030-strategic-tech",
+        "chars": 2272
+      },
+      {
+        "name": "contract-031-procurement-medical",
+        "chars": 1931
+      },
+      {
+        "name": "contract-032-techservice-security",
+        "chars": 2232
+      },
+      {
+        "name": "contract-033-consultant-marketing",
+        "chars": 2286
+      }
+    ],
+    "json_errors": [
+      {
+        "name": "contract-001-procurement-equipment",
+        "errors": {
+          "expected_risks.json": "Expecting ',' delimiter: line 32 column 31 (char 1108)"
+        }
+      },
+      {
+        "name": "contract-004-procurement-it",
+        "errors": {
+          "expected_risks.json": "Expecting ',' delimiter: line 92 column 37 (char 3304)",
+          "expected_contradictions.json": "Expecting ',' delimiter: line 30 column 70 (char 1252)"
+        }
+      }
+    ],
+    "manifest_errors": [
+      {
+        "name": "contract-001-procurement-equipment",
+        "issues": [
+          "word_count: manifest=4500 actual=2709"
+        ]
+      },
+      {
+        "name": "contract-002-procurement-materials",
+        "issues": [
+          "word_count: manifest=4500 actual=3261"
+        ]
+      },
+      {
+        "name": "contract-003-procurement-office",
+        "issues": [
+          "word_count: manifest=4500 actual=2488"
+        ]
+      },
+      {
+        "name": "contract-005-techservice-platform",
+        "issues": [
+          "word_count: manifest=4200 actual=2112"
+        ]
+      },
+      {
+        "name": "contract-006-techservice-maintenance",
+        "issues": [
+          "word_count: manifest=4500 actual=2327"
+        ]
+      },
+      {
+        "name": "contract-007-techservice-data",
+        "issues": [
+          "word_count: manifest=4000 actual=2502"
+        ]
+      },
+      {
+        "name": "contract-008-techservice-cloud",
+        "issues": [
+          "word_count: manifest=4800 actual=2512"
+        ]
+      },
+      {
+        "name": "contract-009-saas-crm",
+        "issues": [
+          "word_count: manifest=4500 actual=2095"
+        ]
+      },
+      {
+        "name": "contract-010-saas-erp",
+        "issues": [
+          "word_count: manifest=5200 actual=2002"
+        ]
+      },
+      {
+        "name": "contract-011-saas-hr",
+        "issues": [
+          "word_count: manifest=4000 actual=1872"
+        ]
+      },
+      {
+        "name": "contract-012-saas-bi",
+        "issues": [
+          "word_count: manifest=4800 actual=2080"
+        ]
+      },
+      {
+        "name": "contract-013-custom-erp",
+        "issues": [
+          "word_count: manifest=5200 actual=3520"
+        ]
+      },
+      {
+        "name": "contract-014-custom-app",
+        "issues": [
+          "word_count: manifest=4500 actual=2884"
+        ]
+      },
+      {
+        "name": "contract-015-custom-ai",
+        "issues": [
+          "word_count: manifest=4800 actual=3179"
+        ]
+      },
+      {
+        "name": "contract-016-custom-blockchain",
+        "issues": [
+          "word_count: manifest=5000 actual=3303"
+        ]
+      },
+      {
+        "name": "contract-017-nda-bilateral",
+        "issues": [
+          "word_count: manifest=3800 actual=2055"
+        ]
+      },
+      {
+        "name": "contract-018-nda-employee",
+        "issues": [
+          "word_count: manifest=3200 actual=1996"
+        ]
+      },
+      {
+        "name": "contract-019-nda-investor",
+        "issues": [
+          "word_count: manifest=2800 actual=1393"
+        ]
+      },
+      {
+        "name": "contract-020-nda-partner",
+        "issues": [
+          "word_count: manifest=3500 actual=1893"
+        ]
+      },
+      {
+        "name": "contract-021-consultant-tech",
+        "issues": [
+          "word_count: manifest=4200 actual=2169"
+        ]
+      },
+      {
+        "name": "contract-022-consultant-management",
+        "issues": [
+          "word_count: manifest=4500 actual=2544"
+        ]
+      },
+      {
+        "name": "contract-023-consultant-legal",
+        "issues": [
+          "word_count: manifest=4000 actual=2526"
+        ]
+      },
+      {
+        "name": "contract-024-consultant-financial",
+        "issues": [
+          "word_count: manifest=4800 actual=2804"
+        ]
+      },
+      {
+        "name": "contract-025-agency-regional",
+        "issues": [
+          "word_count: manifest=4200 actual=2373"
+        ]
+      },
+      {
+        "name": "contract-026-agency-product",
+        "issues": [
+          "word_count: manifest=4500 actual=1884"
+        ]
+      },
+      {
+        "name": "contract-027-agency-online",
+        "issues": [
+          "word_count: manifest=4800 actual=2471"
+        ]
+      },
+      {
+        "name": "contract-028-strategic-joint",
+        "issues": [
+          "word_count: manifest=4500 actual=1984"
+        ]
+      },
+      {
+        "name": "contract-029-strategic-supply",
+        "issues": [
+          "word_count: manifest=5200 actual=2201"
+        ]
+      },
+      {
+        "name": "contract-030-strategic-tech",
+        "issues": [
+          "word_count: manifest=5000 actual=2272"
+        ]
+      },
+      {
+        "name": "contract-031-procurement-medical",
+        "issues": [
+          "word_count: manifest=4200 actual=1931"
+        ]
+      },
+      {
+        "name": "contract-032-techservice-security",
+        "issues": [
+          "word_count: manifest=4500 actual=2232"
+        ]
+      },
+      {
+        "name": "contract-033-consultant-marketing",
+        "issues": [
+          "word_count: manifest=4800 actual=2286"
+        ]
+      }
+    ],
+    "no_docx": [],
+    "no_pdf": []
+  },
+  "details": [
+    {
+      "name": "contract-001-procurement-equipment",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-001-procurement-equipment",
+      "missing_files": [],
+      "md_chinese_chars": 2709,
+      "md_too_short": true,
+      "json_errors": {
+        "expected_risks.json": "Expecting ',' delimiter: line 32 column 31 (char 1108)"
+      },
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2709"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-002-procurement-materials",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-002-procurement-materials",
+      "missing_files": [],
+      "md_chinese_chars": 3261,
+      "md_too_short": false,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=3261"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-003-procurement-office",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-003-procurement-office",
+      "missing_files": [],
+      "md_chinese_chars": 2488,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2488"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-004-procurement-it",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-004-procurement-it",
+      "missing_files": [],
+      "md_chinese_chars": 3636,
+      "md_too_short": false,
+      "json_errors": {
+        "expected_risks.json": "Expecting ',' delimiter: line 92 column 37 (char 3304)",
+        "expected_contradictions.json": "Expecting ',' delimiter: line 30 column 70 (char 1252)"
+      },
+      "manifest_inconsistencies": [],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-005-techservice-platform",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-005-techservice-platform",
+      "missing_files": [],
+      "md_chinese_chars": 2112,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4200 actual=2112"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-006-techservice-maintenance",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-006-techservice-maintenance",
+      "missing_files": [],
+      "md_chinese_chars": 2327,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2327"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-007-techservice-data",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-007-techservice-data",
+      "missing_files": [],
+      "md_chinese_chars": 2502,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4000 actual=2502"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-008-techservice-cloud",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-008-techservice-cloud",
+      "missing_files": [],
+      "md_chinese_chars": 2512,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=2512"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-009-saas-crm",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-009-saas-crm",
+      "missing_files": [],
+      "md_chinese_chars": 2095,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2095"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-010-saas-erp",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-010-saas-erp",
+      "missing_files": [],
+      "md_chinese_chars": 2002,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=5200 actual=2002"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-011-saas-hr",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-011-saas-hr",
+      "missing_files": [],
+      "md_chinese_chars": 1872,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4000 actual=1872"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-012-saas-bi",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-012-saas-bi",
+      "missing_files": [],
+      "md_chinese_chars": 2080,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=2080"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-013-custom-erp",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-013-custom-erp",
+      "missing_files": [],
+      "md_chinese_chars": 3520,
+      "md_too_short": false,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=5200 actual=3520"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-014-custom-app",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-014-custom-app",
+      "missing_files": [],
+      "md_chinese_chars": 2884,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2884"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-015-custom-ai",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-015-custom-ai",
+      "missing_files": [],
+      "md_chinese_chars": 3179,
+      "md_too_short": false,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=3179"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-016-custom-blockchain",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-016-custom-blockchain",
+      "missing_files": [],
+      "md_chinese_chars": 3303,
+      "md_too_short": false,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=5000 actual=3303"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-017-nda-bilateral",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-017-nda-bilateral",
+      "missing_files": [],
+      "md_chinese_chars": 2055,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=3800 actual=2055"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-018-nda-employee",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-018-nda-employee",
+      "missing_files": [],
+      "md_chinese_chars": 1996,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=3200 actual=1996"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-019-nda-investor",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-019-nda-investor",
+      "missing_files": [],
+      "md_chinese_chars": 1393,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=2800 actual=1393"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-020-nda-partner",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-020-nda-partner",
+      "missing_files": [],
+      "md_chinese_chars": 1893,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=3500 actual=1893"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-021-consultant-tech",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-021-consultant-tech",
+      "missing_files": [],
+      "md_chinese_chars": 2169,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4200 actual=2169"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-022-consultant-management",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-022-consultant-management",
+      "missing_files": [],
+      "md_chinese_chars": 2544,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2544"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-023-consultant-legal",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-023-consultant-legal",
+      "missing_files": [],
+      "md_chinese_chars": 2526,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4000 actual=2526"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-024-consultant-financial",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-024-consultant-financial",
+      "missing_files": [],
+      "md_chinese_chars": 2804,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=2804"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-025-agency-regional",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-025-agency-regional",
+      "missing_files": [],
+      "md_chinese_chars": 2373,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4200 actual=2373"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-026-agency-product",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-026-agency-product",
+      "missing_files": [],
+      "md_chinese_chars": 1884,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=1884"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-027-agency-online",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-027-agency-online",
+      "missing_files": [],
+      "md_chinese_chars": 2471,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=2471"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-028-strategic-joint",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-028-strategic-joint",
+      "missing_files": [],
+      "md_chinese_chars": 1984,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=1984"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-029-strategic-supply",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-029-strategic-supply",
+      "missing_files": [],
+      "md_chinese_chars": 2201,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=5200 actual=2201"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-030-strategic-tech",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-030-strategic-tech",
+      "missing_files": [],
+      "md_chinese_chars": 2272,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=5000 actual=2272"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-031-procurement-medical",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-031-procurement-medical",
+      "missing_files": [],
+      "md_chinese_chars": 1931,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4200 actual=1931"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-032-techservice-security",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-032-techservice-security",
+      "missing_files": [],
+      "md_chinese_chars": 2232,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4500 actual=2232"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    },
+    {
+      "name": "contract-033-consultant-marketing",
+      "path": "D:\\FaLvXM\\07-testing\\generated\\batch-01\\contract-033-consultant-marketing",
+      "missing_files": [],
+      "md_chinese_chars": 2286,
+      "md_too_short": true,
+      "json_errors": {},
+      "manifest_inconsistencies": [
+        "word_count: manifest=4800 actual=2286"
+      ],
+      "docx_exists": true,
+      "pdf_exists": true
+    }
+  ]
+}

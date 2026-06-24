@@ -1,0 +1,49 @@
+{
+  "sample_id": "contract-002-procurement-materials",
+  "contract_type": "采购合同",
+  "title": "原材料采购框架协议",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "不可抗力",
+    "付款条件",
+    "保密义务",
+    "合同续展风险",
+    "库存风险",
+    "数量风险",
+    "管辖法院",
+    "质量风险",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "不可抗力",
+    "付款条件",
+    "数量风险",
+    "管辖法院",
+    "质量风险"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第5.2条约定付款账期为验收合格且收到发票后30个工作日，属于正常的商业账期安排。但第5.4条约定逾期付款每日按未付金额的5%支付违约金，两者存在严重矛盾。按每...",
+    "第3.2条允许乙方交付数量在订单数量基础上浮动±20%，即乙方可以多交或少交20%的货物。但第3.5条约定'订单一经双方确认，即具有约束力，任何一方不得单方面变..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "不可抗力条款",
+    "反商业贿赂条款",
+    "食品安全专项条款",
+    "环保合规条款"
+  ],
+  "missing_clause_high": [
+    "不可抗力条款",
+    "反商业贿赂条款"
+  ],
+  "expected_legal_basis_topics": [
+    "中华人民共和国民法典",
+    "中华人民共和国标准化法",
+    "中华人民共和国食品安全法",
+    "中华人民共和国民事诉讼法"
+  ],
+  "notes": ""
+}

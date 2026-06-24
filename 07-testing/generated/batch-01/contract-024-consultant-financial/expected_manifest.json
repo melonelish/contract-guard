@@ -1,0 +1,40 @@
+{
+  "sample_id": "contract-024-consultant-financial",
+  "contract_type": "财务顾问协议",
+  "title": "财务顾问服务协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第三条第3.2款将顾问费分为'里程碑费用'和'成功费用'，里程碑费用的支付条件是'里程碑完成'，成功费用的支付条件是'IPO成功'。但第3.5款又约定'IPO最...",
+    "第七条第7.1款约定'乙方提供的顾问建议仅供参考，不保证甲方IPO一定成功'，将乙方的责任完全免除。但第十四条第14.5款又约定'因乙方过错导致甲方IPO失败的..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "项目变更管理条款",
+    "项目沟通与汇报机制条款",
+    "第三方协调条款",
+    "风险提示与预警条款"
+  ],
+  "missing_clause_high": [
+    "项目变更管理条款",
+    "第三方协调条款",
+    "风险提示与预警条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "证券法"
+  ],
+  "notes": ""
+}

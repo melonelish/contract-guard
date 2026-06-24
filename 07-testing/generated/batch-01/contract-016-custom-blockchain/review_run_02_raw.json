@@ -1,0 +1,71 @@
+{
+  "id": "87450017-136f-415d-8f34-ace8ab6c65b4",
+  "contract_id": "822867d3-ed30-44cd-80b1-e74f57c31fb0",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 2,
+    "high": 2,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第七条7.3",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "区块链系统上线运行即视为验收通过。",
+      "legal_analysis": "验收标准不明确，上线运行不等同于功能、性能达标，可能引发质量争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "系统上线不代表质量合格，应有明确验收标准。",
+      "suggested_revision": "建议修改为：系统上线运行后，经甲方组织验收测试，符合附件五标准后方视为验收通过。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第七条7.5",
+      "risk_level": "high",
+      "risk_category": "验收条件",
+      "original_text": "甲方逾期未组织验收且未书面说明原因的，视为验收通过。",
+      "legal_analysis": "该条款对甲方不公平，可能迫使甲方在未完成验收时接受系统。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方有合理时间验收，不应自动视为通过。",
+      "suggested_revision": "建议增加：甲方逾期",
+      "confidence": 0.5
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 22,
+    "completion_tokens": 4096,
+    "latency_ms": 61934,
+    "finish_reason": "max_tokens"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T02:50:38.437990",
+  "completed_at": "2026-06-19T02:51:40.787756",
+  "created_at": "2026-06-19T02:50:38.421498"
+}

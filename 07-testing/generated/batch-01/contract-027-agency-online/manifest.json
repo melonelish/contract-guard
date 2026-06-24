@@ -1,0 +1,19 @@
+{
+  "contract_id": "contract-027",
+  "contract_type": "线上销售代理协议",
+  "title": "线上销售代理协议",
+  "word_count": 3007,
+  "clause_count": 19,
+  "risk_count": 10,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "hard",
+  "tags": [
+    "代理协议",
+    "电商平台",
+    "价格管控",
+    "数据归属",
+    "多平台管理",
+    "品牌保护"
+  ]
+}

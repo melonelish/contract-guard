@@ -1,0 +1,23 @@
+{
+  "contract_id": "contract-001",
+  "contract_type": "采购合同",
+  "title": "大型设备采购合同（CNC数控加工中心生产线）",
+  "word_count": 3000,
+  "clause_count": 16,
+  "risk_count": 15,
+  "missing_count": 4,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "设备采购",
+    "制造业",
+    "高金额",
+    "付款风险",
+    "验收标准",
+    "质保期",
+    "违约责任",
+    "知识产权",
+    "自动续约",
+    "附件引用矛盾"
+  ]
+}

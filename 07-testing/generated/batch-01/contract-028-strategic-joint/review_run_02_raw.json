@@ -1,0 +1,231 @@
+{
+  "id": "7be3c01a-6a10-41a7-8382-df96dc380e46",
+  "contract_id": "d21b0d29-7462-4e8c-a484-d13330c26f22",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 11,
+    "high": 11,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "合作范围包括但不限于：（一）AI基础算法研究与开发；（二）AI技术在垂直行业的应用研究；（三）联合培养研究生和博士后研究人员；（四）共同申请国家级科研项目；（五）举办学术会议和技术交流活动。",
+      "legal_analysis": "合作范围采用'包括但不限于'表述，过于宽泛，易导致权责不清和执行争议，违反合同明确性原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合作范围模糊，可能引发双方对工作内容理解不一致，增加纠纷风险。",
+      "suggested_revision": "明确列出合作的具体项目、交付成果和边界，或定义排除范围。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "甲方出资分期支付：（一）第一期：本协议生效后15个工作日内支付人民币600万元；（二）第二期：2027年1月31日前支付人民币500万元；（三）第三期：2028年1月31日前支付人民币500万元。",
+      "legal_analysis": "付款计划独立于研发里程碑，未与成果交付挂钩，可能导致资金使用效率低或乙方履约动力不足，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "甲方付款未与研发进度关联，可能产生资金风险。",
+      "suggested_revision": "将付款节点与研发里程碑（如阶段成果验收）挂钩，确保资金使用与进展同步。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "合作期间产生的知识产权，包括但不限于专利、软件著作权、技术秘密等，由双方共同所有。双方均有权独立使用合作产生的知识产权，无需征得另一方同意，也无需向另一方支付使用费。",
+      "legal_analysis": "知识产权共同所有但使用自由，权属模糊，可能引发后续商业化纠纷，尤其是转让和许可时收益分配不清。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "共同所有权规则模糊，可能妨碍技术转化和商业利用。",
+      "suggested_revision": "细化知识产权的使用、许可、转让规则，明确收益分配和优先权机制。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "技术开发合同缺少明确的验收标准和流程，易引发成果质量争议，影响合作目标实现。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有验收标准，无法判断研发成果是否合格。",
+      "suggested_revision": "增加条款，明确研发成果的验收标准、测试流程、验收负责人和异议处理。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合作研发涉及数据管理，但合同未规定数据备份、恢复责任和灾难恢复机制，可能导致数据丢失风险无保障。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据管理责任不清，丢失后可能无法恢复，项目中断。",
+      "suggested_revision": "增加条款，明确数据备份频率、存储责任、恢复流程和灾难恢复计划。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "安全责任",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "技术开发中系统安全责任未划分，如安全漏洞或数据泄露事件发生时，责任归属和响应义务缺失。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "安全责任不清，出事时可能互相推诿。",
+      "suggested_revision": "增加条款，划分安全责任、事件通知义务、响应措施和赔偿机制。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_010",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "合作产生的技术成果，双方同意优先在甲方的产业体系内进行转化应用。任何一方在未经另一方书面同意的情况下，不得将合作产生的技术成果向第三方转让或授权使用。",
+      "legal_analysis": "技术成果转化受限于甲方体系，第三方转让需同意，可能限制乙方权益，构成不公平条款。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "转化限制影响乙方商业化机会和自主权。",
+      "suggested_revision": "明确转化条件、收益分配和例外情况，平衡双方利益。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "技术管理",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未规定技术方案的确认流程和技术路线变更的管控机制，可能导致研发方向随意变更，资源浪费。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "技术管理流程缺失，变更无控制，增加项目风险。",
+      "suggested_revision": "增加条款，明确技术方案审批流程、变更控制机制和文档记录要求。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现数据备份与恢复责任条款）",
+      "legal_analysis": "合作研发涉及数据，需明确管理责任以防丢失。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少数据备份与恢复责任条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加数据备份与恢复责任条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "技术管理",
+      "original_text": "（合同中未发现技术方案确认流程条款）",
+      "legal_analysis": "未规定技术路线变更管控，易导致研发方向混乱。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少技术方案确认流程条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加技术方案确认流程条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "业务连续性",
+      "original_text": "（合同中未发现业务连续性保障条款）",
+      "legal_analysis": "缺少应急响应机制，影响项目稳定性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少业务连续性保障条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加业务连续性保障条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_004",
+      "clause_b": "cl_005",
+      "conflict_type": "logic",
+      "description": "第四条收益分配包括技术许可费，但第五条规定知识产权共同所有且使用无需许可费，可能导致收益计算和分配规则矛盾。"
+    },
+    {
+      "clause_a": "cl_002",
+      "clause_b": "cl_008",
+      "conflict_type": "timeline",
+      "description": "第二条合作期满可自动续展，但第八条单方终止受限（仅限不可抗力或严重违约），续展后终止条件未调整，可能引发执行冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "验收标准条款",
+      "reason": "技术开发合同应有明确的成果验收标准，避免质量争议。"
+    },
+    {
+      "name": "数据备份与恢复责任条款",
+      "reason": "合作研发涉及数据，需明确管理责任以防丢失。"
+    },
+    {
+      "name": "安全责任划分条款",
+      "reason": "系统安全事件责任未划分，可能导致纠纷。"
+    },
+    {
+      "name": "技术方案确认流程条款",
+      "reason": "未规定技术路线变更管控，易导致研发方向混乱。"
+    },
+    {
+      "name": "业务连续性保障条款",
+      "reason": "缺少应急响应机制，影响项目稳定性。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4652,
+    "completion_tokens": 6265,
+    "latency_ms": 120025,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:09:50.973882",
+  "completed_at": "2026-06-22T02:12:01.345528",
+  "created_at": "2026-06-22T02:09:50.951150"
+}

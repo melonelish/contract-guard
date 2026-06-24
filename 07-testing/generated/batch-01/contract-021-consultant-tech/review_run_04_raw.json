@@ -1,0 +1,195 @@
+{
+  "id": "88523b39-a509-429e-b671-d08bf1f00c47",
+  "contract_id": "d262830a-baf3-43dc-871c-cba7e3c8e8fc",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 4,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第14.4条",
+      "risk_level": "high",
+      "risk_category": "劳动关系",
+      "original_text": "乙方确认其与甲方之间的关系为技术服务关系，不构成劳动关系或劳务派遣关系。",
+      "legal_analysis": "合同虽声明不构成劳动关系，但服务方式如固定工作时间、现场服务可能被认定为事实劳动关系，导致甲方承担社保、工伤等法定义务。",
+      "legal_basis": "基于法理分析，参考《劳动合同法》相关规定。",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "口头声明不生效，实际工作模式可能被视为雇佣关系，甲方有风险。",
+      "suggested_revision": "细化服务性质，避免固定工时；或明确为独立承包关系，购买商业保险。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第7.1、7.2条",
+      "risk_level": "high",
+      "risk_category": "竞业限制",
+      "original_text": "在本协议有效期内及协议终止后6个月内，乙方不得为甲方的直接竞争对手提供同类技术顾问服务。竞业限制期间，乙方不得为任何科技公司提供技术咨询服务。",
+      "legal_analysis": "竞业限制范围过宽，禁止为所有科技公司提供服务，可能过度限制乙方就业权，违反公平原则，易被认定无效。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "限制太严，乙方可能失去谋生能力，条款可能无效。",
+      "suggested_revision": "缩小范围至直接竞争对手，延长补偿期，并确保补偿合理。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第6条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "乙方在提供服务过程中形成的咨询报告、技术方案、架构设计等成果的知识产权归甲方所有。乙方在提供服务过程中使用的技术方法、工具、模型等，其知识产权仍归乙方所有。",
+      "legal_analysis": "知识产权划分可能模糊，尤其当乙方使用自身技术方法形成成果时，权属易生争议，影响甲方控制权。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "成果归甲方，但工具归乙方，界限不清可能引发纠纷。",
+      "suggested_revision": "明确定义“服务成果”和“乙方背景知识产权”，避免交叉。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "缺失",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "无",
+      "legal_analysis": "合同未约定社保缴纳和工伤责任，若被认定为劳动关系，甲方需承担法定责任，增加成本风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "缺少社保和工伤条款，甲方可能被追责。",
+      "suggested_revision": "添加条款明确乙方自行缴纳社保，或购买雇主责任险。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第1条",
+      "risk_level": "medium",
+      "risk_category": "服务范围",
+      "original_text": "乙方为甲方提供技术战略咨询和团队指导服务，包括但不限于：（一）为甲方制定技术发展战略和路线图；...",
+      "legal_analysis": "服务内容描述宽泛，缺乏具体交付标准和验收条件，易引发履行争议，不符合合同明确性原则。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "服务太笼统，容易扯皮。",
+      "suggested_revision": "在附件一细化服务清单、交付物和验收标准。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第4条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "服务费按月支付，甲方应在每月10日前支付上月服务费。",
+      "legal_analysis": "付款与具体服务成果或里程碑脱钩，固定月付可能导致甲方支付后无法获得预期服务质量。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "每月固定付款，不管服务效果如何。",
+      "suggested_revision": "设置付款与定期评估或交付报告挂钩，如分期支付。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第10条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "任一方违反本协议约定，应向守约方支付违约金人民币100,000元。乙方违反保密义务的，应向甲方支付违约金人民币500,000元。",
+      "legal_analysis": "违约金设置不一致，保密违约金过高，可能显失公平，法院可依请求调整。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "违约金差距大，保密罚50万可能太高。",
+      "suggested_revision": "调整违约金至合理水平，如与损失挂钩，或统一标准。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第9条",
+      "risk_level": "medium",
+      "risk_category": "成果交付",
+      "original_text": "甲方对乙方提交的咨询报告有异议的，应在收到报告后5个工作日内提出。如甲方未在规定时间内提出异议，视为甲方认可乙方的咨询报告。",
+      "legal_analysis": "交付标准模糊，验收流程简单，仅以异议期默认认可，可能导致服务质量无法保障。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "报告交了不反对就算过关，质量难控制。",
+      "suggested_revision": "制定具体验收标准和流程，如双方确认机制。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_001",
+      "clause_b": "第5条",
+      "conflict_type": "logic",
+      "description": "第14.4条声明不构成劳动关系，但第5条规定固定工作时间（每周二、周四），类似劳动管理，矛盾。"
+    },
+    {
+      "clause_a": "cl_002",
+      "clause_b": "第1条",
+      "conflict_type": "logic",
+      "description": "第7.2条竞业限制禁止为所有科技公司提供服务，与乙方作为技术顾问的常规业务冲突。"
+    },
+    {
+      "clause_a": "cl_007",
+      "clause_b": "第10.4条",
+      "conflict_type": "numeric",
+      "description": "第10.1条一般违约金10万元，第10.4条保密违约金50万元，金额差异大，可能不公平。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "社保与工伤责任条款",
+      "reason": "顾问合同中需明确社保缴纳和工伤责任归属，避免被认定为劳动关系后甲方承担义务。"
+    },
+    {
+      "name": "数据安全与保密具体措施",
+      "reason": "合同虽有保密义务，但未规定具体保护措施，如数据加密、访问控制，增加泄露风险。"
+    },
+    {
+      "name": "服务变更与调整机制",
+      "reason": "服务内容可能需动态调整，缺少变更流程易导致争议。"
+    },
+    {
+      "name": "不可抗力的具体后果处理",
+      "reason": "第13条已有，但未明确费用减免或补偿细节，可细化。"
+    },
+    {
+      "name": "争议解决的具体程序",
+      "reason": "第12条仅规定诉讼，可增加调解或仲裁选项，提高效率。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 45,
+    "completion_tokens": 4687,
+    "latency_ms": 202941,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "竞业限制"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:09:13.660089",
+  "completed_at": "2026-06-19T08:12:36.985460",
+  "created_at": "2026-06-19T08:09:13.638708"
+}

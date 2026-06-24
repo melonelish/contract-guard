@@ -1,0 +1,239 @@
+{
+  "id": "4171aca4-129e-4b9a-a508-f3c04cb7e3ca",
+  "contract_id": "333a3af1-60ae-4562-ba35-8d0775bca8ac",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 12,
+    "high": 12,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条 1.2",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "渗透测试范围：对甲方核心系统进行安全测试。",
+      "legal_analysis": "服务范围描述不具体，“核心系统”定义模糊，可能导致服务交付标准不明确，引发争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同未明确“核心系统”具体范围，乙方测试可能不全面，甲方期望不符。",
+      "suggested_revision": "明确列出具体系统名称或类型，或定义“核心系统”的识别标准。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第四条 4.1",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "合同生效后15日内，支付合同总价的50%，即人民币40万元",
+      "legal_analysis": "预付款比例50%过高，对甲方风险较大，且付款与交付里程碑部分挂钩但预付款失衡。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "甲方在服务开始前支付大额款项，若乙方服务未达预期，甲方损失风险高。",
+      "suggested_revision": "调整付款比例，如预付款30%，后续根据交付物验收支付。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第五条 5.1",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "乙方应按照行业标准和最佳实践提供服务，确保服务质量。",
+      "legal_analysis": "服务标准表述模糊，“确保服务质量”缺乏具体验收标准，易引发争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "无明确验收标准，乙方交付的服务质量可能不符合甲方实际需求。",
+      "suggested_revision": "制定具体服务水平协议（SLA），包括响应时间、交付物质量标准等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第七条 7.4",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "如甲方未能在规定时间内完成漏洞修复，乙方不承担因此导致的安全责任。",
+      "legal_analysis": "该条款可能免除乙方因自身服务问题导致的责任，但需确保乙方通知义务有效。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方未修复漏洞时乙方免责，但若乙方报告不准确，乙方仍需担责。",
+      "suggested_revision": "明确乙方通知义务和甲方修复义务，并约定报告不准确时的责任划分。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应采取必要的技术和管理措施，防止数据泄露、丢失或损坏。",
+      "legal_analysis": "条款未具体化数据安全措施，如加密标准、访问控制等，对金融机构风险高。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据安全措施不具体，易导致数据泄露，尤其对金融机构敏感数据。",
+      "suggested_revision": "明确具体数据安全标准，如符合国家网络安全等级保护要求，指定加密方式。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "乙方应具备以下服务资质：...（三）渗透测试相关资质。",
+      "legal_analysis": "未约定资质不符的后果，如乙方资质缺失，甲方无法有效追责。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方资质不符时，服务合法性及质量受影响，但合同无处理机制。",
+      "suggested_revision": "增加条款，如乙方资质不符时甲方有权解除合同并要求赔偿。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十二条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "11.1 乙方未按约定时间完成服务的，每逾期一日，应按合同总价的万分之五向甲方支付违约金。 11.3 甲方逾期付款的，每逾期一日，应按逾期金额的万分之五向乙方支付违约金。",
+      "legal_analysis": "乙方违约金基于合同总价，甲方违约金基于逾期金额，计算基础不对等，且条款编号错误。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金计算标准不一致，可能导致赔偿不公平。",
+      "suggested_revision": "统一违约金计算标准，如都基于逾期金额或合同总价。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未明确服务成果的知识产权归属，易引发纠纷。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务交付物知识产权未约定，乙方可能保留权利，影响甲方使用。",
+      "suggested_revision": "增加条款，明确所有服务成果知识产权归甲方所有，乙方享有署名权。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（合同中未发现具体验收流程条款）",
+      "legal_analysis": "现有验收标准模糊，需细化验收步骤、标准和异议处理机制。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少具体验收流程条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加具体验收流程条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "SLA",
+      "original_text": "（合同中未发现服务水平协议（SLA）条款）",
+      "legal_analysis": "技术合同需明确响应时间、可用性等SLA指标，保障服务质量。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务水平协议（SLA）条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务水平协议（SLA）条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现数据备份与恢复责任条款）",
+      "legal_analysis": "涉及数据安全，需明确备份频率、恢复责任和灾难恢复机制。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少数据备份与恢复责任条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加数据备份与恢复责任条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现争议解决替代方式条款）",
+      "legal_analysis": "仅约定诉讼，可增加仲裁选项，提高争议解决效率。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少争议解决替代方式条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加争议解决替代方式条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十二条（违约责任）",
+      "clause_b": "第十二条（保密义务）",
+      "conflict_type": "logic",
+      "description": "合同中有两个第十二条，编号重复，可能导致条款解释混乱。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "技术合同关键条款，明确服务成果所有权，避免后续纠纷。"
+    },
+    {
+      "name": "具体验收流程条款",
+      "reason": "现有验收标准模糊，需细化验收步骤、标准和异议处理机制。"
+    },
+    {
+      "name": "服务水平协议（SLA）条款",
+      "reason": "技术合同需明确响应时间、可用性等SLA指标，保障服务质量。"
+    },
+    {
+      "name": "数据备份与恢复责任条款",
+      "reason": "涉及数据安全，需明确备份频率、恢复责任和灾难恢复机制。"
+    },
+    {
+      "name": "争议解决替代方式条款",
+      "reason": "仅约定诉讼，可增加仲裁选项，提高争议解决效率。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 62,
+    "completion_tokens": 4870,
+    "latency_ms": 209799,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:16:38.556186",
+  "completed_at": "2026-06-22T02:20:08.627416",
+  "created_at": "2026-06-22T02:16:38.541035"
+}

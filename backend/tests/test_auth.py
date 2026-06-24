@@ -3,7 +3,6 @@ from types import SimpleNamespace
 from uuid import uuid4
 
 import pytest
-
 from app.api import deps as deps_module
 from app.api.v1 import auth as auth_module
 

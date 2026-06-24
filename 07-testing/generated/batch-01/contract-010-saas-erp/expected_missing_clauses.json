@@ -1,0 +1,45 @@
+{
+  "contract_id": "contract-010-saas-erp",
+  "missing_clauses": [
+    {
+      "clause_id": "M001",
+      "category": "业务连续性",
+      "title": "业务连续性保障条款",
+      "description": "合同缺少灾难恢复、业务连续性计划、数据备份策略等关键条款。ERP系统承载企业核心生产业务，应明确灾难恢复目标（RTO/RPO）、备份频率、应急响应机制等。",
+      "importance": "high",
+      "reference": "ISO 22301业务连续性管理体系"
+    },
+    {
+      "clause_id": "M002",
+      "category": "数据管理",
+      "title": "数据保留与销毁条款",
+      "description": "合同未约定数据保留期限、合同终止后的数据处理方式、数据销毁标准和确认机制。ERP系统包含企业核心业务数据，此条款对数据生命周期管理至关重要。",
+      "importance": "high",
+      "reference": "《数据安全法》相关要求"
+    },
+    {
+      "clause_id": "M003",
+      "category": "系统集成",
+      "title": "系统集成与接口条款",
+      "description": "合同未约定与甲方现有MES、WMS等系统的集成方案、接口标准、技术支持和费用。制造企业ERP系统通常需要与多个生产系统集成。",
+      "importance": "medium",
+      "reference": "ERP实施通用规范"
+    },
+    {
+      "clause_id": "M004",
+      "category": "数据安全",
+      "title": "数据安全与访问控制条款",
+      "description": "合同缺少数据加密、访问控制、安全审计、数据泄露通知等安全条款。ERP系统包含企业财务、生产等敏感数据，安全条款必不可少。",
+      "importance": "high",
+      "reference": "《网络安全法》《数据安全法》相关要求"
+    },
+    {
+      "clause_id": "M005",
+      "category": "变更管理",
+      "title": "系统变更管理条款",
+      "description": "合同未约定系统升级、功能变更的通知机制、变更影响评估、甲方异议权等。ERP系统变更可能影响甲方业务流程。",
+      "importance": "medium",
+      "reference": "SaaS服务合同通用规范"
+    }
+  ]
+}

@@ -3,10 +3,15 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import get_current_user, get_db
 from app.core.exceptions import APIException
-from app.schemas.api import APIResponse, AuthTokenPayload, LoginRequest, RegisterRequest, UserPayload
+from app.schemas.api import (
+    APIResponse,
+    AuthTokenPayload,
+    LoginRequest,
+    RegisterRequest,
+    UserPayload,
+)
 from app.schemas.errors import ErrorCode
 from app.services.auth import AuthError, authenticate_user, create_access_token, register_user
-
 
 router = APIRouter()
 

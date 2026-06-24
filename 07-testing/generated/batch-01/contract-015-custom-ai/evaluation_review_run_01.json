@@ -1,0 +1,50 @@
+{
+  "sample_id": "contract-015-custom-ai",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.228468",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "责任限制",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "质量标准"
+  ],
+  "expected_high_risk_topics": [
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "责任限制",
+    "验收标准"
+  ],
+  "detected_high_risk_topics": [
+    "质量标准"
+  ],
+  "missing_expected_topics": [
+    "付款条件",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "责任限制",
+    "验收标准"
+  ],
+  "unexpected_topics": [
+    "质量标准"
+  ],
+  "topic_recall": 0.0,
+  "topic_precision": 0.0,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": false,
+  "contradiction_expected": 2,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 0,
+  "legal_basis_coverage": 1.0,
+  "overall_score": 0.15,
+  "notes": ""
+}

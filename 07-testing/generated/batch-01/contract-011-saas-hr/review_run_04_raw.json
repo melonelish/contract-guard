@@ -1,0 +1,183 @@
+{
+  "id": "6af570b9-c4fd-45af-8cb9-d7d18747f716",
+  "contract_id": "c5ba91fa-bb49-42cc-a7ef-880c7a8125f1",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 5,
+    "medium": 2,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "背景说明与第五条",
+      "risk_level": "high",
+      "risk_category": "数据安全与个人信息保护",
+      "original_text": "背景说明：服务器部署在境外。第五条5.10款：乙方不得将甲方员工数据存储于中国境外的服务器或数据中心",
+      "legal_analysis": "合同背景与条款存在直接矛盾，数据跨境存储违反数据本地化原则，引发合规风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方服务器在境外，但合同禁止境外存储数据，这会导致法律冲突和数据泄露风险。",
+      "suggested_revision": "明确数据存储位置，或修改第5.10款，在满足法定程序下允许跨境存储。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第五条5.5款",
+      "risk_level": "high",
+      "risk_category": "数据可迁移性",
+      "original_text": "甲方应在合同终止后15日内完成数据导出，逾期乙方有权删除甲方数据。",
+      "legal_analysis": "数据导出期过短且删除条款严厉，可能导致数据丢失，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同结束后只有15天导出数据，时间太紧，如果超时数据就被删，对甲方不利。",
+      "suggested_revision": "延长导出期至90日，并提供数据迁移协助，删除前需书面提醒。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "SLA保障",
+      "original_text": "第六条6.1款：年可用性不低于99.0%；6.4款：补偿标准见附件二。",
+      "legal_analysis": "SLA可用性标准偏低，补偿标准未在正文中明确，附件缺失，可能导致责任不清。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务可用性承诺99%可能不够高，而且赔偿方法没写在合同里，甲方权益难保障。",
+      "suggested_revision": "提高可用性至99.5%以上，并在正文明确补偿方式，如按不可用时间比例退款。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条4.3款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "费用于合同签订后15个工作日内一次性支付。",
+      "legal_analysis": "付款与服务交付脱钩，预付款过高，增加甲方资金风险。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "钱一次性付清，但服务还没开始，如果乙方延迟上线，甲方可能损失。",
+      "suggested_revision": "改为分阶段支付，如签订后付30%，上线验收后付70%。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条5.7款",
+      "risk_level": "high",
+      "risk_category": "数据安全与个人信息保护",
+      "original_text": "乙方处理甲方员工敏感个人信息时，应取得员工个人的单独同意。",
+      "legal_analysis": "未明确甲方如何获取员工同意，机制缺失，可能导致违法处理敏感信息。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "处理薪资、考勤等敏感信息需员工单独同意，但没说甲方怎么做，容易违规。",
+      "suggested_revision": "明确甲方负责获取同意，乙方提供同意管理工具和流程指导。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第二条2.2款",
+      "risk_level": "medium",
+      "risk_category": "服务范围",
+      "original_text": "乙方有权根据产品发展需要，对服务平台的功能进行调整、升级或下线。",
+      "legal_analysis": "乙方单方变更功能权利过大，可能影响甲方业务连续性，违反协商原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方可以随时改或下线功能，甲方可能突然没法用关键模块。",
+      "suggested_revision": "限制重大变更需提前30日书面通知并经甲方同意，提供过渡期支持。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第九条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "9.1款：违约金金额为合同总金额的10%；9.4款：赔偿上限不超过甲方已支付的服务费用总额。",
+      "legal_analysis": "违约金可能过高或过低，赔偿上限对甲方不公平，限制追偿。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金固定10%可能不合理，数据丢失赔偿有上限，甲方损失大时难获全赔。",
+      "suggested_revision": "调整违约金为实际损失比例，赔偿上限提高或取消，以覆盖重大损失。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第三条3.3款",
+      "risk_level": "low",
+      "risk_category": "服务期限",
+      "original_text": "合同到期前30日，如双方均未提出书面异议，本合同自动续约1年。",
+      "legal_analysis": "自动续约机制可能限制甲方选择权，提醒期较短。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同自动续一年，甲方可能忘记提醒，被绑定更久。",
+      "suggested_revision": "增加提前60日书面提醒义务，明确不续约的程序。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "背景说明",
+      "clause_b": "第五条5.10款",
+      "conflict_type": "logic",
+      "description": "背景中乙方服务器部署在境外，但第5.10款禁止数据存储于境外，逻辑矛盾。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据泄露应急响应条款",
+      "reason": "缺乏数据安全事件发生时的通知、处理和责任划分，影响风险应对。"
+    },
+    {
+      "name": "服务终止后数据保留政策",
+      "reason": "第5.5款仅规定导出期，未明确数据备份保留期限和销毁流程。"
+    },
+    {
+      "name": "知识产权侵权赔偿细化条款",
+      "reason": "第八条知识产权归属明确，但未约定乙方平台侵权时甲方的免责或追偿机制。"
+    },
+    {
+      "name": "定期安全审计报告提交义务",
+      "reason": "第5.9条提到安全评估，但未要求定期提交报告给甲方审阅，透明度不足。"
+    },
+    {
+      "name": "SLA未达标时具体补偿方式",
+      "reason": "第6.4款引用附件二补偿标准，但附件未提供，正文缺失细节。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4005,
+    "completion_tokens": 5000,
+    "latency_ms": 85291,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:01:38.210801",
+  "completed_at": "2026-06-19T08:03:03.862052",
+  "created_at": "2026-06-19T08:01:38.197495"
+}

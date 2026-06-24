@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-019",
+  "contract_type": "投资方保密协议",
+  "title": "投资方保密协议（云帆智能科技与鼎盛资本）",
+  "word_count": 3007,
+  "clause_count": 8,
+  "risk_count": 10,
+  "missing_count": 5,
+  "contradiction_count": 2,
+  "difficulty": "medium",
+  "tags": [
+    "投资NDA",
+    "单向NDA",
+    "风险投资",
+    "关联公司",
+    "保密期限",
+    "竞争对手限制",
+    "信息安全",
+    "违约责任含糊"
+  ]
+}

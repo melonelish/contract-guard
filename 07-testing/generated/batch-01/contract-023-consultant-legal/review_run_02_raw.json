@@ -1,0 +1,189 @@
+{
+  "id": "11862941-f9b2-41d9-8a24-9af2172af8dd",
+  "contract_id": "8cd783e9-b21c-4668-8264-bf5af2430c0f",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 9,
+    "high": 6,
+    "medium": 3,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定服务成果的知识产权归属，可能导致法律意见、合同模板等成果的权属争议。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "乙方提供的法律意见等成果归谁所有不明确，容易引发纠纷。",
+      "suggested_revision": "增加条款明确所有服务成果的知识产权归甲方所有。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "保密条款未涵盖数据安全与个人信息保护义务，不符合《数据安全法》和《个人信息保护法》要求。",
+      "legal_basis": "基于法理分析，《数据安全法》《个人信息保护法》要求明确数据保护责任。",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "处理甲方数据时没有安全保障措施，可能导致数据泄露或法律风险。",
+      "suggested_revision": "增加数据安全条款，明确乙方的数据保护标准和责任。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "乙方为甲方提供日常法律事务咨询服务，包括但不限于：",
+      "legal_analysis": "服务范围使用“包括但不限于”，定义不明确，可能导致服务内容争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务内容太模糊，具体包括哪些不清晰，容易产生纠纷。",
+      "suggested_revision": "细化服务范围，明确具体服务项目、限制和排除事项。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条",
+      "risk_level": "high",
+      "risk_category": "劳动关系",
+      "original_text": "乙方应甲方要求，可到甲方办公场所提供现场法律服务。乙方应甲方要求，可代为参加甲方的商务谈判、合同签订等活动。",
+      "legal_analysis": "乙方人员现场服务或代参加活动，可能被认定为事实劳动关系，引发社保、工伤等风险。",
+      "legal_basis": "基于法理分析，《劳动合同法》对劳动关系认定有相关规定。",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "律师在甲方工作场所服务，可能被视为甲方员工，带来额外法律责任。",
+      "suggested_revision": "明确乙方人员为独立服务方，不构成劳动关系，并约定责任划分。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_011",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方因过错导致甲方损失的，乙方应承担赔偿责任，但赔偿金额以乙方已收取的服务费总额为限。",
+      "legal_analysis": "赔偿上限条款可能不公平，限制了甲方的索赔权利，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "赔偿封顶，如果损失大，甲方无法获得充分赔偿。",
+      "suggested_revision": "删除赔偿上限，或调整为合理限额如服务费的倍数。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第二条",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "如任一方未提出终止，本协议自动续展1年。",
+      "legal_analysis": "自动续展条款可能未充分提醒甲方，导致合同长期绑定。",
+      "legal_basis": "基于法理分析，自动续展应明确告知义务。",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同自动续期，甲方可能忘记终止，继续付费。",
+      "suggested_revision": "改为需双方书面确认续签，或增加提醒机制。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_012",
+      "clause_code": "第十二条",
+      "risk_level": "medium",
+      "risk_category": "验收标准",
+      "original_text": "甲方有权对乙方的服务质量进行考核，考核内容包括：（一）响应时间是否符合约定；（二）法律意见的专业性和准确性；（三）服务态度和沟通效率；（四）服务报告的及时性和完整性。",
+      "legal_analysis": "考核标准主观性强，缺乏量化指标，可能导致争议。",
+      "legal_basis": "基于法理分析，验收标准应明确。",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "考核内容太主观，乙方可能被随意扣减费用。",
+      "suggested_revision": "制定具体、可量化的考核指标和评分标准。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "服务费按季度支付，甲方应在每季度首月10日前支付当季服务费60,000元。",
+      "legal_analysis": "付款是固定季度预付，但服务是持续提供的，如果服务不佳，甲方可能难以追回费用。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "先付钱后服务，服务不好时钱已付，维权困难。",
+      "suggested_revision": "调整付款方式，如按月支付或与服务报告质量挂钩。",
+      "confidence": 0.65
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "SLA",
+      "original_text": "（合同中未发现服务水平协议（SLA）条款）",
+      "legal_analysis": "虽有响应时间，但缺乏详细的服务水平指标如可用性、故障恢复等，可能导致服务质量争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务水平协议（SLA）条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务水平协议（SLA）条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_007",
+      "clause_b": "cl_017",
+      "conflict_type": "logic",
+      "description": "保密义务要求严格保密信息，但律师执业特权可能允许在某些情况下披露，存在逻辑矛盾。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "合同未约定服务成果的知识产权归属，可能导致权属争议，应明确归甲方所有。"
+    },
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "保密条款未涵盖数据安全义务，不符合相关法律法规要求，应增加数据保护措施和责任。"
+    },
+    {
+      "name": "服务水平协议（SLA）条款",
+      "reason": "虽有响应时间，但缺乏详细的服务水平指标如可用性、故障恢复等，可能导致服务质量争议。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4640,
+    "completion_tokens": 5491,
+    "latency_ms": 107162,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:04:40.740017",
+  "completed_at": "2026-06-22T02:06:28.373968",
+  "created_at": "2026-06-22T02:04:40.718741"
+}

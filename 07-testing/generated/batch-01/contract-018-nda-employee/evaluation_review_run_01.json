@@ -1,0 +1,57 @@
+{
+  "sample_id": "contract-018-nda-employee",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.263554",
+  "success": true,
+  "expected_risk_topics": [
+    "保密义务",
+    "协议效力优先条款可能损害劳动者权益",
+    "知识产权",
+    "竞业限制",
+    "管辖法院",
+    "脱密期条款不完整",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "保密义务",
+    "知识产权",
+    "离职申报",
+    "竞业限制",
+    "管辖法院",
+    "脱密期",
+    "违约责任",
+    "非招揽义务"
+  ],
+  "expected_high_risk_topics": [
+    "保密义务",
+    "竞业限制",
+    "违约责任"
+  ],
+  "detected_high_risk_topics": [
+    "保密义务",
+    "知识产权",
+    "竞业限制",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "协议效力优先条款可能损害劳动者权益",
+    "脱密期条款不完整"
+  ],
+  "unexpected_topics": [
+    "离职申报",
+    "脱密期",
+    "非招揽义务"
+  ],
+  "topic_recall": 0.714,
+  "topic_precision": 0.625,
+  "high_risk_recall": 1.0,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 1,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.75,
+  "overall_score": 0.862,
+  "notes": ""
+}

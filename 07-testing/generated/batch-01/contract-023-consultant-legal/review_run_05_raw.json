@@ -1,0 +1,217 @@
+{
+  "id": "7865018d-1e9b-4e72-b060-53e27c216558",
+  "contract_id": "95c14432-e3d8-443c-889e-662fcf62ce8c",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 10,
+    "high": 4,
+    "medium": 5,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定乙方提供的法律意见、文书等工作成果的知识产权归属，可能导致权属纠纷。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "合同没说清谁拥有乙方为甲方做的法律工作的知识产权。",
+      "suggested_revision": "添加条款明确知识产权归属，例如“乙方为甲方提供的工作成果，其知识产权归甲方所有”。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_011_5",
+      "clause_code": "第十一条 1.5",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方因过错导致甲方损失的，乙方应承担赔偿责任，但赔偿金额以乙方已收取的服务费总额为限。",
+      "legal_analysis": "该条款限制乙方赔偿责任，可能构成不公平格式条款，违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方最多只赔已收的钱，即使损失更大，这对甲方不公平。",
+      "suggested_revision": "修改为“乙方因过错导致甲方损失的，应承担实际损失的赔偿责任，但赔偿金额以合理预见范围为限”。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_02_2",
+      "clause_code": "第二条 2.2",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "服务期满前30日，双方可协商续签事宜。如任一方未提出终止，本协议自动续展1年。",
+      "legal_analysis": "自动续展可能使甲方在不满意时难以退出，缺乏明确退出机制。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同会自动续期，除非提前30天通知，否则可能被迫续签。",
+      "suggested_revision": "添加“甲方有权在服务期满前书面通知不续展，否则自动续展。续展期间，任何一方可提前60日书面通知终止”。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_08_2",
+      "clause_code": "第八条 8.2",
+      "risk_level": "medium",
+      "risk_category": "合规风险",
+      "original_text": "在本协议有效期内，乙方不得接受甲方直接竞争对手的委托，为甲方的直接竞争对手提供同类法律服务。",
+      "legal_analysis": "“直接竞争对手”未定义，可能导致争议，影响利益冲突条款的执行。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有定义什么是竞争对手，可能导致乙方规避条款。",
+      "suggested_revision": "明确定义“直接竞争对手”，或列出具体公司名单。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_012",
+      "clause_code": "第十二条",
+      "risk_level": "medium",
+      "risk_category": "服务质量",
+      "original_text": "甲方有权对乙方的服务质量进行考核，考核内容包括：响应时间是否符合约定；法律意见的专业性和准确性；服务态度和沟通效率；服务报告的及时性和完整性。",
+      "legal_analysis": "考核标准主观，如“专业性”、“服务态度”，可能引发争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "考核标准太主观，容易产生分歧。",
+      "suggested_revision": "量化考核标准，如定义“专业性”为法律意见的准确率等。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_05_3",
+      "clause_code": "第五条 5.3",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "乙方代理甲方诉讼、仲裁案件的收费标准为：一审案件：按争议标的额的3%-5%收取；二审案件：按一审收费标准的50%收取；执行案件：按执行标的额的2%-3%收取。",
+      "legal_analysis": "收费范围浮动大（3%-5%），且未明确计算基数，可能导致费用争议。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "收费比例有浮动，具体收多少可能扯皮。",
+      "suggested_revision": "明确收费基数和具体比例，或约定上限。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_07",
+      "clause_code": "第七条",
+      "risk_level": "medium",
+      "risk_category": "数据安全",
+      "original_text": "乙方承诺对在服务过程中知悉的甲方商业秘密严格保密。",
+      "legal_analysis": "仅承诺保密，未约定具体数据保护技术措施和违约处理细节。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只说了要保密，没说怎么保护，万一数据泄露怎么办。",
+      "suggested_revision": "添加数据安全措施条款，如乙方应采取合理技术保护数据。",
+      "confidence": 0.6
+    },
+    {
+      "clause_id": "cl_01_1",
+      "clause_code": "第一条 1.1",
+      "risk_level": "low",
+      "risk_category": "培训",
+      "original_text": "为甲方提供法律知识培训。",
+      "legal_analysis": "培训内容、频次、费用承担未约定，可能导致履行争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只说了要培训，但没具体说培训什么、多久一次。",
+      "suggested_revision": "明确培训计划，如每年至少两次培训，费用由乙方承担。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "（合同中未发现合规义务条款）",
+      "legal_analysis": "要求乙方遵守律师职业道德和法律法规，确保服务合规。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少合规义务条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加合规义务条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现退出机制细化条款）",
+      "legal_analysis": "在自动续展下，明确退出条件和程序，保护甲方权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少退出机制细化条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加退出机制细化条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_07",
+      "clause_b": "cl_017",
+      "conflict_type": "logic",
+      "description": "保密义务要求严格保密，但律师执业特权允许乙方在必要时披露信息，可能导致冲突。"
+    },
+    {
+      "clause_a": "cl_02_2",
+      "clause_b": "cl_013",
+      "conflict_type": "timeline",
+      "description": "自动续展条款下，终止通知期（30日）与续展期间的终止程序不协调。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "明确工作成果的知识产权归属，避免权属纠纷。"
+    },
+    {
+      "name": "数据安全具体措施条款",
+      "reason": "约定数据保护技术措施和违约处理，增强数据安全。"
+    },
+    {
+      "name": "合规义务条款",
+      "reason": "要求乙方遵守律师职业道德和法律法规，确保服务合规。"
+    },
+    {
+      "name": "退出机制细化条款",
+      "reason": "在自动续展下，明确退出条件和程序，保护甲方权益。"
+    },
+    {
+      "name": "培训具体化条款",
+      "reason": "规定培训内容、频次和费用，确保培训义务明确可执行。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 32,
+    "completion_tokens": 5494,
+    "latency_ms": 108157,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:50:18.581362",
+  "completed_at": "2026-06-22T02:52:07.145440",
+  "created_at": "2026-06-22T02:50:18.563756"
+}

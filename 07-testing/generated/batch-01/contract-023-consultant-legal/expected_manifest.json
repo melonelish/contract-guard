@@ -1,0 +1,41 @@
+{
+  "sample_id": "contract-023-consultant-legal",
+  "contract_type": "法律顾问协议",
+  "title": "常年法律顾问服务协议",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第七条约定了保密义务，要求乙方对甲方信息保密；第十六条约定了律师执业特权，赋予乙方拒绝披露甲方信息的权利。这两款在逻辑上存在重叠和冲突：保密义务是法定义务，律师...",
+    "第四条约定按季度付款（每季度首月10日前支付），第十二条约定按季度考核（季度结束后考核）。付款在前、考核在后，甲方在考核前已支付了下季度服务费，考核结果无法影响..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "法律培训条款",
+    "法律风险预警条款",
+    "法律文书模板条款",
+    "乙方内部管理制度条款"
+  ],
+  "missing_clause_high": [
+    "法律风险预警条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "律师服务收费管理办法",
+    "律师执业行为规范",
+    "律师法"
+  ],
+  "notes": ""
+}

@@ -1,0 +1,77 @@
+{
+  "sample_id": "contract-005-techservice-platform",
+  "review_run_file": "review_run_03.json",
+  "evaluated_at": "2026-06-22T11:31:06.089780",
+  "success": true,
+  "expected_risk_topics": [
+    "SLA",
+    "不公平条款",
+    "合作范围",
+    "响应时间",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "管辖法院",
+    "赔偿责任",
+    "转让限制",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "业务连续性",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "响应时间",
+    "培训",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "SLA",
+    "不公平条款",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "违约责任"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "业务连续性",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "响应时间",
+    "培训",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "SLA",
+    "管辖法院",
+    "赔偿责任",
+    "转让限制"
+  ],
+  "unexpected_topics": [
+    "业务连续性",
+    "付款条件",
+    "合同完整性",
+    "培训"
+  ],
+  "topic_recall": 0.636,
+  "topic_precision": 0.636,
+  "high_risk_recall": 0.833,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 2,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.385,
+  "overall_score": 0.651,
+  "notes": ""
+}

@@ -1,0 +1,45 @@
+{
+  "sample_id": "contract-021-consultant-tech",
+  "contract_type": "技术顾问协议",
+  "title": "技术顾问服务协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "劳动关系",
+    "合作范围",
+    "知识产权",
+    "竞业限制"
+  ],
+  "expected_high_risk_topics": [
+    "劳动关系",
+    "合作范围",
+    "知识产权",
+    "竞业限制"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 4,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第三条第3.1款约定乙方每周到甲方现场服务2天（周二、周四），第3.2款约定乙方可随时通过电话、邮件、即时通讯等方式提供远程技术支持。'随时'二字意味着乙方需要...",
+    "第七条第7.1款约定乙方不得为甲方的'直接竞争对手'提供同类服务，第7.2款又扩大为不得为'任何科技公司'提供技术咨询服务。这两款存在明显矛盾：第7.1款限定了..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "成果验收标准与程序条款",
+    "人员变更与交接条款",
+    "服务报告与沟通机制条款",
+    "保险与责任限制条款"
+  ],
+  "missing_clause_high": [
+    "成果验收标准与程序条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "劳动合同法",
+    "关于确立劳动关系有关事项的通知",
+    "最高人民法院关于审理劳动争议案件适用法律问题的解释（一）",
+    "反不正当竞争法"
+  ],
+  "notes": ""
+}

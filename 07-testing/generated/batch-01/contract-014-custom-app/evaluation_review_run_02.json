@@ -1,0 +1,65 @@
+{
+  "sample_id": "contract-014-custom-app",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.216538",
+  "success": true,
+  "expected_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "质量标准",
+    "资质",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "业务连续性",
+    "安全责任",
+    "数据安全",
+    "知识产权",
+    "运营管理",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "资质"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "业务连续性",
+    "安全责任",
+    "数据安全",
+    "运营管理",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "交付条件",
+    "付款条件",
+    "合作范围",
+    "条款缺失",
+    "质量标准",
+    "资质"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "业务连续性",
+    "安全责任",
+    "知识产权",
+    "运营管理"
+  ],
+  "topic_recall": 0.25,
+  "topic_precision": 0.286,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 1,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 4,
+  "legal_basis_coverage": 0.875,
+  "overall_score": 0.469,
+  "notes": ""
+}

@@ -1,0 +1,39 @@
+{
+  "sample_id": "contract-012-saas-bi",
+  "contract_type": "SaaS商业智能分析平台服务协议",
+  "title": "SaaS BI商业智能分析平台服务协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "其他",
+    "合作范围",
+    "响应时间",
+    "数据安全",
+    "条款缺失",
+    "解约条件"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "其他",
+    "合作范围",
+    "数据安全"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 4,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "第5.3条约定数据存储期限为3年，但第4.2条说明费用仅含1年数据存储。合同服务期限为2年，但数据存储期限为3年，费用结构存在矛盾。",
+    "第7.3条完全免除分析结果准确性的责任，但第2.1条将'智能分析服务'作为核心服务内容。如果分析结果完全不保证准确性，BI服务的核心价值何在？",
+    "第6.2条承诺'大数据量下保持流畅运行'，但第6.4条将'甲方数据源异常'列为免责情形。对于BI平台，数据源是服务的基础，此免责条款可能规避性能承诺。"
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [],
+  "missing_clause_high": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

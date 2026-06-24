@@ -1,0 +1,195 @@
+{
+  "id": "4bc461ac-9dbe-4836-8347-d452f6de119a",
+  "contract_id": "4fb060ff-91f4-46ea-867e-5f9055a44b0d",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 6,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第五条5.5",
+      "risk_level": "high",
+      "risk_category": "系统安全",
+      "original_text": "因智能合约安全漏洞导致的损失，由责任方承担。",
+      "legal_analysis": "条款未明确责任划分标准，如乙方开发漏洞或甲方使用不当，易导致纠纷，违反《民法典》违约责任规定。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "该条款模糊，未说明谁负责，容易互相推诿，增加诉讼风险。",
+      "suggested_revision": "明确责任划分，如“因乙方开发导致的智能合约安全漏洞，乙方应承担修复和赔偿责任；因甲方操作不当导致的，甲方自行承担。”",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第七条7.3",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "区块链系统上线运行即视为验收通过。",
+      "legal_analysis": "条款简化验收流程，可能忽视质量标准，违反《民法典》标的物瑕疵担保规定，损害甲方权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "上线运行不代表质量合格，可能导致系统缺陷未被发现，影响使用。",
+      "suggested_revision": "删除此条，改为“验收以附件五《验收标准及流程》为准，需双方书面确认验收通过。”",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第十一条11.2",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "乙方在开发过程中使用的自有技术框架、工具库、通用组件等的知识产权仍归乙方所有。",
+      "legal_analysis": "乙方保留部分技术权利，可能嵌入系统，影响甲方对系统的完整控制和使用，导致知识产权冲突。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方保留技术权利，可能限制甲方后续修改或升级系统，增加依赖风险。",
+      "suggested_revision": "明确乙方许可甲方永久、免费使用所有嵌入技术，并确保无第三方知识产权侵权。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条4.4",
+      "risk_level": "high",
+      "risk_category": "技术方案",
+      "original_text": "技术路线变更双方协商处理。",
+      "legal_analysis": "条款过于宽泛，缺乏变更流程和批准机制，可能导致项目延误或成本超支，管控不严。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "协商处理没有具体程序，容易产生分歧，影响项目进度和质量。",
+      "suggested_revision": "添加变更控制流程，如“变更需书面申请，经双方书面同意，并明确影响、成本和时间调整。”",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第六条6.5",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应确保系统符合《数据安全法》《个人信息保护法》等相关法律法规的要求。",
+      "legal_analysis": "条款仅为原则性规定，缺乏具体安全措施和事件响应义务，可能无法有效保护数据安全。",
+      "legal_basis": "基于《数据安全法》《个人信息保护法》（合同提及）",
+      "basis_excerpt": "",
+      "basis_source": "《数据安全法》《个人信息保护法》",
+      "plain_explanation": "仅要求合规，但未说明如何确保，风险高，易导致数据泄露或处罚。",
+      "suggested_revision": "增加具体安全措施，如加密、访问控制，以及数据泄露时的通知和修复义务。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十三条13.1和13.2",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "甲方违约有明确违约金；乙方延迟交付的，甲方有权要求乙方加快进度。",
+      "legal_analysis": "甲方违约有违约金，乙方违约仅加快进度，权利义务不对等，违反《民法典》违约金公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方违约成本低，可能不积极履约，损害甲方利益。",
+      "suggested_revision": "平衡违约责任，乙方延迟交付也应支付违约金或承担赔偿责任，如每延迟一天支付合同价0.05%。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十五条15.2",
+      "risk_level": "medium",
+      "risk_category": "SLA保障",
+      "original_text": "系统出现重大故障时，乙方应在4小时内响应，24小时内提供解决方案。",
+      "legal_analysis": "响应时间可能不足，且缺乏灾难恢复机制和SLA具体指标，可能影响系统可用性。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "区块链系统需要高可用性，4小时响应可能不足，缺乏恢复保障。",
+      "suggested_revision": "明确SLA指标，如可用性99.9%，响应时间30分钟，并制定灾难恢复计划。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十四条14.2",
+      "risk_level": "medium",
+      "risk_category": "合规风险",
+      "original_text": "乙方应协助甲方完成区块链信息服务备案手续。",
+      "legal_analysis": "条款未明确备案责任主体和时间，可能导致合规延迟或失败，违反监管要求。",
+      "legal_basis": "基于《区块链信息服务管理规定》",
+      "basis_excerpt": "",
+      "basis_source": "《区块链信息服务管理规定》",
+      "plain_explanation": "备案责任不清，可能延迟或失败，影响系统合法运营。",
+      "suggested_revision": "明确由甲方负责备案，乙方提供必要技术支持，并约定具体时间表和违约责任。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_002",
+      "clause_b": "第七条7.4",
+      "conflict_type": "logic",
+      "description": "7.3条上线即验收通过，但7.4条要求修复缺陷，逻辑矛盾，可能导致验收标准混乱。"
+    },
+    {
+      "clause_a": "第四条4.2",
+      "clause_b": "cl_004",
+      "conflict_type": "logic",
+      "description": "4.2条技术路线不得擅自变更，但4.4条又说双方协商处理，管控力度不一致。"
+    },
+    {
+      "clause_a": "第十一条11.1",
+      "clause_b": "cl_003",
+      "conflict_type": "logic",
+      "description": "11.1条系统知识产权归甲方，但11.2条乙方保留部分技术权利，可能影响甲方完整所有权。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "SLA具体指标和灾难恢复机制",
+      "reason": "区块链系统需高可用性，缺少明确SLA指标（如响应时间、可用性）和灾难恢复计划，可能影响运营。"
+    },
+    {
+      "name": "变更控制委员会或流程",
+      "reason": "技术开发中变更频繁，缺乏正式变更流程和批准机制，易导致项目失控。"
+    },
+    {
+      "name": "培训义务",
+      "reason": "甲方需使用系统，但合同未约定乙方提供培训，可能影响系统有效使用和维护。"
+    },
+    {
+      "name": "链上数据迁移和节点管理详细责任",
+      "reason": "区块链系统涉及节点运营和数据迁移，责任划分不清可能引发后续纠纷。"
+    },
+    {
+      "name": "源代码托管或escrow机制",
+      "reason": "为确保乙方违约时甲方能获得系统代码，应约定源代码托管，保障业务连续性。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 31,
+    "completion_tokens": 5635,
+    "latency_ms": 83165,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T07:58:14.986618",
+  "completed_at": "2026-06-19T07:59:38.631988",
+  "created_at": "2026-06-19T07:58:14.956860"
+}

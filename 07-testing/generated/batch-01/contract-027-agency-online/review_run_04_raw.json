@@ -1,0 +1,195 @@
+{
+  "id": "6ada996c-38e2-41d9-89ef-dbe4f74ad097",
+  "contract_id": "9bf9add1-fb0b-4de3-b3b7-b2237852084e",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 8,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "佣金计算",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "代理合同的核心是佣金或返利计算，缺失易引发收益争议和履约纠纷。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "合同未明确佣金比例、计算基数（如回款金额）、支付周期，乙方收益不确定。",
+      "suggested_revision": "增加佣金条款：明确返利比例、按实际回款计算、季度结算等。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "付款条件是代理合同的基础，缺失会导致资金流风险和对价不对等。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "未约定预付款比例、结算周期（如月结）、付款方式，易生争议。",
+      "suggested_revision": "增加付款条款：约定预付30%，每月结算一次，以银行转账支付。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "培训",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "培训义务是代理方履行代理职责的保障，缺失易导致销售不力和责任推诿。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "虽提及培训支持，但未明确内容、频次、费用承担，责任不清。",
+      "suggested_revision": "增加培训条款：甲方提供产品培训，每季度一次，费用由甲方承担。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "客户归属",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "客户资源归属是代理终止后的关键，缺失易引发客户争夺和数据滥用。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同仅规定数据移交，未明确客户资源归属，如代理终止后客户归谁。",
+      "suggested_revision": "增加客户归属条款：代理期终止后，客户资源归甲方所有，乙方配合移交。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "区域保护",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "区域保护是代理权排他性的核心，缺失易导致渠道冲突和恶性竞争。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "未约定排他性区域或独家代理，乙方可能面临其他代理竞争。",
+      "suggested_revision": "增加区域保护条款：甲方授予乙方在指定平台独家代理权，禁止其他代理。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_012",
+      "clause_code": "第十二条",
+      "risk_level": "high",
+      "risk_category": "销售指标",
+      "original_text": "乙方承诺在代理期内完成年度销售额人民币10,000,000元。",
+      "legal_analysis": "销售指标过高且未达标后果严重，可能构成不公平格式条款，限制乙方权利。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "年销售额1000万元目标可能不切实际，未达标可直接解除协议，对乙方不公。",
+      "suggested_revision": "调整销售指标：根据市场情况设定合理目标，并约定未达标时先协商调整而非直接解除。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_015",
+      "clause_code": "第十五条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "任一方违反本协议约定，应向守约方支付违约金人民币200,000元。",
+      "legal_analysis": "违约金固定且未区分违约程度，可能过高，不符合实际损失原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "20万元违约金不论违约轻重都适用，可能被认定过高而需调整。",
+      "suggested_revision": "修改违约责任：根据违约类型和损失程度设定阶梯式违约金，或约定赔偿实际损失。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应对店铺运营数据采取必要的安全保护措施，防止数据泄露、丢失或被未授权访问。",
+      "legal_analysis": "涉及客户个人信息，安全措施规定笼统，未符合个人信息保护法规要求。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据安全措施未具体化，如加密、访问控制等，易导致数据泄露风险。",
+      "suggested_revision": "细化数据安全条款：要求乙方加密存储、定期审计，并遵守《个人信息保护法》。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_003",
+      "clause_b": "cl_012",
+      "conflict_type": "logic",
+      "description": "第三条自动续展条款与第十二条未达标可解除协议矛盾：若乙方未达标，协议可能自动续展但甲方有权解除，导致法律状态不确定。"
+    },
+    {
+      "clause_a": "cl_005",
+      "clause_b": "cl_007",
+      "conflict_type": "logic",
+      "description": "第五条滞销库存不退换货与第七条退换货责任矛盾：非质量问题退换货由乙方承担，但滞销库存不退换，可能增加乙方损失。"
+    },
+    {
+      "clause_a": "cl_009",
+      "clause_b": "cl_018",
+      "conflict_type": "logic",
+      "description": "第九条乙方承担平台规则变化损失与第十八条不可抗力矛盾：规则变化可能被认定为不可抗力，但合同明确乙方自担损失。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "佣金计算条款",
+      "reason": "代理合同核心，未约定佣金比例、计算基数、支付周期，易引发收益争议。"
+    },
+    {
+      "name": "付款条件条款",
+      "reason": "缺失预付款、结算周期等付款细节，导致资金流风险和对价不清。"
+    },
+    {
+      "name": "培训义务详细条款",
+      "reason": "虽提及培训，但未明确内容、频次、费用承担，影响代理履行效果。"
+    },
+    {
+      "name": "客户归属条款",
+      "reason": "代理终止后客户资源归属不明，易引发客户争夺和数据滥用纠纷。"
+    },
+    {
+      "name": "区域保护条款",
+      "reason": "未约定排他性代理区域，可能导致渠道冲突和恶性竞争。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 12,
+    "completion_tokens": 4987,
+    "latency_ms": 102984,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:52:18.446724",
+  "completed_at": "2026-06-22T02:56:06.301359",
+  "created_at": "2026-06-22T02:52:18.418424"
+}

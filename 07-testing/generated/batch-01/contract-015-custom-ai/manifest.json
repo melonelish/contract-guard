@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-015",
+  "contract_type": "AI模型定制开发合同",
+  "title": "信和消费金融智能风控模型定制开发合同",
+  "word_count": 3368,
+  "clause_count": 16,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 2,
+  "difficulty": "hard",
+  "tags": [
+    "AI模型",
+    "智能风控",
+    "机器学习",
+    "数据安全",
+    "模型可解释性",
+    "算法备案",
+    "AI伦理",
+    "金融科技"
+  ]
+}

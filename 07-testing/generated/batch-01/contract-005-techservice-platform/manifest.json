@@ -1,0 +1,68 @@
+{
+  "contract_id": "contract-005",
+  "contract_type": "platform_techservice",
+  "title": "平台技术服务合同",
+  "subtitle": "电商平台运维及技术支持服务",
+  "word_count": 3184,
+  "clause_count": 15,
+  "risk_count": 14,
+  "missing_count": 4,
+  "contradiction_count": 3,
+  "difficulty": "medium-high",
+  "difficulty_score": 7,
+  "tags": [
+    "技术服务",
+    "平台运维",
+    "SLA",
+    "数据安全",
+    "知识产权",
+    "自动续约",
+    "电商平台",
+    "长期合同"
+  ],
+  "parties": {
+    "party_a": {
+      "name": "北京盛世优选电子商务有限公司",
+      "role": "委托方",
+      "industry": "电子商务"
+    },
+    "party_b": {
+      "name": "上海云擎信息技术服务有限公司",
+      "role": "服务方",
+      "industry": "信息技术服务"
+    }
+  },
+  "financial": {
+    "total_amount": 3600000,
+    "currency": "CNY",
+    "payment_terms": "季度支付",
+    "contract_period": "2年"
+  },
+  "risk_distribution": {
+    "high": 5,
+    "medium": 6,
+    "low": 3
+  },
+  "missing_clause_importance": {
+    "high": 1,
+    "medium": 2,
+    "low": 1
+  },
+  "contradiction_severity": {
+    "high": 1,
+    "medium": 2,
+    "low": 0
+  },
+  "test_scenarios": [
+    "SLA标准模糊识别",
+    "服务范围边界检查",
+    "数据归属权分析",
+    "知识产权条款矛盾检测",
+    "违约责任合理性评估",
+    "自动续约公平性判断",
+    "缺失条款识别",
+    "跨条款一致性检查"
+  ],
+  "created_at": "2026-06-18",
+  "version": "1.0.0"
+}

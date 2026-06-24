@@ -8,9 +8,11 @@ interface ContractState {
   selected: ContractDetail | null;
   loading: boolean;
   uploadLoading: boolean;
+  error: string | null;
   fetchContracts: () => Promise<void>;
   fetchContractDetail: (id: string) => Promise<void>;
   uploadContract: (file: File, title?: string) => Promise<string>;
+  clearError: () => void;
 }
 
 export const useContractStore = create<ContractState>((set, get) => ({
@@ -18,6 +20,7 @@ export const useContractStore = create<ContractState>((set, get) => ({
   selected: null,
   loading: false,
   uploadLoading: false,
+  error: null,
   fetchContracts: async () => {
     set({ loading: true });
     try {
@@ -29,12 +32,19 @@ export const useContractStore = create<ContractState>((set, get) => ({
     }
   },
   fetchContractDetail: async (id) => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
       const response = await apiClient.get<ApiResponse<ContractDetail>>(`/contracts/${id}`);
-      set({ selected: response.data.data, loading: false });
+      set({ selected: response.data.data, loading: false, error: null });
     } catch (_error) {
-      set({ loading: false });
+      const axiosError = _error as { code?: string; message?: string };
+      let errorMsg = '加载合同详情失败';
+
+      if (axiosError.code === 'ERR_NETWORK' || axiosError.message?.includes('Network Error')) {
+        errorMsg = '后端服务未启动或网络连接失败';
+      }
+
+      set({ loading: false, error: errorMsg, selected: null });
       throw _error;
     }
   },
@@ -59,4 +69,5 @@ export const useContractStore = create<ContractState>((set, get) => ({
       throw _error;
     }
   },
+  clearError: () => set({ error: null }),
 }));

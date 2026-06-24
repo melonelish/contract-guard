@@ -1,0 +1,227 @@
+{
+  "id": "b7f00ad4-ca82-4564-be4c-5f0e2b7a480a",
+  "contract_id": "aa1e78b2-1606-41d4-90cb-532d537dc594",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 11,
+    "high": 6,
+    "medium": 4,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_011",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "甲方逾期付款的，每逾期一日，应按未付金额的5%向乙方支付违约金。",
+      "legal_analysis": "甲方违约金比例显著高于乙方（0.5%），可能被认定为显失公平，根据民法典可请求调整。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "甲方逾期付款违约金每日5%，远高于乙方，法院可能降低以显公平。",
+      "suggested_revision": "调整违约金比例至合理范围，如双方均按未付金额的0.05%每日计算。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "质量标准",
+      "original_text": "如因标的物质量问题导致甲方产品被召回、行政处罚或消费者索赔，乙方应赔偿甲方因此遭受的全部直接损失和合理的间接损失。",
+      "legal_analysis": "乙方承担间接损失责任，但未限定范围，可能过重，需明确间接损失的定义和赔偿上限。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "plain_explanation": "质量问题导致甲方损失，乙方要赔所有损失包括间接的，责任太重易生纠纷。",
+      "suggested_revision": "限定间接损失范围，如仅包括合理额外费用，并设置赔偿上限为合同金额一定比例。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少不可抗力条款，无法合理分配因不可抗力事件导致的履行不能风险，易引发争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同没约定自然灾害等不可控事件的处理方式，容易扯皮。",
+      "suggested_revision": "增加不可抗力条款，定义事件类型、通知义务、责任免除及后续处理。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第二条",
+      "risk_level": "medium",
+      "risk_category": "供应链风险",
+      "original_text": "价格调整机制：标的物价格随行就市，由双方根据市场行情定期协商调整。每季度末双方应就下一季度价格进行沟通，但具体调整幅度和生效时间由双方另行确定。",
+      "legal_analysis": "价格调整条款不明确，缺乏具体标准或公式，易引发履约争议和成本不确定性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "价格怎么调不清楚，只说双方商量，容易吵架影响合作。",
+      "suggested_revision": "明确价格调整公式或参考指数，如基于CPI或行业指数调整，并约定协商不成的解决机制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条",
+      "risk_level": "medium",
+      "risk_category": "交付条件",
+      "original_text": "数量浮动条款：乙方交付的标的物数量允许在订单数量的基础上浮动±20%，甲方应按实际交付数量接收并结算。",
+      "legal_analysis": "浮动范围过宽（±20%），可能使甲方无法准确规划生产，导致库存积压或短缺问题。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "乙方可以多交或少交20%，甲方必须接收，影响生产计划和控制。",
+      "suggested_revision": "缩小浮动范围至合理幅度，如±5%，或约定超量部分需甲方事先同意。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_009",
+      "clause_code": "第九条",
+      "risk_level": "medium",
+      "risk_category": "保密条款",
+      "original_text": "保密期限：本合同终止后，双方的保密义务继续有效，保密期限为自合同终止之日起10年。",
+      "legal_analysis": "10年保密期可能超出必要，应基于商业秘密的时效性合理设定，避免过度限制。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同结束后还要保密10年，时间太长可能不合理。",
+      "suggested_revision": "缩短保密期限至合理范围，如5年，或根据信息类型设定不同时限。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_012",
+      "clause_code": "第十二条",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "合同期满前30日，如双方均未书面提出终止合同，则本合同自动续展一年，续展次数不限。",
+      "legal_analysis": "自动续展但未明确续展时的条件调整机制，可能导致合同内容过时或不公平。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同到期自动延长，但价格、数量等可能没更新，容易出问题。",
+      "suggested_revision": "明确续展时价格、数量等条款应重新协商，或约定自动续展的条件如无重大变更。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条",
+      "risk_level": "low",
+      "risk_category": "付款条件",
+      "original_text": "预付款：首次合作的前三个批次，甲方应预付该批次货款的30%作为预付款，余款按5.2条执行。自第四批次起不再支付预付款。",
+      "legal_analysis": "预付款仅限于初期批次，之后无预付款，可能影响乙方资金周转，但风险较低。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "开始三个批次有预付款，之后没有，乙方可能资金紧张。",
+      "suggested_revision": "考虑根据合作情况适当提供预付款，或调整付款账期以平衡双方现金流。",
+      "confidence": 0.6
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现退换货细则）",
+      "legal_analysis": "明确退换货的具体流程、时限和责任划分，减少质量纠纷。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少退换货细则，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加退换货细则。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现争议解决机制）",
+      "legal_analysis": "细化协商、调解、诉讼等步骤，提高争议解决效率。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少争议解决机制，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加争议解决机制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现数据安全条款）",
+      "legal_analysis": "保护商业秘密和敏感信息，明确数据处理和保护义务。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少数据安全条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加数据安全条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_011",
+      "clause_b": "cl_011.5",
+      "conflict_type": "numeric",
+      "description": "甲方逾期付款违约金每日5%与违约金累计总额不超过20%可能存在计算不一致或限制过严的矛盾。"
+    },
+    {
+      "clause_a": "cl_003.2",
+      "clause_b": "cl_003.5",
+      "conflict_type": "logic",
+      "description": "数量浮动允许±20%的变化，但订单确认后不得单方面变更，可能产生逻辑冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "不可抗力条款",
+      "reason": "合理分配因自然灾害等不可抗力事件导致的履行不能风险，避免责任不清。"
+    },
+    {
+      "name": "退换货细则",
+      "reason": "明确退换货的具体流程、时限和责任划分，减少质量纠纷。"
+    },
+    {
+      "name": "争议解决机制",
+      "reason": "细化协商、调解、诉讼等步骤，提高争议解决效率。"
+    },
+    {
+      "name": "数据安全条款",
+      "reason": "保护商业秘密和敏感信息，明确数据处理和保护义务。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 24,
+    "completion_tokens": 7533,
+    "latency_ms": 117182,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "质量标准"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T10:07:24.743024",
+  "completed_at": "2026-06-19T10:09:22.231233",
+  "created_at": "2026-06-19T10:07:24.727863"
+}

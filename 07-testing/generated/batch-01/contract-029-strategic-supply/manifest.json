@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-029",
+  "contract_type": "战略供应链合作协议",
+  "title": "战略供应链合作协议 - 远景新能源与鼎力电池",
+  "word_count": 3015,
+  "clause_count": 14,
+  "risk_count": 16,
+  "missing_count": 6,
+  "contradiction_count": 4,
+  "difficulty": "hard",
+  "tags": [
+    "供应链合作",
+    "新能源汽车",
+    "动力电池",
+    "产能锁定",
+    "价格机制",
+    "排他性",
+    "显失公平",
+    "反垄断"
+  ]
+}

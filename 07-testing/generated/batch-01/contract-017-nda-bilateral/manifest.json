@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-017",
+  "contract_type": "保密协议",
+  "title": "双向保密协议（智源科技与星辰数据）",
+  "word_count": 3013,
+  "clause_count": 11,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "medium",
+  "tags": [
+    "保密协议",
+    "NDA",
+    "双向NDA",
+    "科技行业",
+    "联合研发",
+    "违约责任不对等",
+    "保密范围过宽",
+    "管辖权偏向"
+  ]
+}

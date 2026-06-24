@@ -1,0 +1,48 @@
+{
+  "sample_id": "contract-022-consultant-management",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.310682",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "知识产权",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "合作范围"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合作范围",
+    "知识产权",
+    "违约责任"
+  ],
+  "missing_expected_topics": [],
+  "unexpected_topics": [
+    "不公平条款"
+  ],
+  "topic_recall": 1.0,
+  "topic_precision": 0.833,
+  "high_risk_recall": 1.0,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 2,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.75,
+  "overall_score": 0.962,
+  "notes": ""
+}

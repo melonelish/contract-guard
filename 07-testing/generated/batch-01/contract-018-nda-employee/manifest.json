@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-018",
+  "contract_type": "员工保密与竞业限制协议",
+  "title": "员工保密与竞业限制协议（芯联微电子与王建国）",
+  "word_count": 3020,
+  "clause_count": 10,
+  "risk_count": 14,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "员工保密协议",
+    "竞业限制",
+    "劳动合同法",
+    "补偿金",
+    "违约金",
+    "保密范围过宽",
+    "补偿金过低",
+    "期限矛盾"
+  ]
+}

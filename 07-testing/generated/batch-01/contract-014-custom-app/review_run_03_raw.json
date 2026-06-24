@@ -1,0 +1,211 @@
+{
+  "id": "bc920491-4be1-4554-a5f4-f2e1e40de21a",
+  "contract_id": "ca16076c-72ea-4508-9b91-61ed74dc5f33",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 10,
+    "high": 8,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条6.3款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "应用功能完整、运行稳定即视为验收通过。",
+      "legal_analysis": "验收标准过于模糊，缺乏具体可量化的指标，易引发争议。根据《民法典》第511条，质量要求不明确的应按通常标准履行。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同没有定义“功能完整、运行稳定”的具体标准，可能导致验收时双方各执一词。",
+      "suggested_revision": "明确验收标准，如列出具体功能清单、性能指标（如响应时间、错误率）、测试用例，并规定验收流程。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "本合同项下开发完成的应用程序（不包括第三方组件）的知识产权归甲方所有。",
+      "legal_analysis": "条款未明确源代码交付、技术文档的完整知识产权转移，以及第三方组件许可冲突风险。可能引发所有权争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同说应用归甲方，但源代码和第三方组件的归属和许可可能不清，影响甲方后续使用和维护。",
+      "suggested_revision": "明确约定源代码、技术文档的交付标准和知识产权归属；要求乙方保证第三方组件无许可冲突，并承担相应责任。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同涉及用户数据、支付信息，但未规定数据安全措施、个人信息处理责任，违反《个人信息保护法》等规定。",
+      "legal_basis": "《个人信息保护法》相关原则（基于法理分析）",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方作为零售企业，处理大量用户数据，合同没有约定数据安全责任，可能导致数据泄露风险。",
+      "suggested_revision": "增加数据安全条款，明确数据分类、加密措施、访问控制、个人信息处理原则、数据泄露应急响应等。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "甲方违约责任：（一）甲方未按合同约定的时间节点支付款项的，每延迟一天，应向乙方支付应付未付金额的0.05%作为违约金；（二）甲方延迟付款超过30天的，乙方有权暂停项目开发工作。乙方违约责任：（一）乙方未按合同约定的时间节点完成阶段性交付物的，应及时向甲方说明原因并提交整改计划；（二）乙方延迟交付的，甲方有权要求乙方加快进度。",
+      "legal_analysis": "甲方违约有具体违约金和后果，乙方违约责任仅为说明和整改，缺乏赔偿机制，违反公平原则。《民法典》第577条规定违约方应承担继续履行、补救或赔偿损失。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "甲方逾期付款要付违约金，乙方延迟交付只需解释，没有赔偿，对甲方不公平。",
+      "suggested_revision": "平衡违约责任：为乙方延迟交付设定违约金（如每延迟一天支付合同总价的0.05%），并明确赔偿范围。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第七条7.2款",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "合同签订后5个工作日内，甲方支付合同总价的30%，即人民币伍拾肆万元整（¥540,000.00）作为项目启动款",
+      "legal_analysis": "预付款比例30%对于开发项目较高，增加甲方资金风险。应确保付款与交付成果挂钩。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "项目刚开始就付30%的款项，如果乙方不履约，甲方损失较大。",
+      "suggested_revision": "降低预付款比例至10-20%，或要求乙方提供履约担保。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "运营管理",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同质保期仅6个月，未明确SLA（如服务可用性、故障响应时间）、灾难恢复机制，影响系统长期稳定运行。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "应用上线后，没有明确的服务级别协议，可能出现故障无人处理。",
+      "suggested_revision": "增加运营管理条款，定义SLA指标（如可用性99.9%）、灾难恢复计划、数据备份责任。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "业务连续性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未涉及系统上线后的应急响应、业务连续性计划，如服务器故障、数据丢失等风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "应用是核心销售渠道，如果出现重大故障，没有应急计划，会影响业务。",
+      "suggested_revision": "制定业务连续性计划，包括备份策略、恢复时间目标（RTO）、应急联系人等。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第三条",
+      "risk_level": "medium",
+      "risk_category": "技术管理",
+      "original_text": "项目总开发周期为6个月，自合同生效之日起计算，具体里程碑节点如下",
+      "legal_analysis": "未明确需求变更流程和技术路线确认机制，可能导致项目范围蔓延或技术争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果甲方中途改变需求，没有约定如何处理，可能影响进度和成本。",
+      "suggested_revision": "增加变更管理流程，如书面确认、影响评估、费用调整等。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现需求变更管理流程条款）",
+      "legal_analysis": "防止项目范围蔓延，明确变更处理方式。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少需求变更管理流程条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加需求变更管理流程条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现安全责任划分条款）",
+      "legal_analysis": "明确系统安全责任，包括数据泄露、攻击响应等。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少安全责任划分条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加安全责任划分条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_004",
+      "clause_b": "cl_001",
+      "conflict_type": "logic",
+      "description": "付款节点“应用开发完成并通过内部测试后”依赖于内部测试通过，但验收标准模糊，可能导致付款条件不明确。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "合同涉及用户数据、支付信息，需明确数据安全措施和个人信息处理责任。"
+    },
+    {
+      "name": "运营管理与SLA条款",
+      "reason": "质保期短，缺乏具体服务级别协议，影响系统长期维护。"
+    },
+    {
+      "name": "业务连续性保障条款",
+      "reason": "核心销售渠道应用需应急响应和灾难恢复机制。"
+    },
+    {
+      "name": "需求变更管理流程条款",
+      "reason": "防止项目范围蔓延，明确变更处理方式。"
+    },
+    {
+      "name": "安全责任划分条款",
+      "reason": "明确系统安全责任，包括数据泄露、攻击响应等。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 30,
+    "completion_tokens": 7203,
+    "latency_ms": 235338,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T10:03:12.527722",
+  "completed_at": "2026-06-19T10:07:08.202307",
+  "created_at": "2026-06-19T10:03:12.512687"
+}

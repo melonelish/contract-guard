@@ -1,0 +1,183 @@
+{
+  "id": "c5e5edb7-798a-4b1e-8947-f493515eb84d",
+  "contract_id": "927f0e5e-893d-4637-9512-6afa9272658c",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 6,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "1.1 乙方同意为甲方提供以下品牌营销顾问服务：（一）品牌策划服务；（二）数字营销服务；（三）社交媒体运营服务；（四）内容创作服务。",
+      "legal_analysis": "服务范围描述宽泛，缺乏具体交付标准和量化指标，易导致履行争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务内容笼统，没明确完成标准，容易扯皮。",
+      "suggested_revision": "细化服务内容，明确每个服务的具体交付物、验收标准和完成时间。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "6.2 乙方在创作过程中使用的第三方素材（如图片、字体、音乐等），应确保已获得合法授权。",
+      "legal_analysis": "未明确第三方素材侵权的责任承担和赔偿机制，甲方可能面临连带风险。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "如果乙方用的素材侵权，甲方可能被起诉，但合同没写谁负责。",
+      "suggested_revision": "明确乙方对第三方素材合法性负全责，并约定侵权赔偿条款。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "8.4 乙方违反竞业限制条款的，应向甲方支付违约金，违约金为合同总价的30%。",
+      "legal_analysis": "违约金30%可能过分高于实际损失，根据民法典可请求适当减少。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金太高，可能被法院调低，对乙方不公平。",
+      "suggested_revision": "调整违约金至合理比例（如10-20%），或基于实际损失计算。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "保密义务",
+      "original_text": "9.4 任何一方违反保密义务的，应向守约方支付违约金，违约金为人民币100万元。",
+      "legal_analysis": "固定违约金100万未考虑实际损失，可能被认定为不公平格式条款。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "无论损失大小都赔100万，不合理。",
+      "suggested_revision": "改为基于实际损失计算违约金，或设定合理上限。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "合同全文涉及营销数据处理，但无数据安全条款。",
+      "legal_analysis": "未规定数据安全保护、处理责任和个人信息保护义务，可能违反数据保护法规。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "营销可能用客户数据，但合同没提怎么保护，有泄露风险。",
+      "suggested_revision": "增加数据安全条款，明确数据所有权、处理方式和安全措施。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十四条",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "合同中有两个“第十四条”，第一个是违约责任，第二个是合同终止。",
+      "legal_analysis": "条款编号重复且内容冲突，导致合同解释混乱，影响条款效力。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同编号错了，有两个第十四条，容易搞混。",
+      "suggested_revision": "更正条款编号，确保连续正确。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第五条",
+      "risk_level": "medium",
+      "risk_category": "服务范围",
+      "original_text": "5.4 具体的营销效果目标由双方另行协商确定，详见附件一。",
+      "legal_analysis": "效果目标依赖附件，若附件缺失或不明确，可能导致履行标准不清。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "说好提升效果，但具体目标在附件，附件没细看可能有问题。",
+      "suggested_revision": "在合同正文中明确关键绩效指标（KPI）或确保附件详细确认。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十五条",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "original_text": "15.2 协商不成的，任何一方均可向甲方所在地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "约定管辖在甲方所在地，可能对乙方造成不便，但法律允许。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "打官司必须在甲方所在地，乙方不方便。",
+      "suggested_revision": "改为中立仲裁机构或双方所在地法院。",
+      "confidence": 0.6
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_008",
+      "clause_b": "第十四条（合同终止）",
+      "conflict_type": "logic",
+      "description": "条款编号重复，第一个第十四条是违约责任，第二个是合同终止，内容冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "合同涉及营销数据处理，需明确数据所有权、处理方式和安全责任。"
+    },
+    {
+      "name": "服务级别协议（SLA）",
+      "reason": "缺少具体交付标准、响应时间和质量保证，易引发争议。"
+    },
+    {
+      "name": "责任限制条款",
+      "reason": "未规定双方责任上限，可能面临过度索赔风险。"
+    },
+    {
+      "name": "知识产权详细条款",
+      "reason": "未明确乙方保留的权利或创作过程的归属细节。"
+    },
+    {
+      "name": "自动续展具体条件",
+      "reason": "续展条款模糊，未明确协商不一致时的处理方式。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4006,
+    "completion_tokens": 5880,
+    "latency_ms": 94305,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:07:49.842576",
+  "completed_at": "2026-06-19T09:09:24.564261",
+  "created_at": "2026-06-19T09:07:49.826450"
+}

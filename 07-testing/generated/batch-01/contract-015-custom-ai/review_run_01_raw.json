@@ -1,0 +1,57 @@
+{
+  "id": "95af8c2d-0723-418c-b4b3-12bf2e5b839b",
+  "contract_id": "8dc83430-1898-4faa-8a78-e83062851f36",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 1,
+    "high": 1,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第二条2.2",
+      "risk_level": "high",
+      "risk_category": "质量要求",
+      "original_text": "乙方应确保合同模型达到行业领先水平。",
+      "legal_analysis": "标准模糊，缺乏客观衡量指标，易引发验收争议。根据《民法典》第511条，质量要求不明确应按行业标准或通常标准履行。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。\n当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）；《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "",
+      "suggested_revision": "",
+      "confidence": 0.5
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 3797,
+    "completion_tokens": 4096,
+    "latency_ms": 62656,
+    "finish_reason": "max_tokens"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "质量标准",
+      "验收",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T01:47:09.888126",
+  "completed_at": "2026-06-19T01:48:56.757186",
+  "created_at": "2026-06-19T01:47:09.863189"
+}

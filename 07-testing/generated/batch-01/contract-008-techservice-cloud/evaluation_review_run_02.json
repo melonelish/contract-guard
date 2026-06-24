@@ -1,0 +1,76 @@
+{
+  "sample_id": "contract-008-techservice-cloud",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.128243",
+  "success": true,
+  "expected_risk_topics": [
+    "业务连续性",
+    "云计算资源",
+    "付款条件",
+    "条款缺失",
+    "赔偿责任",
+    "违约责任",
+    "风险提示",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "SLA",
+    "付款条件",
+    "供应链风险",
+    "合同完整性",
+    "响应时间",
+    "技术管理",
+    "数据安全",
+    "知识产权",
+    "运营管理",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "业务连续性",
+    "条款缺失",
+    "赔偿责任",
+    "违约责任"
+  ],
+  "detected_high_risk_topics": [
+    "SLA",
+    "付款条件",
+    "合同完整性",
+    "响应时间",
+    "技术管理",
+    "数据安全",
+    "知识产权",
+    "运营管理",
+    "违约责任",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "业务连续性",
+    "云计算资源",
+    "条款缺失",
+    "赔偿责任",
+    "风险提示"
+  ],
+  "unexpected_topics": [
+    "SLA",
+    "供应链风险",
+    "合同完整性",
+    "响应时间",
+    "技术管理",
+    "数据安全",
+    "知识产权",
+    "运营管理"
+  ],
+  "topic_recall": 0.375,
+  "topic_precision": 0.273,
+  "high_risk_recall": 0.25,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 3,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.333,
+  "overall_score": 0.325,
+  "notes": ""
+}

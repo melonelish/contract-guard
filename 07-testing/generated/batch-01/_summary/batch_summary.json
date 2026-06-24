@@ -1,0 +1,42 @@
+{
+  "batch_name": "batch-01",
+  "generated_at": "2026-06-22T11:32:05.757949",
+  "total_samples": 33,
+  "completed_samples": 33,
+  "partial_samples": 0,
+  "failed_samples": 0,
+  "pending_samples": 0,
+  "total_runs": 112,
+  "successful_runs": 112,
+  "failed_runs": 0,
+  "token_stats": {
+    "total_prompt_tokens": 273981,
+    "total_completion_tokens": 559299,
+    "total_tokens": 833280,
+    "avg_prompt_tokens": 2446,
+    "avg_completion_tokens": 4994,
+    "avg_total_tokens": 7440
+  },
+  "latency_stats": {
+    "avg_latency_ms": 94436,
+    "max_latency_ms": 235396,
+    "min_latency_ms": 20856,
+    "avg_duration_sec": 107.8
+  },
+  "risk_stats": {
+    "total_risks": 974,
+    "total_high": 675,
+    "total_contradictions": 207,
+    "total_missing_clauses": 505,
+    "avg_risks_per_contract": 8.7
+  },
+  "quality_stats": {
+    "fallback_triggered": 0,
+    "schema_cleaned": 0,
+    "rag_enabled": 112
+  },
+  "model_usage": {
+    "mimo-v2.5-pro": 99,
+    "deepseek-v4-flash": 13
+  }
+}

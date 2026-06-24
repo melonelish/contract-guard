@@ -1,0 +1,64 @@
+{
+  "sample_id": "contract-029-strategic-supply",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.397639",
+  "success": true,
+  "expected_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "排他性",
+    "条款缺失",
+    "知识产权",
+    "违约责任",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "供货保障",
+    "合作范围",
+    "排他性",
+    "知识产权",
+    "质量标准",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "排他性",
+    "知识产权",
+    "违约责任"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "供货保障",
+    "合作范围",
+    "排他性",
+    "知识产权",
+    "质量标准",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "交付条件",
+    "保密义务",
+    "条款缺失",
+    "验收标准"
+  ],
+  "unexpected_topics": [
+    "供货保障",
+    "质量标准"
+  ],
+  "topic_recall": 0.556,
+  "topic_precision": 0.714,
+  "high_risk_recall": 0.8,
+  "contradiction_hit": true,
+  "contradiction_expected": 4,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 6,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.625,
+  "overall_score": 0.738,
+  "notes": ""
+}

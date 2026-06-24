@@ -1,0 +1,25 @@
+{
+  "contract_id": "contract-004",
+  "contract_type": "采购合同",
+  "title": "IT设备采购合同（金融机构信创改造）",
+  "word_count": 3837,
+  "clause_count": 17,
+  "risk_count": 14,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "采购合同",
+    "IT设备",
+    "信创",
+    "金融",
+    "数据安全",
+    "知识产权",
+    "服务器",
+    "存储设备",
+    "网络设备",
+    "定制固件",
+    "验收条款",
+    "违约责任"
+  ]
+}

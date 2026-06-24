@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-010-saas-erp",
+  "contract_type": "SaaS ERP服务协议",
+  "title": "SaaS ERP企业资源规划系统服务协议",
+  "word_count": 3091,
+  "clause_count": 13,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "SaaS",
+    "ERP",
+    "制造业",
+    "定制开发",
+    "知识产权",
+    "数据迁移",
+    "业务连续性",
+    "功能范围"
+  ]
+}

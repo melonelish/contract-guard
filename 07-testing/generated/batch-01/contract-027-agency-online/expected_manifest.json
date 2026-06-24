@@ -1,0 +1,48 @@
+{
+  "sample_id": "contract-027-agency-online",
+  "contract_type": "线上销售代理协议",
+  "title": "线上销售代理协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "品牌保护",
+    "多平台管理",
+    "平台规则",
+    "库存管理",
+    "数据归属",
+    "管辖法院",
+    "退换货",
+    "销售指标"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "平台规则",
+    "库存管理",
+    "数据归属"
+  ],
+  "expected_risk_count": 10,
+  "expected_high_risk_count": 4,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "第四条第4.3款约定'乙方应按照甲方的建议零售价进行销售，不得低于甲方规定的最低售价'，这是一个明确的价格管控条款。但第4.5款又约定'如平台要求参与促销活动，...",
+    "第七条第7.2款约定'因产品质量问题导致的退换货，由甲方承担相关费用'，但第7.4款又约定'乙方应承担所有退货损失，包括但不限于退货物流费、产品折价损失等'。这..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "品牌保护条款",
+    "多平台冲突管理条款",
+    "业绩考核与退出机制条款",
+    "平台规则变化应对条款"
+  ],
+  "missing_clause_high": [
+    "品牌保护条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "数据安全法",
+    "消费者权益保护法",
+    "商标法",
+    "民事诉讼法"
+  ],
+  "notes": ""
+}

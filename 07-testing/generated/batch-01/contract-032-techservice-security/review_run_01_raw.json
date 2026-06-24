@@ -1,0 +1,189 @@
+{
+  "id": "4319e951-2985-4fcc-a124-ed78080da235",
+  "contract_id": "2b6f1626-7302-4f4c-b4d1-415f986720c2",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 4,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "1.2 渗透测试范围：对甲方核心系统进行安全测试。",
+      "legal_analysis": "服务范围定义模糊，“核心系统”未明确，易引发争议，违反合同明确性原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同未具体说明测试哪些核心系统，可能导致服务不达标或纠纷。",
+      "suggested_revision": "明确列出核心系统的具体名称、清单或作为附件。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "8.4 乙方应采取必要的技术和管理措施，防止数据泄露、丢失或损坏。乙方应使用加密方式传输甲方数据。",
+      "legal_analysis": "数据安全措施描述笼统，未明确具体技术和管理要求，金融机构数据敏感，保护不足。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同只说要加密传输，但未规定数据存储、处理等具体安全标准，风险高。",
+      "suggested_revision": "明确数据安全标准，如符合GB/T 35273，并约定安全审计和事件响应义务。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条和第九条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "6.1 乙方应向甲方交付以下服务成果：（一）渗透测试报告；（五）安全培训资料和考核记录。",
+      "legal_analysis": "服务交付物的知识产权归属未约定，可能引发纠纷，乙方可能保留权利。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同未说明测试报告等成果归谁所有，甲方可能无法自由使用。",
+      "suggested_revision": "增加条款明确所有服务交付物的知识产权归甲方所有。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第七条",
+      "risk_level": "high",
+      "risk_category": "安全责任",
+      "original_text": "7.4 如甲方未能在规定时间内完成漏洞修复，乙方不承担因此导致的安全责任。",
+      "legal_analysis": "免责条款可能过度免除乙方责任，安全事件责任划分不清，不公平。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。\n出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "plain_explanation": "如果因乙方测试不当导致问题，但甲方未及时修复，乙方可能完全免责，不合理。",
+      "suggested_revision": "明确安全责任划分，乙方应对测试过程中的过错负责，不可单方免责。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "4.1（一）合同生效后15日内，支付合同总价的50%，即人民币40万元；",
+      "legal_analysis": "预付款比例过高，与交付进度不完全挂钩，增加甲方风险。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "合同一开始就支付一半款项，但服务尚未开始，甲方资金压力大。",
+      "suggested_revision": "调整付款比例，如预付款30%，并根据阶段交付支付。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条",
+      "risk_level": "medium",
+      "risk_category": "验收标准",
+      "original_text": "6.2 服务交付物应在各阶段服务完成后15日内提交给甲方，甲方应在收到后10个工作日内确认。",
+      "legal_analysis": "验收标准不具体，仅确认但未规定拒绝条件和重新提交流程。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方可能轻易确认或拒绝，导致争议，缺乏客观标准。",
+      "suggested_revision": "明确验收标准，如符合行业规范，并约定验收流程和异议处理。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十二条（违约责任部分）",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "11.1 乙方未按约定时间完成服务的，每逾期一日，应按合同总价的万分之五向甲方支付违约金。...11.3 甲方逾期付款的，每逾期一日，应按逾期金额的万分之五向乙方支付违约金。",
+      "legal_analysis": "乙方逾期按合同总价计算，甲方逾期按逾期金额计算，计算基数不同，可能不公平。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方违约金基数大，甲方基数小，可能对乙方更苛刻，需平衡。",
+      "suggested_revision": "统一违约金计算方式，如均按逾期金额或合同总价的合理比例。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十二条（保密义务部分）",
+      "risk_level": "medium",
+      "risk_category": "保密义务",
+      "original_text": "12.4 任何一方违反保密义务的，应向守约方支付违约金，违约金为人民币200万元。",
+      "legal_analysis": "违约金固定为200万元，可能过高，未考虑实际损失，不合理。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密违约可能造成不同损失，固定高额违约金可能被法院调整。",
+      "suggested_revision": "将违约金调整为基于实际损失的合理数额，或设置上限。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十二条 (违约责任)",
+      "clause_b": "第十二条 (保密义务)",
+      "conflict_type": "logic",
+      "description": "合同中存在两个“第十二条”，分别涉及违约责任和保密义务，逻辑上冲突，应修正编号。"
+    },
+    {
+      "clause_a": "第七条",
+      "clause_b": "第十二条",
+      "conflict_type": "logic",
+      "description": "第七条规定乙方在甲方未修复漏洞时不承担责任，但第十二条规定了违约责任，可能存在冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "明确服务交付物（如报告、方案）的知识产权归属，避免纠纷。"
+    },
+    {
+      "name": "服务级别协议（SLA）",
+      "reason": "约定响应时间、服务可用性等，确保服务质量。"
+    },
+    {
+      "name": "数据备份和灾难恢复机制",
+      "reason": "针对金融机构数据，应明确备份和恢复责任。"
+    },
+    {
+      "name": "人员变更通知义务",
+      "reason": "乙方服务人员变更时应通知甲方，保证服务连续性。"
+    },
+    {
+      "name": "合同终止后的知识产权处理",
+      "reason": "明确合同终止后已交付成果的知识产权处置。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4105,
+    "completion_tokens": 5947,
+    "latency_ms": 94145,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:06:02.269285",
+  "completed_at": "2026-06-19T09:07:36.947357",
+  "created_at": "2026-06-19T09:06:02.234378"
+}

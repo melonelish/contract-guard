@@ -1,0 +1,128 @@
+{
+  "id": "1a7ce2e0-210a-40b9-a2bb-22a8da145bbd",
+  "contract_id": "aa2a1cc6-5099-44d7-8213-d7307bc34898",
+  "contract_title": "Smoke测试合同",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 5,
+    "high": 5,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "服务范围",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未明确服务范围，可能导致履行争议。基于《民法典》第470条，合同应包括标的条款，明确权利义务。",
+      "legal_basis": "《民法典》第470条",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。",
+      "basis_source": "《民法典》第470条（合同内容）",
+      "plain_explanation": "合同没有说明具体测试什么、标准是什么，容易产生纠纷。",
+      "suggested_revision": "添加条款，详细描述测试服务的内容、技术标准、交付物。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未约定付款条件，影响合同履行。基于《民法典》第510条，价款约定不明确时可按交易习惯确定。",
+      "legal_basis": "《民法典》第510条",
+      "basis_excerpt": "合同生效后，当事人就质量、价款或者报酬、履行地点等内容没有约定或者约定不明确的，可以协议补充；不能达成补充协议的，按照合同相关条款或者交易习惯确定。",
+      "basis_source": "《民法典》第510条（约定不明确的处理）",
+      "plain_explanation": "合同没有写多少钱、怎么付款，可能导致付款延迟或争议。",
+      "suggested_revision": "明确费用金额、支付方式、结算周期和条件。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少验收标准，无法确认服务完成。基于《民法典》第620条，检验期间和标准应约定，避免质量争议。",
+      "legal_basis": "《民法典》第620条",
+      "basis_excerpt": "买受人收到标的物时应当在约定的检验期间内检验。没有约定检验期间的，应当及时检验。",
+      "basis_source": "《民法典》第620条（标的物检验）",
+      "plain_explanation": "合同没有规定如何验收测试结果，容易就质量是否合格发生争执。",
+      "suggested_revision": "添加验收标准、验收流程和验收时间。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "测试成果知识产权未约定，易引发纠纷。基于《民法典》第864条，委托开发合同知识产权归属应明确。",
+      "legal_basis": "《民法典》第864条",
+      "basis_excerpt": "委托开发完成的发明创造，除法律另有规定或者当事人另有约定外，申请专利的权利属于研究开发人。研究开发人取得专利权的，委托人可以依法实施该专利。",
+      "basis_source": "《民法典》第864条（委托开发专利权归属）",
+      "plain_explanation": "测试中产生的数据或成果归谁所有不明确，可能引发知识产权争议。",
+      "suggested_revision": "明确约定测试成果、数据的知识产权归属和使用权限。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未规定数据安全和保密义务，违反信息安全法规。基于《民法典》第501条，保密信息应保护，避免泄露造成损失。",
+      "legal_basis": "《民法典》第501条",
+      "basis_excerpt": "当事人在订立合同过程中知悉的商业秘密或者其他应当保密的信息，无论合同是否成立，不得泄露或者不正当地使用；泄露、不正当地使用该商业秘密或者信息，造成对方损失的，应当承担赔偿责任。",
+      "basis_source": "《民法典》第501条（保密义务）",
+      "plain_explanation": "合同没有要求保护测试数据中的个人信息或商业秘密，可能导致数据泄露。",
+      "suggested_revision": "添加数据安全和保密条款，明确保密范围、期限和责任。",
+      "confidence": 0.9
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [
+    {
+      "name": "服务范围条款",
+      "reason": "定义测试服务的具体内容和标准，避免履行争议。"
+    },
+    {
+      "name": "付款条件条款",
+      "reason": "明确费用和支付方式，确保交易顺利进行。"
+    },
+    {
+      "name": "验收标准条款",
+      "reason": "规定验收流程和标准，确认服务完成。"
+    },
+    {
+      "name": "知识产权条款",
+      "reason": "明确测试成果的知识产权归属，防止纠纷。"
+    },
+    {
+      "name": "数据安全与保密条款",
+      "reason": "保护测试数据中的敏感信息，符合法规要求。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 65,
+    "completion_tokens": 4380,
+    "latency_ms": 96175,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": false,
+    "hit_count": 0,
+    "mode": "model_only",
+    "queries": []
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T12:00:40.575211",
+  "completed_at": "2026-06-22T12:02:22.248071",
+  "created_at": "2026-06-22T12:00:37.918762"
+}

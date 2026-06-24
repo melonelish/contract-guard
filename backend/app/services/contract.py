@@ -9,7 +9,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.config import get_settings
 from app.db.models import Contract, User
 
-
 settings = get_settings()
 SUPPORTED_FILE_TYPES = {"pdf", "doc", "docx", "png", "jpg", "jpeg"}
 MAX_FILE_SIZE = 50 * 1024 * 1024

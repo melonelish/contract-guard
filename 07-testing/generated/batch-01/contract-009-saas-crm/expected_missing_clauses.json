@@ -1,0 +1,37 @@
+{
+  "contract_id": "contract-009-saas-crm",
+  "missing_clauses": [
+    {
+      "clause_id": "M001",
+      "category": "数据安全",
+      "title": "数据安全与隐私保护条款",
+      "description": "合同缺少专门的数据安全条款，未约定数据加密标准（传输加密、存储加密）、访问控制机制、安全审计频率、安全事件响应流程等关键安全措施。",
+      "importance": "high",
+      "reference": "《网络安全法》《数据安全法》相关要求"
+    },
+    {
+      "clause_id": "M002",
+      "category": "服务迁移",
+      "title": "服务迁移协助条款",
+      "description": "合同未约定合同终止后乙方应提供的迁移协助服务内容，包括数据格式转换、系统对接支持、迁移期间的技术支持、历史数据完整性保障等。",
+      "importance": "medium",
+      "reference": "SaaS服务合同通用规范"
+    },
+    {
+      "clause_id": "M003",
+      "category": "系统集成",
+      "title": "第三方集成支持条款",
+      "description": "合同未约定乙方对第三方系统集成的支持义务，包括API接口文档、技术支持范围、集成测试环境、接口变更通知机制等。",
+      "importance": "medium",
+      "reference": "SaaS服务合同通用规范"
+    },
+    {
+      "clause_id": "M004",
+      "category": "数据安全",
+      "title": "数据泄露通知与应急响应条款",
+      "description": "合同未约定数据泄露事件发生后的通知时限、通知方式、应急响应措施、损失赔偿等关键内容。",
+      "importance": "high",
+      "reference": "《个人信息保护法》第57条"
+    }
+  ]
+}

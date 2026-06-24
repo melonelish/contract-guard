@@ -1,0 +1,1735 @@
+{
+  "batch_name": "batch-01",
+  "generated_at": "2026-06-22T11:31:55.838291",
+  "total_samples": 33,
+  "analyzed_samples": 33,
+  "not_run_samples": 0,
+  "gap_type_distribution": {
+    "minor_gap": 20,
+    "high_risk_miss": 6,
+    "content_coverage_moderate": 5,
+    "no_gap": 2
+  },
+  "sample_gaps": [
+    {
+      "sample_id": "contract-001-procurement-equipment",
+      "contract_type": "采购合同",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.6,
+      "high_risk_recall": 0.8,
+      "overall_score": 0.716,
+      "legal_basis_coverage": 0.375,
+      "missing_topics": [
+        "交付条件",
+        "保密义务",
+        "培训",
+        "逻辑矛盾"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "合同完整性"
+      ],
+      "expected_risk_count": 15,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-002-procurement-materials",
+      "contract_type": "采购合同",
+      "difficulty": "medium",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.222,
+      "high_risk_recall": 0.2,
+      "overall_score": 0.459,
+      "legal_basis_coverage": 0.545,
+      "missing_topics": [
+        "不可抗力",
+        "保密义务",
+        "合同续展风险",
+        "库存风险",
+        "数量风险",
+        "管辖法院",
+        "质量风险"
+      ],
+      "unexpected_topics": [
+        "交付条件",
+        "合同完整性",
+        "条款缺失",
+        "质量标准"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 6,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-003-procurement-office",
+      "contract_type": "采购合同",
+      "difficulty": "medium",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.333,
+      "high_risk_recall": 0.2,
+      "overall_score": 0.529,
+      "legal_basis_coverage": 0.75,
+      "missing_topics": [
+        "合作范围",
+        "权利失衡",
+        "自动续约陷阱",
+        "订单确认风险",
+        "赔偿责任",
+        "退换货限制",
+        "逻辑矛盾",
+        "金额超支风险"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "付款条件",
+        "合同完整性",
+        "验收标准"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-004-procurement-it",
+      "contract_type": "采购合同",
+      "difficulty": "hard",
+      "gap_type": "content_coverage_moderate",
+      "topic_recall": 0.385,
+      "high_risk_recall": 0.6,
+      "overall_score": 0.591,
+      "legal_basis_coverage": 0.375,
+      "missing_topics": [
+        "人员管理",
+        "供应链风险",
+        "合同完整性",
+        "合规风险",
+        "解约条件",
+        "设备管理",
+        "责任限制",
+        "质量标准"
+      ],
+      "unexpected_topics": [
+        "合作范围",
+        "安全责任"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 7,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-005-techservice-platform",
+      "contract_type": "platform_techservice",
+      "difficulty": "medium-high",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.636,
+      "high_risk_recall": 0.833,
+      "overall_score": 0.651,
+      "legal_basis_coverage": 0.385,
+      "missing_topics": [
+        "SLA",
+        "管辖法院",
+        "赔偿责任",
+        "转让限制"
+      ],
+      "unexpected_topics": [
+        "业务连续性",
+        "付款条件",
+        "合同完整性",
+        "培训"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 11,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-006-techservice-maintenance",
+      "contract_type": "techservice_maintenance",
+      "difficulty": "high",
+      "gap_type": "content_coverage_moderate",
+      "topic_recall": 0.444,
+      "high_risk_recall": 0.6,
+      "overall_score": 0.532,
+      "legal_basis_coverage": 0.625,
+      "missing_topics": [
+        "SLA",
+        "人员管理",
+        "保密义务",
+        "条款缺失",
+        "资质"
+      ],
+      "unexpected_topics": [
+        "合同完整性",
+        "数据安全",
+        "知识产权",
+        "验收标准"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 8,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-007-techservice-data",
+      "contract_type": "techservice_data",
+      "difficulty": "medium-high",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.778,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.71,
+      "legal_basis_coverage": 0.625,
+      "missing_topics": [
+        "条款缺失",
+        "覆盖率"
+      ],
+      "unexpected_topics": [
+        "项目管理"
+      ],
+      "expected_risk_count": 11,
+      "detected_risk_count": 8,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-008-techservice-cloud",
+      "contract_type": "techservice_cloud",
+      "difficulty": "high",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.5,
+      "high_risk_recall": 0.5,
+      "overall_score": 0.52,
+      "legal_basis_coverage": 0.6,
+      "missing_topics": [
+        "业务连续性",
+        "云计算资源",
+        "赔偿责任",
+        "风险提示"
+      ],
+      "unexpected_topics": [
+        "合作范围",
+        "合同完整性",
+        "安全责任",
+        "数据安全"
+      ],
+      "expected_risk_count": 11,
+      "detected_risk_count": 8,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-009-saas-crm",
+      "contract_type": "SaaS CRM服务协议",
+      "difficulty": "medium",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.571,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.598,
+      "legal_basis_coverage": 0.545,
+      "missing_topics": [
+        "响应时间",
+        "自动续约且涨价机制不清",
+        "解约条件"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "业务连续性",
+        "合作范围"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 7,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-010-saas-erp",
+      "contract_type": "SaaS ERP服务协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.556,
+      "high_risk_recall": 0.8,
+      "overall_score": 0.626,
+      "legal_basis_coverage": 0.5,
+      "missing_topics": [
+        "响应时间",
+        "定制开发源代码不开放",
+        "解约条件",
+        "质量标准"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "业务连续性",
+        "合同完整性",
+        "培训"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 9,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-011-saas-hr",
+      "contract_type": "SaaS人力资源管理系统服务协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.8,
+      "high_risk_recall": 1.0,
+      "overall_score": 0.723,
+      "legal_basis_coverage": 0.083,
+      "missing_topics": [
+        "逻辑矛盾"
+      ],
+      "unexpected_topics": [
+        "SLA",
+        "业务连续性",
+        "合作范围",
+        "合同完整性",
+        "响应时间",
+        "培训"
+      ],
+      "expected_risk_count": 11,
+      "detected_risk_count": 10,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-012-saas-bi",
+      "contract_type": "SaaS商业智能分析平台服务协议",
+      "difficulty": "hard",
+      "gap_type": "content_coverage_moderate",
+      "topic_recall": 0.25,
+      "high_risk_recall": 0.5,
+      "overall_score": 0.408,
+      "legal_basis_coverage": 0.625,
+      "missing_topics": [
+        "合作范围",
+        "响应时间",
+        "性能指标定义含糊",
+        "条款缺失",
+        "解约条件",
+        "责任限制"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "合同完整性",
+        "服务水平",
+        "知识产权",
+        "违约责任"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 7,
+      "contradiction_hit": false,
+      "missing_clause_hit": false
+    },
+    {
+      "sample_id": "contract-013-custom-erp",
+      "contract_type": "软件定制开发合同",
+      "difficulty": "hard",
+      "gap_type": "content_coverage_moderate",
+      "topic_recall": 0.444,
+      "high_risk_recall": 0.5,
+      "overall_score": 0.662,
+      "legal_basis_coverage": 0.875,
+      "missing_topics": [
+        "交付条件",
+        "人员管理",
+        "条款缺失",
+        "源代码",
+        "违约责任"
+      ],
+      "unexpected_topics": [
+        "SLA",
+        "合同完整性",
+        "技术管理",
+        "数据安全"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-014-custom-app",
+      "contract_type": "移动应用定制开发合同",
+      "difficulty": "medium",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.625,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.745,
+      "legal_basis_coverage": 0.727,
+      "missing_topics": [
+        "合作范围",
+        "数据安全",
+        "资质"
+      ],
+      "unexpected_topics": [
+        "合同完整性",
+        "知识产权",
+        "违约责任"
+      ],
+      "expected_risk_count": 11,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-015-custom-ai",
+      "contract_type": "AI模型定制开发合同",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.667,
+      "high_risk_recall": 0.8,
+      "overall_score": 0.833,
+      "legal_basis_coverage": 1.0,
+      "missing_topics": [
+        "付款条件",
+        "条款缺失"
+      ],
+      "unexpected_topics": [
+        "合作范围",
+        "安全责任",
+        "技术管理",
+        "违约责任"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-016-custom-blockchain",
+      "contract_type": "区块链系统定制开发合同",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.5,
+      "high_risk_recall": 0.5,
+      "overall_score": 0.644,
+      "legal_basis_coverage": 0.625,
+      "missing_topics": [
+        "业务连续性",
+        "付款条件",
+        "技术管理",
+        "运营管理"
+      ],
+      "unexpected_topics": [
+        "SLA",
+        "技术方案",
+        "知识产权",
+        "违约责任"
+      ],
+      "expected_risk_count": 11,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-017-nda-bilateral",
+      "contract_type": "保密协议",
+      "difficulty": "medium",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.75,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.679,
+      "legal_basis_coverage": 1.0,
+      "missing_topics": [
+        "合作范围"
+      ],
+      "unexpected_topics": [
+        "数据安全",
+        "责任限制"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 5,
+      "contradiction_hit": false,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-018-nda-employee",
+      "contract_type": "员工保密与竞业限制协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.714,
+      "high_risk_recall": 1.0,
+      "overall_score": 0.862,
+      "legal_basis_coverage": 0.75,
+      "missing_topics": [
+        "协议效力优先条款可能损害劳动者权益",
+        "脱密期条款不完整"
+      ],
+      "unexpected_topics": [
+        "离职申报",
+        "脱密期",
+        "非招揽义务"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-019-nda-investor",
+      "contract_type": "投资方保密协议",
+      "difficulty": "medium",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.667,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.784,
+      "legal_basis_coverage": 0.889,
+      "missing_topics": [
+        "信息使用限制不清，未禁止投资竞争对手",
+        "适用法律"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "使用限制",
+        "合同完整性",
+        "定义含糊"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-020-nda-partner",
+      "contract_type": "合作伙伴保密协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.6,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.702,
+      "legal_basis_coverage": 0.5,
+      "missing_topics": [
+        "条款缺失",
+        "适用法律"
+      ],
+      "unexpected_topics": [
+        "竞业限制",
+        "管辖法院"
+      ],
+      "expected_risk_count": 12,
+      "detected_risk_count": 5,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-021-consultant-tech",
+      "contract_type": "技术顾问协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.833,
+      "high_risk_recall": 0.75,
+      "overall_score": 0.86,
+      "legal_basis_coverage": 0.875,
+      "missing_topics": [
+        "保密义务"
+      ],
+      "unexpected_topics": [
+        "交付条件",
+        "合同完整性",
+        "违约责任"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-022-consultant-management",
+      "contract_type": "管理咨询顾问协议",
+      "difficulty": "hard",
+      "gap_type": "no_gap",
+      "topic_recall": 1.0,
+      "high_risk_recall": 1.0,
+      "overall_score": 0.962,
+      "legal_basis_coverage": 0.75,
+      "missing_topics": [],
+      "unexpected_topics": [
+        "不公平条款"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 6,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-023-consultant-legal",
+      "contract_type": "法律顾问协议",
+      "difficulty": "medium",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.5,
+      "high_risk_recall": 0.0,
+      "overall_score": 0.53,
+      "legal_basis_coverage": 0.7,
+      "missing_topics": [
+        "保密义务",
+        "合作范围"
+      ],
+      "unexpected_topics": [
+        "合同完整性",
+        "合规风险",
+        "培训",
+        "数据安全",
+        "服务质量",
+        "条款缺失",
+        "知识产权"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 9,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-024-consultant-financial",
+      "contract_type": "财务顾问协议",
+      "difficulty": "hard",
+      "gap_type": "no_gap",
+      "topic_recall": 1.0,
+      "high_risk_recall": 0.667,
+      "overall_score": 0.917,
+      "legal_basis_coverage": 1.0,
+      "missing_topics": [],
+      "unexpected_topics": [
+        "不公平条款",
+        "合规风险",
+        "服务标准",
+        "知识产权",
+        "违约责任"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-025-agency-regional",
+      "contract_type": "区域销售代理协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.714,
+      "high_risk_recall": 1.0,
+      "overall_score": 0.862,
+      "legal_basis_coverage": 0.75,
+      "missing_topics": [
+        "合作范围",
+        "管辖法院"
+      ],
+      "unexpected_topics": [
+        "协议终止",
+        "培训",
+        "客户归属"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-026-agency-product",
+      "contract_type": "产品代理销售协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.778,
+      "high_risk_recall": 0.8,
+      "overall_score": 0.854,
+      "legal_basis_coverage": 0.875,
+      "missing_topics": [
+        "竞业限制",
+        "管辖法院"
+      ],
+      "unexpected_topics": [
+        "违约责任"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-027-agency-online",
+      "contract_type": "线上销售代理协议",
+      "difficulty": "hard",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.222,
+      "high_risk_recall": 0.25,
+      "overall_score": 0.472,
+      "legal_basis_coverage": 0.545,
+      "missing_topics": [
+        "品牌保护",
+        "多平台管理",
+        "平台规则",
+        "库存管理",
+        "数据归属",
+        "管辖法院",
+        "退换货"
+      ],
+      "unexpected_topics": [
+        "佣金计算",
+        "区域保护",
+        "合同完整性",
+        "培训",
+        "客户归属",
+        "数据安全",
+        "条款缺失",
+        "违约责任"
+      ],
+      "expected_risk_count": 10,
+      "detected_risk_count": 10,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-028-strategic-joint",
+      "contract_type": "战略合作框架协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.833,
+      "high_risk_recall": 0.75,
+      "overall_score": 0.817,
+      "legal_basis_coverage": 0.583,
+      "missing_topics": [
+        "管辖法院"
+      ],
+      "unexpected_topics": [
+        "合同完整性",
+        "收益分配",
+        "条款缺失",
+        "验收标准"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 9,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-029-strategic-supply",
+      "contract_type": "战略供应链合作协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.556,
+      "high_risk_recall": 0.8,
+      "overall_score": 0.738,
+      "legal_basis_coverage": 0.625,
+      "missing_topics": [
+        "交付条件",
+        "保密义务",
+        "条款缺失",
+        "验收标准"
+      ],
+      "unexpected_topics": [
+        "供货保障",
+        "质量标准"
+      ],
+      "expected_risk_count": 16,
+      "detected_risk_count": 7,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-030-strategic-tech",
+      "contract_type": "战略技术合作协议",
+      "difficulty": "hard",
+      "gap_type": "minor_gap",
+      "topic_recall": 0.6,
+      "high_risk_recall": 0.6,
+      "overall_score": 0.741,
+      "legal_basis_coverage": 0.875,
+      "missing_topics": [
+        "交付条件",
+        "人员管理",
+        "保密义务",
+        "条款缺失"
+      ],
+      "unexpected_topics": [
+        "技术管理"
+      ],
+      "expected_risk_count": 15,
+      "detected_risk_count": 7,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-031-procurement-medical",
+      "contract_type": "医疗器械采购合同",
+      "difficulty": "medium",
+      "gap_type": "content_coverage_moderate",
+      "topic_recall": 0.444,
+      "high_risk_recall": 0.5,
+      "overall_score": 0.605,
+      "legal_basis_coverage": 0.5,
+      "missing_topics": [
+        "交付条件",
+        "保密义务",
+        "响应时间",
+        "条款缺失",
+        "管辖法院"
+      ],
+      "unexpected_topics": [
+        "售后服务",
+        "数据安全",
+        "标的物信息",
+        "知识产权"
+      ],
+      "expected_risk_count": 15,
+      "detected_risk_count": 8,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-032-techservice-security",
+      "contract_type": "网络安全服务合同",
+      "difficulty": "medium",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.4,
+      "high_risk_recall": 0.2,
+      "overall_score": 0.503,
+      "legal_basis_coverage": 0.417,
+      "missing_topics": [
+        "交付条件",
+        "保密义务",
+        "安全责任",
+        "漏洞修复时限可能过短",
+        "自动延长条款可能束缚双方",
+        "资质"
+      ],
+      "unexpected_topics": [
+        "SLA",
+        "不公平条款",
+        "合作范围",
+        "合规风险",
+        "知识产权",
+        "验收标准"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 10,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    },
+    {
+      "sample_id": "contract-033-consultant-marketing",
+      "contract_type": "品牌营销顾问协议",
+      "difficulty": "medium",
+      "gap_type": "high_risk_miss",
+      "topic_recall": 0.3,
+      "high_risk_recall": 0.2,
+      "overall_score": 0.465,
+      "legal_basis_coverage": 0.4,
+      "missing_topics": [
+        "付款条件",
+        "供应链风险",
+        "保密义务",
+        "危机公关配合条款不完整",
+        "排他性",
+        "自动续展条款可能束缚双方",
+        "营销效果承诺含糊"
+      ],
+      "unexpected_topics": [
+        "不公平条款",
+        "人员管理",
+        "合作范围",
+        "合同完整性",
+        "服务标准",
+        "条款缺失"
+      ],
+      "expected_risk_count": 14,
+      "detected_risk_count": 9,
+      "contradiction_hit": true,
+      "missing_clause_hit": true
+    }
+  ],
+  "topic_miss_stats": [
+    {
+      "topic": "保密义务",
+      "miss_count": 10,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-002-procurement-materials",
+        "contract-006-techservice-maintenance",
+        "contract-021-consultant-tech",
+        "contract-023-consultant-legal",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical",
+        "contract-032-techservice-security",
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "条款缺失",
+      "miss_count": 9,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-006-techservice-maintenance",
+        "contract-007-techservice-data",
+        "contract-012-saas-bi",
+        "contract-013-custom-erp",
+        "contract-015-custom-ai",
+        "contract-020-nda-partner",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical"
+      ]
+    },
+    {
+      "topic": "管辖法院",
+      "miss_count": 7,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials",
+        "contract-005-techservice-platform",
+        "contract-025-agency-regional",
+        "contract-026-agency-product",
+        "contract-027-agency-online",
+        "contract-028-strategic-joint",
+        "contract-031-procurement-medical"
+      ]
+    },
+    {
+      "topic": "交付条件",
+      "miss_count": 6,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-013-custom-erp",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical",
+        "contract-032-techservice-security"
+      ]
+    },
+    {
+      "topic": "合作范围",
+      "miss_count": 6,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office",
+        "contract-012-saas-bi",
+        "contract-014-custom-app",
+        "contract-017-nda-bilateral",
+        "contract-023-consultant-legal",
+        "contract-025-agency-regional"
+      ]
+    },
+    {
+      "topic": "人员管理",
+      "miss_count": 4,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-006-techservice-maintenance",
+        "contract-013-custom-erp",
+        "contract-030-strategic-tech"
+      ]
+    },
+    {
+      "topic": "解约条件",
+      "miss_count": 4,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-009-saas-crm",
+        "contract-010-saas-erp",
+        "contract-012-saas-bi"
+      ]
+    },
+    {
+      "topic": "响应时间",
+      "miss_count": 4,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-009-saas-crm",
+        "contract-010-saas-erp",
+        "contract-012-saas-bi",
+        "contract-031-procurement-medical"
+      ]
+    },
+    {
+      "topic": "逻辑矛盾",
+      "miss_count": 3,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-003-procurement-office",
+        "contract-011-saas-hr"
+      ]
+    },
+    {
+      "topic": "赔偿责任",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office",
+        "contract-005-techservice-platform",
+        "contract-008-techservice-cloud"
+      ]
+    },
+    {
+      "topic": "资质",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-006-techservice-maintenance",
+        "contract-014-custom-app",
+        "contract-032-techservice-security"
+      ]
+    },
+    {
+      "topic": "付款条件",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-015-custom-ai",
+        "contract-016-custom-blockchain",
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "供应链风险",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "责任限制",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-012-saas-bi"
+      ]
+    },
+    {
+      "topic": "质量标准",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-010-saas-erp"
+      ]
+    },
+    {
+      "topic": "SLA",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-005-techservice-platform",
+        "contract-006-techservice-maintenance"
+      ]
+    },
+    {
+      "topic": "业务连续性",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-008-techservice-cloud",
+        "contract-016-custom-blockchain"
+      ]
+    },
+    {
+      "topic": "适用法律",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-019-nda-investor",
+        "contract-020-nda-partner"
+      ]
+    },
+    {
+      "topic": "培训",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-001-procurement-equipment"
+      ]
+    },
+    {
+      "topic": "不可抗力",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ]
+    },
+    {
+      "topic": "合同续展风险",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ]
+    },
+    {
+      "topic": "库存风险",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ]
+    },
+    {
+      "topic": "数量风险",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ]
+    },
+    {
+      "topic": "质量风险",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ]
+    },
+    {
+      "topic": "权利失衡",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-003-procurement-office"
+      ]
+    },
+    {
+      "topic": "自动续约陷阱",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office"
+      ]
+    },
+    {
+      "topic": "订单确认风险",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-003-procurement-office"
+      ]
+    },
+    {
+      "topic": "退换货限制",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office"
+      ]
+    },
+    {
+      "topic": "金额超支风险",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office"
+      ]
+    },
+    {
+      "topic": "合同完整性",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-004-procurement-it"
+      ]
+    },
+    {
+      "topic": "合规风险",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-004-procurement-it"
+      ]
+    },
+    {
+      "topic": "设备管理",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it"
+      ]
+    },
+    {
+      "topic": "转让限制",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-005-techservice-platform"
+      ]
+    },
+    {
+      "topic": "覆盖率",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-007-techservice-data"
+      ]
+    },
+    {
+      "topic": "云计算资源",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-008-techservice-cloud"
+      ]
+    },
+    {
+      "topic": "风险提示",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-008-techservice-cloud"
+      ]
+    },
+    {
+      "topic": "自动续约且涨价机制不清",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-009-saas-crm"
+      ]
+    },
+    {
+      "topic": "定制开发源代码不开放",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-010-saas-erp"
+      ]
+    },
+    {
+      "topic": "性能指标定义含糊",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-012-saas-bi"
+      ]
+    },
+    {
+      "topic": "源代码",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-013-custom-erp"
+      ]
+    },
+    {
+      "topic": "违约责任",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-013-custom-erp"
+      ]
+    },
+    {
+      "topic": "数据安全",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-014-custom-app"
+      ]
+    },
+    {
+      "topic": "技术管理",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-016-custom-blockchain"
+      ]
+    },
+    {
+      "topic": "运营管理",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-016-custom-blockchain"
+      ]
+    },
+    {
+      "topic": "协议效力优先条款可能损害劳动者权益",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-018-nda-employee"
+      ]
+    },
+    {
+      "topic": "脱密期条款不完整",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-018-nda-employee"
+      ]
+    },
+    {
+      "topic": "信息使用限制不清，未禁止投资竞争对手",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-019-nda-investor"
+      ]
+    },
+    {
+      "topic": "竞业限制",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-026-agency-product"
+      ]
+    },
+    {
+      "topic": "品牌保护",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "多平台管理",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "平台规则",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "库存管理",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "数据归属",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "退换货",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-027-agency-online"
+      ]
+    },
+    {
+      "topic": "验收标准",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-029-strategic-supply"
+      ]
+    },
+    {
+      "topic": "安全责任",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-032-techservice-security"
+      ]
+    },
+    {
+      "topic": "漏洞修复时限可能过短",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-032-techservice-security"
+      ]
+    },
+    {
+      "topic": "自动延长条款可能束缚双方",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-032-techservice-security"
+      ]
+    },
+    {
+      "topic": "危机公关配合条款不完整",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "排他性",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "自动续展条款可能束缚双方",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "topic": "营销效果承诺含糊",
+      "miss_count": 1,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-033-consultant-marketing"
+      ]
+    }
+  ],
+  "high_expected_low_recall_samples": [
+    "contract-002-procurement-materials",
+    "contract-003-procurement-office",
+    "contract-023-consultant-legal",
+    "contract-027-agency-online",
+    "contract-032-techservice-security",
+    "contract-033-consultant-marketing"
+  ],
+  "good_coverage_weak_basis_samples": [
+    "contract-001-procurement-equipment",
+    "contract-005-techservice-platform",
+    "contract-011-saas-hr"
+  ],
+  "topic_priority": [
+    {
+      "topic": "保密义务",
+      "miss_count": 10,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-002-procurement-materials",
+        "contract-006-techservice-maintenance",
+        "contract-021-consultant-tech",
+        "contract-023-consultant-legal",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical",
+        "contract-032-techservice-security",
+        "contract-033-consultant-marketing"
+      ],
+      "priority_score": 20.0
+    },
+    {
+      "topic": "条款缺失",
+      "miss_count": 9,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-006-techservice-maintenance",
+        "contract-007-techservice-data",
+        "contract-012-saas-bi",
+        "contract-013-custom-erp",
+        "contract-015-custom-ai",
+        "contract-020-nda-partner",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical"
+      ],
+      "priority_score": 18.0
+    },
+    {
+      "topic": "管辖法院",
+      "miss_count": 7,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials",
+        "contract-005-techservice-platform",
+        "contract-025-agency-regional",
+        "contract-026-agency-product",
+        "contract-027-agency-online",
+        "contract-028-strategic-joint",
+        "contract-031-procurement-medical"
+      ],
+      "priority_score": 14.0
+    },
+    {
+      "topic": "交付条件",
+      "miss_count": 6,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-013-custom-erp",
+        "contract-029-strategic-supply",
+        "contract-030-strategic-tech",
+        "contract-031-procurement-medical",
+        "contract-032-techservice-security"
+      ],
+      "priority_score": 12.0
+    },
+    {
+      "topic": "合作范围",
+      "miss_count": 6,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office",
+        "contract-012-saas-bi",
+        "contract-014-custom-app",
+        "contract-017-nda-bilateral",
+        "contract-023-consultant-legal",
+        "contract-025-agency-regional"
+      ],
+      "priority_score": 12.0
+    },
+    {
+      "topic": "人员管理",
+      "miss_count": 4,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-006-techservice-maintenance",
+        "contract-013-custom-erp",
+        "contract-030-strategic-tech"
+      ],
+      "priority_score": 8.0
+    },
+    {
+      "topic": "响应时间",
+      "miss_count": 4,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-009-saas-crm",
+        "contract-010-saas-erp",
+        "contract-012-saas-bi",
+        "contract-031-procurement-medical"
+      ],
+      "priority_score": 8.0
+    },
+    {
+      "topic": "赔偿责任",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-003-procurement-office",
+        "contract-005-techservice-platform",
+        "contract-008-techservice-cloud"
+      ],
+      "priority_score": 6.0
+    },
+    {
+      "topic": "资质",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-006-techservice-maintenance",
+        "contract-014-custom-app",
+        "contract-032-techservice-security"
+      ],
+      "priority_score": 6.0
+    },
+    {
+      "topic": "付款条件",
+      "miss_count": 3,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-015-custom-ai",
+        "contract-016-custom-blockchain",
+        "contract-033-consultant-marketing"
+      ],
+      "priority_score": 6.0
+    },
+    {
+      "topic": "解约条件",
+      "miss_count": 4,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-009-saas-crm",
+        "contract-010-saas-erp",
+        "contract-012-saas-bi"
+      ],
+      "priority_score": 4.0
+    },
+    {
+      "topic": "SLA",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-005-techservice-platform",
+        "contract-006-techservice-maintenance"
+      ],
+      "priority_score": 4.0
+    },
+    {
+      "topic": "业务连续性",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-008-techservice-cloud",
+        "contract-016-custom-blockchain"
+      ],
+      "priority_score": 4.0
+    },
+    {
+      "topic": "适用法律",
+      "miss_count": 2,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-019-nda-investor",
+        "contract-020-nda-partner"
+      ],
+      "priority_score": 4.0
+    },
+    {
+      "topic": "逻辑矛盾",
+      "miss_count": 3,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-001-procurement-equipment",
+        "contract-003-procurement-office",
+        "contract-011-saas-hr"
+      ],
+      "priority_score": 3.0
+    },
+    {
+      "topic": "供应链风险",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-033-consultant-marketing"
+      ],
+      "priority_score": 2.0
+    },
+    {
+      "topic": "责任限制",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-012-saas-bi"
+      ],
+      "priority_score": 2.0
+    },
+    {
+      "topic": "质量标准",
+      "miss_count": 2,
+      "is_high_risk_miss": false,
+      "affected_samples": [
+        "contract-004-procurement-it",
+        "contract-010-saas-erp"
+      ],
+      "priority_score": 2.0
+    },
+    {
+      "topic": "不可抗力",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ],
+      "priority_score": 2.0
+    },
+    {
+      "topic": "数量风险",
+      "miss_count": 1,
+      "is_high_risk_miss": true,
+      "affected_samples": [
+        "contract-002-procurement-materials"
+      ],
+      "priority_score": 2.0
+    }
+  ],
+  "regression_test_candidates": [
+    "contract-003-procurement-office",
+    "contract-027-agency-online",
+    "contract-033-consultant-marketing",
+    "contract-012-saas-bi",
+    "contract-032-techservice-security",
+    "contract-006-techservice-maintenance",
+    "contract-013-custom-erp",
+    "contract-031-procurement-medical",
+    "contract-005-techservice-platform",
+    "contract-008-techservice-cloud"
+  ],
+  "fix_priority_table": [
+    {
+      "level": "P0",
+      "description": "最影响质量基线的问题",
+      "items": [
+        "6 个样本风险数不低但关键高风险漏报严重"
+      ]
+    },
+    {
+      "level": "P1",
+      "description": "高频漏报主题（≥3次）",
+      "items": [
+        "「保密义务」漏报 10 次，影响样本: contract-001-procurement-equipment, contract-002-procurement-materials, contract-006-techservice-maintenance",
+        "「条款缺失」漏报 9 次，影响样本: contract-006-techservice-maintenance, contract-007-techservice-data, contract-012-saas-bi",
+        "「管辖法院」漏报 7 次，影响样本: contract-002-procurement-materials, contract-005-techservice-platform, contract-025-agency-regional",
+        "「交付条件」漏报 6 次，影响样本: contract-001-procurement-equipment, contract-013-custom-erp, contract-029-strategic-supply",
+        "「合作范围」漏报 6 次，影响样本: contract-003-procurement-office, contract-012-saas-bi, contract-014-custom-app",
+        "「人员管理」漏报 4 次，影响样本: contract-004-procurement-it, contract-006-techservice-maintenance, contract-013-custom-erp",
+        "「解约条件」漏报 4 次，影响样本: contract-004-procurement-it, contract-009-saas-crm, contract-010-saas-erp",
+        "「响应时间」漏报 4 次，影响样本: contract-009-saas-crm, contract-010-saas-erp, contract-012-saas-bi",
+        "「逻辑矛盾」漏报 3 次，影响样本: contract-001-procurement-equipment, contract-003-procurement-office, contract-011-saas-hr",
+        "「赔偿责任」漏报 3 次，影响样本: contract-003-procurement-office, contract-005-techservice-platform, contract-008-techservice-cloud",
+        "「资质」漏报 3 次，影响样本: contract-006-techservice-maintenance, contract-014-custom-app, contract-032-techservice-security",
+        "「付款条件」漏报 3 次，影响样本: contract-015-custom-ai, contract-016-custom-blockchain, contract-033-consultant-marketing"
+      ]
+    },
+    {
+      "level": "P2",
+      "description": "中频漏报主题（2次），可能需要扩展同义归并",
+      "items": [
+        "「供应链风险」漏报 2 次",
+        "「责任限制」漏报 2 次",
+        "「质量标准」漏报 2 次",
+        "「SLA」漏报 2 次",
+        "「业务连续性」漏报 2 次",
+        "「适用法律」漏报 2 次"
+      ]
+    },
+    {
+      "level": "P3",
+      "description": "低频漏报（1次且非高风险），可暂缓",
+      "items": [
+        "「培训」漏报 1 次",
+        "「合同续展风险」漏报 1 次",
+        "「库存风险」漏报 1 次",
+        "「权利失衡」漏报 1 次",
+        "「订单确认风险」漏报 1 次",
+        "「设备管理」漏报 1 次",
+        "「转让限制」漏报 1 次",
+        "「覆盖率」漏报 1 次",
+        "「云计算资源」漏报 1 次",
+        "「风险提示」漏报 1 次",
+        "「自动续约且涨价机制不清」漏报 1 次",
+        "「定制开发源代码不开放」漏报 1 次",
+        "「性能指标定义含糊」漏报 1 次",
+        "「数据安全」漏报 1 次",
+        "「协议效力优先条款可能损害劳动者权益」漏报 1 次",
+        "「脱密期条款不完整」漏报 1 次",
+        "「信息使用限制不清，未禁止投资竞争对手」漏报 1 次",
+        "「竞业限制」漏报 1 次",
+        "「品牌保护」漏报 1 次",
+        "「多平台管理」漏报 1 次",
+        "「退换货」漏报 1 次",
+        "「验收标准」漏报 1 次",
+        "「安全责任」漏报 1 次",
+        "「漏洞修复时限可能过短」漏报 1 次",
+        "「自动延长条款可能束缚双方」漏报 1 次",
+        "「危机公关配合条款不完整」漏报 1 次",
+        "「自动续展条款可能束缚双方」漏报 1 次",
+        "「营销效果承诺含糊」漏报 1 次"
+      ]
+    }
+  ]
+}

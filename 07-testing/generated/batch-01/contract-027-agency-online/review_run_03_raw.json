@@ -1,0 +1,189 @@
+{
+  "id": "1234f7f7-f986-47fe-8037-1817623ead76",
+  "contract_id": "a7ed5971-170c-40ca-873b-12795d8343ae",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 8,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第四条、第十条",
+      "risk_level": "high",
+      "risk_category": "佣金计算",
+      "original_text": "甲方按照附件二的价格表向乙方供货。甲方有权根据市场情况调整供货价格。如乙方低于最低售价销售，甲方有权扣减乙方的返利。",
+      "legal_analysis": "合同未明确乙方的收益模式、返利比例及结算周期，仅提及返利但未定义，属重大缺失。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "乙方如何赚钱不明确，无法确定利润，存在结算纠纷风险。",
+      "suggested_revision": "明确乙方收益为进货差价或佣金，约定返利计算方式、比例及月/季结算周期。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "培训",
+      "original_text": "甲方应向乙方提供产品技术资料、销售工具、培训支持等。",
+      "legal_analysis": "培训内容、频次、费用承担未约定，导致甲方可能不履行或敷衍，乙方无法获得有效支持。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "培训支持太笼统，乙方可能得不到真正有用的培训。",
+      "suggested_revision": "明确培训内容、每年至少2次、费用由甲方承担，并约定培训不达标的责任。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "客户归属",
+      "original_text": "各平台店铺的运营数据归甲方所有。本协议终止后，乙方应将所有店铺运营数据移交给甲方。",
+      "legal_analysis": "数据归属甲方，但客户资源（如客户关系、复购渠道）未明确归属，终止后乙方能否联系客户存在争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "客户资源归属不清，合同结束后可能抢客户。",
+      "suggested_revision": "明确客户资源归甲方，终止后乙方不得利用客户信息，并约定交接和保密义务。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "区域保护",
+      "original_text": "甲方授权乙方在以下电商平台销售甲方的产品：（一）天猫旗舰店；（二）京东自营店；（三）拼多多旗舰店；（四）抖音电商。",
+      "legal_analysis": "未约定独家代理或排他性，甲方可能授权其他代理商在同一平台竞争，导致渠道冲突和价格战。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有独家保护，乙方投入可能被其他代理截胡。",
+      "suggested_revision": "约定乙方在授权平台享有独家代理权，或明确甲方不得再授权其他代理。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "因平台规则变化导致的损失，由乙方自行承担。",
+      "legal_analysis": "单方免除甲方因平台变化可能承担的责任，显失公平，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "平台规则变化风险全由乙方扛，不合理。",
+      "suggested_revision": "改为双方根据变化原因合理分担损失，或协商调整。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "滞销库存由乙方自行承担，甲方不负责退换货。",
+      "legal_analysis": "甲方调整供货计划或产品范围可能导致滞销，完全由乙方承担显失公平。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果甲方强行塞货或改产品，乙方还得自己消化。",
+      "suggested_revision": "约定甲方原因导致的滞销，甲方应承担部分或全部损失。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十二条",
+      "risk_level": "high",
+      "risk_category": "销售指标",
+      "original_text": "如乙方未完成年度销售额，甲方有权调整乙方的代理平台、降低代理级别或解除本协议。",
+      "legal_analysis": "未达标后果严重但不明确，且未设置分阶段目标或协商机制，可能导致不公平解约。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "1000万目标实现难度未知，没完成就任意调整或解约，乙方风险大。",
+      "suggested_revision": "设置阶梯指标，未完成时先协商，再逐步调整。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未约定乙方支付货款的付款方式、结算周期、预付款等，导致交易履行无依据。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "怎么付钱、什么时候付都不清楚，容易扯皮。",
+      "suggested_revision": "增加付款条款：按月结算，乙方收到货物及发票后30日内支付。",
+      "confidence": 0.95
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第九条 9.2",
+      "clause_b": "第十八条 18.1",
+      "conflict_type": "logic",
+      "description": "第9.2条将平台规则变化损失归乙方，第18.1条将平台系统性故障列不可抗力，互不担责，存在冲突。"
+    },
+    {
+      "clause_a": "第十五条 15.4",
+      "clause_b": "第十六条 16.2",
+      "conflict_type": "logic",
+      "description": "第15.4条低价销售可直接解除协议，未提前通知；第16.2条任何一方终止需提前30日通知，冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "佣金计算细则",
+      "reason": "代理合同必须明确乙方的收益模式（返利比例、结算周期）。"
+    },
+    {
+      "name": "培训细则",
+      "reason": "甲方培训支持内容、频次、费用需具体约定，确保乙方获得有效支持。"
+    },
+    {
+      "name": "客户归属细则",
+      "reason": "终止后客户资源归属及联系限制需明确，避免争议。"
+    },
+    {
+      "name": "区域保护条款",
+      "reason": "应约定独家代理或排他性，防止渠道冲突。"
+    },
+    {
+      "name": "付款条件条款",
+      "reason": "需约定货款支付方式、结算周期、逾期利息等。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 5071,
+    "completion_tokens": 4529,
+    "latency_ms": 46274,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:08:39.456600",
+  "completed_at": "2026-06-22T02:09:38.336100",
+  "created_at": "2026-06-22T02:08:39.442086"
+}

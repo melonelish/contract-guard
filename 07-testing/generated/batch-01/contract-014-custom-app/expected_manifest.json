@@ -1,0 +1,46 @@
+{
+  "sample_id": "contract-014-custom-app",
+  "contract_type": "移动应用定制开发合同",
+  "title": "华南优选移动商城APP定制开发合同",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "质量标准",
+    "资质",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "资质"
+  ],
+  "expected_risk_count": 11,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "正文第二条第2.4款约定应用应与甲方现有系统进行数据对接，附件二《系统集成接口规格》首页约定'接口采用RESTful API标准设计'，但附件二第3.2节的实际...",
+    "第六条第6.3款的验收标准为'应用功能完整、运行稳定即视为验收通过'，这是一个非常模糊的主观标准。但第二条第2.2款和第2.3款已经约定了具体的技术要求（支持i..."
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [
+    "性能指标与质量标准条款",
+    "安全测试与数据保护条款",
+    "版本迭代与持续更新条款",
+    "用户数据归属与迁移条款",
+    "运营支持与培训条款"
+  ],
+  "missing_clause_high": [
+    "性能指标与质量标准条款",
+    "安全测试与数据保护条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "网络安全法",
+    "个人信息保护法"
+  ],
+  "notes": ""
+}

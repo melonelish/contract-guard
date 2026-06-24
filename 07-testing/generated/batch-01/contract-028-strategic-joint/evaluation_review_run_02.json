@@ -1,0 +1,67 @@
+{
+  "sample_id": "contract-028-strategic-joint",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.388121",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "知识产权",
+    "管辖法院",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "业务连续性",
+    "付款条件",
+    "合作范围",
+    "安全责任",
+    "技术管理",
+    "条款缺失",
+    "知识产权",
+    "运营管理",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "保密义务",
+    "合作范围",
+    "知识产权",
+    "违约责任"
+  ],
+  "detected_high_risk_topics": [
+    "业务连续性",
+    "付款条件",
+    "合作范围",
+    "安全责任",
+    "技术管理",
+    "条款缺失",
+    "知识产权",
+    "运营管理",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "保密义务",
+    "管辖法院",
+    "违约责任"
+  ],
+  "unexpected_topics": [
+    "业务连续性",
+    "安全责任",
+    "技术管理",
+    "条款缺失",
+    "运营管理",
+    "验收标准"
+  ],
+  "topic_recall": 0.5,
+  "topic_precision": 0.333,
+  "high_risk_recall": 0.5,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 2,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 6,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.636,
+  "overall_score": 0.645,
+  "notes": ""
+}

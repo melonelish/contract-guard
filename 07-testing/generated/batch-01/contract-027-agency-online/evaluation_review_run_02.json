@@ -1,0 +1,75 @@
+{
+  "sample_id": "contract-027-agency-online",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.374814",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "品牌保护",
+    "多平台管理",
+    "平台规则",
+    "库存管理",
+    "数据归属",
+    "管辖法院",
+    "退换货",
+    "销售指标"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "培训",
+    "客户归属",
+    "数据安全",
+    "条款缺失",
+    "违约责任",
+    "销售指标"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "平台规则",
+    "库存管理",
+    "数据归属"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "佣金计算",
+    "区域保护",
+    "培训",
+    "客户归属",
+    "数据安全",
+    "条款缺失",
+    "违约责任",
+    "销售指标"
+  ],
+  "missing_expected_topics": [
+    "品牌保护",
+    "多平台管理",
+    "平台规则",
+    "库存管理",
+    "数据归属",
+    "管辖法院",
+    "退换货"
+  ],
+  "unexpected_topics": [
+    "佣金计算",
+    "区域保护",
+    "培训",
+    "客户归属",
+    "数据安全",
+    "条款缺失",
+    "违约责任"
+  ],
+  "topic_recall": 0.222,
+  "topic_precision": 0.222,
+  "high_risk_recall": 0.25,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.727,
+  "overall_score": 0.499,
+  "notes": ""
+}

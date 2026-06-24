@@ -1,0 +1,53 @@
+{
+  "sample_id": "contract-011-saas-hr",
+  "review_run_file": "review_run_05.json",
+  "evaluated_at": "2026-06-22T11:31:06.180625",
+  "success": true,
+  "expected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "数据安全",
+    "条款缺失",
+    "逻辑矛盾"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "响应时间",
+    "数据安全"
+  ],
+  "expected_high_risk_topics": [
+    "不公平条款",
+    "数据安全",
+    "条款缺失"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "合作范围",
+    "合同完整性",
+    "数据安全"
+  ],
+  "missing_expected_topics": [
+    "条款缺失",
+    "逻辑矛盾"
+  ],
+  "unexpected_topics": [
+    "合作范围",
+    "合同完整性",
+    "响应时间"
+  ],
+  "topic_recall": 0.6,
+  "topic_precision": 0.5,
+  "high_risk_recall": 0.667,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 1,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 2,
+  "legal_basis_coverage": 0.111,
+  "overall_score": 0.525,
+  "notes": ""
+}

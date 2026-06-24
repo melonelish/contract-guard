@@ -1,0 +1,68 @@
+{
+  "contract_id": "contract-006",
+  "contract_type": "techservice_maintenance",
+  "title": "系统运维服务合同",
+  "subtitle": "银行核心系统7×24小时驻场运维",
+  "word_count": 3038,
+  "clause_count": 14,
+  "risk_count": 12,
+  "missing_count": 5,
+  "contradiction_count": 4,
+  "difficulty": "high",
+  "difficulty_score": 8,
+  "tags": [
+    "系统运维",
+    "银行核心系统",
+    "驻场服务",
+    "7×24小时",
+    "信息安全",
+    "金融行业",
+    "合规审计",
+    "应急响应"
+  ],
+  "parties": {
+    "party_a": {
+      "name": "东方信和银行股份有限公司",
+      "role": "委托方",
+      "industry": "银行业"
+    },
+    "party_b": {
+      "name": "中科恒运信息技术集团有限公司",
+      "role": "服务方",
+      "industry": "信息技术服务"
+    }
+  },
+  "financial": {
+    "total_amount": 4800000,
+    "currency": "CNY",
+    "payment_terms": "月度支付",
+    "contract_period": "1年"
+  },
+  "risk_distribution": {
+    "high": 5,
+    "medium": 5,
+    "low": 2
+  },
+  "missing_clause_importance": {
+    "high": 2,
+    "medium": 3,
+    "low": 0
+  },
+  "contradiction_severity": {
+    "high": 1,
+    "medium": 3,
+    "low": 0
+  },
+  "test_scenarios": [
+    "响应时间定义清晰度检查",
+    "安全责任划分充分性评估",
+    "人员资质要求完整性检查",
+    "保密条款充分性评估",
+    "付款与服务质量关联性分析",
+    "应急响应条款必要性判断",
+    "合规审计配合条款识别",
+    "知识转移条款识别"
+  ],
+  "created_at": "2026-06-18",
+  "version": "1.0.0"
+}

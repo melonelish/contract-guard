@@ -1,0 +1,53 @@
+{
+  "sample_id": "contract-032-techservice-security",
+  "contract_type": "网络安全服务合同",
+  "title": "网络安全服务合同 - 中信银行渗透测试与安全加固",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "交付条件",
+    "付款条件",
+    "保密义务",
+    "其他",
+    "数据安全",
+    "条款缺失",
+    "资质",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "交付条件",
+    "保密义务",
+    "其他",
+    "数据安全",
+    "资质"
+  ],
+  "expected_risk_count": 14,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 2,
+  "contradiction_summaries": [
+    "付款节点与漏洞修复存在逻辑矛盾。第4.1款约定渗透测试和漏洞扫描完成后支付30%，第7.3款约定甲方应在收到漏洞报告后30日内完成漏洞修复。但如果甲方在30日内...",
+    "安全报告保密与监管报告存在逻辑矛盾。第9.2款约定安全报告的保密等级为'机密'，未经甲方书面同意不得向第三方披露；第9.3款约定甲方有权将安全报告提交给监管机构..."
+  ],
+  "expected_missing_clauses": 6,
+  "missing_clause_names": [
+    "应急响应条款",
+    "安全培训条款（详细）",
+    "合规报告条款",
+    "测试过程安全管理条款",
+    "安全加固验收条款",
+    "服务连续性保障条款"
+  ],
+  "missing_clause_high": [
+    "应急响应条款",
+    "安全培训条款（详细）",
+    "合规报告条款"
+  ],
+  "expected_legal_basis_topics": [
+    "民法典",
+    "数据安全法",
+    "个人信息保护法",
+    "反不正当竞争法",
+    "网络安全法",
+    "银行业金融机构数据治理指引"
+  ],
+  "notes": ""
+}

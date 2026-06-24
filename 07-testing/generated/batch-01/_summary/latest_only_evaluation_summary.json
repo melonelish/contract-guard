@@ -1,0 +1,516 @@
+{
+  "batch_name": "batch-01",
+  "generated_at": "2026-06-22T11:31:06.631964",
+  "total_evaluations": 33,
+  "successful_evaluations": 33,
+  "failed_evaluations": 0,
+  "avg_topic_recall": 0.582,
+  "avg_topic_precision": 0.551,
+  "avg_high_risk_recall": 0.617,
+  "avg_overall_score": 0.676,
+  "avg_legal_basis_coverage": 0.645,
+  "contradiction_hit_rate": 0.96,
+  "missing_clause_hit_rate": 1.0,
+  "risk_category_stats": {
+    "SLA": {
+      "expected": 3,
+      "hit": 1,
+      "missed": 2,
+      "recall": 0.333
+    },
+    "不公平条款": {
+      "expected": 2,
+      "hit": 2,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "不可抗力": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "业务连续性": {
+      "expected": 2,
+      "hit": 0,
+      "missed": 2,
+      "recall": 0.0
+    },
+    "云计算资源": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "交付条件": {
+      "expected": 7,
+      "hit": 1,
+      "missed": 6,
+      "recall": 0.143
+    },
+    "人员管理": {
+      "expected": 4,
+      "hit": 0,
+      "missed": 4,
+      "recall": 0.0
+    },
+    "付款条件": {
+      "expected": 26,
+      "hit": 23,
+      "missed": 3,
+      "recall": 0.885
+    },
+    "佣金计算": {
+      "expected": 2,
+      "hit": 2,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "供应链风险": {
+      "expected": 2,
+      "hit": 0,
+      "missed": 2,
+      "recall": 0.0
+    },
+    "保密义务": {
+      "expected": 19,
+      "hit": 9,
+      "missed": 10,
+      "recall": 0.474
+    },
+    "信息使用限制不清，未禁止投资竞争对手": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "劳动关系": {
+      "expected": 1,
+      "hit": 1,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "区域保护": {
+      "expected": 2,
+      "hit": 2,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "协议效力优先条款可能损害劳动者权益": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "危机公关配合条款不完整": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "合作范围": {
+      "expected": 15,
+      "hit": 9,
+      "missed": 6,
+      "recall": 0.6
+    },
+    "合同完整性": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "合同续展风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "合规风险": {
+      "expected": 2,
+      "hit": 1,
+      "missed": 1,
+      "recall": 0.5
+    },
+    "品牌保护": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "响应时间": {
+      "expected": 6,
+      "hit": 2,
+      "missed": 4,
+      "recall": 0.333
+    },
+    "培训": {
+      "expected": 2,
+      "hit": 1,
+      "missed": 1,
+      "recall": 0.5
+    },
+    "多平台管理": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "安全责任": {
+      "expected": 3,
+      "hit": 2,
+      "missed": 1,
+      "recall": 0.667
+    },
+    "定制开发源代码不开放": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "客户归属": {
+      "expected": 1,
+      "hit": 1,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "平台规则": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "库存管理": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "库存风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "性能指标定义含糊": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "技术管理": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "排他性": {
+      "expected": 3,
+      "hit": 2,
+      "missed": 1,
+      "recall": 0.667
+    },
+    "数据安全": {
+      "expected": 13,
+      "hit": 12,
+      "missed": 1,
+      "recall": 0.923
+    },
+    "数据归属": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "数量风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "权利失衡": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "条款缺失": {
+      "expected": 18,
+      "hit": 9,
+      "missed": 9,
+      "recall": 0.5
+    },
+    "源代码": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "漏洞修复时限可能过短": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "知识产权": {
+      "expected": 16,
+      "hit": 16,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "竞业限制": {
+      "expected": 3,
+      "hit": 2,
+      "missed": 1,
+      "recall": 0.667
+    },
+    "管辖法院": {
+      "expected": 11,
+      "hit": 4,
+      "missed": 7,
+      "recall": 0.364
+    },
+    "脱密期条款不完整": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "自动延长条款可能束缚双方": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "自动续展条款可能束缚双方": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "自动续约且涨价机制不清": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "自动续约陷阱": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "营销效果承诺含糊": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "覆盖率": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "解约条件": {
+      "expected": 4,
+      "hit": 0,
+      "missed": 4,
+      "recall": 0.0
+    },
+    "订单确认风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "设备管理": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "责任限制": {
+      "expected": 3,
+      "hit": 1,
+      "missed": 2,
+      "recall": 0.333
+    },
+    "质量标准": {
+      "expected": 6,
+      "hit": 4,
+      "missed": 2,
+      "recall": 0.667
+    },
+    "质量风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "资质": {
+      "expected": 3,
+      "hit": 0,
+      "missed": 3,
+      "recall": 0.0
+    },
+    "赔偿责任": {
+      "expected": 3,
+      "hit": 0,
+      "missed": 3,
+      "recall": 0.0
+    },
+    "转让限制": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "运营管理": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "违约责任": {
+      "expected": 23,
+      "hit": 22,
+      "missed": 1,
+      "recall": 0.957
+    },
+    "退换货": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "退换货限制": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "适用法律": {
+      "expected": 2,
+      "hit": 0,
+      "missed": 2,
+      "recall": 0.0
+    },
+    "逻辑矛盾": {
+      "expected": 3,
+      "hit": 0,
+      "missed": 3,
+      "recall": 0.0
+    },
+    "金额超支风险": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "销售指标": {
+      "expected": 3,
+      "hit": 3,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "需求变更": {
+      "expected": 1,
+      "hit": 1,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "风险提示": {
+      "expected": 1,
+      "hit": 0,
+      "missed": 1,
+      "recall": 0.0
+    },
+    "验收标准": {
+      "expected": 10,
+      "hit": 9,
+      "missed": 1,
+      "recall": 0.9
+    }
+  },
+  "high_risk_miss_stats": {
+    "不可抗力": 1,
+    "数量风险": 1,
+    "管辖法院": 1,
+    "质量风险": 1,
+    "合作范围": 3,
+    "自动续约陷阱": 1,
+    "退换货限制": 1,
+    "金额超支风险": 1,
+    "合同完整性": 1,
+    "合规风险": 1,
+    "SLA": 1,
+    "保密义务": 4,
+    "条款缺失": 3,
+    "业务连续性": 1,
+    "赔偿责任": 1,
+    "自动续约且涨价机制不清": 1,
+    "响应时间": 2,
+    "责任限制": 1,
+    "源代码": 1,
+    "违约责任": 1,
+    "资质": 2,
+    "技术管理": 1,
+    "运营管理": 1,
+    "信息使用限制不清，未禁止投资竞争对手": 1,
+    "适用法律": 1,
+    "平台规则": 1,
+    "库存管理": 1,
+    "数据归属": 1,
+    "交付条件": 4,
+    "人员管理": 1,
+    "安全责任": 1,
+    "付款条件": 1,
+    "排他性": 1,
+    "营销效果承诺含糊": 1
+  },
+  "best_samples": [
+    {
+      "sample_id": "contract-022-consultant-management",
+      "score": 0.962
+    },
+    {
+      "sample_id": "contract-024-consultant-financial",
+      "score": 0.917
+    },
+    {
+      "sample_id": "contract-018-nda-employee",
+      "score": 0.862
+    },
+    {
+      "sample_id": "contract-025-agency-regional",
+      "score": 0.862
+    },
+    {
+      "sample_id": "contract-021-consultant-tech",
+      "score": 0.86
+    }
+  ],
+  "worst_samples": [
+    {
+      "sample_id": "contract-032-techservice-security",
+      "score": 0.503
+    },
+    {
+      "sample_id": "contract-027-agency-online",
+      "score": 0.472
+    },
+    {
+      "sample_id": "contract-033-consultant-marketing",
+      "score": 0.465
+    },
+    {
+      "sample_id": "contract-002-procurement-materials",
+      "score": 0.459
+    },
+    {
+      "sample_id": "contract-012-saas-bi",
+      "score": 0.408
+    }
+  ]
+}

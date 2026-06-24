@@ -1,0 +1,57 @@
+{
+  "sample_id": "contract-023-consultant-legal",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.317109",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "劳动关系认定",
+    "合作范围",
+    "合规风险",
+    "数据安全",
+    "服务质量",
+    "知识产权"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "劳动关系认定",
+    "合作范围",
+    "知识产权"
+  ],
+  "missing_expected_topics": [
+    "保密义务",
+    "违约责任"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "劳动关系认定",
+    "合规风险",
+    "数据安全",
+    "服务质量",
+    "知识产权"
+  ],
+  "topic_recall": 0.5,
+  "topic_precision": 0.25,
+  "high_risk_recall": 0.333,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.625,
+  "overall_score": 0.602,
+  "notes": ""
+}

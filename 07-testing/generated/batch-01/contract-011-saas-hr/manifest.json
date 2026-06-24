@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-011-saas-hr",
+  "contract_type": "SaaS人力资源管理系统服务协议",
+  "title": "SaaS HR人力资源管理系统服务协议",
+  "word_count": 3151,
+  "clause_count": 12,
+  "risk_count": 11,
+  "missing_count": 6,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "SaaS",
+    "HR",
+    "个人信息保护",
+    "数据跨境",
+    "GDPR",
+    "DPA",
+    "数据安全",
+    "功能变更"
+  ]
+}

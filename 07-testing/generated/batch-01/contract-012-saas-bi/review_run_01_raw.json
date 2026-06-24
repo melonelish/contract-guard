@@ -1,0 +1,195 @@
+{
+  "id": "6e57bdaf-83e0-4e4d-89eb-5822863597eb",
+  "contract_id": "8c14f443-17b2-4763-ab3a-9037bde4f72d",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 8,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第七条",
+      "risk_level": "high",
+      "risk_category": "不公平格式条款",
+      "original_text": "7.3 乙方不对分析结果的准确性、完整性、及时性承担任何责任。7.5 因甲方基于分析结果做出的经营决策所导致的任何损失，乙方不承担赔偿责任。",
+      "legal_analysis": "该条款过度免除乙方责任，违反公平原则。分析结果是服务核心，乙方应承担基本质量责任，否则构成不公平格式条款。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方不保证分析结果可靠，甲方无法追责，经营风险全由甲方承担。",
+      "suggested_revision": "修改为乙方对分析结果的准确性、完整性承担合理责任，并设定责任限额，而非完全免责。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "5.6 乙方应采取以下数据安全保护措施：（一）数据传输加密：...但未明确提及个人信息保护。",
+      "legal_analysis": "合同未明确数据中是否包含个人信息，以及如何保护个人信息，可能违反《个人信息保护法》等法规，存在合规风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "基于法理分析",
+      "plain_explanation": "甲方零售数据可能含顾客个人信息，合同未规定保护措施，存在法律风险。",
+      "suggested_revision": "增加条款明确数据分类，特别是个人信息的处理，遵守《个人信息保护法》。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "4.3 （一）首年费用于合同签订后15个工作日内支付；",
+      "legal_analysis": "首年费用在签订后支付，但服务从上线开始，付款与服务交付不挂钩，甲方承担资金风险，可能违反公平原则。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "甲方在服务未开始前就付款，若服务延迟或问题，资金风险高。",
+      "suggested_revision": "调整付款节点，如首付在上线后支付，或与里程碑挂钩。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "服务水平",
+      "original_text": "6.1 乙方承诺服务平台年可用性不低于 99.5%。6.2 乙方承诺服务平台在大数据量下保持流畅运行，确保用户操作响应时间在合理范围内。",
+      "legal_analysis": "响应时间定义模糊（'合理范围'），故障恢复时效未明确，SLA细节依赖附件，但正文未约束附件内容，易生争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "SLA标准不具体，如响应时间、故障恢复无量化指标，服务保障不足。",
+      "suggested_revision": "在正文中明确关键SLA指标，如响应时间不超过X小时，故障恢复时间不超过Y小时。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_009",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "9.2 甲方在使用服务平台过程中产生的业务数据、分析报表等知识产权归甲方所有。",
+      "legal_analysis": "分析报表可能包含乙方算法输出，归属可能冲突，未明确分析结果的衍生权利，易引发知识产权纠纷。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "基于法理分析",
+      "plain_explanation": "分析报表知识产权归甲方，但平台算法归乙方，可能引发纠纷。",
+      "suggested_revision": "明确分析结果的所有权和使用权，区分原始数据和衍生数据。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_005.9",
+      "clause_code": "第五条5.9",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "5.9 合同终止或解除后，乙方应按照甲方要求，在三十（30）日内完成甲方数据的导出和迁移工作",
+      "legal_analysis": "未规定导出数据的格式、标准和完整性验证，可能导致数据无法有效迁移或供应商锁定，违反数据可迁移性原则。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "基于法理分析",
+      "plain_explanation": "数据导出条款笼统，甲方可能无法顺利迁移数据到其他平台。",
+      "suggested_revision": "明确数据导出格式（如CSV、JSON）、标准接口，并确保数据完整性验证。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_010",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "10.4 乙方因故意或重大过失导致甲方数据丢失的，乙方应承担合理赔偿责任，但赔偿上限不超过甲方已支付的服务费用总额。",
+      "legal_analysis": "赔偿上限过低，特别是数据丢失可能造成重大损失，违反公平原则，且违约金约定可能不合理。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "数据丢失赔偿封顶在已付费用，甲方实际损失可能远高于此，赔偿不足。",
+      "suggested_revision": "取消赔偿上限或提高上限，根据实际损失赔偿，或设定合理倍数。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_general",
+      "clause_code": "整体",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "合同未包含某些关键条款。",
+      "legal_analysis": "缺少关键条款，如数据备份策略、灾难恢复计划、合规声明等，影响服务连续性和风险控制。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同未覆盖所有重要方面，如灾难恢复、合规要求，可能影响服务保障。",
+      "suggested_revision": "补充数据备份、灾难恢复、合规保证等条款。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_003",
+      "clause_b": "cl_004",
+      "conflict_type": "timeline",
+      "description": "服务期限自上线之日起计算，但首年费用在合同签订后支付，付款与服务起算时间不一致。"
+    },
+    {
+      "clause_a": "cl_005.3",
+      "clause_b": "cl_004.2",
+      "conflict_type": "logic",
+      "description": "数据存储期限为3年，但费用仅包含1年存储，超出部分另行收费，存储服务与费用结构可能矛盾。"
+    },
+    {
+      "clause_a": "cl_007",
+      "clause_b": "cl_005",
+      "conflict_type": "logic",
+      "description": "分析结果免责条款与数据安全责任条款可能冲突，乙方在数据安全上承担责任，但在分析结果上完全免责。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "个人信息保护条款",
+      "reason": "甲方数据可能包含个人信息，需明确处理方式、合法基础和用户权利，以遵守《个人信息保护法》。"
+    },
+    {
+      "name": "数据备份与灾难恢复计划",
+      "reason": "SaaS服务需保障数据安全和业务连续性，应约定备份频率、恢复时间目标（RTO）和恢复点目标（RPO）。"
+    },
+    {
+      "name": "合规保证与资质声明",
+      "reason": "乙方应保证服务符合相关法律法规和行业标准，并提供必要资质证明，降低合规风险。"
+    },
+    {
+      "name": "详细的服务范围与交付标准",
+      "reason": "正文中服务内容概括，应明确功能细节、性能指标和验收标准，避免范围模糊。"
+    },
+    {
+      "name": "变更管理流程",
+      "reason": "服务过程中可能需变更，应约定变更申请、审批和影响评估流程，确保双方权益。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 3928,
+    "completion_tokens": 5901,
+    "latency_ms": 87304,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:40:30.558254",
+  "completed_at": "2026-06-19T08:41:58.266237",
+  "created_at": "2026-06-19T08:40:30.539555"
+}

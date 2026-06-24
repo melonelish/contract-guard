@@ -1,0 +1,189 @@
+{
+  "id": "c72e26b7-a38f-4b31-ab95-6cb91bb2ca6e",
+  "contract_id": "f745ab87-7b3f-4f01-b6fd-a07fccdf25b2",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 3,
+    "medium": 5,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条",
+      "risk_level": "high",
+      "risk_category": "销售指标",
+      "original_text": "4.3 如乙方未完成年度销售指标，甲方有权：（一）调整乙方的代理区域；（二）降低乙方的代理级别；（三）解除本协议。",
+      "legal_analysis": "条款赋予甲方单方解除权，可能对乙方过于严苛，违反公平原则。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果乙方没完成销售目标，甲方可以单方面调整区域或解约，这对乙方不公平。",
+      "suggested_revision": "修改为：乙方未完成指标时，甲方应给予合理补救期，或协商调整指标，而非直接解除。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_011",
+      "clause_code": "第十一条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "11.1 任一方违反本协议约定，应向守约方支付违约金人民币100,000元。",
+      "legal_analysis": "固定违约金可能过高或过低，与实际损失脱节，违反《民法典》违约金调整原则。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "无论违约大小都赔10万元，可能不公平，法院可以调整过高违约金。",
+      "suggested_revision": "修改为：违约金按实际损失计算，或约定损失赔偿额计算方法。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_009",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "9.2 乙方在代理过程中使用甲方的知识产权，应事先取得甲方书面同意。",
+      "legal_analysis": "乙方使用知识产权受限，可能影响正常代理销售，需确保合理使用权。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方卖产品时用甲方品牌需书面同意，可能太繁琐，影响效率。",
+      "suggested_revision": "修改为：甲方授予乙方在代理期内使用知识产权进行销售的非独占许可。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第八条",
+      "risk_level": "medium",
+      "risk_category": "客户归属",
+      "original_text": "8.3 如客户同时与甲方和乙方有业务往来，双方应协商确定客户归属。",
+      "legal_analysis": "客户归属规则模糊，依赖附件和协商，易引发争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "客户归属规则不清，附件未提供，可能导致甲乙双方抢客户纠纷。",
+      "suggested_revision": "在合同正文中明确客户归属判定标准，如以首次接触或签约时间为准。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条",
+      "risk_level": "medium",
+      "risk_category": "付款条件",
+      "original_text": "5.3 佣金按季度结算，甲方应在每季度结束后30日内将佣金支付至乙方指定账户。",
+      "legal_analysis": "佣金支付滞后30日，可能影响乙方现金流，需平衡双方利益。",
+      "legal_basis": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "甲方每季度后30天才付佣金，乙方资金回笼慢，可协商缩短支付期。",
+      "suggested_revision": "修改为：佣金在季度结束后15日内支付，或分期支付。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条",
+      "risk_level": "medium",
+      "risk_category": "合同期限",
+      "original_text": "3.2 代理期满前30日，双方可协商续签事宜。如任一方未提出终止，本协议自动续展1年。",
+      "legal_analysis": "自动续展条款可能捆绑乙方，需明确通知机制。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同到期自动续一年，如果乙方想退出但没及时通知，会被续期，可能不合理。",
+      "suggested_revision": "修改为：自动续展需双方书面同意，或改为到期后需重新协商。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_014",
+      "clause_code": "第十四条",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "第十四条 协议终止\n12.1 经双方协商一致，可以提前终止本协议。",
+      "legal_analysis": "条款编号错误（应为14.1），可能导致条款引用混乱，影响合同效力。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "终止条款编号写成12.1，但实际是第十四条，容易看错，引发纠纷。",
+      "suggested_revision": "修正编号为14.1、14.2等，确保条款连贯。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "medium",
+      "risk_category": "合作范围",
+      "original_text": "1.1 乙方代理销售的产品包括甲方生产的全部安全产品，具体产品清单见附件一。",
+      "legal_analysis": "产品清单在附件但未提供，范围模糊，可能影响履行标准。",
+      "legal_basis": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "basis_excerpt": "当事人就有关合同内容约定不明确，依据前条规定仍不能确定的，适用下列规定：（一）质量要求不明确的，按照强制性国家标准履行；没有强制性国家标准的，按照推荐性国家标准履行；没有推荐性国家标准的，按照行业标准履行；没有国家标准、行业标准的，按照通常标准或者符合合同目的的特定标准履行。（二）价款或者报酬不明确的，按照订立合同时履行地的市场价格履行；依法应当执行政府定价或者政府指导价的，依照规定履行。（三）履...",
+      "basis_source": "《中华人民共和国民法典》第五百一十一条（质量要求不明的处理）",
+      "plain_explanation": "产品清单在附件但未附上，具体卖什么不清楚，容易扯皮。",
+      "suggested_revision": "在合同中明确主要产品列表，或确保附件一完整并双方确认。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_014",
+      "clause_b": "cl_016",
+      "conflict_type": "logic",
+      "description": "第十四条标题为“协议终止”，但内容中条款编号写为12.1等，与第十二条不可抗力编号冲突，可能导致条款混淆。"
+    },
+    {
+      "clause_a": "cl_004",
+      "clause_b": "cl_005",
+      "conflict_type": "timeline",
+      "description": "第四条要求乙方每季度完成销售指标20%，但第五条佣金按季度结算且支付滞后30日，可能造成乙方资金压力与业绩要求不对等。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护",
+      "reason": "合同涉及安全产品代理，可能处理客户数据，需明确数据安全义务和合规要求，避免违反《个人信息保护法》等法规。"
+    },
+    {
+      "name": "资质与合规条款",
+      "reason": "代理销售安全产品，乙方可能需要相关行业资质或许可，合同未提及，存在合规风险。"
+    },
+    {
+      "name": "不可抗力后果的具体处理",
+      "reason": "虽有不可抗力条款，但未明确受影响方的通知义务细节和损失分担，可能导致争议。"
+    },
+    {
+      "name": "争议解决中的仲裁选项",
+      "reason": "仅约定诉讼，未提供仲裁选项，可能增加解决成本和效率，建议补充替代争议解决方式。"
+    },
+    {
+      "name": "终止后的过渡安排",
+      "reason": "第十四条终止条款较简单，未明确库存处理、客户交接等细节，易引发后续纠纷。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 25,
+    "completion_tokens": 5020,
+    "latency_ms": 80098,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "质量标准",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T06:53:02.431550",
+  "completed_at": "2026-06-19T06:54:22.868273",
+  "created_at": "2026-06-19T06:53:02.418463"
+}

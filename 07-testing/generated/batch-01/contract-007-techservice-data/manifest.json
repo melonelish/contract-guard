@@ -1,0 +1,68 @@
+{
+  "contract_id": "contract-007",
+  "contract_type": "techservice_data",
+  "title": "数据治理技术服务合同",
+  "subtitle": "大型国企数据资产盘点与质量提升",
+  "word_count": 3019,
+  "clause_count": 16,
+  "risk_count": 11,
+  "missing_count": 4,
+  "contradiction_count": 3,
+  "difficulty": "medium-high",
+  "difficulty_score": 7,
+  "tags": [
+    "数据治理",
+    "数据资产",
+    "数据质量",
+    "数据安全",
+    "国有企业",
+    "知识产权",
+    "验收标准",
+    "数据脱敏"
+  ],
+  "parties": {
+    "party_a": {
+      "name": "华夏能源集团有限公司",
+      "role": "委托方",
+      "industry": "能源行业"
+    },
+    "party_b": {
+      "name": "北京数智通达数据科技有限公司",
+      "role": "服务方",
+      "industry": "数据治理"
+    }
+  },
+  "financial": {
+    "total_amount": 2800000,
+    "currency": "CNY",
+    "payment_terms": "里程碑付款",
+    "contract_period": "6个月"
+  },
+  "risk_distribution": {
+    "high": 3,
+    "medium": 6,
+    "low": 2
+  },
+  "missing_clause_importance": {
+    "high": 1,
+    "medium": 2,
+    "low": 1
+  },
+  "contradiction_severity": {
+    "high": 0,
+    "medium": 3,
+    "low": 0
+  },
+  "test_scenarios": [
+    "主观验收标准识别",
+    "数据安全充分性评估",
+    "交付物范围清晰度检查",
+    "知识产权边界分析",
+    "保密期限合理性评估",
+    "付款节点与里程碑匹配性分析",
+    "数据脱敏条款必要性判断",
+    "第三方审计条款识别"
+  ],
+  "created_at": "2026-06-18",
+  "version": "1.0.0"
+}

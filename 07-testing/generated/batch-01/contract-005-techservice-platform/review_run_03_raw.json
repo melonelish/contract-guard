@@ -1,0 +1,259 @@
+{
+  "id": "f243c160-8b41-4fb1-8a8f-2ed3683a8dde",
+  "contract_id": "705e60e6-f0f5-45ce-a4a7-c3d3e44d5769",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 13,
+    "high": 13,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_005_01",
+      "clause_code": "第五条5.1",
+      "risk_level": "high",
+      "risk_category": "响应时间",
+      "original_text": "乙方应确保平台系统可用性不低于行业标准。",
+      "legal_analysis": "合同未明确具体可用性指标，如99.9%，导致服务质量无法量化考核，可能引发履约争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务标准太模糊，没有具体数字，容易扯皮。",
+      "suggested_revision": "明确系统可用性百分比，如“不低于99.9%”，并约定未达标的补偿措施。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002_01",
+      "clause_code": "第二条2.1",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "（六）甲方合理要求的其他技术服务。",
+      "legal_analysis": "“合理要求”定义模糊，可能导致乙方承担额外义务而无额外报酬，或甲方滥用权利。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务范围不清晰，可能增加未约定的工作。",
+      "suggested_revision": "删除该条款或改为“双方书面确认的额外技术服务”。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方应采取合理措施保护甲方数据安全，防止数据泄露、丢失或损坏。",
+      "legal_analysis": "条款过于原则，未规定具体安全标准、数据处理权限、跨境传输等，不符合数据保护法规要求。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据保护措施不够具体，可能泄露用户数据。",
+      "suggested_revision": "增加数据安全标准（如ISO27001）、访问控制、加密措施、违约赔偿等。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_009",
+      "clause_code": "第九条9.2、9.3",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "9.2 乙方为履行本合同而专门开发的软件、工具及相关成果的知识产权归甲方所有。9.3 乙方在提供服务过程中形成的技术积累和经验，乙方有权在其他项目中使用，但不得泄露甲方保密信息。",
+      "legal_analysis": "两条款可能冲突，如技术积累是否包含在专门开发成果中，界限不清。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "乙方可能用甲方的成果在其他地方赚钱，但甲方不知道。",
+      "suggested_revision": "明确技术积累的定义和范围，约定使用限制。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条3.2、3.3",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "3.2 合同期满前30日内，如双方均未书面提出终止合同，则本合同自动续约 3年，续约次数不限。3.3 任何一方如需提前终止本合同，应提前90日书面通知对方，并支付剩余服务期限服务费总额的 50% 作为违约金。",
+      "legal_analysis": "自动续约3年且次数不限，结合高额违约金，可能限制甲方退出，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "自动续约太长，提前解约赔得多，甲方被套牢。",
+      "suggested_revision": "改为自动续约1年或需双方同意，降低违约金比例至合理水平。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_011",
+      "clause_code": "第十一条11.5",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方违约的最高赔偿金额不超过当月服务费用。",
+      "legal_analysis": "乙方赔偿限额过低，甲方可能无法挽回重大损失，而甲方违约则无类似限额，不对等。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方出问题赔得少，甲方损失大了没法追。",
+      "suggested_revision": "设置合理赔偿限额，或基于实际损失赔偿，对双方公平。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条4.3",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "甲方于每季度首月10日前向乙方支付当季度服务费，即每季度支付人民币45万元。",
+      "legal_analysis": "付款固定，未与服务质量考核挂钩，可能激励不足，影响服务标准。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "不管服务好坏，钱照付，乙方没动力改进。",
+      "suggested_revision": "将付款与SLA考核结果关联，如未达标则扣减部分费用。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未规定服务终止时的数据导出格式、方式和时限，可能导致数据锁定风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同结束时，甲方可能拿不回自己的数据。",
+      "suggested_revision": "增加条款，约定乙方提供数据导出支持，确保数据可迁移。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现数据可迁移性条款）",
+      "legal_analysis": "确保服务终止时甲方能顺利导出数据，避免供应商锁定风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少数据可迁移性条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加数据可迁移性条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现安全事件响应义务）",
+      "legal_analysis": "明确安全漏洞报告和处理流程，保障平台安全。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少安全事件响应义务，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加安全事件响应义务。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "业务连续性",
+      "original_text": "（合同中未发现业务连续性计划）",
+      "legal_analysis": "详细灾难恢复计划，确保服务中断时快速恢复。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少业务连续性计划，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加业务连续性计划。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "培训",
+      "original_text": "（合同中未发现培训条款）",
+      "legal_analysis": "乙方应提供必要培训，确保甲方人员能有效使用系统。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少培训条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加培训条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现服务降级补偿机制）",
+      "legal_analysis": "约定服务未达标时的具体补偿措施，保障甲方权益。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务降级补偿机制，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务降级补偿机制。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_009_02",
+      "clause_b": "cl_009_03",
+      "conflict_type": "logic",
+      "description": "知识产权条款中，专门开发成果归甲方，但技术积累乙方可用，两者界限不清，可能引发权属争议。"
+    },
+    {
+      "clause_a": "cl_003_02",
+      "clause_b": "cl_003_03",
+      "conflict_type": "logic",
+      "description": "自动续约3年且次数不限，但提前终止需付高额违约金，可能使合同过于僵化，与合同自由原则冲突。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "数据可迁移性条款",
+      "reason": "确保服务终止时甲方能顺利导出数据，避免供应商锁定风险。"
+    },
+    {
+      "name": "安全事件响应义务",
+      "reason": "明确安全漏洞报告和处理流程，保障平台安全。"
+    },
+    {
+      "name": "业务连续性计划",
+      "reason": "详细灾难恢复计划，确保服务中断时快速恢复。"
+    },
+    {
+      "name": "培训条款",
+      "reason": "乙方应提供必要培训，确保甲方人员能有效使用系统。"
+    },
+    {
+      "name": "服务降级补偿机制",
+      "reason": "约定服务未达标时的具体补偿措施，保障甲方权益。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 18,
+    "completion_tokens": 6988,
+    "latency_ms": 225586,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同变更",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:45:48.080787",
+  "completed_at": "2026-06-19T09:49:36.619068",
+  "created_at": "2026-06-19T09:45:48.003333"
+}

@@ -15,3 +15,17 @@ apiClient.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// Draft API
+export const draftApi = {
+  get: async (contractId: string) => {
+    const response = await apiClient.get(`/contracts/${contractId}/draft`);
+    return response.data;
+  },
+  save: async (contractId: string, content: string) => {
+    const response = await apiClient.post(`/contracts/${contractId}/draft`, {
+      content,
+    });
+    return response.data;
+  },
+};

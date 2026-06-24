@@ -1,0 +1,45 @@
+{
+  "contract_id": "contract-012-saas-bi",
+  "missing_clauses": [
+    {
+      "clause_id": "M001",
+      "category": "数据安全",
+      "title": "数据加密存储与传输条款",
+      "description": "合同未约定数据加密标准。BI平台连接甲方多个核心业务系统，存储大量敏感商业数据（销售、库存、供应链等），必须明确传输加密和存储加密标准。",
+      "importance": "high",
+      "reference": "《数据安全法》《网络安全法》相关要求"
+    },
+    {
+      "clause_id": "M002",
+      "category": "数据使用",
+      "title": "数据使用限制条款",
+      "description": "合同未明确限制乙方对甲方数据的使用范围。应禁止乙方将甲方数据用于除服务提供以外的任何目的，包括但不限于模型训练、竞品分析、第三方共享等。",
+      "importance": "high",
+      "reference": "《数据安全法》第32条"
+    },
+    {
+      "clause_id": "M003",
+      "category": "服务水平",
+      "title": "服务水平报告条款",
+      "description": "合同未约定乙方定期提供服务水平报告的义务。应明确报告频率（如月度）、报告内容（可用性、性能指标、事件报告等）和交付方式。",
+      "importance": "medium",
+      "reference": "SaaS服务合同通用规范"
+    },
+    {
+      "clause_id": "M004",
+      "category": "数据安全",
+      "title": "数据泄露通知与应急响应条款",
+      "description": "合同未约定数据泄露事件发生后的通知时限、通知方式、应急响应措施。BI平台存储甲方核心商业数据，数据泄露可能造成重大商业损失。",
+      "importance": "high",
+      "reference": "《数据安全法》第29条"
+    },
+    {
+      "clause_id": "M005",
+      "category": "数据安全",
+      "title": "访问控制与审计条款",
+      "description": "合同未约定访问控制机制和安全审计条款。应明确谁能访问甲方数据、访问权限管理、访问日志记录和审计等。",
+      "importance": "high",
+      "reference": "《网络安全法》第21条"
+    }
+  ]
+}

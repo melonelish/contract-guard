@@ -1,0 +1,57 @@
+{
+  "sample_id": "contract-010-saas-erp",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.154363",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "响应时间",
+    "定制开发源代码不开放",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "解约条件",
+    "质量标准"
+  ],
+  "detected_risk_topics": [
+    "数据安全",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "响应时间",
+    "条款缺失",
+    "知识产权"
+  ],
+  "detected_high_risk_topics": [
+    "数据安全",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "付款条件",
+    "合作范围",
+    "响应时间",
+    "定制开发源代码不开放",
+    "条款缺失",
+    "知识产权",
+    "解约条件",
+    "质量标准"
+  ],
+  "unexpected_topics": [
+    "违约责任"
+  ],
+  "topic_recall": 0.111,
+  "topic_precision": 0.5,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 0,
+  "legal_basis_coverage": 0.5,
+  "overall_score": 0.152,
+  "notes": ""
+}

@@ -1,0 +1,176 @@
+{
+  "id": "ad385e00-285f-45b2-baf5-2536bc6a51d1",
+  "contract_id": "804bc3ad-a04c-42f8-9227-822a2a5145c2",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 4,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "甲方应向乙方支付违约金人民币伍佰万元整（¥5,000,000.00）...乙方应向甲方支付违约金人民币壹佰万元整（¥1,000,000.00）",
+      "legal_analysis": "违约金设置明显不对等，可能违反公平原则，且金额可能过高，不符合损失比例，存在被法院调整的风险。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "甲方违约金500万，乙方100万，差距大，可能被视为不公平，法院可调整。",
+      "suggested_revision": "建议双方违约金对等，或基于实际损失计算，避免显失公平。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第四条",
+      "risk_level": "high",
+      "risk_category": "保密期限",
+      "original_text": "本协议自双方签署之日起生效，有效期为十年（10年）...直至保密信息已通过合法途径成为公开信息为止。",
+      "legal_analysis": "十年有效期过长，且期满后继续有效，可能限制商业灵活性，不符合行业实践，加重双方长期负担。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密期十年太长，结束后还一直保密，对双方负担重，影响正常商业活动。",
+      "suggested_revision": "建议缩短至3-5年，或设定合理的终止条件，如合作结束后2年。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条3.6",
+      "risk_level": "high",
+      "risk_category": "保密义务",
+      "original_text": "接收方不得以直接或间接方式招揽、引诱或试图招揽披露方的员工、顾问或承包商，亦不得利用保密信息与披露方的客户、供应商建立业务关系。",
+      "legal_analysis": "条款限制范围过宽，可能构成不合理竞业限制，影响正常商业活动，缺乏合理性与必要性。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "禁止招揽员工和客户，范围太大，可能违法或过度限制商业自由。",
+      "suggested_revision": "建议限制在特定人员或客户，且仅限于合作期间及结束后合理期限，避免过度限制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "合同整体",
+      "risk_level": "high",
+      "risk_category": "数据安全与个人信息保护",
+      "original_text": "保密信息包括客户数据、人员信息等，但未具体规定数据安全措施和个人信息处理。",
+      "legal_analysis": "涉及个人数据但无具体保护条款，可能违反数据保护法规，存在合规风险。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同提到了客户和人员信息，但没详细说怎么保护这些个人数据，可能违法。",
+      "suggested_revision": "添加数据安全措施条款，明确个人信息处理目的、方式，并遵守《个人信息保护法》等法规。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第二条2.4",
+      "risk_level": "medium",
+      "risk_category": "保密信息范围",
+      "original_text": "保密信息排除事项的举证责任由接收方承担。",
+      "legal_analysis": "将举证责任完全置于接收方，可能加重接收方负担，在诉讼中造成不公平。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "接收方要证明信息不保密，否则就默认保密，这对接收方要求高。",
+      "suggested_revision": "建议明确举证责任标准，或由双方合理分担，确保公平。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第八条8.2",
+      "risk_level": "medium",
+      "risk_category": "争议解决",
+      "original_text": "任何一方均有权向甲方所在地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "约定仅甲方所在地法院，可能对乙方不公平，增加乙方诉讼成本，缺乏中立性。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "只能在甲方所在地打官司，乙方可能不方便，增加诉讼难度。",
+      "suggested_revision": "建议选择中立地点法院或仲裁机构，如深圳国际仲裁院，确保公平。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第一条1.1、第二条2.1",
+      "risk_level": "medium",
+      "risk_category": "保密信息范围",
+      "original_text": "所有信息...包括但不限于商业秘密、技术秘密...任何非公开信息。",
+      "legal_analysis": "定义过于宽泛，可能包括非实质保密信息，导致义务不明确，增加执行难度。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密信息定义太宽，什么都算，可能不合理，让双方难以把握。",
+      "suggested_revision": "建议细化保密信息标准，如明确标识或合理保密预期，避免模糊。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第七条7.2",
+      "risk_level": "low",
+      "risk_category": "免责条款",
+      "original_text": "受不可抗力影响的一方应在不可抗力事件发生后五（5）日内书面通知另一方",
+      "legal_analysis": "五日内通知可能紧迫，在实际事件中难以及时完成，影响不可抗力免责的适用。",
+      "legal_basis": "《中华人民共和国民法典》第五百九十条（不可抗力）",
+      "basis_excerpt": "当事人一方因不可抗力不能履行合同的，根据不可抗力的影响，部分或者全部免除责任，但是法律另有规定的除外。因不可抗力不能履行合同的，应当及时通知对方，以减轻可能给对方造成的损失，并应当在合理期限内提供证明。当事人迟延履行后发生不可抗力的，不免除其违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百九十条（不可抗力）",
+      "plain_explanation": "不可抗力发生后5天内通知，时间太紧，可能做不到。",
+      "suggested_revision": "建议延长通知期限至10-15日，更合理，便于实际操作。",
+      "confidence": 0.6
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [
+    {
+      "name": "数据安全与个人信息保护具体条款",
+      "reason": "合同涉及客户数据、人员信息等个人数据，应明确数据安全措施、处理目的及合规要求，避免法律风险。"
+    },
+    {
+      "name": "保密信息使用限制细化条款",
+      "reason": "保密协议应具体规定信息的使用范围、方式及限制，防止滥用或误解。"
+    },
+    {
+      "name": "违约救济明确条款",
+      "reason": "应明确违约后的具体救济方式，如禁令救济、损害赔偿计算，增强可执行性。"
+    },
+    {
+      "name": "保密例外程序化条款",
+      "reason": "为公平起见，应制定保密例外的具体程序和标准，减少争议。"
+    },
+    {
+      "name": "独立承包商保密义务延伸条款",
+      "reason": "合作中可能涉及独立承包商，应确保其承担同等保密义务，保护信息安全。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 3959,
+    "completion_tokens": 6755,
+    "latency_ms": 107467,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "免责条款",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:44:17.880656",
+  "completed_at": "2026-06-19T08:46:05.757188",
+  "created_at": "2026-06-19T08:44:17.859832"
+}

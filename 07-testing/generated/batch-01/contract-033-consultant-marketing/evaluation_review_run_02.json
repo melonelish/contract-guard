@@ -1,0 +1,72 @@
+{
+  "sample_id": "contract-033-consultant-marketing",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.443093",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "供应链风险",
+    "保密义务",
+    "危机公关配合条款不完整",
+    "排他性",
+    "数据安全",
+    "知识产权",
+    "自动续展条款可能束缚双方",
+    "营销效果承诺含糊",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合作范围",
+    "合同完整性",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "排他性",
+    "知识产权",
+    "营销效果承诺含糊"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "供应链风险",
+    "保密义务",
+    "危机公关配合条款不完整",
+    "排他性",
+    "自动续展条款可能束缚双方",
+    "营销效果承诺含糊"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "合作范围",
+    "合同完整性",
+    "条款缺失",
+    "验收标准"
+  ],
+  "topic_recall": 0.4,
+  "topic_precision": 0.444,
+  "high_risk_recall": 0.4,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 2,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 6,
+  "missing_clause_detected": 4,
+  "legal_basis_coverage": 0.636,
+  "overall_score": 0.585,
+  "notes": ""
+}

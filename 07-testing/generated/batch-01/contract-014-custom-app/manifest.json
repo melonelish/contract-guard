@@ -1,0 +1,21 @@
+{
+  "contract_id": "contract-014",
+  "contract_type": "移动应用定制开发合同",
+  "title": "华南优选移动商城APP定制开发合同",
+  "word_count": 3005,
+  "clause_count": 15,
+  "risk_count": 11,
+  "missing_count": 5,
+  "contradiction_count": 2,
+  "difficulty": "medium",
+  "tags": [
+    "移动应用",
+    "移动商城",
+    "APP开发",
+    "应用商店上架",
+    "第三方组件",
+    "数据接口矛盾",
+    "零售数字化",
+    "移动端开发"
+  ]
+}

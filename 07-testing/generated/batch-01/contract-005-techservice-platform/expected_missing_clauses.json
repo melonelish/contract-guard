@@ -1,0 +1,40 @@
+{
+  "contract_id": "contract-005",
+  "contract_type": "platform_techservice",
+  "missing_clauses": [
+    {
+      "clause_id": "MC005-01",
+      "clause_name": "数据备份与灾难恢复条款",
+      "importance": "high",
+      "description": "合同未约定数据备份策略、备份频率、备份存储位置、灾难恢复时间目标（RTO）和恢复点目标（RPO）。对于电商平台而言，数据丢失可能导致重大业务损失和用户信任危机。",
+      "suggested_content": "应增加专章约定：1）数据备份策略（全量备份+增量备份）；2）备份频率（每日增量、每周全量）；3）备份存储位置（异地容灾）；4）RTO不超过4小时；5）RPO不超过1小时；6）灾难恢复演练每半年至少一次。"
+    },
+    {
+      "clause_id": "MC005-02",
+      "clause_name": "人员变更通知条款",
+      "importance": "medium",
+      "description": "合同未约定乙方服务人员变更时的通知义务、甲方的审批权利以及新人员的资质要求。频繁的人员变更可能影响服务连续性和质量。",
+      "suggested_content": "应增加条款约定：1）核心人员变更需提前30日书面通知甲方；2）甲方有权对新人员进行资质审核；3）人员变更期间应确保服务平稳过渡；4）关键岗位人员变更需甲方书面同意。"
+    },
+    {
+      "clause_id": "MC005-03",
+      "clause_name": "应急响应预案条款",
+      "importance": "medium",
+      "description": "合同未约定系统故障、安全事件等紧急情况的应急响应预案、升级机制和处置流程。",
+      "suggested_content": "应增加条款约定：1）应急响应预案的制定和更新；2）故障分级标准（P0-P3）；3）各级故障的响应时间和恢复时间；4）应急联系人和升级机制；5）事后复盘和改进要求。"
+    },
+    {
+      "clause_id": "MC005-04",
+      "clause_name": "服务水平报告条款",
+      "importance": "low",
+      "description": "合同未约定乙方定期提交服务水平报告的义务，甲方难以全面掌握服务质量和SLA达成情况。",
+      "suggested_content": "应增加条款约定：1）乙方每月提交服务水平报告；2）报告内容包括SLA达成率、故障统计、性能指标等；3）甲方有权对报告进行核实。"
+    }
+  ],
+  "missing_summary": {
+    "total": 4,
+    "high": 1,
+    "medium": 2,
+    "low": 1
+  }
+}

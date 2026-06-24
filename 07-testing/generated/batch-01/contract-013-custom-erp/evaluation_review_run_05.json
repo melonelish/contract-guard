@@ -1,0 +1,68 @@
+{
+  "sample_id": "contract-013-custom-erp",
+  "review_run_file": "review_run_05.json",
+  "evaluated_at": "2026-06-22T11:31:06.206219",
+  "success": true,
+  "expected_risk_topics": [
+    "交付条件",
+    "人员管理",
+    "付款条件",
+    "条款缺失",
+    "源代码",
+    "知识产权",
+    "违约责任",
+    "需求变更",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "技术方案确认",
+    "数据安全",
+    "知识产权",
+    "责任限制",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "源代码",
+    "知识产权",
+    "违约责任",
+    "需求变更",
+    "验收标准"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "数据安全",
+    "知识产权",
+    "责任限制",
+    "违约责任",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "交付条件",
+    "人员管理",
+    "条款缺失",
+    "源代码",
+    "需求变更"
+  ],
+  "unexpected_topics": [
+    "合作范围",
+    "技术方案确认",
+    "数据安全",
+    "责任限制"
+  ],
+  "topic_recall": 0.444,
+  "topic_precision": 0.5,
+  "high_risk_recall": 0.667,
+  "contradiction_hit": true,
+  "contradiction_expected": 3,
+  "contradiction_detected": 3,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.75,
+  "overall_score": 0.685,
+  "notes": ""
+}

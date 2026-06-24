@@ -1,0 +1,72 @@
+{
+  "sample_id": "contract-002-procurement-materials",
+  "review_run_file": "review_run_03.json",
+  "evaluated_at": "2026-06-22T11:31:06.029215",
+  "success": true,
+  "expected_risk_topics": [
+    "不可抗力",
+    "付款条件",
+    "保密义务",
+    "合同续展风险",
+    "库存风险",
+    "数量风险",
+    "管辖法院",
+    "质量风险",
+    "违约责任"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "交付条件",
+    "付款条件",
+    "供应链风险",
+    "保密义务",
+    "合同完整性",
+    "数据安全",
+    "条款缺失",
+    "质量标准"
+  ],
+  "expected_high_risk_topics": [
+    "不可抗力",
+    "付款条件",
+    "数量风险",
+    "管辖法院",
+    "质量风险"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "合同完整性",
+    "数据安全",
+    "条款缺失",
+    "质量标准"
+  ],
+  "missing_expected_topics": [
+    "不可抗力",
+    "合同续展风险",
+    "库存风险",
+    "数量风险",
+    "管辖法院",
+    "质量风险",
+    "违约责任"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "交付条件",
+    "供应链风险",
+    "合同完整性",
+    "数据安全",
+    "条款缺失",
+    "质量标准"
+  ],
+  "topic_recall": 0.222,
+  "topic_precision": 0.222,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 2,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 4,
+  "legal_basis_coverage": 0.364,
+  "overall_score": 0.382,
+  "notes": ""
+}

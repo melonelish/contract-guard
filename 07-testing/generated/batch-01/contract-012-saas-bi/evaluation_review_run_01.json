@@ -1,0 +1,67 @@
+{
+  "sample_id": "contract-012-saas-bi",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.192307",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "响应时间",
+    "性能指标定义含糊",
+    "数据安全",
+    "条款缺失",
+    "解约条件",
+    "责任限制"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合同完整性",
+    "数据安全",
+    "服务水平",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "数据安全",
+    "责任限制"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合同完整性",
+    "数据安全",
+    "服务水平",
+    "知识产权",
+    "违约责任"
+  ],
+  "missing_expected_topics": [
+    "合作范围",
+    "响应时间",
+    "性能指标定义含糊",
+    "条款缺失",
+    "解约条件",
+    "责任限制"
+  ],
+  "unexpected_topics": [
+    "不公平条款",
+    "合同完整性",
+    "服务水平",
+    "知识产权",
+    "违约责任"
+  ],
+  "topic_recall": 0.25,
+  "topic_precision": 0.286,
+  "high_risk_recall": 0.5,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 3,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.625,
+  "overall_score": 0.408,
+  "notes": ""
+}

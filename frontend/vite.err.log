@@ -1,0 +1,506 @@
+[2m19:32:20[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\HomePage.tsx: Unexpected token, expected "," (668:88)
+
+[0m [90m 666 |[31m             {
+ [90m 667 |[31m               q[33m:[31m [32m"审查结果是否带法条依据？"[31m[33m,[31m
+[31m[1m>[22m[31m[90m 668 |[31m               a[33m:[31m [32m"每条风险都会挂接法条原文、条款编号与适用说明。系统基于 RAG 检索法律法规库，优先引用《民法典》等现行有效法条。无法找到直接依据时会标注"[31m基于法理分析[32m"，不会伪造法条。"[31m[33m,[31m
+ [90m     |[31m                                                                                         [31m[1m^[22m[31m
+ [90m 669 |[31m             }[33m,[31m
+ [90m 670 |[31m             {
+ [90m 671 |[31m               q[33m:[31m [32m"是否只给风险提示，还是有修改建议？"[31m[33m,[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/HomePage.tsx[39m:668:88
+[33m  666|              {
+  667|                q: "审查结果是否带法条依据？",
+  668|                a: "每条风险都会挂接法条原文、条款编号与适用说明。系统基于 RAG 检索法律法规库，优先引用《民法典》等现行有效法条。无法找到直接依据时会标注"基于法理分析"，不会伪造法条。",
+     |                                                                                          ^
+  669|              },
+  670|              {[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.unexpected (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6636:16)
+      at TypeScriptParserMixin.expect (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6916:12)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11839:14)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12192:18)
+      at TypeScriptParserMixin.parseExprList (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12167:22)
+      at TypeScriptParserMixin.parseArrayLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12074:26)
+      at TypeScriptParserMixin.parseArrayLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9210:24)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11352:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseExpression (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4644:31)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4723:36)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+[2m21:41:54[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\components\Editor\EditMode.tsx: Unterminated string constant. (55:15)
+
+[0m [90m 53 |[31m     [33mModal[31m[33m.[31mwarning({
+ [90m 54 |[31m       title[33m:[31m [32m'鍔熻兘鏆傛湭鏀寔'[31m[33m,[31m
+[31m[1m>[22m[31m[90m 55 |[31m       content[33m:[31m [32m'褰撳墠鐗堟湰灏氭湭鎺ュ叆鍚庣"淇敼鍚庨噸鏂板鏌?鎺ュ彛銆傛鍔熻兘灏嗗湪鍚庣画鐗堟湰涓彁渚涖€?,[31m
+ [90m    |[31m                [31m[1m^[22m[31m
+ [90m 56 |[31m       okText[33m:[31m [32m'鐭ラ亾浜?,[31m
+ [90m 57 |[31m     })[33m;[31m
+ [90m 58 |[31m   }[33m;[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/components/Editor/EditMode.tsx[39m:55:15
+[33m  53 |      Modal.warning({
+  54 |        title: '鍔熻兘鏆傛湭鏀寔',
+  55 |        content: '褰撳墠鐗堟湰灏氭湭鎺ュ叆鍚庣"淇敼鍚庨噸鏂板鏌?鎺ュ彛銆傛鍔熻兘灏嗗湪鍚庣画鐗堟湰涓彁渚涖€?,
+     |                                                                       ^
+  56 |        okText: '鐭ラ亾浜?,
+  57 |      });[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at Object.unterminated (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5681:20)
+      at readStringContents (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5423:16)
+      at TypeScriptParserMixin.readString (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6515:9)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6275:14)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4809:11)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.parseObjectProperty (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11966:14)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12192:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11269:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11203:29)
+      at TypeScriptParserMixin.parseSubscript (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11137:19)
+      at TypeScriptParserMixin.parseSubscript (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9289:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11111:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11102:17)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:17)
+[2m21:41:54[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[31m
+ [90m 64 |[31m [36mconst[31m [33mSTAGE_LABELS[31m[33m:[31m [33mRecord[31m[33m<[31m[33mstring[31m[33m,[31m string[33m>[31m [33m=[31m {
+[31m[1m>[22m[31m[90m 65 |[31m   queued[33m:[31m [32m"鎺掗槦涓?,[31m
+ [90m    |[31m           [31m[1m^[22m[31m
+ [90m 66 |[31m   parsing[33m:[31m [32m"鏂囨。瑙ｆ瀽"[31m[33m,[31m
+ [90m 67 |[31m   analyzing[33m:[31m [32m"鏉℃鍒嗘瀽"[31m[33m,[31m
+ [90m 68 |[31m   reporting[33m:[31m [32m"鎶ュ憡鐢熸垚"[31m[33m,[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/ContractDetailPage.tsx[39m:65:10
+[33m  66 |    parsing: "鏂囨。瑙ｆ瀽",
+  67 |    analyzing: "鏉℃鍒嗘瀽",
+  68 |    reporting: "鎶ュ憡鐢熸垚",
+     |              ^
+  69 |    validating: "鏍￠獙涓?,
+  70 |    completed: "瀹℃煡瀹屾垚",[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at Object.unterminated (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5681:20)
+      at readStringContents (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5423:16)
+      at TypeScriptParserMixin.readString (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6515:9)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6275:14)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4809:11)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.parseObjectProperty (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11966:14)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseVar (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13401:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13247:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9425:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12868:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12761:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13333:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseProgram (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12639:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12629:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14505:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10143:18)
+      at parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14539:38)
+      at parser (D:\FaLvXM\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:51:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+[2m21:41:55[22m [31m[1m[vite][22m[39m Pre-transform error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[39m
+ [90m 64 |[39m [36mconst[39m [33mSTAGE_LABELS[39m[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {
+[31m[1m>[22m[39m[90m 65 |[39m   queued[33m:[39m [32m"鎺掗槦涓?,[39m
+ [90m    |[39m           [31m[1m^[22m[39m
+ [90m 66 |[39m   parsing[33m:[39m [32m"鏂囨。瑙ｆ瀽"[39m[33m,[39m
+ [90m 67 |[39m   analyzing[33m:[39m [32m"鏉℃鍒嗘瀽"[39m[33m,[39m
+ [90m 68 |[39m   reporting[33m:[39m [32m"鎶ュ憡鐢熸垚"[39m[33m,[39m[0m
+[2m21:41:55[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[31m
+ [90m 64 |[31m [36mconst[31m [33mSTAGE_LABELS[31m[33m:[31m [33mRecord[31m[33m<[31m[33mstring[31m[33m,[31m string[33m>[31m [33m=[31m {
+[31m[1m>[22m[31m[90m 65 |[31m   queued[33m:[31m [32m"鎺掗槦涓?,[31m
+ [90m    |[31m           [31m[1m^[22m[31m
+ [90m 66 |[31m   parsing[33m:[31m [32m"鏂囨。瑙ｆ瀽"[31m[33m,[31m
+ [90m 67 |[31m   analyzing[33m:[31m [32m"鏉℃鍒嗘瀽"[31m[33m,[31m
+ [90m 68 |[31m   reporting[33m:[31m [32m"鎶ュ憡鐢熸垚"[31m[33m,[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/ContractDetailPage.tsx[39m:65:10
+[33m  66 |    parsing: "鏂囨。瑙ｆ瀽",
+  67 |    analyzing: "鏉℃鍒嗘瀽",
+  68 |    reporting: "鎶ュ憡鐢熸垚",
+     |              ^
+  69 |    validating: "鏍￠獙涓?,
+  70 |    completed: "瀹℃煡瀹屾垚",[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at Object.unterminated (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5681:20)
+      at readStringContents (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5423:16)
+      at TypeScriptParserMixin.readString (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6515:9)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6275:14)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4809:11)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.parseObjectProperty (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11966:14)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseVar (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13401:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13247:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9425:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12868:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12761:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13333:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseProgram (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12639:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12629:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14505:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10143:18)
+      at parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14539:38)
+      at parser (D:\FaLvXM\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:51:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+[2m21:42:24[22m [31m[1m[vite][22m[39m Pre-transform error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[39m
+ [90m 64 |[39m [36mconst[39m [33mSTAGE_LABELS[39m[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {
+[31m[1m>[22m[39m[90m 65 |[39m   queued[33m:[39m [32m"鎺掗槦涓?,[39m
+ [90m    |[39m           [31m[1m^[22m[39m
+ [90m 66 |[39m   parsing[33m:[39m [32m"鏂囨。瑙ｆ瀽"[39m[33m,[39m
+ [90m 67 |[39m   analyzing[33m:[39m [32m"鏉℃鍒嗘瀽"[39m[33m,[39m
+ [90m 68 |[39m   reporting[33m:[39m [32m"鎶ュ憡鐢熸垚"[39m[33m,[39m[0m
+[2m21:42:24[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[31m
+ [90m 64 |[31m [36mconst[31m [33mSTAGE_LABELS[31m[33m:[31m [33mRecord[31m[33m<[31m[33mstring[31m[33m,[31m string[33m>[31m [33m=[31m {
+[31m[1m>[22m[31m[90m 65 |[31m   queued[33m:[31m [32m"鎺掗槦涓?,[31m
+ [90m    |[31m           [31m[1m^[22m[31m
+ [90m 66 |[31m   parsing[33m:[31m [32m"鏂囨。瑙ｆ瀽"[31m[33m,[31m
+ [90m 67 |[31m   analyzing[33m:[31m [32m"鏉℃鍒嗘瀽"[31m[33m,[31m
+ [90m 68 |[31m   reporting[33m:[31m [32m"鎶ュ憡鐢熸垚"[31m[33m,[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/ContractDetailPage.tsx[39m:65:10
+[33m  66 |    parsing: "鏂囨。瑙ｆ瀽",
+  67 |    analyzing: "鏉℃鍒嗘瀽",
+  68 |    reporting: "鎶ュ憡鐢熸垚",
+     |              ^
+  69 |    validating: "鏍￠獙涓?,
+  70 |    completed: "瀹℃煡瀹屾垚",[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at Object.unterminated (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5681:20)
+      at readStringContents (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5423:16)
+      at TypeScriptParserMixin.readString (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6515:9)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6275:14)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4809:11)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.parseObjectProperty (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11966:14)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseVar (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13401:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13247:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9425:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12868:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12761:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13333:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseProgram (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12639:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12629:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14505:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10143:18)
+      at parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14539:38)
+      at parser (D:\FaLvXM\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:51:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+[2m21:44:03[22m [31m[1m[vite][22m[39m Pre-transform error: EBUSY: resource busy or locked, open 'D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx'
+[2m21:44:04[22m [31m[1m[vite][22m[39m Pre-transform error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[39m
+ [90m 64 |[39m [36mconst[39m [33mSTAGE_LABELS[39m[33m:[39m [33mRecord[39m[33m<[39m[33mstring[39m[33m,[39m string[33m>[39m [33m=[39m {
+[31m[1m>[22m[39m[90m 65 |[39m   queued[33m:[39m [32m"鎺掗槦涓?,[39m
+ [90m    |[39m           [31m[1m^[22m[39m
+ [90m 66 |[39m   parsing[33m:[39m [32m"鏂囨。瑙ｆ瀽"[39m[33m,[39m
+ [90m 67 |[39m   analyzing[33m:[39m [32m"鏉℃鍒嗘瀽"[39m[33m,[39m
+ [90m 68 |[39m   reporting[33m:[39m [32m"鎶ュ憡鐢熸垚"[39m[33m,[39m[0m
+[2m21:44:04[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Unterminated string constant. (65:10)
+
+[0m [90m 63 |[31m
+ [90m 64 |[31m [36mconst[31m [33mSTAGE_LABELS[31m[33m:[31m [33mRecord[31m[33m<[31m[33mstring[31m[33m,[31m string[33m>[31m [33m=[31m {
+[31m[1m>[22m[31m[90m 65 |[31m   queued[33m:[31m [32m"鎺掗槦涓?,[31m
+ [90m    |[31m           [31m[1m^[22m[31m
+ [90m 66 |[31m   parsing[33m:[31m [32m"鏂囨。瑙ｆ瀽"[31m[33m,[31m
+ [90m 67 |[31m   analyzing[33m:[31m [32m"鏉℃鍒嗘瀽"[31m[33m,[31m
+ [90m 68 |[31m   reporting[33m:[31m [32m"鎶ュ憡鐢熸垚"[31m[33m,[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/ContractDetailPage.tsx[39m:65:10
+[33m  66 |    parsing: "鏂囨。瑙ｆ瀽",
+  67 |    analyzing: "鏉℃鍒嗘瀽",
+  68 |    reporting: "鎶ュ憡鐢熸垚",
+     |              ^
+  69 |    validating: "鏍￠獙涓?,
+  70 |    completed: "瀹℃煡瀹屾垚",[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at Object.unterminated (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5681:20)
+      at readStringContents (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5423:16)
+      at TypeScriptParserMixin.readString (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6515:9)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6275:14)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4809:11)
+      at TypeScriptParserMixin.getTokenFromCode (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.parseObjectProperty (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11966:14)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11995:100)
+      at TypeScriptParserMixin.parseObjPropValue (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9761:18)
+      at TypeScriptParserMixin.parsePropertyDefinition (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11932:17)
+      at TypeScriptParserMixin.parseObjectLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11849:21)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11356:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseVar (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13401:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13247:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9425:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12868:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12761:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13333:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseProgram (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12639:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12629:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14505:25)
+      at TypeScriptParserMixin.parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10143:18)
+      at parse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:14539:38)
+      at parser (D:\FaLvXM\frontend\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\normalize-file.js:51:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\FaLvXM\frontend\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+[2m21:48:14[22m [31m[1m[vite][22m[39m Pre-transform error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Expected corresponding JSX closing tag for <span>. (1254:14)
+
+[0m [90m 1252 |[39m                         [33m:[39m [32m"待审查"[39m}
+ [90m 1253 |[39m                 [33m<[39m[33m/[39m[33mb[39m[33m>[39m
+[31m[1m>[22m[39m[90m 1254 |[39m               [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m      |[39m               [31m[1m^[22m[39m
+ [90m 1255 |[39m               {isRunning [33m&&[39m (
+ [90m 1256 |[39m                 [33m<[39m[33mdiv[39m style[33m=[39m{{ display[33m:[39m [32m"flex"[39m[33m,[39m justifyContent[33m:[39m [32m"space-between"[39m[33m,[39m fontSize[33m:[39m [35m12[39m[33m,[39m color[33m:[39m [32m"var(--ink-soft)"[39m }}[33m>[39m
+ [90m 1257 |[39m                   [33m<[39m[33mspan[39m[33m>[39m杩炴帴[33m<[39m[33m/[39m[33mspan[39m[33m>[39m[0m
+[2m21:48:15[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\FaLvXM\frontend\src\pages\ContractDetailPage.tsx: Expected corresponding JSX closing tag for <span>. (1254:14)
+
+[0m [90m 1252 |[31m                         [33m:[31m [32m"待审查"[31m}
+ [90m 1253 |[31m                 [33m<[31m[33m/[31m[33mb[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1254 |[31m               [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m      |[31m               [31m[1m^[22m[31m
+ [90m 1255 |[31m               {isRunning [33m&&[31m (
+ [90m 1256 |[31m                 [33m<[31m[33mdiv[31m style[33m=[31m{{ display[33m:[31m [32m"flex"[31m[33m,[31m justifyContent[33m:[31m [32m"space-between"[31m[33m,[31m fontSize[33m:[31m [35m12[31m[33m,[31m color[33m:[31m [32m"var(--ink-soft)"[31m }}[33m>[31m
+ [90m 1257 |[31m                   [33m<[31m[33mspan[31m[33m>[31m杩炴帴[33m<[31m[33m/[31m[33mspan[31m[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/FaLvXM/frontend/src/pages/ContractDetailPage.tsx[39m:1254:14
+[33m  1280|                          height: "100%",
+  1281|                          borderRadius: 999,
+  1282|                          background: "linear-gradient(90deg, var(--brand), var(--accent))",
+     |                               ^
+  1283|                          width: `${activeReview?.progress ?? 0}%`,
+  1284|                          transition: "width 300ms ease",[39m
+      at constructor (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9792:18)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10801:23)
+      at D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (D:\FaLvXM\frontend\node_modules\@babel\parser\lib\index.js:13314:10)

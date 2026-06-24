@@ -1,0 +1,99 @@
+{
+  "id": "6c2f1b3c-f36d-493b-abb7-21e87a6adc66",
+  "contract_id": "b4480e41-2f4e-4db9-b492-cb106dca5f56",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 4,
+    "high": 4,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条 4.4款",
+      "risk_level": "high",
+      "risk_category": "合同解除/公平性",
+      "original_text": "如乙方连续两个季度未完成最低销售额的50%，甲方有权立即解除本协议。",
+      "legal_analysis": "该条款赋予甲方过于严苛的单方即时解除权，未考虑销售季节性波动等商业风险，可能因显失公平被认定为无效的格式条款。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "仅因连续两个季度业绩不达标（低于年目标的1/8）就立即解约，对代理商过于苛刻，此条款可能因不公平而被法院否定。",
+      "suggested_revision": "修改为“如乙方连续两个季度未完成年度最低销售额的25%，或任一代理年度内未完成最低销售额，甲方有权书面通知后终止协议，但应给予合理的库存处理期。”",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_014",
+      "clause_code": "第十四条 14.1款",
+      "risk_level": "high",
+      "risk_category": "违约责任/公平性",
+      "original_text": "任一方违反本协议约定，应向守约方支付违约金人民币200,000元。",
+      "legal_analysis": "固定金额的违约金约定未与违约行为的严重程度及可能造成的实际损失挂钩，若过分高于或低于实际损失，当事方可请求法院调整，存在不确定性。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "无论违约情节轻重，一律赔20万，这不公平。如果实际损失远超或远低于20万，该金额可能被法院调高或调低。",
+      "suggested_revision": "修改为“任一方违约，应赔偿对方因此遭受的实际损失。对于特定违约行为（如：跨区域销售、低价倾销），双方可约定具体的违约金计算标准（如销售额的百分比）。”",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_015",
+      "clause_code": "第十五条 15.3款",
+      "risk_level": "high",
+      "risk_category": "合同解除/定金/公平性",
+      "original_text": "乙方提前终止本协议的，已支付的定金不予退还。",
+      "legal_analysis": "该条款单独约束乙方提前终止时定金不退，而甲方提前终止则需退还（15.4款），双方权利义务明显不对等，涉嫌为排除乙方主要权利的格式条款。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只有乙方提前解约定金不退，甲方却可以退，这不公平。此条款可能因过分加重乙方责任、限制其权利而被认定无效。",
+      "suggested_revision": "修改为“任何一方无正当理由提前终止本协议的，应赔偿对方因此遭受的直接损失。双方可协商确定定金的具体处理方式，或明确约定双方提前终止时定金处理规则一致。”",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_017",
+      "clause_code": "第十七条 17.2款",
+      "risk_level": "high",
+      "risk_category": "争议解决/管辖",
+      "original_text": "任何一方均有权向甲方所在地人民法院提起诉讼。",
+      "legal_analysis": "协议约定由甲方（提供格式条款方）所在地法院管辖，若该条款未与乙方协商，可能被认定为不合理地增加乙方诉讼成本的格式条款，从而面临无效风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "所有纠纷都必须在甲方所在地打官司，对乙方非常不便，增加了维权成本。这个单方指定的管辖条款可能被法院认为不公平。",
+      "suggested_revision": "修改为",
+      "confidence": 0.5
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 59,
+    "completion_tokens": 4096,
+    "latency_ms": 77128,
+    "finish_reason": "max_tokens"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 5,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "付款",
+      "知识产权",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T03:01:24.725791",
+  "completed_at": "2026-06-19T03:03:50.389896",
+  "created_at": "2026-06-19T03:01:24.705174"
+}

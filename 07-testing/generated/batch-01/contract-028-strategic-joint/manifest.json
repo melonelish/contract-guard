@@ -1,0 +1,20 @@
+{
+  "contract_id": "contract-028",
+  "contract_type": "战略合作框架协议",
+  "title": "战略合作框架协议（联合研发）- 智源科技与清华大学AI研究院",
+  "word_count": 3013,
+  "clause_count": 14,
+  "risk_count": 14,
+  "missing_count": 6,
+  "contradiction_count": 3,
+  "difficulty": "hard",
+  "tags": [
+    "战略合作",
+    "联合研发",
+    "产学研合作",
+    "知识产权",
+    "人工智能",
+    "显失公平",
+    "期限矛盾"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "sample_id": "contract-007-techservice-data",
+  "contract_type": "techservice_data",
+  "title": "数据治理技术服务合同",
+  "difficulty": "medium-high",
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "覆盖率",
+    "违约责任",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "数据安全",
+    "条款缺失",
+    "验收标准"
+  ],
+  "expected_risk_count": 11,
+  "expected_high_risk_count": 3,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "第11.2条约定项目成果归甲方，第11.3条约定方法论归乙方。问题在于：数据治理项目的核心交付物（如数据治理方案、数据标准规范）既包含甲方的业务知识，也包含乙方...",
+    "第5.2条的验收标准过于主观（'显著提升'），但第6.3条将30%的款项（84万元）与整体验收挂钩。如果双方对'显著提升'的理解存在分歧，可能导致验收争议，进而...",
+    "第9.1条承认乙方将接触'大量业务数据'，但第10.2条将保密期限限定为1年。对于大型国企的核心业务数据，1年保密期限与数据安全风险不匹配。乙方在项目中获取的数..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "数据脱敏处理条款",
+    "第三方审计条款",
+    "数据备份与恢复条款",
+    "培训与知识转移条款"
+  ],
+  "missing_clause_high": [
+    "数据脱敏处理条款"
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

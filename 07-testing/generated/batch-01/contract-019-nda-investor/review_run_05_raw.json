@@ -1,0 +1,181 @@
+{
+  "id": "f2cf52b3-2914-4698-aba3-e00299d1ec8f",
+  "contract_id": "f466aa1d-8604-42f6-9b8e-273d0faee033",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 9,
+    "high": 5,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第六条 违约责任",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "6.1 如乙方违反本协议约定，导致甲方保密信息泄露，乙方应向甲方支付违约金人民币叁佰万元整（¥3,000,000.00），并赔偿甲方因此遭受的全部损失...",
+      "legal_analysis": "违约金300万元可能被认定过高，超过实际损失时法院可调减。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "300万违约金可能太高，法院可能减少。",
+      "suggested_revision": "建议将违约金调整为与合理损失挂钩，或约定上限。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第四条 保密期限",
+      "risk_level": "high",
+      "risk_category": "保密期限",
+      "original_text": "4.2 本协议期满后，乙方的保密义务自动解除。",
+      "legal_analysis": "保密期限仅6个月且自动解除，无法保护甲方核心商业秘密，违反保密义务持续性原则。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "6个月后乙方可自由使用信息，风险极大。",
+      "suggested_revision": "删除自动解除条款，约定保密义务持续至信息进入公有领域。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第三条 保密义务",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "3.6 乙方承诺...乙方及其关联公司不得从事与甲方主营业务存在直接竞争关系的业务投资或经营活动。",
+      "legal_analysis": "该条款限制投资方正常的投资活动，范围过宽且定义模糊，可能因不合理限制竞争而无效。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "投资方不能投资其他竞争公司，限制太严。",
+      "suggested_revision": "缩小范围，明确仅禁止利用保密信息的竞争行为，并增加合理例外。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少法律强制披露的例外条款，乙方在法定强制披露时可能违约。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "法院或监管要求披露时，乙方无免责依据。",
+      "suggested_revision": "增加条款：如法律要求披露，乙方需提前通知甲方并仅披露必要部分。",
+      "confidence": 0.95
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第七条 信息返还与销毁",
+      "risk_level": "medium",
+      "risk_category": "保密期限",
+      "original_text": "7.1 如投资交易未在保密期限内完成...乙方应在十五（15）日内返还或销毁...",
+      "legal_analysis": "与第4.2条保密义务自动解除存在逻辑冲突：期限届满后义务解除，但返还义务仍在。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密期后是否仍需保密？矛盾。",
+      "suggested_revision": "统一约定：保密义务持续至返还/销毁完成，或明确自动解除不影响返还义务。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第一条 定义与解释",
+      "risk_level": "medium",
+      "risk_category": "定义含糊",
+      "original_text": "1.3 关联公司：指直接或间接控制一方、受一方控制或与一方处于共同控制下的任何实体。",
+      "legal_analysis": "“共同控制”定义宽泛，可能导致乙方对并未实际控制的实体负责，增加合规成本。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "哪些公司算关联公司？不清楚。",
+      "suggested_revision": "明确限定为直接或间接持有50%以上股权或表决权的实体。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第五条 信息使用限制",
+      "risk_level": "medium",
+      "risk_category": "使用限制",
+      "original_text": "5.4 乙方及其关联公司不得利用保密信息从事以下行为：（一）与甲方的客户、供应商或合作伙伴进行接洽...",
+      "legal_analysis": "禁止接洽过于绝对，可能影响投资方正常业务，且未区分是否基于保密信息。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "投资方不能和甲方的客户谈任何业务。",
+      "suggested_revision": "修改为“不得利用保密信息”从事上述行为。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第九条 适用法律与争议解决",
+      "risk_level": "low",
+      "risk_category": "争议解决",
+      "original_text": "9.3 协商不成的，任何一方均有权向甲方所在地有管辖权的人民法院提起诉讼。",
+      "legal_analysis": "约定甲方所在地法院，对乙方可能增加不便和成本，但属商业安排，不必然无效。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "打官司要去上海，对北京的投资方不太方便。",
+      "suggested_revision": "可考虑约定乙方所在地或中立仲裁机构。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现强制披露例外条款）",
+      "legal_analysis": "未约定法律强制要求披露时的处理方式，乙方可能因违反保密义务而担责。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少强制披露例外条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加强制披露例外条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "4.2",
+      "clause_b": "7.1",
+      "conflict_type": "logic",
+      "description": "第4.2条保密期限届满后义务自动解除，但第7.1条要求期限届满后返还或销毁信息，若义务已解除则无依据要求返还。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "强制披露例外条款",
+      "reason": "未约定法律强制要求披露时的处理方式，乙方可能因违反保密义务而担责。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 4810,
+    "completion_tokens": 3028,
+    "latency_ms": 33460,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 5,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "保密",
+      "争议解决",
+      "管辖"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:41:18.998458",
+  "completed_at": "2026-06-22T02:42:06.328250",
+  "created_at": "2026-06-22T02:41:18.980391"
+}

@@ -1,0 +1,61 @@
+{
+  "sample_id": "contract-007-techservice-data",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.115086",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "覆盖率",
+    "违约责任",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "数据安全",
+    "知识产权",
+    "违约责任",
+    "项目管理",
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "数据安全",
+    "条款缺失",
+    "验收标准"
+  ],
+  "detected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "数据安全",
+    "知识产权",
+    "违约责任",
+    "项目管理",
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "条款缺失",
+    "覆盖率"
+  ],
+  "unexpected_topics": [
+    "项目管理"
+  ],
+  "topic_recall": 0.778,
+  "topic_precision": 0.875,
+  "high_risk_recall": 0.667,
+  "contradiction_hit": false,
+  "contradiction_expected": 0,
+  "contradiction_detected": 2,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 0,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 0.625,
+  "overall_score": 0.71,
+  "notes": ""
+}

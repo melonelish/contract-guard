@@ -1,0 +1,45 @@
+{
+  "sample_id": "contract-003-procurement-office",
+  "contract_type": "采购合同",
+  "title": "办公用品采购合同",
+  "difficulty": "medium",
+  "expected_risk_topics": [
+    "保密义务",
+    "合作范围",
+    "权利失衡",
+    "条款缺失",
+    "自动续约陷阱",
+    "订单确认风险",
+    "质量标准",
+    "赔偿责任",
+    "违约责任",
+    "退换货限制",
+    "逻辑矛盾",
+    "金额超支风险"
+  ],
+  "expected_high_risk_topics": [
+    "合作范围",
+    "自动续约陷阱",
+    "质量标准",
+    "退换货限制",
+    "金额超支风险"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "发票条款与付款条款存在逻辑矛盾。第9.2条规定'乙方应在交付货物后5个工作日内向甲方开具发票'，第9.3条规定'甲方收到发票并核验无误后，按照第十条约定支付货款...",
+    "第3.2条约定'合同自动续期一年，续期次数不限'，第3.4条约定'任何一方不得以业务调整、组织架构变动等理由单方面拒绝续期'。这两条结合，实际上剥夺了双方的合同...",
+    "第4.1条约定'采购总价为人民币伍拾万元整'，但第4.3条又允许'超出部分不得超过合同总价的30%'，即实际最高可达65万元。第4.4条进一步规定'超出合同总价..."
+  ],
+  "expected_missing_clauses": 4,
+  "missing_clause_names": [
+    "质量保证与验收标准条款",
+    "详细保密条款",
+    "知识产权条款",
+    "反商业贿赂条款"
+  ],
+  "missing_clause_high": [],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

@@ -1,0 +1,53 @@
+{
+  "sample_id": "contract-024-consultant-financial",
+  "review_run_file": "review_run_01.json",
+  "evaluated_at": "2026-06-22T11:31:06.330240",
+  "success": true,
+  "expected_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "detected_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "保密义务",
+    "合作范围",
+    "合规风险",
+    "服务标准",
+    "知识产权",
+    "违约责任"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "保密义务",
+    "合作范围"
+  ],
+  "detected_high_risk_topics": [
+    "不公平条款",
+    "付款条件",
+    "合作范围",
+    "合规风险",
+    "知识产权"
+  ],
+  "missing_expected_topics": [],
+  "unexpected_topics": [
+    "不公平条款",
+    "合规风险",
+    "服务标准",
+    "知识产权",
+    "违约责任"
+  ],
+  "topic_recall": 1.0,
+  "topic_precision": 0.375,
+  "high_risk_recall": 0.667,
+  "contradiction_hit": true,
+  "contradiction_expected": 2,
+  "contradiction_detected": 2,
+  "missing_clause_hit": true,
+  "missing_clause_expected": 4,
+  "missing_clause_detected": 5,
+  "legal_basis_coverage": 1.0,
+  "overall_score": 0.917,
+  "notes": ""
+}

@@ -1,0 +1,265 @@
+{
+  "id": "54f2445d-6ea3-4781-8585-7ef7748bb511",
+  "contract_id": "6ce8f46c-fc9b-475a-9c4a-73bad76aa815",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 13,
+    "high": 9,
+    "medium": 3,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第二条 2.2",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "如任一方未提出终止，本协议自动续展1年。",
+      "legal_analysis": "自动续展条款可能剥夺甲方主动选择权，属于不公平格式条款。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "若甲方忘记通知终止，合同自动续一年，可能被迫继续付费。",
+      "suggested_revision": "删除自动续展，改为“服务期满前30日双方协商，一致同意则续签。”",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第十一条 11.5",
+      "risk_level": "high",
+      "risk_category": "不公平条款",
+      "original_text": "乙方因过错导致甲方损失的，乙方应承担赔偿责任，但赔偿金额以乙方已收取的服务费总额为限。",
+      "legal_analysis": "赔偿上限过低，可能不足以弥补甲方重大损失，违反公平原则。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方最多赔24万，但甲方损失可能远超此数，责任不对等。",
+      "suggested_revision": "删除赔偿上限，或约定上限为服务费的3倍。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第十一条 11.4 与 11.5",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "11.4乙方违反保密义务的，应向甲方支付违约金人民币200,000元。11.5赔偿金额以乙方已收取的服务费总额为限。",
+      "legal_analysis": "两项条款矛盾：11.4规定20万违约金，但11.5又限制赔偿上限，可能使20万条款无效。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "保密违约金20万，但总赔偿上限24万，逻辑冲突，可能只能主张较低者。",
+      "suggested_revision": "统一为：违反保密义务的违约金为20万，且不适用11.5的赔偿上限限制。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未约定乙方服务成果的知识产权归属，可能导致顾问成果（法律意见书等）权利不清。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方提供的法律意见书等成果归谁所有？没有约定，容易产生纠纷。",
+      "suggested_revision": "增加条款：乙方为甲方提供的法律文件知识产权归甲方所有，乙方可备份但不得用于其他客户。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第十二条 12.1",
+      "risk_level": "medium",
+      "risk_category": "服务质量",
+      "original_text": "甲方有权对乙方的服务质量进行考核...法律意见的专业性和准确性。",
+      "legal_analysis": "考核标准主观，缺乏客观第三方认定，可能导致甲方单方任意判定不合格。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "甲方自己说了算，可能随意扣减服务费，对乙方不公平。",
+      "suggested_revision": "增加客观标准：如响应时间、书面意见数量等；若对考核结果有争议，可共同委托第三方评估。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十七条",
+      "risk_level": "medium",
+      "risk_category": "利益冲突",
+      "original_text": "乙方享有律师执业特权...可以适当披露相关信息。",
+      "legal_analysis": "律师执业特权条款过于宽泛，可能被滥用，与保密义务冲突，且未明确何为‘适当’。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方可用执业特权为由披露甲方信息，甲方无法控制，风险高。",
+      "suggested_revision": "删除本条，或明确限制：仅在法律强制要求或为维护甲方重大利益且经甲方同意时方可披露。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第一条 1.1",
+      "risk_level": "medium",
+      "risk_category": "培训",
+      "original_text": "（一）...（五）为甲方提供法律知识培训。",
+      "legal_analysis": "培训内容、频次、时长、费用等未明确，易产生争议。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "只说提供培训，但没说几次、多长时间、培训什么，乙方可能应付了事。",
+      "suggested_revision": "明确：每年至少2次，每次2小时，内容由双方协商，费用已含在顾问费中。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第十三条 13.2",
+      "risk_level": "low",
+      "risk_category": "协议终止",
+      "original_text": "任一方提前终止本协议，应提前30日书面通知对方。",
+      "legal_analysis": "未约定无故终止的违约责任，但顾问合同任意解除权通常被认可，风险较低。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "双方都有权提前30天解约，比较公平，但甲方若提前解约需支付已服务费。",
+      "suggested_revision": "无需修改，但建议明确终止后退费计算方式。",
+      "confidence": 0.65
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现知识产权归属条款）",
+      "legal_analysis": "律师出具的法律意见书、合同文本等智力成果，需约定归属甲方，避免乙方用于其他客户或主张权利。",
+      "legal_basis": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "basis_excerpt": "民事主体依法享有知识产权。知识产权是权利人依法就下列客体享有的专有的权利：（一）作品；（二）发明、实用新型、外观设计；（三）商标；（四）地理标志；（五）商业秘密；（六）集成电路布图设计；（七）植物新品种；（八）法律规定的其他客体。",
+      "basis_source": "《中华人民共和国民法典》第一百二十三条（知识产权）",
+      "plain_explanation": "合同中缺少知识产权归属条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加知识产权归属条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现数据保护与个人信息处理条款）",
+      "legal_analysis": "甲方提供经营数据、员工信息等，乙方处理时需符合《个人信息保护法》，应明确处理目的、范围、安全措施。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少数据保护与个人信息处理条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加数据保护与个人信息处理条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "交付条件",
+      "original_text": "（合同中未发现服务成果交付标准与验收条款）",
+      "legal_analysis": "法律意见书等书面成果应明确交付时间、格式、验收标准，避免争议。",
+      "legal_basis": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "basis_excerpt": "出卖人交付的标的物不符合质量要求的，买受人可以依照本法第五百八十二条至第五百八十四条的规定请求承担违约责任。",
+      "basis_source": "《中华人民共和国民法典》第六百一十七条（标的物瑕疵担保）",
+      "plain_explanation": "合同中缺少服务成果交付标准与验收条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务成果交付标准与验收条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_004",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现试用期条款）",
+      "legal_analysis": "法律顾问服务通常应设1-3个月试用期，双方可考察服务质量，不满意可提前解约。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少试用期条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加试用期条款。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_005",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "条款缺失",
+      "original_text": "（合同中未发现合同终止后的数据处理与归还条款）",
+      "legal_analysis": "合同终止后，乙方应归还或销毁甲方提供的所有资料，避免信息泄露。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少合同终止后的数据处理与归还条款，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加合同终止后的数据处理与归还条款。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第十一条 11.4",
+      "clause_b": "第十一条 11.5",
+      "conflict_type": "logic",
+      "description": "11.4规定保密违约金20万，但11.5将总赔偿上限限制在已收服务费（最高24万），两者冲突，实际执行时可能按低者。"
+    },
+    {
+      "clause_a": "第十七条 17.3",
+      "clause_b": "第七条 7.1",
+      "conflict_type": "logic",
+      "description": "17.3允许乙方适当披露，与7.1保密义务原则矛盾，且未明确优先适用规则。"
+    },
+    {
+      "clause_a": "第二条 2.2",
+      "clause_b": "第十三条 13.2",
+      "conflict_type": "logic",
+      "description": "2.2自动续展后服务期延长，但13.2允许提前30天终止，理论上可随时终止，但自动续展后如未及时终止则续期一年，存在陷阱。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "律师出具的法律意见书、合同文本等智力成果，需约定归属甲方，避免乙方用于其他客户或主张权利。"
+    },
+    {
+      "name": "数据保护与个人信息处理条款",
+      "reason": "甲方提供经营数据、员工信息等，乙方处理时需符合《个人信息保护法》，应明确处理目的、范围、安全措施。"
+    },
+    {
+      "name": "服务成果交付标准与验收条款",
+      "reason": "法律意见书等书面成果应明确交付时间、格式、验收标准，避免争议。"
+    },
+    {
+      "name": "试用期条款",
+      "reason": "法律顾问服务通常应设1-3个月试用期，双方可考察服务质量，不满意可提前解约。"
+    },
+    {
+      "name": "合同终止后的数据处理与归还条款",
+      "reason": "合同终止后，乙方应归还或销毁甲方提供的所有资料，避免信息泄露。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "deepseek-v4-flash",
+    "prompt_tokens": 5231,
+    "completion_tokens": 2566,
+    "latency_ms": 26520,
+    "finish_reason": "stop"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 8,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "知识产权",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-22T02:06:40.464962",
+  "completed_at": "2026-06-22T02:07:19.672304",
+  "created_at": "2026-06-22T02:06:40.446801"
+}

@@ -1,0 +1,189 @@
+{
+  "id": "d8330f8d-44d6-4f4f-8ed0-c6f3d6e9e49c",
+  "contract_id": "b323541a-186b-4950-a368-abef635d3311",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 9,
+    "high": 9,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未规定个人信息保护义务。甲方财务模块可能处理员工工资等个人信息，需遵守《个人信息保护法》。",
+      "legal_basis": "基于《个人信息保护法》法理分析",
+      "basis_excerpt": "",
+      "basis_source": "《个人信息保护法》",
+      "plain_explanation": "乙方未承诺保护可能涉及的员工个人信息，甲方可能面临数据泄露法律责任。",
+      "suggested_revision": "增加条款，明确乙方作为数据处理者应确保个人信息安全，承担保护义务。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未明确服务降级或终止时的详细数据处理方案，如数据删除时限、确认机制等。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务终止后数据如何处理不清楚，可能导致数据残留或纠纷。",
+      "suggested_revision": "增加条款，规定合同终止后乙方应在30日内删除所有数据，并提供删除确认书。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_003",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "合同未约定乙方服务侵犯第三方知识产权时的责任归属，可能使甲方承担连带风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "如果乙方系统侵权，甲方可能被起诉，但合同未明确乙方赔偿责任。",
+      "suggested_revision": "增加条款，乙方保证服务不侵权，并承担侵权导致的全部损失赔偿。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "SLA",
+      "original_text": "服务平台可用性未达到承诺标准时，甲方有权获得相应补偿，具体标准见附件二。",
+      "legal_analysis": "SLA补偿机制仅依赖附件，正文未明确补偿内容，可能补偿不足或执行困难。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "可用性不达标时补偿标准不清，甲方难以获得充分救济。",
+      "suggested_revision": "在正文中明确补偿标准，如可用性低于99.5%时，按比例减免年费。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条、第十一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "乙方不得将甲方业务数据存储于中国境外...合同解除后，乙方应在60日内配合甲方完成数据导出...",
+      "legal_analysis": "数据导出机制不明确，如导出格式、时间表、费用等，可能导致供应商锁定。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "数据迁移依赖乙方配合，若不明确细节，甲方可能难以及时获取数据。",
+      "suggested_revision": "明确数据导出格式（如CSV、JSON）、费用承担及时间承诺，并写入正文。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "定制开发成果的源代码不向甲方开放，甲方仅享有使用许可。",
+      "legal_analysis": "定制开发知识产权归乙方，甲方无源代码控制权，可能影响后续维护和升级。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方拥有定制功能知识产权，甲方依赖性强，未来修改或迁移受限。",
+      "suggested_revision": "协商定制开发知识产权共享，或至少获得源代码托管权以防乙方失联。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "乙方因故意或重大过失导致甲方数据丢失的，乙方应承担合理赔偿责任，但赔偿上限不超过甲方已支付的服务费用总额。",
+      "legal_analysis": "赔偿上限可能不足以覆盖实际损失，违反公平原则，且数据丢失风险高。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "乙方数据丢失赔偿有限，甲方可能无法弥补全部损失。",
+      "suggested_revision": "删除赔偿上限，或提高上限以覆盖直接和间接损失。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第二条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "乙方根据甲方特殊业务需求，可提供定制开发服务，具体需求和费用由双方另行协商确定。",
+      "legal_analysis": "定制开发范围未在合同中明确，可能导致需求变更争议或额外费用。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "定制开发需求模糊，易引发纠纷，甲方可能被追加费用。",
+      "suggested_revision": "在附件中预定义定制开发范围和审批流程，避免后续争议。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "合同完整性",
+      "original_text": "（合同中未发现服务终止数据处理方案）",
+      "legal_analysis": "合同终止后数据保留、删除和移交细节缺失，可能导致数据安全风险。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "合同中缺少服务终止数据处理方案，这是一个重要的保护条款。",
+      "suggested_revision": "建议增加服务终止数据处理方案。",
+      "confidence": 0.8
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_008",
+      "clause_b": "cl_004",
+      "conflict_type": "logic",
+      "description": "定制开发可能影响系统稳定性，但SLA补偿机制未考虑开发导致的可用性下降。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "个人信息保护义务",
+      "reason": "甲方业务数据可能包含员工个人信息，需明确乙方保护义务以符合法规。"
+    },
+    {
+      "name": "服务终止数据处理方案",
+      "reason": "合同终止后数据保留、删除和移交细节缺失，可能导致数据安全风险。"
+    },
+    {
+      "name": "知识产权侵权责任",
+      "reason": "未约定乙方服务侵权时的责任，使甲方面临潜在法律风险。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 4406,
+    "completion_tokens": 5352,
+    "latency_ms": 90465,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:34:01.834980",
+  "completed_at": "2026-06-19T09:35:32.746956",
+  "created_at": "2026-06-19T09:34:01.817828"
+}

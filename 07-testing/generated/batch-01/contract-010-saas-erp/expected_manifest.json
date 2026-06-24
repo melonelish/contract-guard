@@ -1,0 +1,41 @@
+{
+  "sample_id": "contract-010-saas-erp",
+  "contract_type": "SaaS ERP服务协议",
+  "title": "SaaS ERP企业资源规划系统服务协议",
+  "difficulty": "hard",
+  "expected_risk_topics": [
+    "付款条件",
+    "其他",
+    "合作范围",
+    "响应时间",
+    "数据安全",
+    "条款缺失",
+    "知识产权",
+    "解约条件",
+    "质量标准"
+  ],
+  "expected_high_risk_topics": [
+    "付款条件",
+    "合作范围",
+    "响应时间",
+    "条款缺失",
+    "知识产权"
+  ],
+  "expected_risk_count": 12,
+  "expected_high_risk_count": 5,
+  "expected_contradictions": 3,
+  "contradiction_summaries": [
+    "合同正文第2.1条使用'ERP核心功能'的模糊表述，而附件一应包含具体功能清单。正文与附件之间可能存在功能范围不一致的风险。",
+    "第8.2条规定甲方额外付费的定制开发成果知识产权归乙方所有，第8.3条进一步限制源代码不开放。甲方支付费用却不享有知识产权，权利义务严重不对等。",
+    "第4.3条约定年付方式，但ERP系统实施通常需要数月，且需要按月或按里程碑考核交付进度。年付方式可能导致服务质量难以约束。"
+  ],
+  "expected_missing_clauses": 5,
+  "missing_clause_names": [],
+  "missing_clause_high": [
+    "",
+    "",
+    ""
+  ],
+  "expected_legal_basis_topics": [],
+  "notes": ""
+}

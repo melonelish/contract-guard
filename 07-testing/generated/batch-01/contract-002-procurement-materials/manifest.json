@@ -1,0 +1,22 @@
+{
+  "contract_id": "contract-002",
+  "contract_type": "采购合同",
+  "title": "原材料采购框架协议",
+  "word_count": 3422,
+  "clause_count": 16,
+  "risk_count": 12,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "medium",
+  "tags": [
+    "采购合同",
+    "食品行业",
+    "大宗商品",
+    "年度框架协议",
+    "价格风险",
+    "质量标准",
+    "违约金",
+    "不可抗力缺失",
+    "保密条款"
+  ]
+}

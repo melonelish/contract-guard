@@ -1,0 +1,68 @@
+{
+  "contract_id": "contract-008",
+  "contract_type": "techservice_cloud",
+  "title": "云迁移技术服务合同",
+  "subtitle": "核心业务系统公有云迁移",
+  "word_count": 3200,
+  "clause_count": 15,
+  "risk_count": 11,
+  "missing_count": 6,
+  "contradiction_count": 4,
+  "difficulty": "high",
+  "difficulty_score": 9,
+  "tags": [
+    "云迁移",
+    "公有云",
+    "核心业务系统",
+    "数据迁移",
+    "业务连续性",
+    "回滚方案",
+    "性能测试",
+    "上市公司"
+  ],
+  "parties": {
+    "party_a": {
+      "name": "深圳华创智造科技股份有限公司",
+      "role": "委托方",
+      "industry": "制造业"
+    },
+    "party_b": {
+      "name": "上海云启迁移科技有限公司",
+      "role": "服务方",
+      "industry": "云迁移服务"
+    }
+  },
+  "financial": {
+    "total_amount": 5200000,
+    "currency": "CNY",
+    "payment_terms": "里程碑付款",
+    "contract_period": "8个月"
+  },
+  "risk_distribution": {
+    "high": 5,
+    "medium": 4,
+    "low": 2
+  },
+  "missing_clause_importance": {
+    "high": 2,
+    "medium": 3,
+    "low": 1
+  },
+  "contradiction_severity": {
+    "high": 1,
+    "medium": 3,
+    "low": 0
+  },
+  "test_scenarios": [
+    "迁移失败责任免除范围分析",
+    "数据丢失赔偿充分性评估",
+    "迁移时间窗口合理性判断",
+    "云资源费用控制机制评估",
+    "回滚方案必要性判断",
+    "性能基准测试条款识别",
+    "安全评估条款识别",
+    "付款公平性判断"
+  ],
+  "created_at": "2026-06-18",
+  "version": "1.0.0"
+}

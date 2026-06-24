@@ -1,0 +1,171 @@
+{
+  "id": "6a135e6e-6d06-4fef-87ae-f78ef6b0b3fc",
+  "contract_id": "1b810307-d833-4563-96b4-08a639c00eab",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 6,
+    "medium": 2,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_005",
+      "clause_code": "第五条",
+      "risk_level": "high",
+      "risk_category": "响应时间",
+      "original_text": "紧急情况2小时内响应，并尽快恢复系统正常运行。",
+      "legal_analysis": "响应时间定义含糊，“尽快恢复”无具体时限，违反SLA明确性要求，导致违约责任难界定。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "恢复时间无标准，乙方可能拖延，甲方无法有效追责，影响银行核心系统运营。",
+      "suggested_revision": "修改为：紧急情况2小时内响应并恢复，定义具体恢复时间目标（如2小时内）。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第八条",
+      "risk_level": "high",
+      "risk_category": "安全责任",
+      "original_text": "乙方应妥善保管甲方提供的技术资料和数据。",
+      "legal_analysis": "未明确乙方在安全事件中的具体责任划分，如数据泄露、攻击，银行面临合规风险。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。\n当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）；《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "安全责任不清，若发生事件，责任推诿，银行可能承担重大损失。",
+      "suggested_revision": "增加安全责任专条，明确乙方安全义务、事件响应流程和赔偿责任。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_009",
+      "clause_code": "第九条",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "双方应对在合同履行过程中知悉的对方保密信息承担保密义务。",
+      "legal_analysis": "保密条款未涵盖数据安全和个人信息保护，违反《个人信息保护法》对金融机构的要求。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "缺乏数据保护条款，银行客户敏感数据可能泄露，带来法律和财务风险。",
+      "suggested_revision": "增加数据安全和隐私保护专条，明确数据处理标准、加密要求和泄露责任。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第六条",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "甲方于每月10日前向乙方支付上月服务费，即每月支付人民币40万元。",
+      "legal_analysis": "付款条件固定，未与SLA达成或考核结果挂钩，缺乏服务质量激励机制。",
+      "legal_basis": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "无论服务质量如何，甲方必须付款，乙方可能降低服务标准，损害银行利益。",
+      "suggested_revision": "修改付款条款，将付款与SLA考核指标（如可用性、故障解决率）挂钩。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "missing_001",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "未约定运维产生的文档、脚本等知识产权归属，可能引发所有权纠纷。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方工作成果知识产权不明，甲方无法确保所有权，影响后续使用。",
+      "suggested_revision": "增加知识产权条款，明确所有工作成果归甲方所有。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "missing_002",
+      "clause_code": "缺失条款",
+      "risk_level": "high",
+      "risk_category": "验收标准",
+      "original_text": "（合同中未发现该条款）",
+      "legal_analysis": "缺少明确的验收标准和流程，服务质量无法客观评估，违约责任难界定。",
+      "legal_basis": "依据不足，基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "没有验收标准，甲方难以证明乙方服务不达标，维权困难。",
+      "suggested_revision": "增加验收条款，定义服务交付标准、验收程序和不合格处理措施。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_010",
+      "clause_code": "第十条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "乙方违约的最高赔偿金额不超过合同总额的10%。",
+      "legal_analysis": "违约责任上限过低，可能不足以弥补银行系统故障造成的重大损失。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。\n合同的内容由当事人约定，一般包括下列条款：（一）当事人的姓名或者名称和住所；（二）标的；（三）数量；（四）质量；（五）价款或者报酬；（六）履行期限、地点和方式；（七）违约责任；（八）解决争议的方法。当事人可以参照各类合同的示范文本订立合同。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）；《中华人民共和国民法典》第四百七十条（合同内容）",
+      "plain_explanation": "赔偿上限固定为10%，乙方违约成本低，可能不重视服务质量。",
+      "suggested_revision": "删除上限或提高上限，并规定违约赔偿应包括直接损失和合理间接损失。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第四条",
+      "risk_level": "medium",
+      "risk_category": "合同完整性",
+      "original_text": "驻场人员应具备相关经验，能够胜任相应岗位的工作要求。",
+      "legal_analysis": "人员资质要求模糊，无法确保驻场人员胜任，影响服务质量。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "资质要求不具体，乙方可能派驻不合格人员，导致服务不达标。",
+      "suggested_revision": "明确具体资质要求，如相关认证、经验年限、技能标准等。",
+      "confidence": 0.7
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "cl_005",
+      "clause_b": "附件二",
+      "conflict_type": "logic",
+      "description": "第五条规定“尽快恢复”无具体时限，与附件二SLA的明确恢复时间目标可能矛盾。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "运维产生的文档、脚本等知识产权归属不明，易引发纠纷。"
+    },
+    {
+      "name": "验收标准和流程条款",
+      "reason": "服务质量无明确验收标准，违约责任难界定。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 36,
+    "completion_tokens": 6517,
+    "latency_ms": 227245,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 6,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约责任",
+      "合同变更",
+      "付款",
+      "保密",
+      "不可抗力"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T09:49:49.211426",
+  "completed_at": "2026-06-19T09:53:36.806965",
+  "created_at": "2026-06-19T09:49:49.187537"
+}

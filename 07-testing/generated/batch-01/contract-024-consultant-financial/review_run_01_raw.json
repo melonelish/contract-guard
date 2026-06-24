@@ -1,0 +1,189 @@
+{
+  "id": "0b0c6191-b57b-4271-8bd1-6f40ef949664",
+  "contract_id": "22ab1ad8-359a-4d88-a957-62c14b543833",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 8,
+    "high": 5,
+    "medium": 2,
+    "low": 1
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第一条",
+      "risk_level": "high",
+      "risk_category": "合作范围",
+      "original_text": "乙方为甲方提供IPO财务顾问服务，包括但不限于：（一）协助甲方制定IPO时间表和路线图；（二）协助甲方进行财务规范化整改；（三）协助甲方准备IPO申报材料；（四）协助甲方与券商、会计师、律师等中介机构的沟通协调；（五）为甲方的IPO战略提供建议。",
+      "legal_analysis": "服务范围使用“包括但不限于”，责任边界模糊，可能导致履约争议，违反合同标的明确原则。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "服务内容描述太笼统，乙方可能推卸责任，甲方难以追责。",
+      "suggested_revision": "明确列出核心服务内容，删除“包括但不限于”或具体界定范围。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第三条 3.5款",
+      "risk_level": "high",
+      "risk_category": "付款条件",
+      "original_text": "如甲方IPO最终未能成功，成功费用不予支付，已支付的里程碑费用不予退还。",
+      "legal_analysis": "里程碑费用支付后不退，即使IPO失败，可能违反公平原则，乙方未承担相应风险。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）",
+      "plain_explanation": "甲方支付了费用但IPO失败，乙方不退钱，对甲方不公平。",
+      "suggested_revision": "约定部分退还条款，或根据乙方实际工作成果调整退费比例。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_003",
+      "clause_code": "第七条",
+      "risk_level": "high",
+      "risk_category": "不公平格式条款",
+      "original_text": "乙方提供的顾问建议仅供参考，不保证甲方IPO一定成功。...因市场环境、监管政策等外部因素变化导致的IPO失败，乙方不承担责任。",
+      "legal_analysis": "免责条款可能免除乙方重大过失或故意责任，作为格式条款需确保公平。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方免责范围太广，即使自己过错也可能不负责，对甲方不利。",
+      "suggested_revision": "限制免责范围，明确乙方因自身过错导致的责任应承担赔偿。",
+      "confidence": 0.85
+    },
+    {
+      "clause_id": "cl_004",
+      "clause_code": "第十条",
+      "risk_level": "high",
+      "risk_category": "合规风险",
+      "original_text": "乙方应具备从事财务顾问业务的相关资质，包括但不限于中国证监会认可的财务顾问资格。",
+      "legal_analysis": "要求资质但未明确验证方式和违约后果，若资质不符，可能影响合同效力。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方资质是关键，但没说如果资质有问题怎么办，甲方风险大。",
+      "suggested_revision": "增加资质验证条款，如提供证明，并约定资质不符时的违约责任。",
+      "confidence": 0.8
+    },
+    {
+      "clause_id": "cl_005",
+      "clause_code": "未明确条款",
+      "risk_level": "high",
+      "risk_category": "知识产权",
+      "original_text": "合同中未提及服务成果（如尽职调查报告、申报材料）的知识产权归属。",
+      "legal_analysis": "服务成果的知识产权归属不明，可能导致权属纠纷。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "乙方做的报告和材料归谁没说，以后可能有争议。",
+      "suggested_revision": "添加条款明确服务成果的知识产权归甲方所有，或约定使用权。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_006",
+      "clause_code": "第十三条",
+      "risk_level": "medium",
+      "risk_category": "服务标准",
+      "original_text": "甲方应在收到里程碑完成报告后10个工作日内进行确认。如甲方对里程碑完成情况有异议，应在验收期内书面提出，乙方应在5个工作日内补充或修改。",
+      "legal_analysis": "验收标准未在合同正文中明确，依赖附件，但附件未详细说明，可能导致履约争议。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "验收标准不清楚，甲方可能无法有效验收乙方工作。",
+      "suggested_revision": "在合同中引用附件并概述关键标准，或补充详细验收标准。",
+      "confidence": 0.75
+    },
+    {
+      "clause_id": "cl_007",
+      "clause_code": "第十四条",
+      "risk_level": "medium",
+      "risk_category": "违约责任",
+      "original_text": "任一方违反本协议约定，应向守约方支付违约金人民币500,000元。",
+      "legal_analysis": "统一违约金可能不适用于所有违约情况，且与免责条款存在潜在冲突。",
+      "legal_basis": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "basis_excerpt": "当事人一方不履行合同义务或者履行合同义务不符合约定的，应当承担继续履行、采取补救措施或者赔偿损失等违约责任。",
+      "basis_source": "《中华人民共和国民法典》第五百七十七条（违约责任）",
+      "plain_explanation": "违约金固定，但不同违约后果不同，可能不公平。",
+      "suggested_revision": "根据违约类型设置不同违约金，或约定损失赔偿计算方法。",
+      "confidence": 0.7
+    },
+    {
+      "clause_id": "cl_008",
+      "clause_code": "第八条",
+      "risk_level": "low",
+      "risk_category": "信息保密",
+      "original_text": "保密义务在本协议终止后继续有效，期限为本协议终止后5年。",
+      "legal_analysis": "保密期限合理，但需确保不违反强制性规定。",
+      "legal_basis": "基于法理分析",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "保密5年可能合理，但需注意行业惯例。",
+      "suggested_revision": "确认保密期限是否符合业务需要，无具体修改建议。",
+      "confidence": 0.6
+    }
+  ],
+  "contradictions": [
+    {
+      "clause_a": "第三条 3.5款",
+      "clause_b": "第七条",
+      "conflict_type": "logic",
+      "description": "第三条约定IPO失败不退费，但第七条乙方免责可能涵盖乙方过错，与第十四条乙方过错应退费矛盾，导致责任划分不清。"
+    },
+    {
+      "clause_a": "第七条",
+      "clause_b": "第十四条",
+      "conflict_type": "logic",
+      "description": "第七条宽泛免责与第十四条乙方过错应退全费冲突，免责条款可能无效。"
+    }
+  ],
+  "missing_clauses": [
+    {
+      "name": "知识产权归属条款",
+      "reason": "服务成果如报告和材料的知识产权归属未约定，可能导致权属纠纷。"
+    },
+    {
+      "name": "不可抗力条款",
+      "reason": "合同未约定不可抗力事件的影响，如政策变化等外部因素。"
+    },
+    {
+      "name": "独立承包商声明",
+      "reason": "明确乙方作为独立服务提供者，避免劳动关系认定风险。"
+    },
+    {
+      "name": "数据安全与个人信息保护条款",
+      "reason": "合同涉及财务数据，应约定数据保护措施和泄露责任。"
+    },
+    {
+      "name": "争议解决详细规则",
+      "reason": "已约定诉讼，但可补充仲裁选项或管辖细节。"
+    }
+  ],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 3949,
+    "completion_tokens": 7015,
+    "latency_ms": 108717,
+    "finish_reason": "end_turn"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 5,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "验收",
+      "付款",
+      "保密"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T08:55:04.541457",
+  "completed_at": "2026-06-19T08:56:53.654392",
+  "created_at": "2026-06-19T08:55:04.523469"
+}

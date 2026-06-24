@@ -1,0 +1,19 @@
+{
+  "contract_id": "contract-021",
+  "contract_type": "技术顾问协议",
+  "title": "技术顾问服务协议",
+  "word_count": 3039,
+  "clause_count": 15,
+  "risk_count": 10,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "hard",
+  "tags": [
+    "技术服务",
+    "顾问协议",
+    "劳动关系",
+    "知识产权",
+    "竞业限制",
+    "个人服务"
+  ]
+}

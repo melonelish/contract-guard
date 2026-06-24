@@ -1,0 +1,71 @@
+{
+  "id": "9c7fe479-711a-45b1-b959-0efd7cde3962",
+  "contract_id": "a0ef0928-30c2-4fde-9dc6-af0281c5695b",
+  "contract_title": "contract_source",
+  "status": "completed",
+  "progress": 100,
+  "current_stage": null,
+  "schema_version": "1.0",
+  "summary": {
+    "total_risks": 2,
+    "high": 2,
+    "medium": 0,
+    "low": 0
+  },
+  "risks": [
+    {
+      "clause_id": "cl_001",
+      "clause_code": "第十条10.1",
+      "risk_level": "high",
+      "risk_category": "违约责任",
+      "original_text": "任何一方违反本合同约定的，违约方应向守约方支付违约金，违约金金额为合同总金额的10%。",
+      "legal_analysis": "根据《民法典》第585条，违约金过分高于实际损失时，法院可依请求适当减少。合同总金额10%可能过高。",
+      "legal_basis": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国劳动合同法》第二十三条（保密义务和竞业限制）",
+      "basis_excerpt": "当事人可以约定一方违约时应当根据违约情况向对方支付一定数额的违约金，也可以约定因违约产生的损失赔偿额的计算方法。约定的违约金低于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以增加；约定的违约金过分高于造成的损失的，人民法院或者仲裁机构可以根据当事人的请求予以适当减少。当事人就迟延履行约定违约金的，违约方支付违约金后，还应当履行债务。\n用人单位与劳动者可以在劳动合同中约定保守用人单位的商业秘密和与知识产权相关的保密事项。对负有保密义务的劳动者，用人单位可以在劳动合同或者保密协议中与劳动者约定竞业限制条款，并约定在解除或者终止劳动合同后，在竞业限制期限内按月给予劳动者经济补偿。劳动者违反竞业限制约定的，应当按照约定向用人单位支付违约金。",
+      "basis_source": "《中华人民共和国民法典》第五百八十五条（违约金）；《中华人民共和国劳动合同法》第二十三条（保密义务和竞业限制）",
+      "plain_explanation": "违约金固定为总金额10%，可能远高于实际损失，法院可调整。",
+      "suggested_revision": "修改为违约金根据实际损失计算，或设置合理上限。",
+      "confidence": 0.9
+    },
+    {
+      "clause_id": "cl_002",
+      "clause_code": "第十条10.4",
+      "risk_level": "high",
+      "risk_category": "数据安全",
+      "original_text": "乙方因故意或重大过失导致甲方数据丢失的，乙方应承担合理赔偿责任，但赔偿上限不超过甲方已支付的服务费用总额。",
+      "legal_analysis": "赔偿上限过低，可能无法覆盖数据丢失的实际损失，违反公平原则和违约责任规定。",
+      "legal_basis": "《民法",
+      "basis_excerpt": "",
+      "basis_source": "",
+      "plain_explanation": "",
+      "suggested_revision": "",
+      "confidence": 0.5
+    }
+  ],
+  "contradictions": [],
+  "missing_clauses": [],
+  "llm_meta": {
+    "provider_model": "mimo-v2.5-pro",
+    "prompt_tokens": 56,
+    "completion_tokens": 4096,
+    "latency_ms": 60498,
+    "finish_reason": "max_tokens"
+  },
+  "rag_meta": {
+    "enabled": true,
+    "hit_count": 7,
+    "mode": "rag_enhanced",
+    "queries": [
+      "违约金",
+      "违约责任",
+      "合同解除",
+      "合同变更",
+      "付款"
+    ]
+  },
+  "disclaimer": "⚠️ 重要声明\n\n1. 本报告由 ContractGuard AI 系统自动生成，不构成法律意见。\n2. AI 分析基于当前法律法规数据库，可能存在滞后或遗漏。\n3. 风险等级为 AI 综合评估结果，仅供参考，不能替代执业律师的专业判断。\n4. 签署合同前，建议委托执业律师结合具体业务场景出具正式法律意见。\n5. 用户因依赖本报告做出的任何决策，由用户自行承担风险。ContractGuard 不承担由此产生的任何法律责任。",
+  "error_detail": null,
+  "started_at": "2026-06-19T02:56:12.819675",
+  "completed_at": "2026-06-19T02:57:13.748304",
+  "created_at": "2026-06-19T02:56:12.799064"
+}

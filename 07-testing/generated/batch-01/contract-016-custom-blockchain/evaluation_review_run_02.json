@@ -1,0 +1,50 @@
+{
+  "sample_id": "contract-016-custom-blockchain",
+  "review_run_file": "review_run_02.json",
+  "evaluated_at": "2026-06-22T11:31:06.242238",
+  "success": true,
+  "expected_risk_topics": [
+    "业务连续性",
+    "付款条件",
+    "合规风险",
+    "安全责任",
+    "技术管理",
+    "数据安全",
+    "运营管理",
+    "验收标准"
+  ],
+  "detected_risk_topics": [
+    "验收标准"
+  ],
+  "expected_high_risk_topics": [
+    "安全责任",
+    "技术管理",
+    "数据安全",
+    "运营管理"
+  ],
+  "detected_high_risk_topics": [
+    "验收标准"
+  ],
+  "missing_expected_topics": [
+    "业务连续性",
+    "付款条件",
+    "合规风险",
+    "安全责任",
+    "技术管理",
+    "数据安全",
+    "运营管理"
+  ],
+  "unexpected_topics": [],
+  "topic_recall": 0.125,
+  "topic_precision": 1.0,
+  "high_risk_recall": 0.0,
+  "contradiction_hit": false,
+  "contradiction_expected": 3,
+  "contradiction_detected": 0,
+  "missing_clause_hit": false,
+  "missing_clause_expected": 5,
+  "missing_clause_detected": 0,
+  "legal_basis_coverage": 0.0,
+  "overall_score": 0.044,
+  "notes": ""
+}

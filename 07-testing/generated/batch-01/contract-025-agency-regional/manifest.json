@@ -1,0 +1,19 @@
+{
+  "contract_id": "contract-025",
+  "contract_type": "区域销售代理协议",
+  "title": "区域销售代理协议",
+  "word_count": 3030,
+  "clause_count": 17,
+  "risk_count": 10,
+  "missing_count": 4,
+  "contradiction_count": 2,
+  "difficulty": "hard",
+  "tags": [
+    "代理协议",
+    "独家代理",
+    "代理区域",
+    "最低销售额",
+    "价格体系",
+    "退换货"
+  ]
+}

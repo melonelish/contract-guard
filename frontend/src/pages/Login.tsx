@@ -1,3 +1,4 @@
+import { ArrowLeftOutlined } from "@ant-design/icons";
 import { Button, Card, Form, Input, Segmented, Space, Typography } from "antd";
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -26,6 +27,26 @@ export function LoginPage() {
         padding: 24,
       }}
     >
+      <div
+        style={{
+          position: "fixed",
+          top: 24,
+          left: 24,
+          zIndex: 10,
+        }}
+      >
+        <Button
+          icon={<ArrowLeftOutlined />}
+          onClick={() => navigate("/")}
+          style={{
+            borderRadius: 999,
+            boxShadow: "0 8px 22px rgba(25, 38, 52, 0.06)",
+          }}
+        >
+          返回首页
+        </Button>
+      </div>
+
       <Card
         className="glass-card"
         style={{ width: "min(100%, 920px)", borderRadius: 32 }}
@@ -74,7 +95,7 @@ export function LoginPage() {
                       tenant_name: values.tenant_name,
                     });
                   }
-                  navigate("/", { replace: true });
+                  navigate("/workspace", { replace: true });
                 }}
               >
                 {mode === "register" ? (

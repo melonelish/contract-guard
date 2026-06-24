@@ -1,0 +1,20 @@
+{
+  "contract_id": "contract-009-saas-crm",
+  "contract_type": "SaaS CRM服务协议",
+  "title": "SaaS CRM客户关系管理系统服务协议",
+  "word_count": 3154,
+  "clause_count": 12,
+  "risk_count": 12,
+  "missing_count": 4,
+  "contradiction_count": 3,
+  "difficulty": "medium",
+  "tags": [
+    "SaaS",
+    "CRM",
+    "数据安全",
+    "自动续约",
+    "SLA",
+    "数据归属",
+    "服务水平协议"
+  ]
+}
